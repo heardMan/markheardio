@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>markheard.io</title>
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./styles/main.css">
+
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>markheard.io</h1>
+  </header>
+
+  <nav class="nav">
+    <button class="fab toggle">
+      <img class="toggle" src="/assets/menu-24px-light.svg" />
+    </button>
+    <div class="menu">
+      <div class="menu-item">
+        <a href="/">Home</a>
+      </div>
+      <div class="menu-item">
+        <a href="/about.html">About</a>
+      </div>
+      <div class="menu-item">
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="menu-item">
+        <a href="/portfolio.html">Portfolio</a>
+      </div>
+    </div>
+  </nav>
+
+  
+
+  <main class="main">
+    <div id="content">
+      <div></div>
+    </div>
+  </main>
+
+  <div class="modal">
+    <div class="modal-bg"></div>
+    <div class="modal-dialogue"></div>
+  </div>
+
+  <div class="loader">
+    <!-- Show a spinner or placeholders for content -->
+  </div>
+
+  <script src="./scripts/app.js" async></script>
+
+  <!-- <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  }
+  </script> -->
+
+</body>
+
+</html>

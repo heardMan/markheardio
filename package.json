@@ -1,0 +1,26 @@
+{
+  "name": "markheardio",
+  "version": "1.0.0",
+  "description": "personal portfolio site",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heardMan/markheardio.git"
+  },
+  "author": "Mark Heard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heardMan/markheardio/issues"
+  },
+  "homepage": "https://github.com/heardMan/markheardio#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
