@@ -1,40 +1,42 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #e8ecf1;
+    background-color: #bdc3c7;
     
 }
 
 .header {
     position: fixed;
     top: 0px;
-    left: 0px;
+    right: 0px;
     width: 100%;
     color: #e8ecf1;
     background-color: #2574a9;
     text-align: center;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.5);
     z-index: 898;
+    transform: scale(1.02);
 }
 
 .main {
-    margin-top: 6rem;
+    margin-top: 8rem;
+    margin-bottom: 84px;
 }
 
 .fab {
     position: fixed;
-    bottom: 32px;
-    right: 32px;
+    bottom: 16px;
+    right: 16px;
     width: 64px;
     height: 64px;
     border-radius: 100%;
     border: none;
-    background-color: #e8ecf1;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background-color: #2574a9;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
     z-index: 899;
 }
 
 .fab:hover {
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
 }
   
 .fab:active{
@@ -43,7 +45,7 @@ body {
 
 .menu {
     overflow-x: hidden;
-    position: absolute;
+    position: fixed;
     top:0px;
     right:0px;
     height: 100%;
@@ -77,13 +79,74 @@ body {
 .card {
     margin-right: auto;
     margin-left:auto;
+    padding: 2rem;
+    padding-top: 1rem;
+    color: white;
+    border-radius: 5px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background-color: #6c7a89;
+}
+
+.form-group{
+    text-align: center;
+}
+
+.form-group > label, input, textarea {
+    margin-right:auto;
+    margin-left: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+    
+    width: 90%;
+    
+    border-radius: 5px;
+}
+
+.form-group > label {
+    padding: 0.25rem;
+    font-size: 1.25rem;
+}
+
+.form-group > input {
+    padding: 0.25rem;
+    font-size: 1rem;
+    border: solid #bdc3c7 1px;
+}
+
+.form-group > textarea {
+    padding: 0.25rem;
+    height: 3rem;
+    font-size: 1rem;
+    border: solid #bdc3c7 1px;
+}
+
+.btn {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    width:250px;
+    padding: 1rem;
+    border: none;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    background-color: #2574a9;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    box-shadow: 5px 6px 10px rgba(0, 0, 0, 0.5);
+}
+  
+.btn:active{
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 760px) {
     .fab{
-        top:32px !important;
+        top:0.5rem !important;
+        
     }
+
     .menu-title{
         position:absolute;
         top:0.25rem;
