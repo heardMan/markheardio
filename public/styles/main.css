@@ -87,6 +87,46 @@ body {
     background-color: #6c7a89;
 }
 
+.about{
+    width:75%;
+}
+#gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width:85%;
+}
+.project{
+    margin: 1rem;
+    width: 200px;
+}
+
+.project > a {
+    display:block;
+}
+
+.card-title{
+    text-align: center;
+    
+}
+
+.card-text > p{
+ margin-top: 1.5rem;
+ 
+}
+
+.form-title{
+    text-align: center;
+    
+}
+
+
+.form-title > p{
+    line-height: 0.25;
+    
+}
+
 .form-group{
     text-align: center;
 }
@@ -104,18 +144,21 @@ body {
 }
 
 .form-group > label {
-    padding: 0.25rem;
+    padding: 0rem;
     font-size: 1.25rem;
+    margin-bottom: 0px;
 }
 
 .form-group > input {
     padding: 0.25rem;
+    margin-top: 0.25rem;
     font-size: 1rem;
     border: solid #bdc3c7 1px;
 }
 
 .form-group > textarea {
     padding: 0.25rem;
+    margin-top: 0.25rem;
     height: 3rem;
     font-size: 1rem;
     border: solid #bdc3c7 1px;
@@ -124,7 +167,7 @@ body {
 .btn {
     font-size: 1.5rem;
     border-radius: 5px;
-    width:250px;
+    width:200px;
     padding: 1rem;
     border: none;
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
