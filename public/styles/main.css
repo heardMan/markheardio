@@ -11,14 +11,14 @@ body {
     width: 100%;
     color: #044F67;
     letter-spacing: 2px;
-    -webkit-text-stroke: stroke 1px;
+    /* -webkit-text-stroke: stroke 1px;
     -webkit-text-stroke-color: #ffffff;
-    -webkit-text-stroke-width: 0.05px;
-    /* text-shadow:
-    -1px -1px 0 #ffffff,  
-     1px -1px 0 #ffffff,
-     -1px 1px 0 #ffffff,
-      1px 1px 0 #ffffff; */
+    -webkit-text-stroke-width: 0.05px; */
+    text-shadow:
+    -1px -1px 0px #ffffff,  
+     1px -1px 0px #ffffff,
+     -1px 1px 0px #ffffff,
+      1px 1px 0px #ffffff;
     background-color: #044F67;
     text-align: center;
     box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.5);
