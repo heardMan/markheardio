@@ -1,7 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
-    background-color: #34495e;
+    background-color: #2e3131;
     
 }
 
@@ -90,8 +90,17 @@ body {
     color: white;
     border-radius: 5px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-    background-color: #03A678;
+    /* background-color: #03A678; */
+    
+    
+}
 
+.grad{
+    
+    
+    background: rgb(4,79,103);
+    background: linear-gradient(170deg, rgba(4,79,103,1) 26%, rgba(3,166,120,1) 100%);
+    
 }
 
 .about{
@@ -107,7 +116,7 @@ body {
 .project{
     margin: 1rem;
     width: 200px;
-    background-color: #044F67;
+    background-color: #2e3131;
 }
 
 .project > a {
@@ -164,7 +173,7 @@ body {
     margin-top: 0.25rem;
     font-size: 1rem;
     border: solid #bdc3c7 1px;
-    background-color: #34495e;
+    background-color: #2e3131;
     color: #ffffff;
 }
 
@@ -174,7 +183,7 @@ body {
     height: 3rem;
     font-size: 1rem;
     border: solid #bdc3c7 1px;
-    background-color: #34495e;
+    background-color: #2e3131;
     color: #ffffff;
 }
 
