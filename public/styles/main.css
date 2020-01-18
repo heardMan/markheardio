@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
+    font-weight: 900;
     background-color: #34495e;
     
 }
@@ -9,16 +10,9 @@ body {
     top: 0px;
     right: 0px;
     width: 100%;
-    color: #044F67;
+    
+    color: #ffffff;
     letter-spacing: 2px;
-    /* -webkit-text-stroke: stroke 1px;
-    -webkit-text-stroke-color: #ffffff;
-    -webkit-text-stroke-width: 0.05px; */
-    text-shadow:
-    -1px -1px 0px #ffffff,  
-     1px -1px 0px #ffffff,
-     -1px 1px 0px #ffffff,
-      1px 1px 0px #ffffff;
     background-color: #044F67;
     text-align: center;
     box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.5);
@@ -71,7 +65,7 @@ body {
 }
 
 .menu>div:first-child{
-    margin-top: 80px;
+    margin-top: 85px;
 }
 
 .menu-item > a {
@@ -189,7 +183,7 @@ body {
     border-radius: 5px;
     width:200px;
     padding: 1rem;
-    border: none;
+    border: solid #95a5a6 1px;
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
     color: #ffffff;
     background-color: #044F67;
