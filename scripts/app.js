@@ -121,7 +121,7 @@ var App = (function (global) {
 
     function menuIcon() {
         var icon = doc.createElement("IMG");
-        icon.setAttribute('src', '/assets/menu-24px-light.svg');
+        icon.setAttribute('src', './assets/menu-24px-light.svg');
         icon.setAttribute('alt', 'close menu icon');
         icon.classList.add('toggle');
         return icon
@@ -129,7 +129,7 @@ var App = (function (global) {
 
     function closeIcon() {
         var icon = doc.createElement("IMG");
-        icon.setAttribute('src', '/assets/close-24px-light.svg');
+        icon.setAttribute('src', './assets/close-24px-light.svg');
         icon.classList.add('toggle');
         return icon
     }
