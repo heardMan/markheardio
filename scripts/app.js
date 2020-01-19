@@ -186,8 +186,7 @@ var App = (function (global) {
     function render() {
         console.log('rendering application');
 
-        if(win.location.pathname==='/portfolio.html'){
-
+        if(win.location.pathname==='./portfolio.html'){
             gallery()
         }
     }
