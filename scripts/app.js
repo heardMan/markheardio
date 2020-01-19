@@ -42,12 +42,12 @@ var App = (function (global) {
                 'demo': 'https://heardman.github.io/concentrate-js/',
                 'description': ''
             },
-            {
-                'name': 'tap water search',
-                'github': 'https://github.com/CFMark/scrap',
-                'demo': 'https://nameless-wildwood-58120.herokuapp.com/',
-                'description': ''
-            },
+            // {
+            //     'name': 'tap water search',
+            //     'github': 'https://github.com/CFMark/scrap',
+            //     'demo': 'https://nameless-wildwood-58120.herokuapp.com/',
+            //     'description': ''
+            // },
             // {
             //     'name': 'bookSearch',
             //     'github': 'https://github.com/heardMan/bookSearch',
@@ -122,6 +122,7 @@ var App = (function (global) {
     function menuIcon() {
         var icon = doc.createElement("IMG");
         icon.setAttribute('src', '/assets/menu-24px-light.svg');
+        icon.setAttribute('alt', 'close menu icon');
         icon.classList.add('toggle');
         return icon
     }
