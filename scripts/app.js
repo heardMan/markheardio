@@ -185,10 +185,11 @@ var App = (function (global) {
     // controls visual rendering of application
     function render() {
         console.log('rendering application');
-        console.log(win.location);
+        console.log('rendering application');
+        console.log(window.location);
 
         if(win.location.pathname==='/portfolio'){
-            gallery()
+            gallery();
         }
     }
 
@@ -207,6 +208,7 @@ var App = (function (global) {
             
                 toggleMenu();
             }
+
         });
         
         
