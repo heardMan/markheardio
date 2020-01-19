@@ -186,7 +186,7 @@ var App = (function (global) {
     // render function
     // controls visual rendering of application
     function render() {
-        console.log('rendering application');
+        //console.log('rendering application');
         //console.log(win.location);
         
         if(win.location.pathname==='/portfolio'){
