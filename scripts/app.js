@@ -116,7 +116,7 @@ var App = (function (global) {
     // init function
     // controls setting up the application
     function init() {
-        console.log('starting application');
+        //console.log('starting application');
     }
 
     function menuIcon() {
@@ -184,10 +184,8 @@ var App = (function (global) {
     // render function
     // controls visual rendering of application
     function render() {
-        console.log('rendering application');
-        console.log('rendering application');
-        console.log(window.location);
-
+        //console.log('rendering application');
+        
         if(win.location.pathname==='/portfolio.html'){
             gallery();
         }
