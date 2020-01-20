@@ -286,7 +286,7 @@ var App = (function (global) {
                 } else {
                     selectedCarousel = 0;
                 }
-                console.log(selectedCarousel)
+                //console.log(selectedCarousel)
 
 
                 carouselContent[selectedCarousel].classList.add('selected');
@@ -300,8 +300,8 @@ var App = (function (global) {
                 } else {
                     selectedCarousel = carouselItems.length-1;
                 }
-                console.log(selectedCarousel);
-                //carouselContent[selectedCarousel].classList.add('selected');
+                //console.log(selectedCarousel);
+                carouselContent[selectedCarousel].classList.add('selected');
 
             }
 
