@@ -298,7 +298,7 @@ var App = (function (global) {
                 if (0 < selectedCarousel) {
                     selectedCarousel--;
                 } else {
-                    selectedCarousel = carouselItems.length;
+                    selectedCarousel = carouselItems.length-1;
                 }
                 console.log(selectedCarousel);
                 //carouselContent[selectedCarousel].classList.add('selected');
