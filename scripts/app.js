@@ -211,11 +211,16 @@ var App = (function (global) {
                 demoLink.setAttribute('href', currentProj.demo)
                 var description = doc.createElement('P');
                 description.textContent = currentProj.description;
+                var hrule = doc.createElement('HR');
+                
 
 
                 projectCard.append(title);
+                projectCard.append(hrule);
                 projectCard.append(description);
+                projectCard.append(hrule);
                 projectCard.append(githubLink)
+                projectCard.append(hrule);
                 projectCard.append(demoLink)
                 
 
