@@ -233,13 +233,14 @@ body {
 .selected {
     margin-right:auto;
     margin-left:auto;
+    padding: 1rem;
     position:relative;
     display: block;
 }
 
 .rnd-btn{
-    width: 64px;
-    height: 64px;
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
     border: solid #95a5a6 1px;
     background-color: #044F67;
@@ -249,20 +250,30 @@ body {
 .left-btn-elem{
     position: absolute;
     top:50%;
-    left:0px;
+    left:-30px;
     
 }
 
 .right-btn-elem{
     position: absolute;
     top:50%;
-    right:0px;
+    right:-30px;
+    
 
 }
 
 
 .home{
     max-width: 750px;
+}
+
+@media (min-width: 500px) {
+    .right-btn-elem{
+        margin-right: 0.5rem;
+    }
+    .left-btn-elem{
+        margin-left: 0.5rem;
+    }
 }
 
 @media (min-width: 760px) {
@@ -287,6 +298,13 @@ body {
         width: 34%;
         background-color: #2e3131;
     }
+    .right-btn-elem{
+        margin-right: 1rem;
+    }
+    .left-btn-elem{
+        margin-left: 1rem;
+    }
+    
   }
 
   @media (min-width: 1200px) {
@@ -294,5 +312,14 @@ body {
         margin: 1rem;
         width: 20%;
         background-color: #2e3131;
+    }
+
+    .right-btn-elem{
+        margin-right: 1.5rem;
+        
+    }
+    .left-btn-elem{
+        margin-left: 1.5rem;
+        
     }
   }
