@@ -110,15 +110,17 @@ body {
     width:75%;
 }
 #gallery{
+    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     width:85%;
 }
+
 .project{
     margin: 1rem;
-    width: 200px;
+    width: 90%;
     background-color: #2e3131;
 }
 
@@ -265,8 +267,23 @@ body {
         top:0.25rem;
         left:2rem;
     }
+
     .menu-links{
         margin-top: 85px!important;
         border-top: solid black 1px;
+    }
+
+    .project{
+        margin: 1rem;
+        width: 34%;
+        background-color: #2e3131;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .project{
+        margin: 1rem;
+        width: 20%;
+        background-color: #2e3131;
     }
   }
