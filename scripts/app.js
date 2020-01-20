@@ -223,6 +223,7 @@ var App = (function (global) {
 
     function carousel() {
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
+        if(carouselElem){
         for (var i = 0; i < carouselItems.length; i++) {
             var contentCard = doc.createElement('DIV');
             contentCard.setAttribute('key', i);
@@ -241,7 +242,7 @@ var App = (function (global) {
 
 
         }
-
+    }
 
 
     }
