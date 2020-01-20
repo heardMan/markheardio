@@ -48,7 +48,7 @@ var App = (function (global) {
                 'name': 'fitStat',
                 'github': 'https://github.com/heardMan/fitStat',
                 'demo': 'https://fierce-gorge-82374.herokuapp.com/',
-                'description': ''
+                'description': 'A Python Application that can be used to track workouts. In order to use this application please reference the technical documentation'
             },
             {
                 'name': 'fitTrack',
@@ -204,12 +204,14 @@ var App = (function (global) {
                 titleText.textContent = currentProj.name
                 title.append(titleText);
                 var githubLink = doc.createElement('A');
-                githubLink.textContent = 'GitHub Repo';
+                githubLink.textContent = 'Technical Documentation';
                 githubLink.setAttribute('href', currentProj.github);
                 var demoLink = doc.createElement('A');
                 demoLink.textContent = 'Live Demo'
                 demoLink.setAttribute('href', currentProj.demo)
-                var description = doc.createElement('DIV');
+                var description = doc.createElement('P');
+                description.textContent = currentProj.description;
+
 
                 projectCard.append(title)
                 projectCard.append(githubLink)
