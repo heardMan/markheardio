@@ -254,9 +254,11 @@ var App = (function (global) {
         //console.log('rendering application');
         //console.log(win.location);
         if (win.location.pathname === '/' || '/index.html') {
+
             carousel();
 
         } else if (win.location.pathname === '/portfolio' || '/portfolio.html') {
+            console.log(win.location);
             gallery();
         }
     }
