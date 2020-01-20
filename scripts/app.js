@@ -191,6 +191,7 @@ var App = (function (global) {
     }
 
     function gallery() {
+        console.log('rendering gallery');
         var galleryElem = doc.getElementById('gallery');
         if (galleryElem) {
             for (var i = 0; i < projects.length; i++) {
@@ -257,7 +258,7 @@ var App = (function (global) {
             carousel();
 
         } else if (win.location.pathname === '/portfolio' || '/portfolio.html') {
-            console.log(win.location);
+            
             gallery();
         }
     }
