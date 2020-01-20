@@ -239,11 +239,19 @@ body {
     position: absolute;
     top:50%;
     left:0px;
+    z-index: 700;
+}
+.left-btn > img {
+    z-index: 600;
 }
 .right-btn{
     position: absolute;
     top:50%;
     right:0px;
+    z-index: 700;
+}
+.right-btn > img {
+    z-index: 600;
 }
 
 .home{
