@@ -11,35 +11,35 @@ var App = (function (global) {
                 'title': 'Consultations',
                 'link': 'https://github.com/heardMan/fitStat',
                 'linkTitle': 'link',
-                'description': 'Not sure where to start or what you need? Feel free to reach out to schedule a consultation!'
+                'description': 'Not sure where to start or what you need?\n Feel free to reach out to schedule a consultation!'
 
             },
             {
                 'title': 'Web Development',
                 'link': 'https://github.com/heardMan/fitStat',
                 'linkTitle': 'link',
-                'description': 'Need a website? From self-managed to fully-managed I can help find and/or build the solution that is right for you and your business.'
+                'description': 'Need a website?\n From self-managed to fully-managed I can help find and/or build the solution that is right for you and your business.'
 
             },
             {
                 'title': 'Software Develpoment',
                 'link': 'https://github.com/heardMan/fitStat',
                 'linkTitle': 'link',
-                'description': 'Need an application? I specialize in develeoping and maintaing modern scalable web applications and would love to help get your next application up an running!'
+                'description': 'Need an application?\n I specialize in develeoping and maintaing modern scalable web applications and would love to help get your next application up an running!'
 
             },
             {
                 'title': 'Web Hosting Solutions',
                 'link': 'https://github.com/heardMan/fitStat',
                 'linkTitle': 'link',
-                'description': 'Need help hosting your website? I am experienced and familiar in hosting a variety of websites and would love to help find best fitting solution.'
+                'description': 'Need help hosting your website?\n I am experienced and familiar in hosting a variety of websites and would love to help find best fitting solution.'
 
             },
             {
                 'title': 'Data Analytics',
                 'link': 'https://github.com/heardMan/fitStat',
                 'linkTitle': 'link',
-                'description': 'Got Business Data that you need help organizing? Business Analytics is what sparked my interest in software development! I enjoy helping business owners find new and exciting opportunities within their own business data.'
+                'description': 'Got Business Data that you need help organizing?\n Business Analytics is what sparked my interest in software development! I enjoy helping business owners find new and exciting opportunities within their own business data.'
 
             }
         ],
