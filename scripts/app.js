@@ -292,7 +292,7 @@ var App = (function (global) {
                 var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
                 carouselContent[selectedCarousel].classList.remove('selected');
                 if (selectedCarousel > 0) {
-                    selectedCarousel++;
+                    selectedCarousel--;
                 } else {
                     selectedCarousel = 4;
                 }
