@@ -258,7 +258,7 @@ var App = (function (global) {
     // controls visual rendering of application
     function render() {
         
-        if (win.location.pathname === '/' || '/Users/mark/Desktop/markheardio/index.html') {
+        if (win.location.pathname === '/') {
             carousel();
         } else if (win.location.pathname === '/portfolio') {
             gallery();
