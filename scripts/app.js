@@ -256,9 +256,10 @@ var App = (function (global) {
         console.log(win.location.pathname);
         
         if (win.location.pathname === '/') {
+            console.log('index route')
             //carousel();
         } else if (win.location.pathname === '/portfolio') {
-            console.log('found it')
+            console.log('portfolio route')
             gallery();
         }
     }
