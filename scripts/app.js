@@ -276,29 +276,29 @@ var App = (function (global) {
                 toggleMenu();
             }
 
-            // else if (e.target.classList.contains('right-btn')) {
+            else if (e.target.classList.contains('right-btn')) {
 
-            //     var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-            //     carouselContent[selectedCarousel].classList.remove('selected');
-            //     if (selectedCarousel < 4) {
-            //         selectedCarousel++;
-            //     } else {
-            //         selectedCarousel = 0;
-            //     }
-            //     carouselContent[selectedCarousel].classList.add('selected');
+                var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+                carouselContent[selectedCarousel].classList.remove('selected');
+                if (selectedCarousel < 4) {
+                    selectedCarousel++;
+                } else {
+                    selectedCarousel = 0;
+                }
+                carouselContent[selectedCarousel].classList.add('selected');
 
-            // } else if (e.target.classList.contains('left-btn')) {
+            } else if (e.target.classList.contains('left-btn')) {
 
-            //     var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-            //     carouselContent[selectedCarousel].classList.remove('selected');
-            //     if (selectedCarousel > 0) {
-            //         selectedCarousel++;
-            //     } else {
-            //         selectedCarousel = 4;
-            //     }
-            //     carouselContent[selectedCarousel].classList.add('selected');
+                var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+                carouselContent[selectedCarousel].classList.remove('selected');
+                if (selectedCarousel > 0) {
+                    selectedCarousel++;
+                } else {
+                    selectedCarousel = 4;
+                }
+                carouselContent[selectedCarousel].classList.add('selected');
 
-            // }
+            }
 
         });
 
