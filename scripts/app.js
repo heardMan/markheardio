@@ -223,26 +223,24 @@ var App = (function (global) {
 
     function carousel() {
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
-        if(carouselElem){
-        for (var i = 0; i < carouselItems.length; i++) {
-            var contentCard = doc.createElement('DIV');
-            contentCard.setAttribute('key', i);
-            if (i === selectedCarousel){
-                contentCard.setAttribute('class', 'carousel-item card selected');
-            } else {
-                contentCard.setAttribute('class', 'carousel-item card');
+        if (carouselElem) {
+            for (var i = 0; i < carouselItems.length; i++) {
+                var contentCard = doc.createElement('DIV');
+                contentCard.setAttribute('key', i);
+                if (i === selectedCarousel) {
+                    contentCard.setAttribute('class', 'carousel-item card selected');
+                } else {
+                    contentCard.setAttribute('class', 'carousel-item card');
+                }
+                var title = doc.createElement('H3');
+                title.textContent = carouselItems[i].title;
+                var link = doc.createElement('A');
+                link.setAttribute('src', carouselItems[i].link);
+                link.textContent = carouselItems[i].linkTitle;
+                contentCard.appendChild(title);
+                carouselElem.appendChild(contentCard);
             }
-            var title = doc.createElement('H3');
-            title.textContent = carouselItems[i].title;
-            var link = doc.createElement('A');
-            link.setAttribute('src', carouselItems[i].link);
-            link.textContent = carouselItems[i].linkTitle;
-            contentCard.appendChild(title);
-            carouselElem.appendChild(contentCard);
-
-
         }
-    }
 
 
     }
@@ -276,31 +274,39 @@ var App = (function (global) {
         doc.addEventListener('click', function (e) {
             console.log(e.target);
             if (e.target.classList.contains('toggle')) {
-
                 toggleMenu();
-            } else if(e.target.classList.contains('right-btn')){
+            }
+
+            if (win.location.pathname === '/' || '/index.html') {
+
+                carousel();
+    
+           
+
+            if (e.target.classList.contains('right-btn')) {
 
                 var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
                 carouselContent[selectedCarousel].classList.remove('selected');
-                if(selectedCarousel<4){
+                if (selectedCarousel < 4) {
                     selectedCarousel++;
                 } else {
-                    selectedCarousel=0;
+                    selectedCarousel = 0;
                 }
                 carouselContent[selectedCarousel].classList.add('selected');
-                
-            } else if(e.target.classList.contains('left-btn')){
-                
+
+            } else if (e.target.classList.contains('left-btn')) {
+
                 var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
                 carouselContent[selectedCarousel].classList.remove('selected');
-                if(selectedCarousel>0){
+                if (selectedCarousel > 0) {
                     selectedCarousel++;
                 } else {
-                    selectedCarousel=4;
+                    selectedCarousel = 4;
                 }
                 carouselContent[selectedCarousel].classList.add('selected');
 
             }
+        } 
 
         });
 
