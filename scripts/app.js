@@ -5,6 +5,44 @@ var App = (function (global) {
     //global variables
     var doc = global.document,
         win = global.window,
+        selectedCarousel = 0,
+        carouselItems = [
+            {
+                'title': 'Title1',
+                'link': 'https://github.com/heardMan/fitStat',
+                'linkTitle': 'link',
+                'description': 'description 1'
+
+            },
+            {
+                'title': 'Title2',
+                'link': 'https://github.com/heardMan/fitStat',
+                'linkTitle': 'link',
+                'description': 'description 2'
+
+            },
+            {
+                'title': 'Title3',
+                'link': 'https://github.com/heardMan/fitStat',
+                'linkTitle': 'link',
+                'description': 'description 3'
+
+            },
+            {
+                'title': 'Title4',
+                'link': 'https://github.com/heardMan/fitStat',
+                'linkTitle': 'link',
+                'description': 'description 4'
+
+            },
+            {
+                'title': 'Title5',
+                'link': 'https://github.com/heardMan/fitStat',
+                'linkTitle': 'link',
+                'description': 'description 5'
+
+            }
+        ],
         projects = [
             {
                 'name': 'fitStat',
@@ -110,7 +148,7 @@ var App = (function (global) {
             },
 
 
-            
+
         ]
 
     // init function
@@ -152,67 +190,118 @@ var App = (function (global) {
 
     }
 
-    function gallery(){
+    function gallery() {
         var galleryElem = doc.getElementById('gallery');
-        for(var i = 0; i < projects.length; i++){
-            var currentProj = projects[i];
-            var projectCard = doc.createElement('DIV');
-            projectCard.setAttribute('class', 'project card');
-            var title = doc.createElement('DIV');
-            var titleText = doc.createElement('H3');
-            titleText.textContent=currentProj.name
-            title.append(titleText);
-            var githubLink = doc.createElement('A');
-            githubLink.textContent = 'GitHub Repo';
-            githubLink.setAttribute('href', currentProj.github);
-            var demoLink = doc.createElement('A');
-            demoLink.textContent = 'Live Demo'
-            demoLink.setAttribute('href', currentProj.demo)
-            var description = doc.createElement('DIV');
+        if (galleryElem) {
+            for (var i = 0; i < projects.length; i++) {
+                var currentProj = projects[i];
+                var projectCard = doc.createElement('DIV');
+                projectCard.setAttribute('class', 'project card');
+                var title = doc.createElement('DIV');
+                var titleText = doc.createElement('H3');
+                titleText.textContent = currentProj.name
+                title.append(titleText);
+                var githubLink = doc.createElement('A');
+                githubLink.textContent = 'GitHub Repo';
+                githubLink.setAttribute('href', currentProj.github);
+                var demoLink = doc.createElement('A');
+                demoLink.textContent = 'Live Demo'
+                demoLink.setAttribute('href', currentProj.demo)
+                var description = doc.createElement('DIV');
 
-            projectCard.append(title)
-            projectCard.append(githubLink)
-            projectCard.append(demoLink)
-            projectCard.append(description)
+                projectCard.append(title)
+                projectCard.append(githubLink)
+                projectCard.append(demoLink)
+                projectCard.append(description)
 
-            galleryElem.append(projectCard);
-            
+                galleryElem.append(projectCard);
+
+            }
         }
-        
+
     }
 
-    
+    function carousel() {
+        var carouselElem = doc.getElementsByClassName('carousel-content')[0];
+        for (var i = 0; i < carouselItems.length; i++) {
+            var contentCard = doc.createElement('DIV');
+            contentCard.setAttribute('key', i);
+            if (i === selectedCarousel){
+                contentCard.setAttribute('class', 'carousel-item card selected');
+            } else {
+                contentCard.setAttribute('class', 'carousel-item card');
+            }
+            var title = doc.createElement('H3');
+            title.textContent = carouselItems[i].title;
+            var link = doc.createElement('A');
+            link.setAttribute('src', carouselItems[i].link);
+            link.textContent = carouselItems[i].linkTitle;
+            contentCard.appendChild(title);
+            carouselElem.appendChild(contentCard);
+
+
+        }
+
+
+
+    }
+
+
 
     // render function
     // controls visual rendering of application
     function render() {
         //console.log('rendering application');
         //console.log(win.location);
-        
-        if(win.location.pathname==='/portfolio'){
+        if (win.location.pathname === '/' || '/index.html') {
+            carousel();
+
+        } else if (win.location.pathname === '/portfolio' || '/portfolio.html') {
             gallery();
         }
     }
 
-    
+
     // main function
     // controls application behavior
     function main() {
-        
-       
+
+
         init();
         render();
         // add menu toggle function
-        doc.addEventListener('click', function(e){
-            console.log(e.target);
-            if(e.target.classList.contains('toggle')){
-            
+        doc.addEventListener('click', function (e) {
+            //console.log(e.target);
+            if (e.target.classList.contains('toggle')) {
+
                 toggleMenu();
+            } else if(e.target.classList.contains('right-btn')){
+
+                var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+                carouselContent[selectedCarousel].classList.remove('selected');
+                if(selectedCarousel<4){
+                    selectedCarousel++;
+                } else {
+                    selectedCarousel=0;
+                }
+                carouselContent[selectedCarousel].classList.add('selected');
+                
+            } else if(e.target.classList.contains('left-btn')){
+                
+                var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+                carouselContent[selectedCarousel].classList.remove('selected');
+                if(selectedCarousel>0){
+                    selectedCarousel--;
+                } else {
+                    selectedCarousel=4;
+                }
+                carouselContent[selectedCarousel].classList.add('selected');
+
             }
 
         });
-        
-        
+
+
     }
 
     // call the main function and run the application
