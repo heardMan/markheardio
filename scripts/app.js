@@ -281,7 +281,7 @@ var App = (function (global) {
                 var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
                 carouselContent[selectedCarousel].classList.remove('selected');
 
-                if (-1 < selectedCarousel < carouselItems.length-1) {
+                if ( selectedCarousel < carouselItems.length) {
                     selectedCarousel++;
                 } else {
                     selectedCarousel = 0;
@@ -293,14 +293,14 @@ var App = (function (global) {
 
             } else if (e.target.classList.contains('left-btn')) {
 
-                // var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-                // carouselContent[selectedCarousel].classList.remove('selected');
-                // if (carouselItems.length >= selectedCarousel > -1) {
-                //     selectedCarousel--;
-                // } else {
-                //     selectedCarousel = 4;
-                // }
-                // carouselContent[selectedCarousel].classList.add('selected');
+                var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+                carouselContent[selectedCarousel].classList.remove('selected');
+                if (carouselItems.length > selectedCarousel) {
+                    selectedCarousel--;
+                } else {
+                    selectedCarousel = 4;
+                }
+                carouselContent[selectedCarousel].classList.add('selected');
 
             }
 
