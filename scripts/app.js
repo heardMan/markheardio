@@ -8,38 +8,38 @@ var App = (function (global) {
         selectedCarousel = 0,
         carouselItems = [
             {
-                'title': 'Title1',
+                'title': 'Consultations',
                 'link': 'https://github.com/heardMan/fitStat',
                 'linkTitle': 'link',
-                'description': 'description 1'
+                'description': 'Not sure where to start or what you need? Feel free to reach out to schedule a consultation!'
 
             },
             {
-                'title': 'Title2',
+                'title': 'Web Development',
                 'link': 'https://github.com/heardMan/fitStat',
                 'linkTitle': 'link',
-                'description': 'description 2'
+                'description': 'Need a website? From self-managed to fully-managed I can help find and/or build the solution that is right for you and your business.'
 
             },
             {
-                'title': 'Title3',
+                'title': 'Software Develpoment',
                 'link': 'https://github.com/heardMan/fitStat',
                 'linkTitle': 'link',
-                'description': 'description 3'
+                'description': 'Need an application? I specialize in develeoping and maintaing modern scalable web applications and would love to help get your next application up an running!'
 
             },
             {
-                'title': 'Title4',
+                'title': 'Web Hosting Solutions',
                 'link': 'https://github.com/heardMan/fitStat',
                 'linkTitle': 'link',
-                'description': 'description 4'
+                'description': 'Need help hosting your website? I am experienced and familiar in hosting a variety of websites and would love to help find best fitting solution.'
 
             },
             {
-                'title': 'Title5',
+                'title': 'Data Analytics',
                 'link': 'https://github.com/heardMan/fitStat',
                 'linkTitle': 'link',
-                'description': 'description 5'
+                'description': 'Got Business Data that you need help organizing? Business Analytics is what sparked my interest in software development! I enjoy helping business owners find new and exciting opportunities within their own business data.'
 
             }
         ],
@@ -239,10 +239,11 @@ var App = (function (global) {
                 }
                 var title = doc.createElement('H3');
                 title.textContent = carouselItems[i].title;
-                var link = doc.createElement('A');
-                link.setAttribute('src', carouselItems[i].link);
-                link.textContent = carouselItems[i].linkTitle;
+                var description = doc.createElement('P');
+                description.textContent = carouselItems[i].description;
+                
                 contentCard.appendChild(title);
+                contentCard.appendChild(description);
                 carouselElem.appendChild(contentCard);
             }
         }
