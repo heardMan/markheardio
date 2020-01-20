@@ -252,7 +252,8 @@ var App = (function (global) {
     // controls visual rendering of application
     function render() {
         //console.log('rendering application');
-        //console.log(win.location);
+        console.log(win.location);
+        
         if (win.location.pathname === '/' || '/index.html') {
 
             carousel();
@@ -268,7 +269,7 @@ var App = (function (global) {
     // controls application behavior
     function main() {
 
-
+        
         init();
         render();
         // add menu toggle function
