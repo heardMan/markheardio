@@ -223,28 +223,24 @@ var App = (function (global) {
 
     function carousel() {
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
-        if(carouselElem){
-            for (var i = 0; i < carouselItems.length; i++) {
-                var contentCard = doc.createElement('DIV');
-                contentCard.setAttribute('key', i);
-                if (i === selectedCarousel){
-                    contentCard.setAttribute('class', 'carousel-item card selected');
-                } else {
-                    contentCard.setAttribute('class', 'carousel-item card');
-                }
-                var title = doc.createElement('H3');
-                title.textContent = carouselItems[i].title;
-                var link = doc.createElement('A');
-                link.setAttribute('src', carouselItems[i].link);
-                link.textContent = carouselItems[i].linkTitle;
-                contentCard.appendChild(title);
-                carouselElem.appendChild(contentCard);
-    
-    
+        for (var i = 0; i < carouselItems.length; i++) {
+            var contentCard = doc.createElement('DIV');
+            contentCard.setAttribute('key', i);
+            if (i === selectedCarousel){
+                contentCard.setAttribute('class', 'carousel-item card selected');
+            } else {
+                contentCard.setAttribute('class', 'carousel-item card');
             }
+            var title = doc.createElement('H3');
+            title.textContent = carouselItems[i].title;
+            var link = doc.createElement('A');
+            link.setAttribute('src', carouselItems[i].link);
+            link.textContent = carouselItems[i].linkTitle;
+            contentCard.appendChild(title);
+            carouselElem.appendChild(contentCard);
+
 
         }
-        
 
 
 
@@ -275,7 +271,7 @@ var App = (function (global) {
         render();
         // add menu toggle function
         doc.addEventListener('click', function (e) {
-            //console.log(e.target);
+            console.log(e.target);
             if (e.target.classList.contains('toggle')) {
 
                 toggleMenu();
@@ -295,7 +291,7 @@ var App = (function (global) {
                 var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
                 carouselContent[selectedCarousel].classList.remove('selected');
                 if(selectedCarousel>0){
-                    selectedCarousel--;
+                    selectedCarousel++;
                 } else {
                     selectedCarousel=4;
                 }
