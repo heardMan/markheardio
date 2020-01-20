@@ -54,7 +54,7 @@ var App = (function (global) {
                 'name': 'fitTrack',
                 'github': 'https://github.com/heardMan/fitTrack',
                 'demo': 'https://powerful-reef-18264.herokuapp.com/',
-                'description': 'A React User Interface Application designed for the fitStat application.'
+                'description': 'A React Application designed as a user interface for the fitStat application. Please contact the adminstrator of this application for user credentials.'
             },
             {
                 'name': 'Restaurant Reviews',
@@ -93,19 +93,19 @@ var App = (function (global) {
             //     'description': ''
             // },
             {
-                'name': 'clicky game',
+                'name': 'Clicky Game',
                 'github': 'https://github.com/heardMan/clickyGame',
                 'demo': 'https://heardman.github.io/clickyGame/',
                 'description': 'This is a memory based card game in which the you attempt to click only unique cards. For a more detailed explanation of the rules please visit the technical documentaion by clicking the link below.'
             },
             {
-                'name': 'news mango',
+                'name': 'News Mango',
                 'github': 'https://github.com/heardMan/newsMango',
                 'demo': 'https://still-basin-55016.herokuapp.com/',
                 'description': 'This is a free news story aggregation site that is mostly focused on financial and science realated news stories.'
             },
             {
-                'name': 'whos that pokemon',
+                'name': 'Who\'s that Pokemon',
                 'github': 'https://github.com/heardMan/Word_Guess_Game',
                 'demo': 'https://heardman.github.io/Word_Guess_Game/',
                 'description': 'In this game the user is presented with a silhoutte of a pokemon and they have a certain number of attempts to guess what pokemon it is letter by letter. This game requires a desktop keyboard to play. For a more detailed explanation of the rules please visit the technical documentaion by clicking the link below.'
@@ -122,12 +122,12 @@ var App = (function (global) {
                 'demo': 'https://secure-anchorage-83716.herokuapp.com/',
                 'description': 'This application is a sample survey that matches users based on a proprietary formula that ultimately based on the user\'s to the survey\'s question. '
             },
-            {
-                'name': 'Sway',
-                'github': 'https://github.com/heardMan/beer2',
-                'demo': 'https://secure-anchorage-83716.herokuapp.com/',
-                'description': 'This application allows users to create an account and discover who there Congressional Representatives are in both the House and the Senate.'
-            },
+            // {
+            //     'name': 'Sway',
+            //     'github': 'https://github.com/heardMan/beer2',
+            //     'demo': 'https://secure-anchorage-83716.herokuapp.com/',
+            //     'description': 'This application allows users to create an account and discover who there Congressional Representatives are in both the House and the Senate.'
+            // },
             // {
             //     'name': 'Eat da Burger',
             //     'github': 'https://github.com/heardMan/Burger',
@@ -135,7 +135,7 @@ var App = (function (global) {
             //     'description': ''
             // },
             {
-                'name': 'Trivia game',
+                'name': 'Trivia Game',
                 'github': 'https://github.com/heardMan/TriviaGame',
                 'demo': 'https://heardman.github.io/TriviaGame/',
                 'description': 'This is a multiple choice quiz application that tests a user\'s knowledge of javascript array methods. See how many answers you can get correct!'
@@ -211,16 +211,11 @@ var App = (function (global) {
                 demoLink.setAttribute('href', currentProj.demo)
                 var description = doc.createElement('P');
                 description.textContent = currentProj.description;
-                var hrule = doc.createElement('HR');
                 
-
-
                 projectCard.append(title);
-                projectCard.append(hrule);
                 projectCard.append(description);
-                projectCard.append(hrule);
                 projectCard.append(githubLink)
-                projectCard.append(hrule);
+                projectCard.append(doc.createElement('HR'));
                 projectCard.append(demoLink)
                 
 
