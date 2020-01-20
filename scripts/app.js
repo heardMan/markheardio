@@ -226,24 +226,24 @@ var App = (function (global) {
     function carousel() {
         console.log('rendering carousel');
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
-        // if (carouselElem) {
-        //     for (var i = 0; i < carouselItems.length; i++) {
-        //         var contentCard = doc.createElement('DIV');
-        //         contentCard.setAttribute('key', i);
-        //         if (i === selectedCarousel) {
-        //             contentCard.setAttribute('class', 'carousel-item card selected');
-        //         } else {
-        //             contentCard.setAttribute('class', 'carousel-item card');
-        //         }
-        //         var title = doc.createElement('H3');
-        //         title.textContent = carouselItems[i].title;
-        //         var link = doc.createElement('A');
-        //         link.setAttribute('src', carouselItems[i].link);
-        //         link.textContent = carouselItems[i].linkTitle;
-        //         contentCard.appendChild(title);
-        //         carouselElem.appendChild(contentCard);
-        //     }
-        // }
+        if (carouselElem) {
+            for (var i = 0; i < carouselItems.length; i++) {
+                var contentCard = doc.createElement('DIV');
+                contentCard.setAttribute('key', i);
+                if (i === selectedCarousel) {
+                    contentCard.setAttribute('class', 'carousel-item card selected');
+                } else {
+                    contentCard.setAttribute('class', 'carousel-item card');
+                }
+                var title = doc.createElement('H3');
+                title.textContent = carouselItems[i].title;
+                var link = doc.createElement('A');
+                link.setAttribute('src', carouselItems[i].link);
+                link.textContent = carouselItems[i].linkTitle;
+                contentCard.appendChild(title);
+                carouselElem.appendChild(contentCard);
+            }
+        }
 
 
     }
