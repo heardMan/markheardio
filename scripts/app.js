@@ -225,25 +225,25 @@ var App = (function (global) {
 
     function carousel() {
         console.log('rendering carousel');
-        var carouselElem = doc.getElementsByClassName('carousel-content')[0];
-        if (carouselElem) {
-            for (var i = 0; i < carouselItems.length; i++) {
-                var contentCard = doc.createElement('DIV');
-                contentCard.setAttribute('key', i);
-                if (i === selectedCarousel) {
-                    contentCard.setAttribute('class', 'carousel-item card selected');
-                } else {
-                    contentCard.setAttribute('class', 'carousel-item card');
-                }
-                var title = doc.createElement('H3');
-                title.textContent = carouselItems[i].title;
-                var link = doc.createElement('A');
-                link.setAttribute('src', carouselItems[i].link);
-                link.textContent = carouselItems[i].linkTitle;
-                contentCard.appendChild(title);
-                carouselElem.appendChild(contentCard);
-            }
-        }
+        // var carouselElem = doc.getElementsByClassName('carousel-content')[0];
+        // if (carouselElem) {
+        //     for (var i = 0; i < carouselItems.length; i++) {
+        //         var contentCard = doc.createElement('DIV');
+        //         contentCard.setAttribute('key', i);
+        //         if (i === selectedCarousel) {
+        //             contentCard.setAttribute('class', 'carousel-item card selected');
+        //         } else {
+        //             contentCard.setAttribute('class', 'carousel-item card');
+        //         }
+        //         var title = doc.createElement('H3');
+        //         title.textContent = carouselItems[i].title;
+        //         var link = doc.createElement('A');
+        //         link.setAttribute('src', carouselItems[i].link);
+        //         link.textContent = carouselItems[i].linkTitle;
+        //         contentCard.appendChild(title);
+        //         carouselElem.appendChild(contentCard);
+        //     }
+        // }
 
 
     }
@@ -253,14 +253,10 @@ var App = (function (global) {
     // render function
     // controls visual rendering of application
     function render() {
-        //console.log('rendering application');
-        console.log(win.location.pathname);
         
         if (win.location.pathname === '/') {
-            console.log('index route')
-            //carousel();
+            carousel();
         } else if (win.location.pathname === '/portfolio') {
-            console.log('portfolio route')
             gallery();
         }
     }
