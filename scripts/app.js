@@ -155,6 +155,7 @@ var App = (function (global) {
     // controls setting up the application
     function init() {
         //console.log('starting application');
+        render();
     }
 
     function menuIcon() {
@@ -255,9 +256,7 @@ var App = (function (global) {
         console.log(win.location.pathname);
         
         if (win.location.pathname === '/') {
-
             carousel();
-
         } else if (win.location.pathname === '/portfolio') {
             console.log('found it')
             gallery();
@@ -271,13 +270,14 @@ var App = (function (global) {
 
         
         init();
-        render();
+        
         // add menu toggle function
         doc.addEventListener('click', function (e) {
-            console.log(e.target);
+            
             if (e.target.classList.contains('toggle')) {
                 toggleMenu();
-            } 
+            }
+
             // else if (e.target.classList.contains('right-btn')) {
 
             //     var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
