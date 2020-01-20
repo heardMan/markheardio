@@ -280,7 +280,7 @@ var App = (function (global) {
 
                 var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
                 carouselContent[selectedCarousel].classList.remove('selected');
-                if (0 < selectedCarousel <= 4) {
+                if (0 <= selectedCarousel < 4) {
                     selectedCarousel++;
                 } else {
                     selectedCarousel = 0;
@@ -291,7 +291,7 @@ var App = (function (global) {
 
                 var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
                 carouselContent[selectedCarousel].classList.remove('selected');
-                if (4 > selectedCarousel >= 0) {
+                if (4 >= selectedCarousel > 0) {
                     selectedCarousel--;
                 } else {
                     selectedCarousel = 4;
