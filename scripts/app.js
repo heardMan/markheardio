@@ -271,6 +271,7 @@ var App = (function (global) {
         
         // add menu toggle function
         doc.addEventListener('click', function (e) {
+            e.preventDefault();
             
             if (e.target.classList.contains('toggle')) {
                 toggleMenu();
