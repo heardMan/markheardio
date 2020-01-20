@@ -254,7 +254,7 @@ var App = (function (global) {
         //console.log('rendering application');
         console.log(win.location.pathname);
         
-        if (win.location.pathname === '/' || '/index.html') {
+        if (win.location.pathname === '/') {
 
             carousel();
 
