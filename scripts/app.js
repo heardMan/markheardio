@@ -258,7 +258,7 @@ var App = (function (global) {
 
             carousel();
 
-        } else if (win.location.pathname === '/portfolio' || '/portfolio.html') {
+        } else if (win.location.pathname === '/portfolio') {
             console.log('found it')
             gallery();
         }
