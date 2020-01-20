@@ -295,7 +295,7 @@ var App = (function (global) {
 
                 var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
                 carouselContent[selectedCarousel].classList.remove('selected');
-                if (carouselItems.length > selectedCarousel) {
+                if (carouselItems.length-1 > selectedCarousel) {
                     selectedCarousel--;
                 } else {
                     selectedCarousel = 4;
