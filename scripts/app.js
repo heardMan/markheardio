@@ -286,6 +286,7 @@ var App = (function (global) {
                 } else {
                     selectedCarousel = 0;
                 }
+                console.log(selectedCarousel)
 
 
                 carouselContent[selectedCarousel].classList.add('selected');
