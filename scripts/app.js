@@ -259,7 +259,7 @@ var App = (function (global) {
             carousel();
 
         } else if (win.location.pathname === '/portfolio' || '/portfolio.html') {
-            
+            console.log('found it')
             gallery();
         }
     }
