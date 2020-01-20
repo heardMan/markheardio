@@ -237,18 +237,27 @@ body {
     display: block;
 }
 
+.rnd-btn{
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    border: solid #95a5a6 1px;
+    background-color: #044F67;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
 .left-btn-elem{
     position: absolute;
     top:50%;
     left:0px;
-    z-index: 700;
+    
 }
 
 .right-btn-elem{
     position: absolute;
     top:50%;
     right:0px;
-    z-index: 700;
+
 }
 
 
