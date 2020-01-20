@@ -225,7 +225,7 @@ var App = (function (global) {
 
     function carousel() {
         console.log('rendering carousel');
-        // var carouselElem = doc.getElementsByClassName('carousel-content')[0];
+        var carouselElem = doc.getElementsByClassName('carousel-content')[0];
         // if (carouselElem) {
         //     for (var i = 0; i < carouselItems.length; i++) {
         //         var contentCard = doc.createElement('DIV');
