@@ -295,10 +295,10 @@ var App = (function (global) {
 
                 var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
                 carouselContent[selectedCarousel].classList.remove('selected');
-                if (carouselItems.length-1 > selectedCarousel) {
+                if (1 > selectedCarousel) {
                     selectedCarousel--;
                 } else {
-                    selectedCarousel = 4;
+                    selectedCarousel = carouselItems.length;
                 }
                 carouselContent[selectedCarousel].classList.add('selected');
 
