@@ -48,13 +48,13 @@ var App = (function (global) {
                 'name': 'fitStat',
                 'github': 'https://github.com/heardMan/fitStat',
                 'demo': 'https://fierce-gorge-82374.herokuapp.com/',
-                'description': 'A Python Application that can be used to track workouts. In order to use this application please reference the technical documentation.'
+                'description': 'A Python Application that can be used to track workouts. In order to use this application; please reference the technical documentation.'
             },
             {
                 'name': 'fitTrack',
                 'github': 'https://github.com/heardMan/fitTrack',
                 'demo': 'https://powerful-reef-18264.herokuapp.com/',
-                'description': 'A React Application designed as a user interface for the fitStat application. Please contact the adminstrator of this application for user credentials.'
+                'description': 'A React Application designed as a user interface for the fitStat application. Please contact the adminstrator of this application for user log-in credentials.'
             },
             {
                 'name': 'Restaurant Reviews',
@@ -144,7 +144,7 @@ var App = (function (global) {
                 'name': 'Fast Chat',
                 'github': 'https://github.com/heardMan/firebaseApp',
                 'demo': 'https://heardman.github.io/firebaseApp/',
-                'description': 'This is a function person to person chat application. Create an account and start messagin with other users.'
+                'description': 'This is a person to person chat application. Create an account and start messagin with other users.'
             },
 
 
