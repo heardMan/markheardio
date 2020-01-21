@@ -144,7 +144,7 @@ var App = (function (global) {
                 'name': 'Fast Chat',
                 'github': 'https://github.com/heardMan/firebaseApp',
                 'demo': 'https://heardman.github.io/firebaseApp/',
-                'description': 'This is a person to person chat application. Create an account and start messagin with other users.'
+                'description': 'This is a person to person chat application. Create an account and start messaging with other users.'
             },
 
 
