@@ -45,6 +45,30 @@ var App = (function (global) {
         ],
         projects = [
             {
+                'name': 'Restaurant Reviews',
+                'github': 'https://github.com/heardMan/restaurantReviews',
+                'demo': 'https://heardman.github.io/restaurantReviews/',
+                'description': 'A map-based restaurant search application. The application is fully responsive and follows offline first principles.'
+            },
+            {
+                'name': 'Dodge \'em',
+                'github': 'https://github.com/heardMan/udacity-arcade-game',
+                'demo': 'https://heardman.github.io/udacity-arcade-game/',
+                'description': 'This is a mobile friendly game that can be played with either the onscreen directional pad or a keyboard directional pad. The game is very simailar to frogger.'
+            },
+            {
+                'name': 'Concentrate',
+                'github': 'https://github.com/heardMan/concentrate-js',
+                'demo': 'https://heardman.github.io/concentrate-js/',
+                'description': 'This is a card matching game. Click on a card to reveal its icon. Match all the card pairs to win the game. For a more detailed explanation of the rules please visit the technical documentaion by clicking the link below.'
+            },
+            {
+                'name': 'Trivia Game',
+                'github': 'https://github.com/heardMan/TriviaGame',
+                'demo': 'https://heardman.github.io/TriviaGame/',
+                'description': 'This is a multiple choice quiz application that tests a user\'s knowledge of javascript array methods. See how many answers you can get correct!'
+            },
+            {
                 'name': 'fitStat',
                 'github': 'https://github.com/heardMan/fitStat',
                 'demo': 'https://fierce-gorge-82374.herokuapp.com/',
@@ -57,29 +81,31 @@ var App = (function (global) {
                 'description': 'A React Application designed as a user interface for the fitStat application. Please contact the adminstrator of this application for user log-in credentials.'
             },
             {
-                'name': 'Restaurant Reviews',
-                'github': 'https://github.com/heardMan/restaurantReviews',
-                'demo': 'https://heardman.github.io/restaurantReviews/',
-                'description': 'A map-based restaurant search application. The application is fully responsive and follows offline first principles.'
+                'name': 'News Mango',
+                'github': 'https://github.com/heardMan/newsMango',
+                'demo': 'https://still-basin-55016.herokuapp.com/',
+                'description': 'This is a free news story aggregation site that is mostly focused on financial and science related news stories.'
             },
             {
-                'name': 'Dodge \'em',
-                'github': 'https://github.com/heardMan/udacity-arcade-game',
-                'demo': 'https://heardman.github.io/udacity-arcade-game/',
-                'description': 'This is a mobile friendly game that can be played with either the onscreen directional pad or a keyboard directional pad. The game is very simailar to frogger.'
+                'name': 'gifTastic',
+                'github': 'https://github.com/heardMan/gifTastic',
+                'demo': 'https://heardman.github.io/gifTastic/',
+                'description': 'This application allows users to search the giphy api and save their favorite gifs! Unfortunately, this application does not use sessions or accounts so make sure to copy your favorite gifs before leaving the page!'
             },
+            {
+                'name': 'Perfect Match',
+                'github': 'https://github.com/heardMan/friendFinder',
+                'demo': 'https://secure-anchorage-83716.herokuapp.com/',
+                'description': 'This application is a sample survey that matches users based on a proprietary formula that is ultimately based on the user\'s to the survey\'s question. '
+            },
+            
             // {
             //     'name': 'Feed Reader',
             //     'github': 'https://github.com/heardMan/udacity-feedReader',
             //     'demo': 'https://heardman.github.io/udacity-feedReader/',
             //     'description': ''
             // },
-            {
-                'name': 'Concentrate',
-                'github': 'https://github.com/heardMan/concentrate-js',
-                'demo': 'https://heardman.github.io/concentrate-js/',
-                'description': 'This is a card matching game. Click on a card to reveal its icon. Match all the card pairs to win the game. For a more detailed explanation of the rules please visit the technical documentaion by clicking the link below.'
-            },
+            
             // {
             //     'name': 'tap water search',
             //     'github': 'https://github.com/CFMark/scrap',
@@ -98,30 +124,14 @@ var App = (function (global) {
                 'demo': 'https://heardman.github.io/clickyGame/',
                 'description': 'This is a memory based card game in which the you attempt to click only unique cards. For a more detailed explanation of the rules please visit the technical documentaion by clicking the link below.'
             },
-            {
-                'name': 'News Mango',
-                'github': 'https://github.com/heardMan/newsMango',
-                'demo': 'https://still-basin-55016.herokuapp.com/',
-                'description': 'This is a free news story aggregation site that is mostly focused on financial and science related news stories.'
-            },
+            
             {
                 'name': 'Who\'s that Pokemon',
                 'github': 'https://github.com/heardMan/Word_Guess_Game',
                 'demo': 'https://heardman.github.io/Word_Guess_Game/',
                 'description': 'In this game the user is presented with a silhoutte of a pokemon and they have a certain number of attempts to guess what pokemon it is letter by letter. This game requires a desktop keyboard to play. For a more detailed explanation of the rules please visit the technical documentaion by clicking the link below.'
             },
-            {
-                'name': 'gifTastic',
-                'github': 'https://github.com/heardMan/gifTastic',
-                'demo': 'https://heardman.github.io/gifTastic/',
-                'description': 'This application allows users to search the giphy api and save their favorite gifs! Unfortunately, this application does not use sessions or accounts so make sure to copy your favorite gifs before leaving the page!'
-            },
-            {
-                'name': 'Perfect Match',
-                'github': 'https://github.com/heardMan/friendFinder',
-                'demo': 'https://secure-anchorage-83716.herokuapp.com/',
-                'description': 'This application is a sample survey that matches users based on a proprietary formula that is ultimately based on the user\'s to the survey\'s question. '
-            },
+            
             // {
             //     'name': 'Sway',
             //     'github': 'https://github.com/heardMan/beer2',
@@ -134,12 +144,7 @@ var App = (function (global) {
             //     'demo': 'https://pacific-wave-57601.herokuapp.com/',
             //     'description': ''
             // },
-            {
-                'name': 'Trivia Game',
-                'github': 'https://github.com/heardMan/TriviaGame',
-                'demo': 'https://heardman.github.io/TriviaGame/',
-                'description': 'This is a multiple choice quiz application that tests a user\'s knowledge of javascript array methods. See how many answers you can get correct!'
-            },
+            
             {
                 'name': 'Fast Chat',
                 'github': 'https://github.com/heardMan/firebaseApp',
