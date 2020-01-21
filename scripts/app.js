@@ -22,17 +22,17 @@ var App = (function (global) {
 
             },
             {
-                'title': 'Software Develpoment',
+                'title': 'Software Development',
                 'link': 'https://github.com/heardMan/fitStat',
                 'linkTitle': 'link',
-                'description': 'Need an application?\n I specialize in develeoping and maintaing modern scalable web applications and would love to help get your next application up an running!'
+                'description': 'Need an application?\n I specialize in develeoping and maintaining modern scalable web applications and would love to help get your next application up an running!'
 
             },
             {
                 'title': 'Web Hosting Solutions',
                 'link': 'https://github.com/heardMan/fitStat',
                 'linkTitle': 'link',
-                'description': 'Need help hosting your website?\n I am experienced and familiar in hosting a variety of websites and would love to help find best fitting solution.'
+                'description': 'Need help hosting your website?\n I am experienced and familiar in hosting a variety of websites and would love to help find the best fitting solution.'
 
             },
             {
@@ -60,7 +60,7 @@ var App = (function (global) {
                 'name': 'Restaurant Reviews',
                 'github': 'https://github.com/heardMan/restaurantReviews',
                 'demo': 'https://heardman.github.io/restaurantReviews/',
-                'description': 'A restaurant search application. The application is fully responsive and follows offline first principles.'
+                'description': 'A map-based restaurant search application. The application is fully responsive and follows offline first principles.'
             },
             {
                 'name': 'Dodge \'em',
@@ -102,7 +102,7 @@ var App = (function (global) {
                 'name': 'News Mango',
                 'github': 'https://github.com/heardMan/newsMango',
                 'demo': 'https://still-basin-55016.herokuapp.com/',
-                'description': 'This is a free news story aggregation site that is mostly focused on financial and science realated news stories.'
+                'description': 'This is a free news story aggregation site that is mostly focused on financial and science related news stories.'
             },
             {
                 'name': 'Who\'s that Pokemon',
@@ -120,7 +120,7 @@ var App = (function (global) {
                 'name': 'Perfect Match',
                 'github': 'https://github.com/heardMan/friendFinder',
                 'demo': 'https://secure-anchorage-83716.herokuapp.com/',
-                'description': 'This application is a sample survey that matches users based on a proprietary formula that ultimately based on the user\'s to the survey\'s question. '
+                'description': 'This application is a sample survey that matches users based on a proprietary formula that is ultimately based on the user\'s to the survey\'s question. '
             },
             // {
             //     'name': 'Sway',
@@ -144,7 +144,7 @@ var App = (function (global) {
                 'name': 'Fast Chat',
                 'github': 'https://github.com/heardMan/firebaseApp',
                 'demo': 'https://heardman.github.io/firebaseApp/',
-                'description': 'This is a firebase base chat application.'
+                'description': 'This is a function person to person chat application. Create an account and start messagin with other users.'
             },
 
 
