@@ -98,14 +98,14 @@ var App = (function (global) {
                 'demo': 'https://secure-anchorage-83716.herokuapp.com/',
                 'description': 'This application is a sample survey that matches users based on a proprietary formula that is ultimately based on the user\'s to the survey\'s question. '
             },
-            
+
             // {
             //     'name': 'Feed Reader',
             //     'github': 'https://github.com/heardMan/udacity-feedReader',
             //     'demo': 'https://heardman.github.io/udacity-feedReader/',
             //     'description': ''
             // },
-            
+
             // {
             //     'name': 'tap water search',
             //     'github': 'https://github.com/CFMark/scrap',
@@ -124,14 +124,14 @@ var App = (function (global) {
                 'demo': 'https://heardman.github.io/clickyGame/',
                 'description': 'This is a memory based card game in which the you attempt to click only unique cards. For a more detailed explanation of the rules please visit the technical documentaion by clicking the link below.'
             },
-            
+
             {
                 'name': 'Who\'s that Pokemon',
                 'github': 'https://github.com/heardMan/Word_Guess_Game',
                 'demo': 'https://heardman.github.io/Word_Guess_Game/',
                 'description': 'In this game the user is presented with a silhoutte of a pokemon and they have a certain number of attempts to guess what pokemon it is letter by letter. This game requires a desktop keyboard to play. For a more detailed explanation of the rules please visit the technical documentaion by clicking the link below.'
             },
-            
+
             // {
             //     'name': 'Sway',
             //     'github': 'https://github.com/heardMan/beer2',
@@ -144,7 +144,7 @@ var App = (function (global) {
             //     'demo': 'https://pacific-wave-57601.herokuapp.com/',
             //     'description': ''
             // },
-            
+
             {
                 'name': 'Fast Chat',
                 'github': 'https://github.com/heardMan/firebaseApp',
@@ -216,13 +216,13 @@ var App = (function (global) {
                 demoLink.setAttribute('href', currentProj.demo)
                 var description = doc.createElement('P');
                 description.textContent = currentProj.description;
-                
+
                 projectCard.append(title);
                 projectCard.append(description);
                 projectCard.append(githubLink)
                 projectCard.append(doc.createElement('HR'));
                 projectCard.append(demoLink)
-                
+
 
                 galleryElem.append(projectCard);
 
@@ -247,7 +247,7 @@ var App = (function (global) {
                 title.textContent = carouselItems[i].title;
                 var description = doc.createElement('P');
                 description.textContent = carouselItems[i].description;
-                
+
                 contentCard.appendChild(title);
                 contentCard.appendChild(description);
                 carouselElem.appendChild(contentCard);
@@ -257,12 +257,39 @@ var App = (function (global) {
 
     }
 
+    function sendMessage(message) {
+        // Example POST method implementation:
+        async function postData(url = '', data = {}) {
+            // Default options are marked with *
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *client
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+            return await response.json(); // parses JSON response into native JavaScript objects
+        }
+
+        postData('http://localhost:5000', message)
+            .then((data) => {
+                console.log(data); // JSON data parsed by `response.json()` call
+            });
+
+    }
+
 
 
     // render function
     // controls visual rendering of application
     function render() {
-        
+
         if (win.location.pathname === '/') {
             carousel();
         } else if (win.location.pathname === '/portfolio') {
@@ -275,13 +302,13 @@ var App = (function (global) {
     // controls application behavior
     function main() {
 
-        
+
         init();
-        
+
         // add menu toggle function
         doc.addEventListener('click', function (e) {
-            
-            
+
+
             if (e.target.classList.contains('toggle')) {
                 toggleMenu();
             }
@@ -291,7 +318,7 @@ var App = (function (global) {
                 var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
                 carouselContent[selectedCarousel].classList.remove('selected');
 
-                if ( selectedCarousel < carouselItems.length-1) {
+                if (selectedCarousel < carouselItems.length - 1) {
                     selectedCarousel++;
                 } else {
                     selectedCarousel = 0;
@@ -308,11 +335,21 @@ var App = (function (global) {
                 if (0 < selectedCarousel) {
                     selectedCarousel--;
                 } else {
-                    selectedCarousel = carouselItems.length-1;
+                    selectedCarousel = carouselItems.length - 1;
                 }
                 //console.log(selectedCarousel);
                 carouselContent[selectedCarousel].classList.add('selected');
 
+            } else if (e.target.id === 'sendMessage') {
+
+                var message = {
+                    'name': doc.getElementById('name').value,
+                    'email': doc.getElementById('email').value,
+                    'message': doc.getElementById('message').value
+                }
+
+                // sendMessage(message);
+                
             }
 
         });
