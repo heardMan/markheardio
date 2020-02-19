@@ -284,6 +284,15 @@ var App = (function (global) {
 
     }
 
+    function submitMessage(token){
+        var message = {
+            'name': doc.getElementById('name').value,
+            'email': doc.getElementById('email').value,
+            'message': doc.getElementById('message').value
+        }
+        sendMessage(message);
+    }
+
 
 
     // render function
@@ -342,13 +351,10 @@ var App = (function (global) {
 
             } else if (e.target.id === 'sendMessage') {
 
-                var message = {
-                    'name': doc.getElementById('name').value,
-                    'email': doc.getElementById('email').value,
-                    'message': doc.getElementById('message').value
-                }
+                
 
-                // sendMessage(message);
+                
+                //console.log('sending...')
                 
             }
 
