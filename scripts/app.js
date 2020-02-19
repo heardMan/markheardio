@@ -352,7 +352,7 @@ var App = (function (global) {
                     'message': doc.getElementById('message').value
                 }
                 
-                sendMessage(message);
+                //sendMessage(message);
 
                 
             }
