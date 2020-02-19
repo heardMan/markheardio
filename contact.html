@@ -63,10 +63,7 @@
             <textarea id="message"></textarea>
           </div>
           <div class="form-group">
-            <div class="g-recaptcha" data-sitekey="6Lf1l9YUAAAAAF3F3RS2JbncOFxHAPMyH7HxWFwj" data-callback="submitMessage"
-            data-size="invisible">
-          </div>
-            <button class="btn" id="sendMessage">Send</button>
+            <button class="g-recaptcha btn" id="sendMessage" data-sitekey="6Lf1l9YUAAAAAF3F3RS2JbncOFxHAPMyH7HxWFwj" data-callback="submitMessage">Send</button>
           </div>
           
 
@@ -88,9 +85,10 @@
   <script src="./scripts/app.js" async></script>
   <script>
     function submitMessage(token){
-      grecaptcha.execute();
+      document.getElementById("sendMessage").submit();
     }
   </script>
+  
 
 
 
