@@ -351,7 +351,7 @@ var App = (function (global) {
                     'email': doc.getElementById('email').value,
                     'message': doc.getElementById('message').value
                 }
-                grecaptcha.execute();
+                
                 sendMessage(message);
 
                 
