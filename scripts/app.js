@@ -257,12 +257,8 @@ var App = (function (global) {
 
     }
 
-    function sendMessage() {
-        var message = {
-            'name': doc.getElementById('name').value,
-            'email': doc.getElementById('email').value,
-            'message': doc.getElementById('message').value
-        }
+    function sendMessage(message) {
+        
         // Example POST method implementation:
         async function postData(url = '', data = {}) {
             // Default options are marked with *
@@ -349,7 +345,15 @@ var App = (function (global) {
 
             } else if (e.target.id === 'sendMessage') {
 
-                
+                var message = {
+                    'name': doc.getElementById('name').value,
+                    'email': doc.getElementById('email').value,
+                    'message': doc.getElementById('message').value
+                }
+                sendMessage(message);
+
+                grecaptcha.execute();
+
 
                 
                 //console.log('sending...')
