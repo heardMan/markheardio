@@ -86,6 +86,12 @@
   <script>
     function submitMessage(token){
       document.getElementById("sendMessage").submit();
+      var message = {
+                    'name': doc.getElementById('name').value,
+                    'email': doc.getElementById('email').value,
+                    'message': doc.getElementById('message').value
+                }
+      sendMessage(message);
     }
   </script>
   
