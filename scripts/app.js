@@ -356,19 +356,8 @@ var App = (function (global) {
 
     }
 
-    window.addEventListener('DOMContentLoaded', (event) => {
-        console.log('DOM fully loaded and parsed');
-        // call the main function and run the application
+    
     main();
-    function submitMessage(token){
-        var message = {
-            'name': doc.getElementById('name').value,
-            'email': doc.getElementById('email').value,
-            'message': doc.getElementById('message').value
-        }
-        sendMessage(message);
-    }
-    });
 
     
 
