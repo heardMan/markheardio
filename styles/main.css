@@ -81,6 +81,10 @@ body {
     border-bottom:solid white 1px;
 }
 
+.menu-link{
+    z-index: 900;
+}
+
 .open {
     width: 250px;
 }
