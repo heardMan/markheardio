@@ -363,7 +363,12 @@ var App = (function (global) {
 
     }
 
-    // call the main function and run the application
+    window.addEventListener('DOMContentLoaded', (event) => {
+        console.log('DOM fully loaded and parsed');
+        // call the main function and run the application
     main();
+    });
+
+    
 
 })(this);
