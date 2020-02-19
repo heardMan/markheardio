@@ -83,11 +83,7 @@
 
   <script src="./scripts/app.js" async></script>
   <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        console.log('DOM fully loaded and parsed');
-        // call the main function and run the application
-    
-    function submitMessage(token){
+        function submitMessage(token){
         var message = {
             'name': doc.getElementById('name').value,
             'email': doc.getElementById('email').value,
@@ -95,7 +91,6 @@
         }
         sendMessage(message);
     }
-    });
   </script>
 
 
