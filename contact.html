@@ -10,7 +10,16 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./styles/main.css">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
+  <script>
+    function submitMessage(token){
+    var message = {
+        'name': doc.getElementById('name').value,
+        'email': doc.getElementById('email').value,
+        'message': doc.getElementById('message').value
+    }
+    sendMessage(message);
+}
+</script>
 </head>
 
 <body>
@@ -82,16 +91,7 @@
   
 
   <script src="./scripts/app.js" async></script>
-  <script>
-        function submitMessage(token){
-        var message = {
-            'name': doc.getElementById('name').value,
-            'email': doc.getElementById('email').value,
-            'message': doc.getElementById('message').value
-        }
-        sendMessage(message);
-    }
-  </script>
+  
 
 
   <!-- <script>
