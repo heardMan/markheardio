@@ -310,6 +310,7 @@ var App = (function (global) {
 
         // add menu toggle function
         doc.addEventListener('click', function (e) {
+            e.preventDefault();
 
 
             if (e.target.classList.contains('toggle')) {
@@ -350,13 +351,9 @@ var App = (function (global) {
                     'email': doc.getElementById('email').value,
                     'message': doc.getElementById('message').value
                 }
+                grecaptcha.execute();
                 sendMessage(message);
 
-                //grecaptcha.execute();
-
-
-                
-                //console.log('sending...')
                 
             }
 
