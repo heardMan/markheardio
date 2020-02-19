@@ -346,13 +346,12 @@ var App = (function (global) {
 
             } else if (e.target.id === 'sendMessage') {
 
-                // var message = {
-                //     'name': doc.getElementById('name').value,
-                //     'email': doc.getElementById('email').value,
-                //     'message': doc.getElementById('message').value
-                // }
-                
-                //sendMessage(message);
+                var message = {
+                    'name': doc.getElementById('name').value,
+                    'email': doc.getElementById('email').value,
+                    'message': doc.getElementById('message').value
+                }
+                sendMessage(message);
 
                 
             }
