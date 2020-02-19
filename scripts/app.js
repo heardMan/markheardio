@@ -352,7 +352,7 @@ var App = (function (global) {
                 }
                 sendMessage(message);
 
-                grecaptcha.execute();
+                //grecaptcha.execute();
 
 
                 
