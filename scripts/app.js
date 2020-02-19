@@ -257,7 +257,12 @@ var App = (function (global) {
 
     }
 
-    function sendMessage(message) {
+    function sendMessage() {
+        var message = {
+            'name': doc.getElementById('name').value,
+            'email': doc.getElementById('email').value,
+            'message': doc.getElementById('message').value
+        }
         // Example POST method implementation:
         async function postData(url = '', data = {}) {
             // Default options are marked with *
