@@ -9,14 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./styles/main.css">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-  <script>
-    function submitMessage(token){
-      //document.getElementById("sendMessage").submit();
-      
-    }
-  </script>
   
 </head>
 
@@ -70,12 +62,10 @@
             <textarea id="message"></textarea>
           </div>
           <div class="form-group">
-            <button class="g-recaptcha btn" 
-            id="sendMessage" 
-            data-sitekey="6Lf1l9YUAAAAAF3F3RS2JbncOFxHAPMyH7HxWFwj" 
-            data-callback="submitMessage">Send</button>
+            <button id="sendMessage" >Send</button>
           </div>
-          
+          <!-- <div data-sitekey="6Lf1l9YUAAAAAF3F3RS2JbncOFxHAPMyH7HxWFwj" 
+          data-callback="submitMessage" class="g-recaptcha btn"></div> -->
 
         </form>
       </div>
