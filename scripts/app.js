@@ -352,7 +352,7 @@ var App = (function (global) {
                         });
             
                 }
-                sendMessage(message);
+                //sendMessage(message);
 
                 // console.log('sending');
 
