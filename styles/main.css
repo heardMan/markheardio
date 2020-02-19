@@ -79,7 +79,7 @@ body {
     color:#BDC3C7;
     font-weight: bold;
     border-bottom:solid white 1px;
-    z-index: 890;
+    z-index: 999;
 }
 
 .open {
