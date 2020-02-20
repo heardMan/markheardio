@@ -340,7 +340,7 @@ body {
 
   @media (min-width: 990px) {
     .warning{
-        margin-left: 3rem;
+        margin-left: 3.5rem;
     }
   }
 
@@ -360,6 +360,6 @@ body {
         
     }
     .warning{
-        margin-left: 3.5rem;
+        margin-left: 4rem;
     }
   }
