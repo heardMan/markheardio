@@ -333,9 +333,15 @@ body {
         margin-left: 1rem;
     }
     .warning{
-        margin-left: 3rem;
+        margin-left: 2.5rem;
     }
     
+  }
+
+  @media (min-width: 990px) {
+    .warning{
+        margin-left: 3rem;
+    }
   }
 
   @media (min-width: 1200px) {
