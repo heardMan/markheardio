@@ -289,6 +289,10 @@ body {
     transition: 0.5s;
 }
 
+.hidden {
+    display: none;
+}
+
 @media (min-width: 500px) {
     .right-btn-elem{
         margin-right: 0.5rem;

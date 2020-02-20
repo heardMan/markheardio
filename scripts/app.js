@@ -345,10 +345,14 @@ var App = (function (global) {
 
             } else if (e.target.id === 'sendMessage') {
 
-                let message = {
-                    'name': document.getElementById('name').value,
-                    'email': document.getElementById('email').value,
-                    'message': document.getElementById('message').value
+                var name = document.getElementById('name');
+                var email = document.getElementById('email');
+                var message = document.getElementById('message');
+
+                var message = {
+                    'name': name.value,
+                    'email': email.value,
+                    'message': message.value
                 }
                 
                 if(message.name.length > 0 &&
@@ -356,6 +360,25 @@ var App = (function (global) {
                     message.message.length > 0 &&
                     message.message.length < 250){
                     sendMessage(message);
+                }
+
+                if(message.name.length <= 0){
+                    name.classList.add("red-outline");
+                    var nameWarning = doc.createElement('DIV');
+                    nameWarning.textContent = 'Name not long enough'
+                    name.parentElement.appendChild(nameWarning);
+                }
+
+                if(message.email.length < 6){
+                    email.classList.add("red-outline");
+                }
+
+                if(message.message.length <= 0){
+                    message.classList.add("red-outline");
+                }
+
+                if(message.message.length > 250){
+                    message.classList.add("red-outline");
                 }
                 
                 
