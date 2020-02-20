@@ -349,20 +349,20 @@ var App = (function (global) {
                 var email = document.getElementById('email');
                 var message = document.getElementById('message');
 
-                var message = {
+                var msg = {
                     'name': name.value,
                     'email': email.value,
                     'message': message.value
                 }
                 
-                if(message.name.length > 0 &&
-                    message.email.length > 6 &&
-                    message.message.length > 0 &&
-                    message.message.length < 250){
-                    sendMessage(message);
+                if(msg.name.length > 0 &&
+                    msg.email.length > 6 &&
+                    msg.message.length > 0 &&
+                    msg.message.length < 250){
+                    sendMessage(msg);
                 }
 
-                if(message.name.length <= 0){
+                if(msg.name.length <= 0){
                     name.classList.add("red-outline");
                     var nameWarning = doc.createElement('DIV');
                     nameWarning.classList.add('warning');
@@ -370,7 +370,7 @@ var App = (function (global) {
                     name.parentElement.appendChild(nameWarning);
                 }
 
-                if(message.email.length < 6){
+                if(msg.email.length < 6){
                     email.classList.add("red-outline");
                     var emailWarning = doc.createElement('DIV');
                     emailWarning.classList.add('warning');
@@ -378,7 +378,7 @@ var App = (function (global) {
                     email.parentElement.appendChild(emailWarning);
                 }
 
-                if(message.message.length <= 0){
+                if(msg.message.length <= 0){
                     message.classList.add("red-outline");
                     var messageWarning1 = doc.createElement('DIV');
                     messageWarning1.classList.add('warning');
@@ -386,7 +386,7 @@ var App = (function (global) {
                     message.parentElement.appendChild(messageWarning1);
                 }
 
-                if(message.message.length > 250){
+                if(msg.message.length > 250){
                     message.classList.add("red-outline");
                     var messageWarning2 = doc.createElement('DIV');
                     messageWarning2.classList.add('warning');
