@@ -271,10 +271,14 @@ body {
 .grecaptcha-badge {
     position: fixed;
     bottom: 0px;
+    left: -40px;
+}
+
+.grecaptcha-badge:hover {
+    position: fixed;
+    bottom: 0px;
     left: 0px;
-    /* display: none !important;
-    visibility: hidden !important; */
-    }
+}
 
 @media (min-width: 500px) {
     .right-btn-elem{
