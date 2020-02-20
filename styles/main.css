@@ -188,7 +188,7 @@ body {
 
 .warning {
     position: absolute;
-    top:-1rem;
+    bottom: 0px;
     color: red;
 }
 
