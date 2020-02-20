@@ -270,13 +270,13 @@ body {
 
 .grecaptcha-badge {
     position: fixed;
-    bottom: 12px;
+    bottom: 15px;
     left: -120px;
 }
 
 .grecaptcha-badge:hover {
     position: fixed;
-    bottom: 12px;
+    bottom: 15px;
     left: 0px;
 }
 
