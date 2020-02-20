@@ -271,11 +271,18 @@ body {
 .grecaptcha-badge {
     position: fixed;
     bottom: 20px;
-    left: -185px;
+    left: -187px;
     transition: 0.5s;
 }
 
 .grecaptcha-badge:hover {
+    position: fixed;
+    bottom: 20px;
+    left: 0px;
+    transition: 0.5s;
+}
+
+.grecaptcha-badge:active {
     position: fixed;
     bottom: 20px;
     left: 0px;
