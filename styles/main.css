@@ -275,14 +275,14 @@ body {
     transition: 0.5s;
 }
 
-.grecaptcha-badge:hover {
+/* .grecaptcha-badge:hover {
     position: fixed;
     bottom: 24px;
     left: 0px;
     transition: 0.5s;
-}
+} */
 
-.grecaptcha-badge:active {
+.grecaptcha-badge-open {
     position: fixed;
     bottom: 20px;
     left: 0px;

@@ -351,9 +351,18 @@ var App = (function (global) {
                         });
             
                 }
-                //sendMessage(message);
+                sendMessage(message);
 
                 
+            } else if(e.target.classList.contains('grecaptcha-badge')){
+                
+                if(e.target.classList.contains('grecaptcha-badge-open')){
+                    e.target.classList.remove('grecaptcha-badge-open');
+                } else {
+                    e.target.classList.add('grecaptcha-badge-open');
+
+                }
+
             }
 
         });
