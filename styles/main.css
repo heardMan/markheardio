@@ -264,10 +264,17 @@ body {
 
 }
 
-
 .home{
     max-width: 750px;
 }
+
+.grecaptcha-badge {
+    position: fixed;
+    bottom: 16px;
+    left: 0px;
+    /* display: none !important;
+    visibility: hidden !important; */
+    }
 
 @media (min-width: 500px) {
     .right-btn-elem{
