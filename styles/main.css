@@ -270,7 +270,7 @@ body {
 
 .grecaptcha-badge {
     position: fixed;
-    bottom: 20px;
+    bottom: 24px;
     left: -187px;
     transition: 0.5s;
 }
