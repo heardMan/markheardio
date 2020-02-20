@@ -188,11 +188,11 @@ body {
 
 .warning {
     position: absolute;
-    bottom: -1.5rem;
+    bottom: -1rem;
     color: red;
     font-size: small;
     font-weight: bold;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
 }
 
 .btn {
@@ -299,6 +299,9 @@ body {
     .left-btn-elem{
         margin-left: 0.5rem;
     }
+    .warning{
+        margin-left: 1.75rem;
+    }
 }
 
 @media (min-width: 760px) {
@@ -329,6 +332,9 @@ body {
     .left-btn-elem{
         margin-left: 1rem;
     }
+    .warning{
+        margin-left: 2rem;
+    }
     
   }
 
@@ -346,5 +352,8 @@ body {
     .left-btn-elem{
         margin-left: 1.5rem;
         
+    }
+    .warning{
+        margin-left: 2.5rem;
     }
   }
