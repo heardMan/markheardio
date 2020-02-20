@@ -351,8 +351,14 @@ var App = (function (global) {
                     'message': document.getElementById('message').value
                 }
                 
-                if()
-                sendMessage(message);
+                if(message.name.length > 0 &&
+                    message.email.length > 6 &&
+                    message.message.length > 0 &&
+                    message.message.length < 250){
+                    sendMessage(message);
+                }
+                
+                
 
                 
             }
