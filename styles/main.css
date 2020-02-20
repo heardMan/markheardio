@@ -285,7 +285,7 @@ body {
 }
 
 .red-outline {
-    border: red!important;
+    border: solid 1px red!important;
 }
 
 @media (min-width: 500px) {
