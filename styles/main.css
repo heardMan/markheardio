@@ -271,7 +271,8 @@ body {
 .grecaptcha-badge {
     position: fixed;
     bottom: 16px;
-    left: -180px;
+    left: -185px;
+    transition: 0.5s;
 }
 
 .grecaptcha-badge:hover {
