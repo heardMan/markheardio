@@ -366,7 +366,7 @@ var App = (function (global) {
                     name.classList.add("red-outline");
                     var nameWarning = doc.createElement('DIV');
                     nameWarning.classList.add('warning');
-                    nameWarning.textContent = 'Please enter your name'
+                    nameWarning.textContent = 'Please type your name'
                     name.parentElement.appendChild(nameWarning);
                 }
 
@@ -374,7 +374,7 @@ var App = (function (global) {
                     email.classList.add("red-outline");
                     var emailWarning = doc.createElement('DIV');
                     emailWarning.classList.add('warning');
-                    emailWarning.textContent = 'Please enter your email'
+                    emailWarning.textContent = 'Please type your email'
                     email.parentElement.appendChild(emailWarning);
                 }
 
@@ -388,10 +388,10 @@ var App = (function (global) {
 
                 if(message.message.length > 250){
                     message.classList.add("red-outline");
-                    var messageWarning1 = doc.createElement('DIV');
-                    messageWarning1.classList.add('warning');
-                    messageWarning1.textContent = 'Please type a short message'
-                    message.parentElement.appendChild(messageWarning1);
+                    var messageWarning2 = doc.createElement('DIV');
+                    messageWarning2.classList.add('warning');
+                    messageWarning2.textContent = 'Please type a short message'
+                    message.parentElement.appendChild(messageWarning2);
                 }
                 
                 
