@@ -365,20 +365,33 @@ var App = (function (global) {
                 if(message.name.length <= 0){
                     name.classList.add("red-outline");
                     var nameWarning = doc.createElement('DIV');
-                    nameWarning.textContent = 'Name not long enough'
+                    nameWarning.classList.add('warning');
+                    nameWarning.textContent = 'Please enter your name'
                     name.parentElement.appendChild(nameWarning);
                 }
 
                 if(message.email.length < 6){
                     email.classList.add("red-outline");
+                    var emailWarning = doc.createElement('DIV');
+                    emailWarning.classList.add('warning');
+                    emailWarning.textContent = 'Please enter your email'
+                    email.parentElement.appendChild(emailWarning);
                 }
 
                 if(message.message.length <= 0){
                     message.classList.add("red-outline");
+                    var messageWarning1 = doc.createElement('DIV');
+                    messageWarning1.classList.add('warning');
+                    messageWarning1.textContent = 'Please type a short message'
+                    message.parentElement.appendChild(messageWarning1);
                 }
 
                 if(message.message.length > 250){
                     message.classList.add("red-outline");
+                    var messageWarning1 = doc.createElement('DIV');
+                    messageWarning1.classList.add('warning');
+                    messageWarning1.textContent = 'Please type a short message'
+                    message.parentElement.appendChild(messageWarning1);
                 }
                 
                 

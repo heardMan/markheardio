@@ -13,7 +13,6 @@ body {
     top: 0px;
     right: 0px;
     width: 100%;
-    
     color: #ffffff;
     letter-spacing: 2px;
     background-color: #044F67;
@@ -64,7 +63,6 @@ body {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     transition: 0.5s;
     z-index: 888;
-    
 }
 
 .menu>div:first-child{
@@ -101,11 +99,8 @@ body {
 }
 
 .grad{
-    
-    
     background: rgb(4,79,103);
     background: linear-gradient(170deg, rgba(4,79,103,1) 26%, rgba(3,166,120,1) 100%);
-    
 }
 
 .about{
@@ -144,16 +139,15 @@ body {
 
 .form-title{
     text-align: center;
-    
 }
 
 
 .form-title > h3{
     line-height: 0.25;
-    
 }
 
 .form-group{
+    position: relative;
     text-align: center;
 }
 
@@ -163,9 +157,7 @@ body {
     margin-top: 1rem;
     margin-bottom: 1rem;
     display: block;
-    
     width: 90%;
-    
     border-radius: 5px;
 }
 
@@ -192,6 +184,11 @@ body {
     border: solid #bdc3c7 1px;
     background-color: #2e3131;
     color: #ffffff;
+}
+
+.warning {
+    position: absolute;
+    color: red;
 }
 
 .btn {
@@ -260,8 +257,6 @@ body {
     position: absolute;
     top:50%;
     right:-30px;
-    
-
 }
 
 .home{
@@ -289,8 +284,8 @@ body {
     transition: 0.5s;
 }
 
-.hidden {
-    display: none;
+.red-outline {
+    border: red!important;
 }
 
 @media (min-width: 500px) {
