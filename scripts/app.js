@@ -285,6 +285,8 @@ var App = (function (global) {
         // add menu toggle function
         doc.addEventListener('click', function (e) {
 
+            console.log(e.target)
+
 
             if (e.target.classList.contains('toggle')) {
                 toggleMenu();
@@ -355,7 +357,7 @@ var App = (function (global) {
 
                 
             } else if(e.target.classList.contains('grecaptcha-badge')){
-                console.log(e.target)
+                
                 if(e.target.classList.contains('grecaptcha-badge-open')){
                     e.target.classList.remove('grecaptcha-badge-open');
                 } else {
