@@ -313,11 +313,9 @@ var App = (function (global) {
             var email = document.getElementById('email');
             var message = document.getElementById('message');
 
-            
-            
-            
             function nameChange(e){
                 console.log(e);
+
                 if (name.value.length < 1) {
                     name.classList.add("red-outline");
                     var nameWarning = doc.createElement('DIV');
@@ -326,7 +324,9 @@ var App = (function (global) {
                     nameWarning.textContent = 'Please type your name'
                     name.parentElement.appendChild(nameWarning);
                 }
+
             }
+            name.onselect = nameChange;
             name.oninput = nameChange;
 
             function emailChange(e){
