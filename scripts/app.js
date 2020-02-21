@@ -328,8 +328,9 @@ var App = (function (global) {
                 if (name.value.length > 5) {
                     name.classList.remove("red-outline");
                     name.classList.add("green-outline");
-                    if(nameWarning){
-                        nameWarning.remove();
+                    
+                    if(doc.getElementById('nameWarning')){
+                        doc.getElementById('nameWarning').remove();
                     }
                 }
 
