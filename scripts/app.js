@@ -313,9 +313,7 @@ var App = (function (global) {
             var email = document.getElementById('email');
             var message = document.getElementById('message');
 
-            if (name.hasFocus()){
-                console.log('focusing');
-            }
+            
             
             
             function nameChange(e){
@@ -329,7 +327,7 @@ var App = (function (global) {
                 //     name.parentElement.appendChild(nameWarning);
                 // }
             }
-            //name.onchange = nameChange
+            name.oninput = nameChange
         }
         validateContactForm();
         
