@@ -312,6 +312,10 @@ var App = (function (global) {
             var name = document.getElementById('name');
             var email = document.getElementById('email');
             var message = document.getElementById('message');
+
+            if (name.hasFocus()){
+                console.log('focusing');
+            }
             
             
             function nameChange(e){
@@ -325,9 +329,10 @@ var App = (function (global) {
                 //     name.parentElement.appendChild(nameWarning);
                 // }
             }
-            name.onchange = nameChange
+            //name.onchange = nameChange
         }
         validateContactForm();
+        
 
         // add menu toggle function
         doc.addEventListener('click', function (e) {
