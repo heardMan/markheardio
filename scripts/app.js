@@ -312,22 +312,17 @@ var App = (function (global) {
             var name = document.getElementById('name');
             var email = document.getElementById('email');
             var message = document.getElementById('message');
-            Object.observe(name.length, function(changes){
-                console.log('NAME:');
-                console.log(name);
-                console.log('CHANGES');
-                console.log(changes);
-
-                if (name.value.length <= 0) {
-                    name.classList.add("red-outline");
-                    var nameWarning = doc.createElement('DIV');
-                    nameWarning.setAttribute('id','nameWarning');
-                    nameWarning.classList.add('warning');
-                    nameWarning.textContent = 'Please type your name'
-                    name.parentElement.appendChild(nameWarning);
-                }
-
-            })
+            name.onchange = function(e){
+                console.log(e);
+                // if (name.value.length <= 0) {
+                //     name.classList.add("red-outline");
+                //     var nameWarning = doc.createElement('DIV');
+                //     nameWarning.setAttribute('id','nameWarning');
+                //     nameWarning.classList.add('warning');
+                //     nameWarning.textContent = 'Please type your name'
+                //     name.parentElement.appendChild(nameWarning);
+                // }
+            }
         }
         validateContactForm();
 
