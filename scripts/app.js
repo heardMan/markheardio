@@ -342,7 +342,8 @@ var App = (function (global) {
             name.onchange = nameChange;
 
             function emailChange(e) {
-                if (email.length < 6) {
+                if (email.value.length < 6) {
+                    email.classList.remove("green-outline");
                     email.classList.add("red-outline");
 
                     if (!doc.getElementById('emailWarning')) {
@@ -352,14 +353,14 @@ var App = (function (global) {
                         emailWarning.textContent = 'Please type your email'
                         email.parentElement.appendChild(emailWarning);
                     }
+                }
 
-                    if (email.value.length >= 6) {
-                        email.classList.remove("red-outline");
-                        email.classList.add("green-outline");
-    
-                        if (doc.getElementById('emailWarning')) {
-                            doc.getElementById('emailWarning').remove();
-                        }
+                if (email.value.length >= 6) {
+                    email.classList.remove("red-outline");
+                    email.classList.add("green-outline");
+
+                    if (doc.getElementById('emailWarning')) {
+                        doc.getElementById('emailWarning').remove();
                     }
                 }
             }
@@ -369,7 +370,8 @@ var App = (function (global) {
             email.onchange = emailChange;
 
             function messageChange(e) {
-                if (message.length < 2) {
+                if (message.value.length < 2) {
+                    message.classList.remove("green-outline");
                     message.classList.add("red-outline");
                     if (!doc.getElementById('messageWarning')) {
                         var messageWarning1 = doc.createElement('DIV');
@@ -380,7 +382,8 @@ var App = (function (global) {
                     }
                 }
 
-                if (message.length > 250) {
+                if (message.value.length > 250) {
+                    message.classList.remove("green-outline");
                     message.classList.add("red-outline");
                     if (!doc.getElementById('messageWarning')) {
                         var messageWarning2 = doc.createElement('DIV');
@@ -390,6 +393,7 @@ var App = (function (global) {
                         message.parentElement.appendChild(messageWarning2);
                     }
                 }
+
                 if (message.value.length >= 2 && message.value.length <= 250) {
                     message.classList.remove("red-outline");
                     message.classList.add("green-outline");
@@ -399,7 +403,7 @@ var App = (function (global) {
                     }
                 }
             }
-            
+
             message.onselect = messageChange;
             message.oninput = messageChange;
             message.onchange = messageChange;
