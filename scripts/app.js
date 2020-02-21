@@ -364,7 +364,9 @@ var App = (function (global) {
                 }
             }
 
+            email.onselect = emailChange;
             email.oninput = emailChange;
+            email.onchange = emailChange;
 
             function messageChange(e) {
                 if (message.length < 2) {
@@ -397,7 +399,10 @@ var App = (function (global) {
                     }
                 }
             }
+            
+            message.onselect = messageChange;
             message.oninput = messageChange;
+            message.onchange = messageChange;
 
         }
         validateContactForm();
