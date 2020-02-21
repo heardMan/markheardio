@@ -330,7 +330,7 @@ var App = (function (global) {
             name.oninput = nameChange;
 
             function emailChange(e){
-                if (msg.email.length < 6) {
+                if (email.length < 6) {
                     email.classList.add("red-outline");
                     var emailWarning = doc.createElement('DIV');
                     emailWarning.setAttribute('id','nameWarning');
@@ -343,7 +343,7 @@ var App = (function (global) {
             email.oninput = emailChange;
 
             function messageChange(e){
-                if (msg.message.length <= 0) {
+                if (message.length <= 0) {
                     message.classList.add("red-outline");
                     var messageWarning1 = doc.createElement('DIV');
                     messageWarning1.setAttribute('id','nameWarning');
@@ -352,7 +352,7 @@ var App = (function (global) {
                     message.parentElement.appendChild(messageWarning1);
                 }
 
-                if (msg.message.length > 250) {
+                if (message.length > 250) {
                     message.classList.add("red-outline");
                     var messageWarning2 = doc.createElement('DIV');
                     messageWarning2.setAttribute('id','nameWarning');
