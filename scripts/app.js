@@ -313,7 +313,10 @@ var App = (function (global) {
             var email = document.getElementById('email');
             var message = document.getElementById('message');
             Object.observe(name, function(changes){
-                //console.log(changes);
+                console.log('NAME:');
+                console.log(name);
+                console.log('CHANGES');
+                console.log(changes);
 
                 if (name.value.length <= 0) {
                     name.classList.add("red-outline");
