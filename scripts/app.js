@@ -328,6 +328,7 @@ var App = (function (global) {
             }
             name.onselect = nameChange;
             name.oninput = nameChange;
+            name.onchange = nameChange;
 
             function emailChange(e){
                 if (email.length < 6) {
