@@ -318,7 +318,7 @@ var App = (function (global) {
             
             function nameChange(e){
                 console.log(e);
-                if (name.value.length <= 0) {
+                if (name.value.length <= 5) {
                     name.classList.add("red-outline");
                     var nameWarning = doc.createElement('DIV');
                     nameWarning.setAttribute('id','nameWarning');
