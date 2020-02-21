@@ -318,16 +318,51 @@ var App = (function (global) {
             
             function nameChange(e){
                 console.log(e);
-                // if (name.value.length <= 0) {
-                //     name.classList.add("red-outline");
-                //     var nameWarning = doc.createElement('DIV');
-                //     nameWarning.setAttribute('id','nameWarning');
-                //     nameWarning.classList.add('warning');
-                //     nameWarning.textContent = 'Please type your name'
-                //     name.parentElement.appendChild(nameWarning);
-                // }
+                if (name.value.length <= 0) {
+                    name.classList.add("red-outline");
+                    var nameWarning = doc.createElement('DIV');
+                    nameWarning.setAttribute('id','nameWarning');
+                    nameWarning.classList.add('warning');
+                    nameWarning.textContent = 'Please type your name'
+                    name.parentElement.appendChild(nameWarning);
+                }
             }
-            name.oninput = nameChange
+            name.oninput = nameChange;
+
+            function emailChange(e){
+                if (msg.email.length < 6) {
+                    email.classList.add("red-outline");
+                    var emailWarning = doc.createElement('DIV');
+                    emailWarning.setAttribute('id','nameWarning');
+                    emailWarning.classList.add('warning');
+                    emailWarning.textContent = 'Please type your email'
+                    email.parentElement.appendChild(emailWarning);
+                }
+            }
+
+            email.oninput = emailChange;
+
+            function messageChange(e){
+                if (msg.message.length <= 0) {
+                    message.classList.add("red-outline");
+                    var messageWarning1 = doc.createElement('DIV');
+                    messageWarning1.setAttribute('id','nameWarning');
+                    messageWarning1.classList.add('warning');
+                    messageWarning1.textContent = 'Please type a short message'
+                    message.parentElement.appendChild(messageWarning1);
+                }
+
+                if (msg.message.length > 250) {
+                    message.classList.add("red-outline");
+                    var messageWarning2 = doc.createElement('DIV');
+                    messageWarning2.setAttribute('id','nameWarning');
+                    messageWarning2.classList.add('warning');
+                    messageWarning2.textContent = 'Please type a short message'
+                    message.parentElement.appendChild(messageWarning2);
+                }
+            }
+            message.oninput = messageChange;
+
         }
         validateContactForm();
         
