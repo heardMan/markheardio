@@ -338,6 +338,7 @@ var App = (function (global) {
 
             if (e.target.classList.contains('toggle')) {
                 toggleMenu();
+                console.log('click');
             }
 
             else if (e.target.classList.contains('right-btn')) {
