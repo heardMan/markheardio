@@ -312,7 +312,7 @@ var App = (function (global) {
             var name = document.getElementById('name');
             var email = document.getElementById('email');
             var message = document.getElementById('message');
-            name.onchange = nameChange
+            
             
             function nameChange(e){
                 console.log(e);
@@ -325,6 +325,7 @@ var App = (function (global) {
                 //     name.parentElement.appendChild(nameWarning);
                 // }
             }
+            name.onchange = nameChange
         }
         validateContactForm();
 
