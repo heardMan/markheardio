@@ -319,11 +319,13 @@ var App = (function (global) {
                 if (name.value.length < 5) {
                     name.classList.remove("green-outline");
                     name.classList.add("red-outline");
+                    if(!doc.getElementById('nameWarning')){
                     var nameWarning = doc.createElement('DIV');
                     nameWarning.setAttribute('id','nameWarning');
                     nameWarning.classList.add('warning');
                     nameWarning.textContent = 'Please type your name'
                     name.parentElement.appendChild(nameWarning);
+                    }
                 }
                 if (name.value.length > 5) {
                     name.classList.remove("red-outline");
