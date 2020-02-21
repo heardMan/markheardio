@@ -292,6 +292,10 @@ body {
     border: solid 1px red!important;
 }
 
+.red-outline {
+    border: solid 1px green!important;
+}
+
 @media (min-width: 500px) {
     .right-btn-elem{
         margin-right: 0.5rem;
