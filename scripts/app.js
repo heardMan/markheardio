@@ -312,7 +312,7 @@ var App = (function (global) {
             var name = document.getElementById('name');
             var email = document.getElementById('email');
             var message = document.getElementById('message');
-            Object.observe(name, function(changes){
+            Object.observe(name.length, function(changes){
                 console.log('NAME:');
                 console.log(name);
                 console.log('CHANGES');
