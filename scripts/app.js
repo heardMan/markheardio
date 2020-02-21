@@ -258,7 +258,7 @@ var App = (function (global) {
     }
 
     function sendMessage(message) {
-        
+
         // Example POST method implementation:
         async function postData(url = '', data = {}) {
             // Default options are marked with *
@@ -285,7 +285,7 @@ var App = (function (global) {
 
     }
 
-    
+
 
 
 
@@ -354,49 +354,75 @@ var App = (function (global) {
                     'email': email.value,
                     'message': message.value
                 }
-                
-                if(msg.name.length > 0 &&
+
+                if (msg.name.length > 0 &&
                     msg.email.length > 6 &&
                     msg.message.length > 0 &&
-                    msg.message.length < 250){
+                    msg.message.length < 250) {
                     sendMessage(msg);
                 }
 
-                if(msg.name.length <= 0){
+                if (msg.name.length <= 0) {
                     name.classList.add("red-outline");
                     var nameWarning = doc.createElement('DIV');
+                    nameWarning.setAttribute('id','nameWarning');
                     nameWarning.classList.add('warning');
                     nameWarning.textContent = 'Please type your name'
                     name.parentElement.appendChild(nameWarning);
                 }
 
-                if(msg.email.length < 6){
+                if (msg.email.length < 6) {
                     email.classList.add("red-outline");
                     var emailWarning = doc.createElement('DIV');
+                    emailWarning.setAttribute('id','nameWarning');
                     emailWarning.classList.add('warning');
                     emailWarning.textContent = 'Please type your email'
                     email.parentElement.appendChild(emailWarning);
                 }
 
-                if(msg.message.length <= 0){
+                if (msg.message.length <= 0) {
                     message.classList.add("red-outline");
                     var messageWarning1 = doc.createElement('DIV');
+                    messageWarning1.setAttribute('id','nameWarning');
                     messageWarning1.classList.add('warning');
                     messageWarning1.textContent = 'Please type a short message'
                     message.parentElement.appendChild(messageWarning1);
                 }
 
-                if(msg.message.length > 250){
+                if (msg.message.length > 250) {
                     message.classList.add("red-outline");
                     var messageWarning2 = doc.createElement('DIV');
+                    messageWarning2.setAttribute('id','nameWarning');
                     messageWarning2.classList.add('warning');
                     messageWarning2.textContent = 'Please type a short message'
                     message.parentElement.appendChild(messageWarning2);
                 }
-                
-                
 
-                
+                function resetContactForm() {
+                    var name = document.getElementById('name');
+                    var email = document.getElementById('email');
+                    var message = document.getElementById('message');
+
+                    name.classList.remove("red-outline");
+                    email.classList.remove("red-outline");
+                    message.classList.remove("red-outline");
+
+                    if(nameWarning){
+                        nameWarning.remove()
+                    }
+                    if(emailWarning){
+                        emailWarning.remove()
+                    }
+                    if(messageWarning1){
+                        messageWarning1.remove()
+                    }
+                    if(messageWarning2){
+                        messageWarning2.remove()
+                    }
+
+                }
+
+
             }
 
         });
@@ -404,9 +430,9 @@ var App = (function (global) {
 
     }
 
-    
+
     main();
 
-    
+
 
 })(this);
