@@ -288,6 +288,113 @@ var App = (function (global) {
 
 
 
+    function validateContactForm() {
+        var name = document.getElementById('name');
+        var email = document.getElementById('email');
+        var message = document.getElementById('message');
+
+        function nameChange(e) {
+            console.log(e);
+
+            if (name.value.length < 2) {
+                name.classList.remove("green-outline");
+                name.classList.add("red-outline");
+                if (!doc.getElementById('nameWarning')) {
+                    var nameWarning = doc.createElement('DIV');
+                    nameWarning.setAttribute('id', 'nameWarning');
+                    nameWarning.classList.add('warning');
+                    nameWarning.textContent = 'Please type your name'
+                    name.parentElement.appendChild(nameWarning);
+                }
+            }
+
+            if (name.value.length >= 2) {
+                name.classList.remove("red-outline");
+                name.classList.add("green-outline");
+
+                if (doc.getElementById('nameWarning')) {
+                    doc.getElementById('nameWarning').remove();
+                }
+            }
+
+        }
+        name.onselect = nameChange;
+        name.oninput = nameChange;
+        name.onchange = nameChange;
+
+
+        function emailChange(e) {
+            if (email.value.length < 6) {
+                email.classList.remove("green-outline");
+                email.classList.add("red-outline");
+
+                if (!doc.getElementById('emailWarning')) {
+                    var emailWarning = doc.createElement('DIV');
+                    emailWarning.setAttribute('id', 'emailWarning');
+                    emailWarning.classList.add('warning');
+                    emailWarning.textContent = 'Please type your email'
+                    email.parentElement.appendChild(emailWarning);
+                }
+            }
+
+            if (email.value.length >= 6) {
+                email.classList.remove("red-outline");
+                email.classList.add("green-outline");
+
+                if (doc.getElementById('emailWarning')) {
+                    doc.getElementById('emailWarning').remove();
+                }
+            }
+        }
+
+        email.onselect = emailChange;
+        email.oninput = emailChange;
+        email.onchange = emailChange;
+
+        function messageChange(e) {
+            if (message.value.length < 2) {
+                message.classList.remove("green-outline");
+                message.classList.add("red-outline");
+                if (!doc.getElementById('messageWarning')) {
+                    var messageWarning1 = doc.createElement('DIV');
+                    messageWarning1.setAttribute('id', 'messageWarning');
+                    messageWarning1.classList.add('warning');
+                    messageWarning1.textContent = 'Please type a short message'
+                    message.parentElement.appendChild(messageWarning1);
+                }
+            }
+
+            if (message.value.length > 250) {
+                message.classList.remove("green-outline");
+                message.classList.add("red-outline");
+                if (!doc.getElementById('messageWarning')) {
+                    var messageWarning2 = doc.createElement('DIV');
+                    messageWarning2.setAttribute('id', 'messageWarning');
+                    messageWarning2.classList.add('warning');
+                    messageWarning2.textContent = 'Please type a short message'
+                    message.parentElement.appendChild(messageWarning2);
+                }
+            }
+
+            if (message.value.length >= 2 && message.value.length <= 250) {
+                message.classList.remove("red-outline");
+                message.classList.add("green-outline");
+
+                if (doc.getElementById('messageWarning')) {
+                    doc.getElementById('messageWarning').remove();
+                }
+            }
+        }
+
+        message.onselect = messageChange;
+        message.oninput = messageChange;
+        message.onchange = messageChange;
+
+    }
+
+    
+
+
 
     // render function
     // controls visual rendering of application
@@ -297,6 +404,9 @@ var App = (function (global) {
             carousel();
         } else if (win.location.pathname === '/portfolio') {
             gallery();
+        } else if (win.location.pathname === '/contact') {
+            validateContactForm();
+
         }
     }
 
@@ -308,108 +418,6 @@ var App = (function (global) {
 
         init();
 
-        function validateContactForm() {
-            var name = document.getElementById('name');
-            var email = document.getElementById('email');
-            var message = document.getElementById('message');
-
-            function nameChange(e) {
-                console.log(e);
-
-                if (name.value.length < 2) {
-                    name.classList.remove("green-outline");
-                    name.classList.add("red-outline");
-                    if (!doc.getElementById('nameWarning')) {
-                        var nameWarning = doc.createElement('DIV');
-                        nameWarning.setAttribute('id', 'nameWarning');
-                        nameWarning.classList.add('warning');
-                        nameWarning.textContent = 'Please type your name'
-                        name.parentElement.appendChild(nameWarning);
-                    }
-                }
-                if (name.value.length >= 2) {
-                    name.classList.remove("red-outline");
-                    name.classList.add("green-outline");
-
-                    if (doc.getElementById('nameWarning')) {
-                        doc.getElementById('nameWarning').remove();
-                    }
-                }
-
-            }
-            name.onselect = nameChange;
-            name.oninput = nameChange;
-            name.onchange = nameChange;
-
-            function emailChange(e) {
-                if (email.value.length < 6) {
-                    email.classList.remove("green-outline");
-                    email.classList.add("red-outline");
-
-                    if (!doc.getElementById('emailWarning')) {
-                        var emailWarning = doc.createElement('DIV');
-                        emailWarning.setAttribute('id', 'emailWarning');
-                        emailWarning.classList.add('warning');
-                        emailWarning.textContent = 'Please type your email'
-                        email.parentElement.appendChild(emailWarning);
-                    }
-                }
-
-                if (email.value.length >= 6) {
-                    email.classList.remove("red-outline");
-                    email.classList.add("green-outline");
-
-                    if (doc.getElementById('emailWarning')) {
-                        doc.getElementById('emailWarning').remove();
-                    }
-                }
-            }
-
-            email.onselect = emailChange;
-            email.oninput = emailChange;
-            email.onchange = emailChange;
-
-            function messageChange(e) {
-                if (message.value.length < 2) {
-                    message.classList.remove("green-outline");
-                    message.classList.add("red-outline");
-                    if (!doc.getElementById('messageWarning')) {
-                        var messageWarning1 = doc.createElement('DIV');
-                        messageWarning1.setAttribute('id', 'messageWarning');
-                        messageWarning1.classList.add('warning');
-                        messageWarning1.textContent = 'Please type a short message'
-                        message.parentElement.appendChild(messageWarning1);
-                    }
-                }
-
-                if (message.value.length > 250) {
-                    message.classList.remove("green-outline");
-                    message.classList.add("red-outline");
-                    if (!doc.getElementById('messageWarning')) {
-                        var messageWarning2 = doc.createElement('DIV');
-                        messageWarning2.setAttribute('id', 'messageWarning');
-                        messageWarning2.classList.add('warning');
-                        messageWarning2.textContent = 'Please type a short message'
-                        message.parentElement.appendChild(messageWarning2);
-                    }
-                }
-
-                if (message.value.length >= 2 && message.value.length <= 250) {
-                    message.classList.remove("red-outline");
-                    message.classList.add("green-outline");
-
-                    if (doc.getElementById('messageWarning')) {
-                        doc.getElementById('messageWarning').remove();
-                    }
-                }
-            }
-
-            message.onselect = messageChange;
-            message.oninput = messageChange;
-            message.onchange = messageChange;
-
-        }
-        validateContactForm();
 
 
         // add menu toggle function
