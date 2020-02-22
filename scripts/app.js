@@ -322,6 +322,17 @@ var App = (function (global) {
         name.oninput = nameChange;
         name.onchange = nameChange;
 
+        name.onblur = function resetNameInput(){
+            if (name.value.length >= 2) {
+                name.classList.remove("red-outline");
+                name.classList.add("green-outline");
+
+                if (doc.getElementById('nameWarning')) {
+                    doc.getElementById('nameWarning').remove();
+                }
+            }
+        }
+
 
         function emailChange(e) {
             if (email.value.length < 6) {
@@ -473,44 +484,10 @@ var App = (function (global) {
                     msg.message.length > 0 &&
                     msg.message.length < 250) {
                     sendMessage(msg);
+                    resetContactFormStyling();
                 }
 
-                // if (msg.name.length <= 0) {
-                //     name.classList.add("red-outline");
-                //     var nameWarning = doc.createElement('DIV');
-                //     nameWarning.setAttribute('id','nameWarning');
-                //     nameWarning.classList.add('warning');
-                //     nameWarning.textContent = 'Please type your name'
-                //     name.parentElement.appendChild(nameWarning);
-                // }
-
-                // if (msg.email.length < 6) {
-                //     email.classList.add("red-outline");
-                //     var emailWarning = doc.createElement('DIV');
-                //     emailWarning.setAttribute('id','nameWarning');
-                //     emailWarning.classList.add('warning');
-                //     emailWarning.textContent = 'Please type your email'
-                //     email.parentElement.appendChild(emailWarning);
-                // }
-
-                // if (msg.message.length <= 0) {
-                //     message.classList.add("red-outline");
-                //     var messageWarning1 = doc.createElement('DIV');
-                //     messageWarning1.setAttribute('id','nameWarning');
-                //     messageWarning1.classList.add('warning');
-                //     messageWarning1.textContent = 'Please type a short message'
-                //     message.parentElement.appendChild(messageWarning1);
-                // }
-
-                // if (msg.message.length > 250) {
-                //     message.classList.add("red-outline");
-                //     var messageWarning2 = doc.createElement('DIV');
-                //     messageWarning2.setAttribute('id','nameWarning');
-                //     messageWarning2.classList.add('warning');
-                //     messageWarning2.textContent = 'Please type a short message'
-                //     message.parentElement.appendChild(messageWarning2);
-                // }
-
+                
                 function resetContactFormStyling() {
 
                     var name = document.getElementById('name');
@@ -520,6 +497,10 @@ var App = (function (global) {
                     name.classList.remove("red-outline");
                     email.classList.remove("red-outline");
                     message.classList.remove("red-outline");
+
+                    name.classList.remove("green-outline");
+                    email.classList.remove("green-outline");
+                    message.classList.remove("green-outline");
 
                     if (nameWarning) {
                         nameWarning.remove()
