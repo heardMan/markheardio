@@ -322,8 +322,9 @@ var App = (function (global) {
         name.oninput = nameChange;
         name.onchange = nameChange;
 
-        name.onblur = function resetNameInput(){
-            if (name.value.length >= 2) {
+        function resetNameInput(e){
+            console.log(e);
+            if (name.value.length = 0) {
                 name.classList.remove("red-outline");
                 name.classList.add("green-outline");
 
@@ -332,6 +333,8 @@ var App = (function (global) {
                 }
             }
         }
+
+        name.onblur = resetNameInput;
 
 
         function emailChange(e) {
