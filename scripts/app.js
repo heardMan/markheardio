@@ -324,7 +324,7 @@ var App = (function (global) {
 
         function resetNameInput(e){
             console.log(e);
-            if (name.value.length = 0) {
+            if (name.value.length === 0) {
                 name.classList.remove("red-outline");
                 name.classList.add("green-outline");
 
