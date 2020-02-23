@@ -372,8 +372,8 @@ var App = (function (global) {
                 email.classList.remove("red-outline");
                 email.classList.remove("green-outline");
 
-                if (doc.getElementById('nameWarning')) {
-                    doc.getElementById('nameWarning').remove();
+                if (doc.getElementById('emailWarning')) {
+                    doc.getElementById('emailWarning').remove();
                 }
             }
         }
@@ -425,8 +425,8 @@ var App = (function (global) {
                 message.classList.remove("red-outline");
                 message.classList.remove("green-outline");
 
-                if (doc.getElementById('nameWarning')) {
-                    doc.getElementById('nameWarning').remove();
+                if (doc.getElementById('messageWarning')) {
+                    doc.getElementById('messageWarning').remove();
                 }
             }
         }
