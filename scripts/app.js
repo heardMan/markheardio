@@ -322,11 +322,11 @@ var App = (function (global) {
         name.oninput = nameChange;
         name.onchange = nameChange;
 
-        function resetNameInput(e){
+        function blurNameInput(e){
             console.log(e);
             if (name.value.length === 0) {
                 name.classList.remove("red-outline");
-                name.classList.add("green-outline");
+                name.classList.remove("green-outline");
 
                 if (doc.getElementById('nameWarning')) {
                     doc.getElementById('nameWarning').remove();
@@ -334,7 +334,7 @@ var App = (function (global) {
             }
         }
 
-        name.onblur = resetNameInput;
+        name.onblur = blurNameInput;
 
 
         function emailChange(e) {
@@ -359,11 +359,26 @@ var App = (function (global) {
                     doc.getElementById('emailWarning').remove();
                 }
             }
+            
         }
 
         email.onselect = emailChange;
         email.oninput = emailChange;
         email.onchange = emailChange;
+
+        function blurEmailInput(e){
+            console.log(e);
+            if (email.value.length === 0) {
+                email.classList.remove("red-outline");
+                email.classList.remove("green-outline");
+
+                if (doc.getElementById('nameWarning')) {
+                    doc.getElementById('nameWarning').remove();
+                }
+            }
+        }
+
+        email.onblur = blurEmailInput;
 
         function messageChange(e) {
             if (message.value.length < 2) {
@@ -403,6 +418,20 @@ var App = (function (global) {
         message.onselect = messageChange;
         message.oninput = messageChange;
         message.onchange = messageChange;
+
+        function blurMessageInput(e){
+            console.log(e);
+            if (message.value.length === 0) {
+                message.classList.remove("red-outline");
+                message.classList.remove("green-outline");
+
+                if (doc.getElementById('nameWarning')) {
+                    doc.getElementById('nameWarning').remove();
+                }
+            }
+        }
+
+        message.onblur = blurMessageInput;
 
     }
 
