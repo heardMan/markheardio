@@ -92,6 +92,7 @@
   <script>
     function onSubmit(token) {
       document.getElementById("demo-form").submit();
+      resetContactFormStyling();
       // Example POST method implementation:
       const url = 'https://www.google.com/recaptcha/api/siteverify';
       const data = {
@@ -117,8 +118,8 @@
       }
 
       postData(url, data)
-        .then((data) => {
-          console.log(data); // JSON data parsed by `response.json()` call
+        .then(() => {
+          //console.log(data); // JSON data parsed by `response.json()` call
           var name = document.getElementById('name');
                 var email = document.getElementById('email');
                 var message = document.getElementById('message');
@@ -133,8 +134,8 @@
                     msg.email.length > 6 &&
                     msg.message.length > 0 &&
                     msg.message.length < 250) {
-                    sendMessage(msg);
-                    resetContactFormStyling();
+                    //sendMessage(msg);
+                    
                 }
         });
     }
