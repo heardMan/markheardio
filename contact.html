@@ -9,40 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./styles/main.css">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script>
-    function onSubmit(token) {
-      document.getElementById("demo-form").submit();
-      // Example POST method implementation:
-      const url = 'https://www.google.com/recaptcha/api/siteverify';
-      const data = {
-        "secret":"6Lf1l9YUAAAAAF3F3RS2JbncOFxHAPMyH7HxWFwj",
-        "response": token
-      }
-      async function postData(url, data) {
-        // Default options are marked with *
-        const response = await fetch(url, {
-          method: 'POST', // *GET, POST, PUT, DELETE, etc.
-          mode: 'cors', // no-cors, *cors, same-origin
-          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-          credentials: 'same-origin', // include, *same-origin, omit
-          headers: {
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          redirect: 'follow', // manual, *follow, error
-          referrerPolicy: 'no-referrer', // no-referrer, *client
-          body: JSON.stringify(data) // body data type must match "Content-Type" header
-        });
-        return await response.json(); // parses JSON response into native JavaScript objects
-      }
-
-      postData(url, data)
-        .then((data) => {
-          console.log(data); // JSON data parsed by `response.json()` call
-        });
-    }
-  </script>
 </head>
 
 <body>
@@ -122,6 +88,57 @@
 
 
   <script src="./scripts/app.js" async></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+    function onSubmit(token) {
+      document.getElementById("demo-form").submit();
+      // Example POST method implementation:
+      const url = 'https://www.google.com/recaptcha/api/siteverify';
+      const data = {
+        "secret":"6Lf1l9YUAAAAAF3F3RS2JbncOFxHAPMyH7HxWFwj",
+        "response": token
+      }
+      async function postData(url, data) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+          method: 'POST', // *GET, POST, PUT, DELETE, etc.
+          mode: 'cors', // no-cors, *cors, same-origin
+          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+          credentials: 'same-origin', // include, *same-origin, omit
+          headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          redirect: 'follow', // manual, *follow, error
+          referrerPolicy: 'no-referrer', // no-referrer, *client
+          body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+        return await response.json(); // parses JSON response into native JavaScript objects
+      }
+
+      postData(url, data)
+        .then((data) => {
+          console.log(data); // JSON data parsed by `response.json()` call
+          var name = document.getElementById('name');
+                var email = document.getElementById('email');
+                var message = document.getElementById('message');
+
+                var msg = {
+                    'name': name.value,
+                    'email': email.value,
+                    'message': message.value
+                }
+
+                if (msg.name.length > 0 &&
+                    msg.email.length > 6 &&
+                    msg.message.length > 0 &&
+                    msg.message.length < 250) {
+                    //sendMessage(msg);
+                    //resetContactFormStyling();
+                }
+        });
+    }
+  </script>
 
   <!-- <script>
   if ('serviceWorker' in navigator) {

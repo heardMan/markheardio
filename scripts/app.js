@@ -435,6 +435,39 @@ var App = (function (global) {
 
     }
 
+
+    function resetContactFormStyling() {
+
+        var name = document.getElementById('name');
+        var email = document.getElementById('email');
+        var message = document.getElementById('message');
+
+        name.classList.remove("red-outline");
+        email.classList.remove("red-outline");
+        message.classList.remove("red-outline");
+
+        name.classList.remove("green-outline");
+        email.classList.remove("green-outline");
+        message.classList.remove("green-outline");
+
+        if (nameWarning) {
+            nameWarning.remove()
+        }
+
+        if (emailWarning) {
+            emailWarning.remove()
+        }
+
+        if (messageWarning1) {
+            messageWarning1.remove()
+        }
+
+        if (messageWarning2) {
+            messageWarning2.remove()
+        }
+
+    }
+
     
 
 
@@ -501,56 +534,26 @@ var App = (function (global) {
 
             } else if (e.target.id === 'sendMessage') {
 
-                var name = document.getElementById('name');
-                var email = document.getElementById('email');
-                var message = document.getElementById('message');
+                // var name = document.getElementById('name');
+                // var email = document.getElementById('email');
+                // var message = document.getElementById('message');
 
-                var msg = {
-                    'name': name.value,
-                    'email': email.value,
-                    'message': message.value
-                }
+                // var msg = {
+                //     'name': name.value,
+                //     'email': email.value,
+                //     'message': message.value
+                // }
 
-                if (msg.name.length > 0 &&
-                    msg.email.length > 6 &&
-                    msg.message.length > 0 &&
-                    msg.message.length < 250) {
-                    sendMessage(msg);
-                    resetContactFormStyling();
-                }
+                // if (msg.name.length > 0 &&
+                //     msg.email.length > 6 &&
+                //     msg.message.length > 0 &&
+                //     msg.message.length < 250) {
+                //     //sendMessage(msg);
+                //     //resetContactFormStyling();
+                // }
 
                 
-                function resetContactFormStyling() {
-
-                    var name = document.getElementById('name');
-                    var email = document.getElementById('email');
-                    var message = document.getElementById('message');
-
-                    name.classList.remove("red-outline");
-                    email.classList.remove("red-outline");
-                    message.classList.remove("red-outline");
-
-                    name.classList.remove("green-outline");
-                    email.classList.remove("green-outline");
-                    message.classList.remove("green-outline");
-
-                    if (nameWarning) {
-                        nameWarning.remove()
-                    }
-
-                    if (emailWarning) {
-                        emailWarning.remove()
-                    }
-
-                    if (messageWarning1) {
-                        messageWarning1.remove()
-                    }
-
-                    if (messageWarning2) {
-                        messageWarning2.remove()
-                    }
-
-                }
+                
 
 
             }
