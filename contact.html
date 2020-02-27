@@ -67,7 +67,7 @@
 
           <div class="form-group">
             <button id="sendMessage" class="g-recaptcha btn" data-sitekey="6Lf1l9YUAAAAAF3F3RS2JbncOFxHAPMyH7HxWFwj"
-              onclick='onSubmit' data-badge='inline'>
+              data-callback="onSubmit" data-badge="inline">
               Send
             </button>
           </div>
@@ -93,6 +93,8 @@
     function onSubmit(token) {
       //document.getElementById("demo-form").submit();
       //resetContactFormStyling();
+      var response = grecaptcha.getResponse();
+      console.log(response);
       console.log('token');
       // Example POST method implementation:
       // const url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -136,7 +138,7 @@
       //               msg.message.length > 0 &&
       //               msg.message.length < 250) {
       //               //sendMessage(msg);
-                    
+
       //           }
       //   });
     }
