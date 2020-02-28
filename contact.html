@@ -105,7 +105,7 @@
       xhttp.open("POST", "https://markheardio-contct-form-servce.herokuapp.com/verify", true);
       xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-          sendMessage()
+          sendMessage(message)
 
 
         }
