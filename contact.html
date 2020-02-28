@@ -92,10 +92,19 @@
   <script>
     function onSubmit(token) {
       //document.getElementById("demo-form").submit();
-      resetContactFormStyling();
       var response = grecaptcha.getResponse();
       console.log(response);
       console.log('token');
+
+      xhttp.onreadystatechange = function (response) {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(response)
+        }
+      };
+      xhttp.setRequestHeader('Content-type', 'application/json')
+      xhttp.open("POST", "https://markheardio-contct-form-servce.herokuapp.com/verify", true);
+      xhttp.send({"token":token});
+
       // Example POST method implementation:
       // const url = 'https://www.google.com/recaptcha/api/siteverify';
       // const data = {
