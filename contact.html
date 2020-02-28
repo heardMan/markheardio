@@ -96,9 +96,9 @@
       var response = grecaptcha.getResponse();
       console.log(response);
 
-      xhttp.onreadystatechange = function (response) {
+      xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          console.log(response)
+          console.log("status 200!")
         }
       };
       xhttp.setRequestHeader('Content-type', 'application/json')
