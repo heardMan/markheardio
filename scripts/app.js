@@ -534,29 +534,8 @@ var App = (function (global) {
 
             } else if (e.target.id === 'sendMessage') {
 
-                var response = grecaptcha.getResponse();
-                console.log(response);
-
-                // var name = document.getElementById('name');
-                // var email = document.getElementById('email');
-                // var message = document.getElementById('message');
-
-                // var msg = {
-                //     'name': name.value,
-                //     'email': email.value,
-                //     'message': message.value
-                // }
-
-                // if (msg.name.length > 0 &&
-                //     msg.email.length > 6 &&
-                //     msg.message.length > 0 &&
-                //     msg.message.length < 250) {
-                //     //sendMessage(msg);
-                //     //resetContactFormStyling();
-                // }
-
                 
-                
+                console.log('sending message');
 
 
             }
