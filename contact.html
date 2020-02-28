@@ -94,6 +94,7 @@
     function onSubmit(token) {
       
       var response = grecaptcha.getResponse();
+      console.log(token);
       console.log(response);
       var message = {
         "name":document.getElementById("name").value,
