@@ -534,6 +534,9 @@ var App = (function (global) {
 
             } else if (e.target.id === 'sendMessage') {
 
+                var response = grecaptcha.getResponse();
+                console.log(response);
+
                 // var name = document.getElementById('name');
                 // var email = document.getElementById('email');
                 // var message = document.getElementById('message');
