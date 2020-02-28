@@ -93,14 +93,12 @@
   <script>
     function onSubmit(token) {
       
-      var response = grecaptcha.getResponse();
-      console.log(token);
-      console.log(response);
       var message = {
         "name":document.getElementById("name").value,
         "email":document.getElementById("email").value,
         "message":document.getElementById("message").value
       }
+      
       var xhttp = new XMLHttpRequest();
 
       xhttp.open("POST", "https://markheardio-contct-form-servce.herokuapp.com/verify", true);
