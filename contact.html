@@ -128,7 +128,7 @@
       };
       xhttp.setRequestHeader('Content-type', 'application/json')
       
-      xhttp.send({"message":message});
+      xhttp.send(JSON.stringify({"message":message}));
 
     }
     
