@@ -119,7 +119,7 @@
         "message": document.getElementById("message").value
       }
 
-      postData('https://markheardio-contct-form-servce.herokuapp.com/verify', token)
+      postData('https://markheardio-contct-form-servce.herokuapp.com/verify', {"token":token})
         .then((data) => {
           console.log(data); // JSON data parsed by `response.json()` call
         });
