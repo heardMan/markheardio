@@ -119,9 +119,16 @@
         "message": document.getElementById("message").value
       }
 
-      postData('https://markheardio-contct-form-servce.herokuapp.com/verify', {"token":token})
+      postData('https://markheardio-contct-form-servce.herokuapp.com/verify', { "token": token })
         .then((data) => {
-          console.log(data); // JSON data parsed by `response.json()` call
+          console.log(data);
+          if (data.success === true) {
+            postData('https://markheardio-contct-form-servce.herokuapp.com/', message)
+              .then((data) => {
+                console.log(data); // JSON data parsed by `response.json()` call
+              });
+
+          } // JSON data parsed by `response.json()` call
         });
 
       //   var xhttp = new XMLHttpRequest();
@@ -141,7 +148,7 @@
 
     }
 
-    
+
 
     function sendMessage(message) {
 
