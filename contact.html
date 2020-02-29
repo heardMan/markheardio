@@ -104,8 +104,8 @@
       xhttp.open("POST", "https://markheardio-contct-form-servce.herokuapp.com/verify", true);
       xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-          //sendNewMessage(message);
-          console.log("success");
+          sendNewMessage(message);
+          
 
 
         }
@@ -117,19 +117,19 @@
     }
 
     function sendNewMessage(message){
-      var xhttp = new XMLHttpRequest();
+      var request = new XMLHttpRequest();
 
-      xhttp.open("POST", "https://markheardio-contct-form-servce.herokuapp.com/", true);
-      xhttp.onreadystatechange = function () {
+      request.open("POST", "https://markheardio-contct-form-servce.herokuapp.com/", true);
+      request.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
           console.log("status 200!");
 
 
         }
       };
-      xhttp.setRequestHeader('Content-type', 'application/json')
+      request.setRequestHeader('Content-Type', 'application/json')
       
-      xhttp.send(JSON.stringify({"message":message}));
+      request.send(JSON.stringify({"message":message}));
 
     }
     
