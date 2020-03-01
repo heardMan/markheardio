@@ -120,17 +120,9 @@
         "message": document.getElementById("message").value
       }
 
-      postData('https://markheardio-contct-form-servce.herokuapp.com/verify', message)
+      postData('https://markheardio-contct-form-servce.herokuapp.com/', message)
         .then((data) => {
           console.log(data);
-          // if (data.success === true) {
-          //   console.log('success');
-          //   postData('https://markheardio-contct-form-servce.herokuapp.com/', message)
-          //     .then((data) => {
-          //       console.log(data); 
-          //     });
-
-          // }
         });
 
     }
