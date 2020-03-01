@@ -114,22 +114,23 @@
     function onSubmit(token) {
 
       var message = {
+        "token":token,
         "name": document.getElementById("name").value,
         "email": document.getElementById("email").value,
         "message": document.getElementById("message").value
       }
 
-      postData('https://markheardio-contct-form-servce.herokuapp.com/verify', { "token": token })
+      postData('https://markheardio-contct-form-servce.herokuapp.com/verify', message)
         .then((data) => {
           console.log(data);
-          if (data.success === true) {
-            console.log('success');
-            // postData('https://markheardio-contct-form-servce.herokuapp.com/', message)
-            //   .then((data) => {
-            //     console.log(data); 
-            //   });
+          // if (data.success === true) {
+          //   console.log('success');
+          //   postData('https://markheardio-contct-form-servce.herokuapp.com/', message)
+          //     .then((data) => {
+          //       console.log(data); 
+          //     });
 
-          }
+          // }
         });
 
     }
