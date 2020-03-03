@@ -82,10 +82,19 @@
     <div class="modal-bg"></div>
     <div class="modal-dialogue"></div>
   </div>
-
-  <div class="loader">
-    <!-- Show a spinner or placeholders for content -->
+  <div id="loader" class="hidden">
+    <div class="loader-bg"></div>
+    <div class="loader-message">Sending</div>
+    <div class="loader-ring r-1"></div>
+    <div class="loader-ring r-2"></div>
+    <div class="loader-ring r-3"></div>
+    <div class="loader-ring r-4"></div>
+    <div class="loader-ring r-5"></div>
   </div>
+
+
+
+  
 
 
   <script src="./scripts/app.js" async></script>
@@ -120,9 +129,12 @@
         "message": document.getElementById("message").value
       }
 
+      document.getElementById("loader").classList.remove("hidden");
+
       postData('https://markheardio-contct-form-servce.herokuapp.com/', message)
         .then((data) => {
           console.log(data);
+          document.getElementById("loader").classList.add("hidden");
         });
 
     }
