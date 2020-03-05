@@ -123,6 +123,14 @@
 
     function clearModal(){
       document.getElementById("modal-dialogue").innerHTML = '';
+      document.getElementById("modal").classList.add("hidden")
+    }
+
+    function clearContactForm(){
+      document.getElementById("name").value="";
+      document.getElementById("email").value="";
+      document.getElementById("message").value="";
+
     }
 
     function onSubmit(token) {
@@ -179,7 +187,10 @@
           }
 
 
-          setTimeout(function(){ clearModal(); }, 5000);
+          setTimeout(function(){ 
+            clearModal();
+            clearContactForm();
+            }, 5000);
 
 
         });
