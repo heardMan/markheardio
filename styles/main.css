@@ -90,7 +90,7 @@ body {
 .card {
     margin-right: auto;
     margin-left:auto;
-    padding: 2rem;
+    padding: 3rem;
     padding-top: 1rem;
     color: white;
     border-radius: 5px;
@@ -227,8 +227,8 @@ body {
 
 .carousel-item{ 
     margin: 1rem;
-    width: 80%;
-    height: 100%;
+    max-width: 750px;
+    min-height: 200px;
     background-color: #2e3131;
     display: none;
 }
@@ -252,15 +252,15 @@ body {
 
 .left-btn-elem{
     position: absolute;
-    top:50%;
-    left:-30px;
+    top:45%;
+    left:-22%;
     
 }
 
 .right-btn-elem{
     position: absolute;
-    top:50%;
-    right:-30px;
+    top:45%;
+    right:-22%;
 }
 
 .home{
@@ -488,7 +488,6 @@ body {
 }
 
 .bottom {
-    
     position: absolute;
     top:50%; left: 50%;
     border-radius: 20px; 

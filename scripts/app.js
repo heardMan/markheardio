@@ -476,8 +476,10 @@ var App = (function (global) {
     // controls visual rendering of application
     function render() {
 
+        console.log(win.location.pathname);
         if (win.location.pathname === '/') {
             carousel();
+            
         } else if (win.location.pathname === '/portfolio') {
             gallery();
         } else if (win.location.pathname === '/contact') {
