@@ -78,10 +78,23 @@
     </div>
   </main>
 
-  <div class="modal">
+  <div id="modal" class="hidden">
     <div class="modal-bg"></div>
-    <div class="modal-dialogue"></div>
+    <div id="modal-dialogue">
+
+      <div class="msg-status-cont">
+        <div class="error-msg">Error</div>
+        <div class="error-detail">Your message could not be sent, please try again later.</div>
+        <div class="cross">
+          <div class="top"></div>
+          <div class="bottom"></div>
+        </div>
+      </div>
+      
+      
+    </div>
   </div>
+
   <div id="loader" class="hidden">
     <div class="loader-bg"></div>
     <div class="loader-message">Sending</div>
@@ -120,6 +133,10 @@
       return await response.json(); // parses JSON response into native JavaScript objects
     }
 
+    function clearModal(){
+      document.getElementById("modal-dialogue").innerHTML = '';
+    }
+
     function onSubmit(token) {
 
       var message = {
@@ -135,6 +152,48 @@
         .then((data) => {
           console.log(data);
           document.getElementById("loader").classList.add("hidden");
+          document.getElementById("modal").classList.remove("hidden");
+          var modalDialogue = document.getElementById("modal-dialogue");
+          var msgStatusContainer = document.createElement("DIV");
+          msgStatusContainer.classList.add("msg-status-cont");
+          if(data.success === true){
+            var successMessage = document.createElement("DIV");
+            successMessage.classList.add("success-message");
+            successMessage.textContent = "Message Sent"
+            var check = document.createElement("DIV");
+            check.classList.add("check");
+            var before = document.createElement("DIV");
+            before.classList.add("before");
+            var after = document.createElement("DIV");
+            after.classList.add("after");
+            check.append(before);
+            check.append(after);
+            modalDialogue.append(successMessage);
+            modalDialogue.append(check);
+          } else {
+            var errorMessage = document.createElement("DIV");
+            errorMessage.classList.add("error-message");
+            errorMessage.textContent = "Message Failed";
+            var errorDetail = document.createElement("DIV");
+            errorDetail.classList.add("error-detail");
+            errorDetail.textContent = "Your message could not be sent please try again later";
+            var cross = document.createElement("DIV");
+            check.classList.add("cross");
+            var top = document.createElement("DIV");
+            before.classList.add("top");
+            var bottom = document.createElement("DIV");
+            after.classList.add("bottom");
+            check.append(top);
+            check.append(bottom);
+            modalDialogue.append(errorMessage);
+            modalDialogue.append(errorDetail);
+            modalDialogue.append(cross);
+          }
+
+
+          setTimeout(function(){ clearModal(); }, 5000);
+
+
         });
 
     }
