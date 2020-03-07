@@ -90,7 +90,7 @@ body {
 .card {
     margin-right: auto;
     margin-left:auto;
-    padding: 3rem;
+    padding: 1rem;
     padding-top: 1rem;
     color: white;
     border-radius: 5px;
@@ -217,18 +217,22 @@ body {
 
 .carousel{
     position: relative;
+    /* height: 300px; */
+    padding: 2rem;
 }
 .carousel-content{
     position: relative;
-    width:100%;
+    margin-right: auto;
+    margin-left: auto;
+    width:80%;
     height: 100%;
 
 }
 
 .carousel-item{ 
     margin: 1rem;
-    max-width: 750px;
-    min-height: 200px;
+    width:80%;
+    
     background-color: #2e3131;
     display: none;
 }
@@ -236,7 +240,7 @@ body {
 .selected {
     margin-right:auto;
     margin-left:auto;
-    padding: 1rem;
+    
     position:relative;
     display: block;
 }
@@ -252,15 +256,15 @@ body {
 
 .left-btn-elem{
     position: absolute;
-    top:45%;
-    left:-22%;
+    top:150px;
+    left:-0%;
     
 }
 
 .right-btn-elem{
     position: absolute;
-    top:45%;
-    right:-22%;
+    top:150px;
+    right:-0%;
 }
 
 .home{
@@ -607,6 +611,12 @@ body {
     }
     .warning{
         margin-left: 2.5rem;
+    }
+    .right-btn-elem{
+        height:100px;
+    }
+    .left-btn-elem{
+        height:100px;
     }
     
   }
