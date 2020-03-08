@@ -90,7 +90,7 @@ var App = (function (global) {
                 'name': 'gifTastic',
                 'github': 'https://github.com/heardMan/gifTastic',
                 'demo': 'https://heardman.github.io/gifTastic/',
-                'description': 'This application allows users to search the giphy api and save their favorite gifs! Unfortunately, this application does not use sessions or accounts so make sure to copy your favorite gifs before leaving the page!'
+                'description': 'This application allows users to search the giphy api and save their favorite gifs! Make sure to copy your favorite gifs before leaving the page!'
             },
             {
                 'name': 'Perfect Match',
