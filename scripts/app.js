@@ -96,7 +96,7 @@ var App = (function (global) {
                 'name': 'Perfect Match',
                 'github': 'https://github.com/heardMan/friendFinder',
                 'demo': 'https://secure-anchorage-83716.herokuapp.com/',
-                'description': 'This application is a sample survey that matches users based on a proprietary formula that is ultimately based on the user\'s to the survey\'s question. '
+                'description': 'This application is a sample survey that matches users based on a proprietary algorithm that is ultimately based on the user\'s to the survey\'s question. '
             },
 
             // {
