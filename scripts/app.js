@@ -477,7 +477,7 @@ var App = (function (global) {
     function render() {
 
         console.log(win.location.pathname);
-        if (win.location.pathname === '/') {
+        if (win.location.pathname === '/index.html') {
             carousel();
             
         } else if (win.location.pathname === '/portfolio') {

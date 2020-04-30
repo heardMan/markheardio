@@ -504,6 +504,10 @@ body {
     z-index: 300;
 }
 
+.flex {
+    display: flex;
+}
+
 @keyframes grow1 {
     0%{
         width:0px;

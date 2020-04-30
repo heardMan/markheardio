@@ -1,0 +1,16 @@
+.donut-graph svg {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.donut-graph svg circle{
+    fill:none;
+    stroke-width: 40px;
+    stroke: #000;
+    stroke-dasharray: 503;
+    
+    stroke-dashoffset: calc(503 - (503*81) / 100);
+    stroke: green;
+    transition:0.5s;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./styles/main.css">
+    <link rel="stylesheet" type="text/css" href="./styles/data.css">
+    <title>Animations</title>
+</head>
+
+<body>
+    <header class="header">
+        <h1><img alt="logo for markheard.io" src="./assets/markheardio.svg" /></h1>
+    </header>
+
+    <nav class="nav">
+        <button class="fab toggle">
+            <img alt="menu icon" class="toggle" src="./assets/menu-24px-light.svg" />
+        </button>
+        <div class="menu">
+            <div class="menu-item">
+                <a href="./">Home</a>
+            </div>
+            <div class="menu-item">
+                <a href="./about">About</a>
+            </div>
+            <div class="menu-item">
+                <a class="menu-link" href="https://www.markheard.io/contact">Contact</a>
+            </div>
+            <div class="menu-item">
+                <a href="./portfolio">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+    <main class="main">
+        <div class="content flex">
+            <div class="card">
+
+                <div class="donut-graph">
+                    <svg>
+                        <circle id="donut1" cx="100" cy="100" r="80" transform="rotate(-90 100 100)"></circle>
+                    </svg>
+                </div>
+                <input id="donut1Percent" placeholder="Enter a # between 1 and 100" type="number" min="0" max="100">
+            </div>
+
+        </div>
+
+    </main>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            console.log('DOM fully loaded and parsed');
+            
+            function setPercent() {
+
+                var percent = document.getElementById("donut1Percent").value;
+                var graph = document.getElementById("donut1");
+                
+                graph.style.strokeDashoffset = (503 - (503 * percent) / 100);
+                console.log(percent);
+            }
+
+            document.getElementById("donut1Percent").onchange = setPercent;
+            
+        });
+
+    </script>
+    <script src="./scripts/app.js" async></script>
+
+</body>
+
+</html>
