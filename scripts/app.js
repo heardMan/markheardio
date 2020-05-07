@@ -222,6 +222,7 @@ var App = (function (global) {
 
     function carouselInit(data) {
         console.log('rendering carousel');
+        console.log(data);
         
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
 
