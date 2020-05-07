@@ -159,7 +159,7 @@ var App = (function (global) {
     // init function
     // controls setting up the application
     function init() {
-        //console.log('starting application');
+        console.log('starting application');
         renderPageContent();
     }
 
