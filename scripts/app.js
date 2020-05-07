@@ -136,7 +136,7 @@ var App = (function (global) {
                     // Typical action to be performed when the document is ready:
                     // document.getElementById("demo").innerHTML = xhttp.responseText;
                     var data = JSON.parse(xhttp.responseText);
-                    return galleryInit(data.carouselItems);
+                    return galleryInit(doc, data.carouselItems);
                 }
             };
             xhttp.open("GET", './data/carouselItems.json', true);
@@ -220,7 +220,7 @@ var App = (function (global) {
 
     }
 
-    function carouselInit(data) {
+    function carouselInit(doc,data) {
         console.log('rendering carousel');
         console.log(data);
         
