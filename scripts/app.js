@@ -152,15 +152,25 @@ var App = (function (global) {
                 'description': 'This is a person to person chat application. Create an account and start messaging with other users.'
             },
 
-
-
-        ]
+        ],
+        car2 = function () {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Typical action to be performed when the document is ready:
+                    document.getElementById("demo").innerHTML = xhttp.responseText;
+                }
+            };
+            xhttp.open("GET", './data/carouselItems.json', true);
+            xhttp.send();
+        }
 
     // init function
     // controls setting up the application
     function init() {
         console.log('starting application');
         renderPageContent();
+        console.log(car2());
     }
 
     function menuIcon() {
@@ -234,7 +244,7 @@ var App = (function (global) {
     function carousel() {
         console.log('rendering carousel');
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
-        console.log(carouselElem);
+
         if (carouselElem) {
             for (var i = 0; i < carouselItems.length; i++) {
                 var contentCard = doc.createElement('DIV');
@@ -323,7 +333,7 @@ var App = (function (global) {
         name.oninput = nameChange;
         name.onchange = nameChange;
 
-        function blurNameInput(e){
+        function blurNameInput(e) {
             console.log(e);
             if (name.value.length === 0) {
                 name.classList.remove("red-outline");
@@ -360,14 +370,14 @@ var App = (function (global) {
                     doc.getElementById('emailWarning').remove();
                 }
             }
-            
+
         }
 
         email.onselect = emailChange;
         email.oninput = emailChange;
         email.onchange = emailChange;
 
-        function blurEmailInput(e){
+        function blurEmailInput(e) {
             console.log(e);
             if (email.value.length === 0) {
                 email.classList.remove("red-outline");
@@ -420,7 +430,7 @@ var App = (function (global) {
         message.oninput = messageChange;
         message.onchange = messageChange;
 
-        function blurMessageInput(e){
+        function blurMessageInput(e) {
             console.log(e);
             if (message.value.length === 0) {
                 message.classList.remove("red-outline");
@@ -469,7 +479,7 @@ var App = (function (global) {
 
     }
 
-    
+
 
 
 
@@ -478,10 +488,10 @@ var App = (function (global) {
     function renderPageContent() {
 
         console.log(win.location.pathname);
-        if (win.location.pathname === '/' || 
-        win.location.pathname === '/Users/mark/Desktop/markheardio/index.html') {
+        if (win.location.pathname === '/' ||
+            win.location.pathname === '/Users/mark/Desktop/markheardio/index.html') {
             carousel();
-            
+
         } else if (win.location.pathname === '/portfolio') {
             gallery();
         } else if (win.location.pathname === '/contact') {
@@ -519,7 +529,7 @@ var App = (function (global) {
                 } else {
                     selectedCarousel = 0;
                 }
-                
+
                 //console.log(selectedCarousel)
 
 
@@ -540,7 +550,7 @@ var App = (function (global) {
             }
 
             if (e.target.id === 'sendMessage') {
- 
+
                 console.log('sending message');
 
             }
