@@ -159,7 +159,7 @@ var App = (function (global) {
                 if (this.readyState == 4 && this.status == 200) {
                     // Typical action to be performed when the document is ready:
                     // document.getElementById("demo").innerHTML = xhttp.responseText;
-                    var data = JSON.stringify(this.response.json);
+                    var data = this.response;
                     console.log(data)
                 }
             };
