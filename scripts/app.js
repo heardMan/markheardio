@@ -184,7 +184,7 @@ var App = (function (global) {
 
     }
 
-    function gallery(data) {
+    function galleryInit(doc, data) {
         console.log('rendering gallery');
         console.log(data);
         var galleryElem = doc.getElementById('gallery');
