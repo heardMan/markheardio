@@ -244,6 +244,41 @@ var App = (function (global) {
                 contentCard.appendChild(description);
                 carouselElem.appendChild(contentCard);
             }
+
+                    // create a click listener 
+        doc.addEventListener('click', function (e) {
+
+            if (e.target.classList.contains('right-btn')) {
+
+                var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+                carouselContent[selectedCarousel].classList.remove('selected');
+
+                if (selectedCarousel < carouselItems.length - 1) {
+                    selectedCarousel++;
+                } else {
+                    selectedCarousel = 0;
+                }
+
+                
+
+
+                carouselContent[selectedCarousel].classList.add('selected');
+            }
+
+            if (e.target.classList.contains('left-btn')) {
+
+                var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+                carouselContent[selectedCarousel].classList.remove('selected');
+                if (0 < selectedCarousel) {
+                    selectedCarousel--;
+                } else {
+                    selectedCarousel = carouselItems.length - 1;
+                }
+               
+                carouselContent[selectedCarousel].classList.add('selected');
+            }
+
+        });
         }
 
 
@@ -503,35 +538,35 @@ var App = (function (global) {
                 console.log('click');
             }
 
-            if (e.target.classList.contains('right-btn')) {
+            // if (e.target.classList.contains('right-btn')) {
 
-                var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-                carouselContent[selectedCarousel].classList.remove('selected');
+            //     var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+            //     carouselContent[selectedCarousel].classList.remove('selected');
 
-                if (selectedCarousel < carouselItems.length - 1) {
-                    selectedCarousel++;
-                } else {
-                    selectedCarousel = 0;
-                }
+            //     if (selectedCarousel < carouselItems.length - 1) {
+            //         selectedCarousel++;
+            //     } else {
+            //         selectedCarousel = 0;
+            //     }
 
-                //console.log(selectedCarousel)
+            //     //console.log(selectedCarousel)
 
 
-                carouselContent[selectedCarousel].classList.add('selected');
-            }
+            //     carouselContent[selectedCarousel].classList.add('selected');
+            // }
 
-            if (e.target.classList.contains('left-btn')) {
+            // if (e.target.classList.contains('left-btn')) {
 
-                var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-                carouselContent[selectedCarousel].classList.remove('selected');
-                if (0 < selectedCarousel) {
-                    selectedCarousel--;
-                } else {
-                    selectedCarousel = carouselItems.length - 1;
-                }
-                //console.log(selectedCarousel);
-                carouselContent[selectedCarousel].classList.add('selected');
-            }
+            //     var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+            //     carouselContent[selectedCarousel].classList.remove('selected');
+            //     if (0 < selectedCarousel) {
+            //         selectedCarousel--;
+            //     } else {
+            //         selectedCarousel = carouselItems.length - 1;
+            //     }
+            //     //console.log(selectedCarousel);
+            //     carouselContent[selectedCarousel].classList.add('selected');
+            // }
 
             if (e.target.id === 'sendMessage') {
 
