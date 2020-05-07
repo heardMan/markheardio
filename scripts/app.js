@@ -123,7 +123,7 @@ var App = (function (global) {
                     // Typical action to be performed when the document is ready:
                     // document.getElementById("demo").innerHTML = xhttp.responseText;
                     var data = JSON.parse(xhttp.responseText);
-                    return carouselInit(data.carouselItems);
+                    return carouselInit(doc, data.carouselItems);
                 }
             };
             xhttp.open("GET", './data/carouselItems.json', true);
