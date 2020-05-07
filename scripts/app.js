@@ -160,7 +160,7 @@ var App = (function (global) {
                     // Typical action to be performed when the document is ready:
                     // document.getElementById("demo").innerHTML = xhttp.responseText;
                     var data = JSON.parse(xhttp.responseText);
-                    return(data.carouselItems)
+                    return carousel(data.carouselItems);
                 }
             };
             xhttp.open("GET", './data/carouselItems.json', true);
@@ -243,8 +243,9 @@ var App = (function (global) {
 
     }
 
-    function carousel() {
+    function carousel(data) {
         console.log('rendering carousel');
+        console.log(data);
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
 
         if (carouselElem) {
@@ -492,7 +493,9 @@ var App = (function (global) {
         console.log(win.location.pathname);
         if (win.location.pathname === '/' ||
             win.location.pathname === '/Users/mark/Desktop/markheardio/index.html') {
-            carousel();
+                car2();
+
+            // carousel();
 
         } else if (win.location.pathname === '/portfolio') {
             gallery();
