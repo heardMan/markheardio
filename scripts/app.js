@@ -172,7 +172,7 @@ var App = (function (global) {
     function init() {
         console.log('starting application');
         renderPageContent();
-        console.log(car2());
+        
     }
 
     function menuIcon() {
@@ -500,6 +500,8 @@ var App = (function (global) {
             validateContactForm();
 
         }
+
+        console.log(car2());
     }
 
 
