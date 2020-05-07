@@ -160,7 +160,7 @@ var App = (function (global) {
                     // Typical action to be performed when the document is ready:
                     // document.getElementById("demo").innerHTML = xhttp.responseText;
                     var data = this.response.json;
-                    console.log(data.carouselItems)
+                    console.log(data.carouselItems[0])
                 }
             };
             xhttp.open("GET", './data/carouselItems.json', true);
