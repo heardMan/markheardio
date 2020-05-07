@@ -154,10 +154,7 @@ var App = (function (global) {
 
 
 
-        ],
-        car2 = function(){
-            var file;
-        }
+        ]
 
     // init function
     // controls setting up the application
