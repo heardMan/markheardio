@@ -478,7 +478,8 @@ var App = (function (global) {
     function renderPageContent() {
 
         console.log(win.location.pathname);
-        if (win.location.pathname === '/' || win.location.pathname === '/index') {
+        if (win.location.pathname === '/' || 
+        win.location.pathname === '/Users/mark/Desktop/markheardio/index.html') {
             carousel();
             
         } else if (win.location.pathname === '/portfolio') {
