@@ -504,9 +504,6 @@ var App = (function (global) {
 
         }
 
-        var moreI = car2();
-
-        console.log(moreI);
     }
 
 
