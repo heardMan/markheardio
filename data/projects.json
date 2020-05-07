@@ -46,7 +46,7 @@
             "name": "gifTastic",
             "github": "https: //github.com/heardMan/gifTastic",
             "demo": "https: //heardman.github.io/gifTastic/",
-            "description": "his application allows users to search the giphy api and save their favorite gifs! Make sure to copy your favorite gifs before leaving the page!"
+            "description": "This application allows users to search the giphy api and save their favorite gifs! Make sure to copy your favorite gifs before leaving the page!"
         },
         {
             "name": "Perfect Match",
@@ -58,19 +58,13 @@
             "name": "Feed Reader",
             "github": "https: //github.com/heardMan/udacity-feedReader",
             "demo": "https: //heardman.github.io/udacity-feedReader/",
-            "description": ""
+            "description": "Visual representation of and application running with Jasmine Test Framework"
         },
         {
             "name": "tap water search",
             "github": "https: //github.com/CFMark/scrap",
             "demo": "https: //nameless-wildwood-58120.herokuapp.com/",
-            "description": ""
-        },
-        {
-            "name": "bookSearch",
-            "github": "https: //github.com/heardMan/bookSearch",
-            "demo": "",
-            "description": ""
+            "description": "Currently under revision"
         },
         {
             "name": "Clicky Game",
@@ -94,7 +88,7 @@
             "name": "Eat da Burger",
             "github": "https: //github.com/heardMan/Burger",
             "demo": "https: //pacific-wave-57601.herokuapp.com/",
-            "description": ""
+            "description": "Dynamic todo list style application built on the handlebars templating engine"
         },
         {
             "name": "Fast Chat",
