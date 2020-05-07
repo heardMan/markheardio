@@ -153,14 +153,14 @@ var App = (function (global) {
             },
 
         ],
-        car2 = function () {
+        carousel = function () {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     // Typical action to be performed when the document is ready:
                     // document.getElementById("demo").innerHTML = xhttp.responseText;
                     var data = JSON.parse(xhttp.responseText);
-                    return carousel(data.carouselItems);
+                    return carouselInit(data.carouselItems);
                 }
             };
             xhttp.open("GET", './data/carouselItems.json', true);
@@ -243,13 +243,13 @@ var App = (function (global) {
 
     }
 
-    function carousel(data) {
+    function carouselInit(data) {
         console.log('rendering carousel');
         console.log(data);
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
 
         if (carouselElem) {
-            for (var i = 0; i < carouselItems.length; i++) {
+            for (var i = 0; i < data.length; i++) {
                 var contentCard = doc.createElement('DIV');
                 contentCard.setAttribute('key', i);
                 if (i === selectedCarousel) {
@@ -258,9 +258,9 @@ var App = (function (global) {
                     contentCard.setAttribute('class', 'carousel-item card');
                 }
                 var title = doc.createElement('H3');
-                title.textContent = carouselItems[i].title;
+                title.textContent = data[i].title;
                 var description = doc.createElement('P');
-                description.textContent = carouselItems[i].description;
+                description.textContent = data[i].description;
 
                 contentCard.appendChild(title);
                 contentCard.appendChild(description);
