@@ -470,9 +470,9 @@ var App = (function (global) {
         console.log(win.location.pathname);
         if (win.location.pathname === '/' ||
             win.location.pathname === '/Users/mark/Desktop/markheardio/index.html') {
-                car2();
+                // car2();
 
-            // carousel();
+            carousel();
 
         } else if (win.location.pathname === '/portfolio') {
             gallery();
