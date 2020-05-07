@@ -6,43 +6,6 @@ var App = (function (global) {
     var doc = global.document,
         win = global.window,
         selectedCarousel = 0,
-        carouselItems = [
-            {
-                'title': 'Consultations',
-                'link': 'https://github.com/heardMan/fitStat',
-                'linkTitle': 'link',
-                'description': 'Not sure where to start or what you need?\n Feel free to reach out to schedule a consultation!'
-
-            },
-            {
-                'title': 'Web Development',
-                'link': 'https://github.com/heardMan/fitStat',
-                'linkTitle': 'link',
-                'description': 'Need a website?\n From self-managed to fully-managed I can help find and/or build the solution that is right for you and your business.'
-
-            },
-            {
-                'title': 'Software Development',
-                'link': 'https://github.com/heardMan/fitStat',
-                'linkTitle': 'link',
-                'description': 'Need an application?\n I specialize in develeoping and maintaining modern scalable web applications and would love to help get your next application up an running!'
-
-            },
-            {
-                'title': 'Web Hosting Solutions',
-                'link': 'https://github.com/heardMan/fitStat',
-                'linkTitle': 'link',
-                'description': 'Need help hosting your website?\n I am experienced and familiar in hosting a variety of websites and would love to help find the best fitting solution.'
-
-            },
-            {
-                'title': 'Data Analytics',
-                'link': 'https://github.com/heardMan/fitStat',
-                'linkTitle': 'link',
-                'description': 'Got Business Data that you need help organizing?\n Business Analytics is what sparked my interest in software development! I enjoy helping business owners find new and exciting opportunities within their own business data.'
-
-            }
-        ],
         projects = [
             {
                 'name': 'Restaurant Reviews',
@@ -165,6 +128,19 @@ var App = (function (global) {
             };
             xhttp.open("GET", './data/carouselItems.json', true);
             xhttp.send();
+        },
+        gallery = function () {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Typical action to be performed when the document is ready:
+                    // document.getElementById("demo").innerHTML = xhttp.responseText;
+                    var data = JSON.parse(xhttp.responseText);
+                    return galleryInit(data.carouselItems);
+                }
+            };
+            xhttp.open("GET", './data/carouselItems.json', true);
+            xhttp.send();
         }
 
     // init function
@@ -208,12 +184,13 @@ var App = (function (global) {
 
     }
 
-    function gallery() {
+    function gallery(data) {
         console.log('rendering gallery');
+        console.log(data);
         var galleryElem = doc.getElementById('gallery');
         if (galleryElem) {
-            for (var i = 0; i < projects.length; i++) {
-                var currentProj = projects[i];
+            for (var i = 0; i < data.length; i++) {
+                var currentProj = data[i];
                 var projectCard = doc.createElement('DIV');
                 projectCard.setAttribute('class', 'project card');
                 var title = doc.createElement('DIV');
@@ -245,7 +222,7 @@ var App = (function (global) {
 
     function carouselInit(data) {
         console.log('rendering carousel');
-        console.log(data);
+        
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
 
         if (carouselElem) {
