@@ -9,7 +9,6 @@
     stroke-width: 40px;
     stroke: #000;
     stroke-dasharray: 503;
-    
     stroke-dashoffset: calc(503 - (503*81) / 100);
     stroke: green;
     transition:0.5s;

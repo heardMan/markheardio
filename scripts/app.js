@@ -154,13 +154,16 @@ var App = (function (global) {
 
 
 
-        ]
+        ],
+        car2 = function(){
+            var file;
+        }
 
     // init function
     // controls setting up the application
     function init() {
         //console.log('starting application');
-        render();
+        renderPageContent();
     }
 
     function menuIcon() {
@@ -474,7 +477,7 @@ var App = (function (global) {
 
     // render function
     // controls visual rendering of application
-    function render() {
+    function renderPageContent() {
 
         console.log(win.location.pathname);
         if (win.location.pathname === '/index.html') {
@@ -498,7 +501,7 @@ var App = (function (global) {
 
 
 
-        // add menu toggle function
+        // create a click listener 
         doc.addEventListener('click', function (e) {
 
 
@@ -507,7 +510,7 @@ var App = (function (global) {
                 console.log('click');
             }
 
-            else if (e.target.classList.contains('right-btn')) {
+            if (e.target.classList.contains('right-btn')) {
 
                 var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
                 carouselContent[selectedCarousel].classList.remove('selected');
@@ -517,12 +520,14 @@ var App = (function (global) {
                 } else {
                     selectedCarousel = 0;
                 }
+                
                 //console.log(selectedCarousel)
 
 
                 carouselContent[selectedCarousel].classList.add('selected');
+            }
 
-            } else if (e.target.classList.contains('left-btn')) {
+            if (e.target.classList.contains('left-btn')) {
 
                 var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
                 carouselContent[selectedCarousel].classList.remove('selected');
@@ -533,12 +538,11 @@ var App = (function (global) {
                 }
                 //console.log(selectedCarousel);
                 carouselContent[selectedCarousel].classList.add('selected');
+            }
 
-            } else if (e.target.id === 'sendMessage') {
-
-                
+            if (e.target.id === 'sendMessage') {
+ 
                 console.log('sending message');
-
 
             }
 
