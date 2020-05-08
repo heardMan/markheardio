@@ -27,7 +27,7 @@ var App = (function (global) {
                     // document.getElementById("demo").innerHTML = xhttp.responseText;
                     var data = JSON.parse(xhttp.responseText);
                     console.log(data);
-                    return galleryInit(doc, data.carouselItems);
+                    return galleryInit(doc, data.projects);
                 }
             };
             xhttp.open("GET", './data/projects.json', true);
