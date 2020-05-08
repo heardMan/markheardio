@@ -26,6 +26,7 @@ var App = (function (global) {
                     // Typical action to be performed when the document is ready:
                     // document.getElementById("demo").innerHTML = xhttp.responseText;
                     var data = JSON.parse(xhttp.responseText);
+                    console.log(data);
                     return galleryInit(doc, data.carouselItems);
                 }
             };
