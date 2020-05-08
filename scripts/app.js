@@ -29,7 +29,7 @@ var App = (function (global) {
                     return galleryInit(doc, data.carouselItems);
                 }
             };
-            xhttp.open("GET", './data/carouselItems.json', true);
+            xhttp.open("GET", './data/projects.json', true);
             xhttp.send();
         }
 
