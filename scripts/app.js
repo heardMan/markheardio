@@ -13,11 +13,51 @@ var App = (function (global) {
                     // Typical action to be performed when the document is ready:
                     // document.getElementById("demo").innerHTML = xhttp.responseText;
                     var data = JSON.parse(xhttp.responseText);
+                    
                     return carouselInit(doc, data.carouselItems);
                 }
             };
             xhttp.open("GET", './data/carouselItems.json', true);
             xhttp.send();
+        },
+        carousel2 = function () {
+            var data2 = {
+                "carouselItems": [
+                    {
+                    "title": "Consultations",
+                    "link": "https: //github.com/heardMan/fitStat",
+                    "linkTitle": "link",
+                    "description": "Not sure where to start or what you need?\n Feel free to reach out to schedule a consultation!"
+                    },
+                    {
+                    "title": "Web Development",
+                    "link": "https: //github.com/heardMan/fitStat",
+                    "linkTitle": "link",
+                    "description": "Need a website?\n From self-managed to fully-managed I can help find and/or build the solution that is right for you and your business."
+                    },
+                    {
+                    "title": "Software Development",
+                    "link": "https: //github.com/heardMan/fitStat",
+                    "linkTitle": "link",
+                    "description": "Need an application?\n I specialize in develeoping and maintaining modern scalable web applications and would love to help get your next application up an running!"
+                    },
+                    {
+                    "title": "Web Hosting Solutions",
+                    "link": "https: //github.com/heardMan/fitStat",
+                    "linkTitle": "link",
+                    "description": "Need help hosting your website?\n I am experienced and familiar in hosting a variety of websites and would love to help find the best fitting solution."
+                    },
+                    {
+                    "title": "Data Analytics",
+                    "link": "https: //github.com/heardMan/fitStat",
+                    "linkTitle": "link",
+                    "description": "Got Business Data that you need help organizing?\n Business Analytics is what sparked my interest in software development! I enjoy helping business owners find new and exciting opportunities within their own business data."
+                    }
+                ]
+            }
+
+            return carouselInit(doc, data2.carouselItems);
+            
         },
         gallery = function () {
             var xhttp = new XMLHttpRequest();
@@ -395,11 +435,13 @@ var App = (function (global) {
     function renderPageContent() {
 
         console.log(win.location.pathname);
-        if (win.location.pathname === '/' ||
-            win.location.pathname === '/Users/mark/Desktop/markheardio/index.html') {
+        if (win.location.pathname === '/') {
                 // car2();
 
             carousel();
+
+        } else if (win.location.pathname === '/Users/mark/Desktop/markheardio/index.html') {
+            carousel2()
 
         } else if (win.location.pathname === '/portfolio') {
             gallery();
