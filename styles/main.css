@@ -136,6 +136,7 @@ body {
 
 .about{
     width:75%;
+    height: 2500px;
 }
 #gallery{
     
@@ -548,16 +549,7 @@ body {
     display: flex;
 }
 
-.svg {
-    display: fixed;
-    animation: rotate 1s linear infinite;
-  }
-  
-  @keyframes rotate {
-   100% {
-      transform: rotate(360deg);
-    }
-  }
+
 
 @keyframes grow1 {
     0%{
