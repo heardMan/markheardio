@@ -1,6 +1,12 @@
 {
     "projects": [
         {
+            "name": "React Date Selector",
+            "github": "https://github.com/heardMan/restaurantReviews",
+            "demo": "https://heardman.github.io/restaurantReviews/",
+            "description": "A better date selection experience from the ground up-- custom input and date logic."
+        },
+        {
             "name": "Restaurant Reviews",
             "github": "https://github.com/heardMan/restaurantReviews",
             "demo": "https://heardman.github.io/restaurantReviews/",
