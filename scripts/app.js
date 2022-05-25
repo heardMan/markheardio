@@ -482,7 +482,7 @@ var App = (function (global) {
         } else if (win.location.pathname === '/contact') {
             validateContactForm();
 
-        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/about.html') {
+        } else if (win.location.pathname === '/about') {
             scrollInit();
             console.log('working')
 
