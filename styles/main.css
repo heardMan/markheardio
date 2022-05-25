@@ -137,7 +137,10 @@ body {
 .about{
     width:75%;
     height: 2500px;
+    color: #dadfe1;
+    padding: 1rem;
 }
+
 #gallery{
     
     display: flex;
@@ -549,7 +552,100 @@ body {
     display: flex;
 }
 
+.img1 {
+    position: absolute;
+    width:25%;
+}
 
+.space1 {
+    height: 1px;
+}
+
+.anim-1 {
+    margin-top: 10vh;
+    margin-bottom: 50vh;
+}
+
+.anim-2 {
+    margin-top: 50vh;
+    margin-bottom: 50vh;}
+
+.anim-3 {
+    margin-top: 50vh;
+    margin-bottom: 50vh;}
+
+.anim-4 {
+    margin-top: 50vh;
+    margin-bottom: 50vh;}
+
+.vidText {
+    position:absolute;
+    top:30px;
+    left:0px;
+    z-index:999;
+}
+
+.vidText > img {
+    width: 255px;
+    
+}
+
+.vidBG > video{
+    position:relative;
+    top:0px;
+    left:2px;
+    width: 250px;
+    height: 250px;
+    z-index:0;
+}
+
+@keyframes anim1 {
+    from {
+        transform: translateX(-100px);
+        opacity:0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity:100;
+    }
+    
+}
+
+@keyframes anim2 {
+    from {
+        transform: translateX(100px);
+        opacity:0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity:100;
+    }
+    
+}
+
+@keyframes anim3 {
+    from {
+        transform: translateX(-100px);
+        opacity:0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity:100;
+    }
+    
+}
+
+@keyframes anim4 {
+    from {
+        transform: translateX(100px);
+        opacity:0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity:100;
+    }
+    
+}
 
 @keyframes grow1 {
     0%{

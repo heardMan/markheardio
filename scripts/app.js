@@ -430,9 +430,33 @@ var App = (function (global) {
 
     function scrollInit() {
 
-        window.addEventListener('scroll', function () {
-            document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
-          }, false);
+        var text1 = document.querySelector('.anim-1');
+        var text2 = document.querySelector('.anim-2');
+        var text3 = document.querySelector('.anim-3');
+        var text4 = document.querySelector('.anim-4');
+        //var text5 = document.querySelector('.anim-5');
+
+        var observe = function (entries,animation){
+
+            var observer = new IntersectionObserver((entries)=>{
+                console.log(entries)
+                if(entries[0].intersectionRatio>0){
+                    entries[0].target.style.animation = animation;
+                }
+                else {
+                    entries[0].target.style.animation = 'none';
+                }
+            });
+
+            return observer.observe(entries)
+
+        }
+
+        observe(text1, 'anim1 2s forwards ease-out');
+        observe(text2, 'anim2 2s forwards ease-out');
+        observe(text3, 'anim3 2s forwards ease-out');
+        observe(text4, 'anim4 2s forwards ease-out');
+        //observe(text5, 'anim4 2s forwards ease-out');
 
     }
 
@@ -460,6 +484,7 @@ var App = (function (global) {
 
         } else if (win.location.pathname === '/about') {
             scrollInit();
+            console.log('working')
 
         }
 
