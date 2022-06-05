@@ -452,10 +452,10 @@ var App = (function (global) {
 
         }
 
-        observe(text1, 'anim1 2s forwards ease-out');
-        observe(text2, 'anim2 2s forwards ease-out');
-        observe(text3, 'anim3 2s forwards ease-out');
-        observe(text4, 'anim4 2s forwards ease-out');
+        observe(text1, 'fadeInFromLeft 2s forwards ease-out');
+        observe(text2, 'fadeInFromRight 2s forwards ease-out');
+        observe(text3, 'fadeInFromLeft 2s forwards ease-out');
+        observe(text4, 'fadeInFromRight 2s forwards ease-out');
         //observe(text5, 'anim4 2s forwards ease-out');
 
     }
@@ -474,15 +474,15 @@ var App = (function (global) {
 
             carousel();
 
-        } else if (win.location.pathname === '/Users/mark/Desktop/markheardio/index.html') {
-            carousel2()
+        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/index.html') {
+            //carousel2()
 
         } else if (win.location.pathname === '/portfolio') {
             gallery();
         } else if (win.location.pathname === '/contact') {
             validateContactForm();
 
-        } else if (win.location.pathname === '/about') {
+        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/about.html') {
             scrollInit();
             console.log('working')
 

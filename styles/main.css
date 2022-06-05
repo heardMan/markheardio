@@ -1,10 +1,14 @@
 
+/* Sk */
+
 html, body {
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
     background-color: #2e3131;
     overflow: auto;
+    margin: 0px;
 }
+
 
 
 .header {
@@ -19,13 +23,19 @@ html, body {
     box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.5);
     z-index: 898;
     transform: scale(1.02);
+    border: none;
+    animation: headerCover 2s, headerShrink 2s ease 2s 1 normal none;
 }
-
+.textlogo {
+    z-index: 999;
+    animation: zoomOutAnfFadeIn 4s ease 0s 1 normal none;
+}
 .main {
     margin-top: 8rem;
     margin-bottom: 84px;
     z-index: 100;
     position: relative;
+    color: #BDC3C7;
 }
 
 #myVideo {
@@ -69,6 +79,7 @@ html, body {
     background-color: #044F67;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
     z-index: 899;
+    animation: fadeIn 4s ease 0s 1 normal none;
 }
 
 .fab:hover {
@@ -601,7 +612,34 @@ html, body {
     z-index:0;
 }
 
-@keyframes anim1 {
+@keyframes zoomOutAnfFadeIn {
+    
+    0% {
+        transform: scale(12);
+        margin-top: 45vh;
+        
+    }
+    50% {
+        transform: scale(1.02);
+        margin-top: 45vh;
+    }
+    100% {
+        opacity:100;
+        
+    }
+}
+
+@keyframes headerCover {
+    from {padding-bottom: 100vh;}
+    to {padding-bottom: 100vh;}
+}
+
+@keyframes headerShrink {
+    from {padding-bottom: 100vh;}
+    to {height: normal;}
+}
+
+@keyframes fadeInFromLeft {
     from {
         transform: translateX(-100px);
         opacity:0;
@@ -610,10 +648,9 @@ html, body {
         transform: translateX(0px);
         opacity:100;
     }
-    
 }
 
-@keyframes anim2 {
+@keyframes fadeInFromRight {
     from {
         transform: translateX(100px);
         opacity:0;
@@ -625,27 +662,10 @@ html, body {
     
 }
 
-@keyframes anim3 {
-    from {
-        transform: translateX(-100px);
-        opacity:0;
-    }
-    to {
-        transform: translateX(0px);
-        opacity:100;
-    }
-    
-}
-
-@keyframes anim4 {
-    from {
-        transform: translateX(100px);
-        opacity:0;
-    }
-    to {
-        transform: translateX(0px);
-        opacity:100;
-    }
+@keyframes fadeIn {
+    0% {opacity: 0%;}
+    75% {opacity: 0%;}
+    100% {opacity: 100%;}
     
 }
 
