@@ -472,7 +472,7 @@ var App = (function (global) {
         if (win.location.pathname === '/') {
                 // car2();
 
-            carousel();
+            //carousel();
 
         } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/index.html') {
             //carousel2()
@@ -482,7 +482,7 @@ var App = (function (global) {
         } else if (win.location.pathname === '/contact') {
             validateContactForm();
 
-        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/about.html') {
+        } else if (win.location.pathname === '/about') {
             scrollInit();
             console.log('working')
 
