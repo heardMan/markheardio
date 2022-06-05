@@ -24,12 +24,17 @@ html, body {
     z-index: 898;
     transform: scale(1.02);
     border: none;
+    
+}
+.welcome-header {
     animation: headerCover 2s, headerShrink 2s ease 2s 1 normal none;
 }
+
 .textlogo {
     z-index: 999;
     animation: zoomOutAnfFadeIn 4s ease 0s 1 normal none;
 }
+
 .main {
     margin-top: 8rem;
     margin-bottom: 84px;
@@ -79,6 +84,10 @@ html, body {
     background-color: #044F67;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
     z-index: 899;
+    
+}
+
+.welcome-fab {
     animation: fadeIn 4s ease 0s 1 normal none;
 }
 
