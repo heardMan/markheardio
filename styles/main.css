@@ -828,12 +828,12 @@ html, body {
         
     }
     .menu {
-        top:7vh !important;
+        top:0.5rem !important;
     }
 
     .menu>:nth-child(1) {
         position: absolute;
-        top:35px;
+        top:75px;
         left:-49px;
         transition: 0.5s;
         transition-delay: 0s;
@@ -842,7 +842,7 @@ html, body {
     
     .menu>:nth-child(2) {
         position: absolute;
-        top:130px;
+        top:165px;
         left:-49px;
         transition: 0.5s;
         transition-delay: 0.5s;
@@ -850,7 +850,7 @@ html, body {
     
     .menu>:nth-child(3) {
         position: absolute;
-        top:220px;
+        top:260px;
         left:-49px;
         transition: 0.5s;
         transition-delay: 1s;
@@ -858,7 +858,7 @@ html, body {
 
     .closed {
         position: absolute;
-        top:-64px !important;
+        top:-17px !important;
         left:-49px !important;
         
     }
