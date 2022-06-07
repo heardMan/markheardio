@@ -137,25 +137,6 @@ html, body {
     
 }
 
-
-/* .menu>:nth-child(1) {
-    position: absolute;
-    bottom:-50px;
-    right:-50px;
-}
-
-.menu>:nth-child(2) {
-    position: absolute;
-    bottom:-50px;
-    right:-50px;
-}
-
-.menu>:nth-child(3) {
-    position: absolute;
-    bottom:-50px;
-    right:-50px;
-} */
-
 .menu>:nth-child(1) {
     position: absolute;
     bottom:-50px;
@@ -831,6 +812,10 @@ html, body {
         top:0.5rem !important;
     }
 
+    /* .menu-item {
+        transform: scale(1.2);
+    } */
+
     .menu>:nth-child(1) {
         position: absolute;
         top:75px;
@@ -842,7 +827,7 @@ html, body {
     
     .menu>:nth-child(2) {
         position: absolute;
-        top:165px;
+        top:163px;
         left:-49px;
         transition: 0.5s;
         transition-delay: 0.5s;
@@ -850,7 +835,7 @@ html, body {
     
     .menu>:nth-child(3) {
         position: absolute;
-        top:260px;
+        top:250px;
         left:-49px;
         transition: 0.5s;
         transition-delay: 1s;
@@ -860,19 +845,19 @@ html, body {
         position: absolute;
         top:-17px !important;
         left:-49px !important;
-        
+        transform: scale(0.8);
     }
 
-    .menu-title{
+    /* .menu-title{
         position:absolute;
         top:0.25rem;
         left:2rem;
-    }
+    } */
 
-    .menu-links{
+    /* .menu-links{
         margin-top: 85px!important;
         border-top: solid black 1px;
-    }
+    } */
 
     .project{
         margin: 1rem;
@@ -907,6 +892,9 @@ html, body {
     .menu-item > a {
         display: block;
         text-align: center;
+        line-height: 2.5;
+        width: auto;
+        height: auto;
         text-decoration: none;
         margin: 1rem;
         color:#BDC3C7;
@@ -914,13 +902,13 @@ html, body {
         z-index: 901;
         border: none;
         box-shadow: none;
-        
+        font-size: large;
     }
 
     .menu>:nth-child(1) {
         position: absolute;
         top:-17px;
-        left: -200px !important;;
+        left: -335px !important;;
         transition: 0.5s;
         transition-delay: 0s;
         z-index: 899;
@@ -929,7 +917,7 @@ html, body {
     .menu>:nth-child(2) {
         position: absolute;
         top:-17px;
-        left:-125px !important;
+        left:-195px !important;
         transition: 0.5s;
         transition-delay: 0.5s;
     }
@@ -941,6 +929,12 @@ html, body {
         transition: 0.5s;
         transition-delay: 1s;
     }
+
+    .menu {
+        top:1rem !important;
+        right: 8vw;
+    }
+
 
     
   }
