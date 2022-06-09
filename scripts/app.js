@@ -100,34 +100,34 @@ var App = (function (global) {
     function toggleMenu() {
 
         var menu = doc.getElementsByClassName('menu')[0];
-        var menuItems = doc.getElementsByClassName('menu-item')
-        console.log(menuItems);
-        for(var i = 0; i < menuItems.length; i++){
-            var menuItem = menuItems[i];
-            if (menuItem.classList.contains('closed') === false){
-                menuItem.classList.add('closed');
-                doc.getElementsByClassName('fab')[0].innerHTML = '';
-                doc.getElementsByClassName('fab')[0].appendChild(menuIcon())
-            } else {
-                menuItem.classList.remove('closed');
-                doc.getElementsByClassName('fab')[0].innerHTML = '';
-                doc.getElementsByClassName('fab')[0].appendChild(closeIcon())
-            }
+        // var menuItems = doc.getElementsByClassName('menu-item')
+        // console.log(menuItems);
+        // for(var i = 0; i < menuItems.length; i++){
+        //     var menuItem = menuItems[i];
+        //     if (menuItem.classList.contains('menuOpen') === false){
+        //         menuItem.classList.add('menuOpen');
+        //         doc.getElementsByClassName('fab')[0].innerHTML = '';
+        //         doc.getElementsByClassName('fab')[0].appendChild(menuIcon())
+        //     } else {
+        //         menuItem.classList.remove('menuOpen');
+        //         doc.getElementsByClassName('fab')[0].innerHTML = '';
+        //         doc.getElementsByClassName('fab')[0].appendChild(closeIcon())
+        //     }
 
 
-        }
-
-        // if (menu.classList.contains('open') === false) {
-
-        //     menu.classList.add('open');
-        //     doc.getElementsByClassName('fab')[0].innerHTML = '';
-        //     doc.getElementsByClassName('fab')[0].appendChild(closeIcon())
-        // } else {
-
-        //     menu.classList.remove('open');
-        //     doc.getElementsByClassName('fab')[0].innerHTML = '';
-        //     doc.getElementsByClassName('fab')[0].appendChild(menuIcon())
         // }
+
+        if (menu.classList.contains('menuOpen') === false) {
+
+            menu.classList.add('menuOpen');
+            doc.getElementsByClassName('fab')[0].innerHTML = '';
+            doc.getElementsByClassName('fab')[0].appendChild(closeIcon())
+        } else {
+
+            menu.classList.remove('menuOpen');
+            doc.getElementsByClassName('fab')[0].innerHTML = '';
+            doc.getElementsByClassName('fab')[0].appendChild(menuIcon())
+        }
 
     }
 
@@ -490,15 +490,15 @@ var App = (function (global) {
 
             //carousel();
 
-        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/index.html') {
+        } else if (win.location.pathname === '/') {
             //carousel2()
 
         } else if (win.location.pathname === '/portfolio') {
             gallery();
-        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/contact.html') {
+        } else if (win.location.pathname === '/contact') {
             validateContactForm();
 
-        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/about.html') {
+        } else if (win.location.pathname === '/about') {
             scrollInit();
             console.log('working')
 
