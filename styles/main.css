@@ -225,6 +225,10 @@ html, body {
     animation: fadeIn 8s ease;
 }
 
+.final-intro-phrase {
+    margin-top: 1rem;
+}
+
 .intro-text-2 {
     animation: fadeIn 9.5s ease;
 }
