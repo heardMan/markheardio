@@ -196,6 +196,7 @@ html, body {
     margin-top: 30vh;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
     transform: skewX(3deg);
+    border-radius: 3px;
 }
 .intro > h2, .intro > div {
     transform: skewX(-3deg);
@@ -239,6 +240,7 @@ html, body {
     margin-top: 60vh;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
     transform: skewX(-3deg);
+    border-radius: 3px;
 }
 
 .consultations > h3, .consultations > div {
@@ -261,6 +263,7 @@ html, body {
     margin-right:-5vw;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
     transform: skewX(3deg);
+    border-radius: 3px;
 }
 
 .internet > h3, .internet > div, .internet > ul {
@@ -280,6 +283,7 @@ html, body {
     margin-left: -5vw;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
     transform: skewX(-3deg);
+    border-radius: 3px;
 }
 
 .analytics > h3, .analytics > div {
