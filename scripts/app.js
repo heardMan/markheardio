@@ -490,7 +490,7 @@ var App = (function (global) {
 
             //carousel();
 
-        } else if (win.location.pathname === '/') {
+        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/index.html') {
             //carousel2()
 
         } else if (win.location.pathname === '/portfolio') {

@@ -242,7 +242,6 @@ html, body {
 
 .about{
     width:75%;
-    height: 2500px;
     color: #dadfe1;
     padding: 1rem;
 }
@@ -664,20 +663,20 @@ html, body {
 
 .anim-1 {
     margin-top: 10vh;
-    margin-bottom: 50vh;
 }
 
 .anim-2 {
-    margin-top: 50vh;
-    margin-bottom: 50vh;}
+    margin-top: 100vh;
+}
 
 .anim-3 {
-    margin-top: 50vh;
-    margin-bottom: 50vh;}
+    margin-top: 70vh;
+}
 
 .anim-4 {
-    margin-top: 50vh;
-    margin-bottom: 50vh;}
+    margin-top: 70vh;
+    margin-bottom: 40vh;
+}
 
 .vidText {
     position:absolute;
@@ -687,18 +686,23 @@ html, body {
 }
 
 .vidText > img {
-    width: 380px;
+    width: 82vw;
     height: auto;
     
 }
 
 .vidBG > video{
-    position:relative;
+    position:absolute;
     top:5px;
     left:2px;
-    width: 375px;
+    width: 80vw;
     height: auto;
     z-index:0;
+}
+
+#map {
+    width: 80vw;
+    height: auto;
 }
 
 @keyframes zoomOutAnfFadeIn {
@@ -971,7 +975,7 @@ html, body {
     }
 
     .menu {
-        top:1rem;
+        top:1rem !important;
         right: 8vw;
     }
 
