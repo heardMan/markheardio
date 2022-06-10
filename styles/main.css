@@ -190,10 +190,15 @@ html, body {
     padding-top: 10vh;
     padding-bottom: 15vh;
     padding-left:15vw;
-    width: 75vw;
+    width: 85vw;
     margin-left: auto;
+    margin-right: -5vh;
     margin-top: 30vh;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    transform: skewX(3deg);
+}
+.intro > h2, .intro > div {
+    transform: skewX(-3deg);
 }
 .intro-head-1 {
     animation: fadeIn 6s ease;
@@ -230,8 +235,18 @@ html, body {
     padding-right:2rem;
     width: 75vw;
     margin-right: auto;
+    margin-left: -4vw;
     margin-top: 60vh;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    transform: skewX(-3deg);
+}
+
+.consultations > h3, .consultations > div {
+    transform: skewX(3deg);
+}
+
+.consultations > div > p {
+    width: 80%;
 }
 
 .internet {
@@ -243,8 +258,15 @@ html, body {
     width: 75vw;
     margin-left: auto;
     margin-top: 60vh;
+    margin-right:-5vw;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    transform: skewX(3deg);
 }
+
+.internet > h3, .internet > div, .internet > ul {
+    transform: skewX(-3deg);
+}
+
 
 .analytics {
     background-color: #044F67;
@@ -255,7 +277,13 @@ html, body {
     width: 75vw;
     margin-right: auto;
     margin-top: 60vh;
+    margin-left: -5vw;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    transform: skewX(-3deg);
+}
+
+.analytics > h3, .analytics > div {
+    transform: skewX(3deg);
 }
 
 .topProjects {
