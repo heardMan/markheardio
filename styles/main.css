@@ -197,11 +197,12 @@ html, body {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
     transform: skewX(3deg);
     border-radius: 3px;
+    animation: fadeInFromRightwithSkewX3 6s ease;
 }
 .intro > h2, .intro > div {
     transform: skewX(-3deg);
 }
-.intro-head-1 {
+/* .intro-head-1 {
     animation: fadeIn 6s ease;
     padding-bottom: 1rem;
 }
@@ -210,22 +211,22 @@ html, body {
 }
 .intro-head-3 {
     animation: fadeIn 9s ease;
-}
+} */
 
 .intro-text-1 {
-    animation: fadeIn 12s ease;
+    animation: fadeIn 8s ease;
 }
 
 .intro-text-2 {
-    animation: fadeIn 17s ease;
+    animation: fadeIn 9.5s ease;
 }
 
 .intro-text-3 {
-    animation: fadeIn 19s ease;
+    animation: fadeIn 11s ease;
 }
 
 .intro-text-4 {
-    animation: fadeIn 21s ease;
+    animation: fadeIn 12.5s ease;
 }
 
 .consultations {
@@ -821,6 +822,22 @@ html, body {
     }
     to {
         transform: translateX(0px);
+        opacity:100;
+    }
+    
+}
+
+@keyframes fadeInFromRightwithSkewX3 {
+    0% {
+        transform: translateX(25px) scale(1.1) skewX(3deg);
+        opacity:0;
+    }
+    50% {
+        transform: translateX(25px) scale(1.1) skewX(3deg);
+        opacity:0;
+    }
+    100% {
+        transform: translateX(0px) scale(1) skewX(3deg);
         opacity:100;
     }
     
