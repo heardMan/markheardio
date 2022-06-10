@@ -493,12 +493,12 @@ var App = (function (global) {
         } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/index.html') {
             //carousel2()
 
-        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/portfolio.html') {
+        } else if (win.location.pathname === '/portfolio') {
             gallery();
-        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/contact.html') {
+        } else if (win.location.pathname === '/contact') {
             validateContactForm();
 
-        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/about.html') {
+        } else if (win.location.pathname === '/about') {
             scrollInit();
             console.log('working')
 
