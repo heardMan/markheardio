@@ -228,14 +228,15 @@ html, body {
 }
 
 .consultations {
-    background: linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) 20%);
+    background: linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) 10%);
     padding-top: 1vh;
     padding-bottom: 1vh;
-    padding-left:2rem;
+    padding-left:15vw;
     padding-right:2rem;
     width: 75vw;
     margin-right: auto;
     margin-top: 60vh;
+    margin-left: -5vw;
     transform: skewX(-3deg);
     border-radius: 3px;
 }

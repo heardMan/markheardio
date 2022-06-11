@@ -457,16 +457,31 @@ var App = (function (global) {
             var observer = new IntersectionObserver((entries)=>{
                 console.log(entries)
                 if(entries[0].intersectionRatio>0){
+                    
                     entries[0].target.style.background = 'linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) 200%)';
+                    entries[0].target.style['margin-left'] = '-90vw';
 
-                    var value = 200
-
-                    var timer = setInterval(function(){
-                        value--;
-                        entries[0].target.style.background = `linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) ${value}%)`;
+                    var val = 90
+                    var moveIn = setInterval(function(){
+                        val--;
+                        entries[0].target.style['margin-left'] = `-${val}vw`;
                         
-                        if (value < 21) {
-                            clearInterval(timer);
+                        if ( val < 4 ) {
+                            clearInterval(moveIn);
+                        }
+
+                    },10)
+
+                    var value = 300
+                    var fadeIn = setInterval(function(){
+
+                        value--;
+                        
+                        if (value < 200) {
+                            entries[0].target.style.background = `linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) ${value}%)`;
+                        }
+                        if (value < 11) {
+                            clearInterval(fadeIn);
                         }
 
                     },10)
@@ -535,6 +550,7 @@ var App = (function (global) {
 
         console.log(win.location.pathname);
         if (win.location.pathname === '/') {
+            welcomeScroll();
                 // car2();
 
             //carousel();
