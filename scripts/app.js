@@ -444,7 +444,56 @@ var App = (function (global) {
     }
 
 
-    function scrollInit() {
+    function welcomeScroll() {
+
+        var consultations = document.querySelector('.consultations');
+        //var text2 = document.querySelector('.anim-2');
+        //var text3 = document.querySelector('.anim-3');
+        //var text4 = document.querySelector('.anim-4');
+        //var text5 = document.querySelector('.anim-5');
+
+        var observe = function (entries,animation){
+
+            var observer = new IntersectionObserver((entries)=>{
+                console.log(entries)
+                if(entries[0].intersectionRatio>0){
+                    entries[0].target.style.background = 'linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) 200%)';
+
+                    var value = 200
+
+                    var timer = setInterval(function(){
+                        value--;
+                        entries[0].target.style.background = `linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) ${value}%)`;
+                        
+                        if (value < 21) {
+                            clearInterval(timer);
+                        }
+
+                    },10)
+                        
+                    
+                    
+                }
+                else {
+                    entries[0].target.style.animation = 'none';
+                }
+            });
+
+            return observer.observe(entries)
+
+        }
+        //moveInFromLeft 1s linear 1
+
+        observe(consultations, '');
+        //observe(text2, 'fadeInFromRight 2s forwards ease-out');
+        //observe(text3, 'fadeInFromLeft 2s forwards ease-out');
+        //observe(text4, 'fadeInFromRight 2s forwards ease-out');
+        //observe(text5, 'anim4 2s forwards ease-out');
+
+    }
+
+
+    function aboutScroll() {
 
         var text1 = document.querySelector('.anim-1');
         var text2 = document.querySelector('.anim-2');
@@ -491,6 +540,7 @@ var App = (function (global) {
             //carousel();
 
         } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/index.html') {
+            welcomeScroll();
             //carousel2()
 
         } else if (win.location.pathname === '/portfolio') {
@@ -498,8 +548,8 @@ var App = (function (global) {
         } else if (win.location.pathname === '/contact') {
             validateContactForm();
 
-        } else if (win.location.pathname === '/about') {
-            scrollInit();
+        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/about.html') {
+            aboutScroll();
             console.log('working')
 
         }
