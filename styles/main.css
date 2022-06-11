@@ -236,7 +236,7 @@ html, body {
     width: 75vw;
     margin-right: auto;
     margin-top: 60vh;
-    margin-left: -95vw;
+    margin-left: -5vw;
     transform: skewX(-3deg);
     border-radius: 3px;
 }

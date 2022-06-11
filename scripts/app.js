@@ -13,7 +13,7 @@ var App = (function (global) {
                     // Typical action to be performed when the document is ready:
                     // document.getElementById("demo").innerHTML = xhttp.responseText;
                     var data = JSON.parse(xhttp.responseText);
-                    
+
                     return carouselInit(doc, data.carouselItems);
                 }
             };
@@ -24,40 +24,40 @@ var App = (function (global) {
             var data2 = {
                 "carouselItems": [
                     {
-                    "title": "Consultations",
-                    "link": "https://github.com/heardMan/fitStat",
-                    "linkTitle": "link",
-                    "description": "Not sure where to start or what you need?\n Feel free to reach out to schedule a consultation!"
+                        "title": "Consultations",
+                        "link": "https://github.com/heardMan/fitStat",
+                        "linkTitle": "link",
+                        "description": "Not sure where to start or what you need?\n Feel free to reach out to schedule a consultation!"
                     },
                     {
-                    "title": "Web Development",
-                    "link": "https://github.com/heardMan/fitStat",
-                    "linkTitle": "link",
-                    "description": "Need a website?\n From self-managed to fully-managed I can help find and/or build the solution that is right for you and your business."
+                        "title": "Web Development",
+                        "link": "https://github.com/heardMan/fitStat",
+                        "linkTitle": "link",
+                        "description": "Need a website?\n From self-managed to fully-managed I can help find and/or build the solution that is right for you and your business."
                     },
                     {
-                    "title": "Software Development",
-                    "link": "https: //github.com/heardMan/fitStat",
-                    "linkTitle": "link",
-                    "description": "Need an application?\n I specialize in develeoping and maintaining modern scalable web applications and would love to help get your next application up an running!"
+                        "title": "Software Development",
+                        "link": "https: //github.com/heardMan/fitStat",
+                        "linkTitle": "link",
+                        "description": "Need an application?\n I specialize in develeoping and maintaining modern scalable web applications and would love to help get your next application up an running!"
                     },
                     {
-                    "title": "Web Hosting Solutions",
-                    "link": "https://github.com/heardMan/fitStat",
-                    "linkTitle": "link",
-                    "description": "Need help hosting your website?\n I am experienced and familiar in hosting a variety of websites and would love to help find the best fitting solution."
+                        "title": "Web Hosting Solutions",
+                        "link": "https://github.com/heardMan/fitStat",
+                        "linkTitle": "link",
+                        "description": "Need help hosting your website?\n I am experienced and familiar in hosting a variety of websites and would love to help find the best fitting solution."
                     },
                     {
-                    "title": "Data Analytics",
-                    "link": "https://github.com/heardMan/fitStat",
-                    "linkTitle": "link",
-                    "description": "Got Business Data that you need help organizing?\n Business Analytics is what sparked my interest in software development! I enjoy helping business owners find new and exciting opportunities within their own business data."
+                        "title": "Data Analytics",
+                        "link": "https://github.com/heardMan/fitStat",
+                        "linkTitle": "link",
+                        "description": "Got Business Data that you need help organizing?\n Business Analytics is what sparked my interest in software development! I enjoy helping business owners find new and exciting opportunities within their own business data."
                     }
                 ]
             }
 
             return carouselInit(doc, data2.carouselItems);
-            
+
         },
         gallery = function () {
             var xhttp = new XMLHttpRequest();
@@ -79,7 +79,7 @@ var App = (function (global) {
     function init() {
         console.log('starting application');
         renderPageContent();
-        
+
     }
 
     function menuIcon() {
@@ -137,7 +137,7 @@ var App = (function (global) {
         var galleryElem = doc.getElementById('gallery');
         if (galleryElem) {
             for (var i = 0; i < data.length; i++) {
-                
+
                 var currentProj = data[i];
                 var projectCard = doc.createElement('DIV');
                 projectCard.setAttribute('class', 'project card');
@@ -168,10 +168,10 @@ var App = (function (global) {
 
     }
 
-    function carouselInit(doc,data) {
+    function carouselInit(doc, data) {
         console.log('rendering carousel');
         console.log(data);
-        
+
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
 
         if (carouselElem) {
@@ -193,40 +193,40 @@ var App = (function (global) {
                 carouselElem.appendChild(contentCard);
             }
 
-                    // create a click listener 
-        doc.addEventListener('click', function (e) {
+            // create a click listener 
+            doc.addEventListener('click', function (e) {
 
-            if (e.target.classList.contains('right-btn')) {
+                if (e.target.classList.contains('right-btn')) {
 
-                var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-                carouselContent[selectedCarousel].classList.remove('selected');
+                    var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+                    carouselContent[selectedCarousel].classList.remove('selected');
 
-                if (selectedCarousel < data.length - 1) {
-                    selectedCarousel++;
-                } else {
-                    selectedCarousel = 0;
+                    if (selectedCarousel < data.length - 1) {
+                        selectedCarousel++;
+                    } else {
+                        selectedCarousel = 0;
+                    }
+
+
+
+
+                    carouselContent[selectedCarousel].classList.add('selected');
                 }
 
-                
+                if (e.target.classList.contains('left-btn')) {
 
+                    var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+                    carouselContent[selectedCarousel].classList.remove('selected');
+                    if (0 < selectedCarousel) {
+                        selectedCarousel--;
+                    } else {
+                        selectedCarousel = data.length - 1;
+                    }
 
-                carouselContent[selectedCarousel].classList.add('selected');
-            }
-
-            if (e.target.classList.contains('left-btn')) {
-
-                var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-                carouselContent[selectedCarousel].classList.remove('selected');
-                if (0 < selectedCarousel) {
-                    selectedCarousel--;
-                } else {
-                    selectedCarousel = data.length - 1;
+                    carouselContent[selectedCarousel].classList.add('selected');
                 }
-               
-                carouselContent[selectedCarousel].classList.add('selected');
-            }
 
-        });
+            });
         }
 
 
@@ -447,47 +447,48 @@ var App = (function (global) {
     function welcomeScroll() {
 
         var consultations = document.querySelector('.consultations');
-        //var text2 = document.querySelector('.anim-2');
+        var consultationsText = document.querySelector('.consultations-text');
         //var text3 = document.querySelector('.anim-3');
         //var text4 = document.querySelector('.anim-4');
         //var text5 = document.querySelector('.anim-5');
 
-        var observe = function (entries,animation){
+        var observe = function (entries, animation) {
 
-            var observer = new IntersectionObserver((entries)=>{
+            var observer = new IntersectionObserver((entries) => {
                 console.log(entries)
-                if(entries[0].intersectionRatio>0){
-                    
+                if (entries[0].intersectionRatio > 0) {
+
                     entries[0].target.style.background = 'linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) 200%)';
                     entries[0].target.style['margin-left'] = '-95vw';
 
-                    var val = 95
-                    var moveIn = setInterval(function(){
-                        val--;
-                        entries[0].target.style['margin-left'] = `-${val}vw`;
-                        
-                        if ( val < 4 ) {
+                    var val = 950
+                    var moveIn = setInterval(function () {
+                        val-=10;
+                        entries[0].target.style['margin-left'] = `-${val / 10}vw`;
+
+                        if (val < 50) {
                             clearInterval(moveIn);
+
+                            var value = 700
+                            var fadeIn = setInterval(function () {
+
+                                value -= 5;
+
+                                if (value < 250) {
+                                    entries[0].target.style.background = `linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) ${value}%)`;
+                                }
+                                if (value < 11) {
+                                    clearInterval(fadeIn);
+                                }
+
+                            }, 1)
                         }
 
-                    },10)
+                    }, 1)
 
-                    var value = 300
-                    var fadeIn = setInterval(function(){
 
-                        value--;
-                        
-                        if (value < 200) {
-                            entries[0].target.style.background = `linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) ${value}%)`;
-                        }
-                        if (value < 11) {
-                            clearInterval(fadeIn);
-                        }
 
-                    },10)
-                        
-                    
-                    
+
                 }
                 else {
                     entries[0].target.style.animation = 'none';
@@ -499,7 +500,40 @@ var App = (function (global) {
         }
         //moveInFromLeft 1s linear 1
 
+
+        var observe2 = function (entries, animation) {
+
+            var observer = new IntersectionObserver((entries) => {
+                console.log(entries)
+                if (entries[0].intersectionRatio > 0) {
+
+                    var value2 = 0
+                    var fadeIn2 = setInterval(function () {
+
+                        value2 += 5;
+
+                        entries[0].target.style.opacity = `${value2 / 100}`;
+
+                        if (101 > value2) {
+                            clearInterval(fadeIn2);
+                        }
+
+                    }, 1)
+
+
+
+                }
+                else {
+                    entries[0].target.style.animation = 'none';
+                }
+            });
+
+            return observer.observe(entries)
+
+        }
+
         observe(consultations, '');
+        //observe2(consultationsText, '');
         //observe(text2, 'fadeInFromRight 2s forwards ease-out');
         //observe(text3, 'fadeInFromLeft 2s forwards ease-out');
         //observe(text4, 'fadeInFromRight 2s forwards ease-out');
@@ -516,11 +550,11 @@ var App = (function (global) {
         var text4 = document.querySelector('.anim-4');
         //var text5 = document.querySelector('.anim-5');
 
-        var observe = function (entries,animation){
+        var observe = function (entries, animation) {
 
-            var observer = new IntersectionObserver((entries)=>{
+            var observer = new IntersectionObserver((entries) => {
                 console.log(entries)
-                if(entries[0].intersectionRatio>0){
+                if (entries[0].intersectionRatio > 0) {
                     entries[0].target.style.animation = animation;
                 }
                 else {
@@ -551,7 +585,7 @@ var App = (function (global) {
         console.log(win.location.pathname);
         if (win.location.pathname === '/') {
             welcomeScroll();
-                // car2();
+            // car2();
 
             //carousel();
 
@@ -572,7 +606,7 @@ var App = (function (global) {
 
     }
 
-    
+
 
 
     // main function
