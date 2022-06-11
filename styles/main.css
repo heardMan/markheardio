@@ -231,23 +231,23 @@ html, body {
     background: linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) 10%);
     padding-top: 1vh;
     padding-bottom: 1vh;
-    padding-left:15vw;
+    padding-left:10vw;
     padding-right:2rem;
     width: 75vw;
     margin-right: auto;
     margin-top: 60vh;
-    margin-left: -5vw;
+    margin-left: -95vw;
     transform: skewX(-3deg);
     border-radius: 3px;
 }
 
-.consultations > h3, .consultations > div {
+.consultations> div > h3, .consultations > div {
     transform: skewX(3deg);
 }
 
-.consultations > div > p {
-    width: 80%;
-}
+
+
+
 
 .internet {
     background: linear-gradient(90deg, rgba(4,79,103,1) 1%, rgba(3,166,120,0) 10%);

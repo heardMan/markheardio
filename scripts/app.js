@@ -459,9 +459,9 @@ var App = (function (global) {
                 if(entries[0].intersectionRatio>0){
                     
                     entries[0].target.style.background = 'linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) 200%)';
-                    entries[0].target.style['margin-left'] = '-90vw';
+                    entries[0].target.style['margin-left'] = '-95vw';
 
-                    var val = 90
+                    var val = 95
                     var moveIn = setInterval(function(){
                         val--;
                         entries[0].target.style['margin-left'] = `-${val}vw`;
