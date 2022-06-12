@@ -454,77 +454,51 @@ var App = (function (global) {
 
         var observe = function (entries, animation) {
 
-            var observer = new IntersectionObserver((entries) => {
-                console.log(entries)
-                if (entries[0].intersectionRatio > 0) {
+            var consultations = document.querySelector('.consultations');
+            console.log(`SCREEN HEIGHT: ${window.innerHeight}`)
+            console.log(`ELEMENT HEIGHT: ${consultations.clientHeight}`)
 
-                    entries[0].target.style.background = 'linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) 200%)';
-                    entries[0].target.style['margin-left'] = '-95vw';
+            function handleScroll(e){
 
-                    var val = 950
-                    var moveIn = setInterval(function () {
-                        val-=10;
-                        entries[0].target.style['margin-left'] = `-${val / 10}vw`;
+                var startPoint = (consultations.scrollHeight+consultations.clientHeight);
+                if(window.pageYOffset < startPoint){
+                    console.log(`NOT changing opacity`)
+                } else if (window.pageYOffset>= startPoint) {
+    
+                    var scrollHeightIncrementor = ((window.pageYOffset - (consultations.clientHeight + consultations.scrollHeight)));
 
-                        if (val < 50) {
-                            clearInterval(moveIn);
+                    var animationPercent = (100 - scrollHeightIncrementor);
 
-                            var value = 700
-                            var fadeIn = setInterval(function () {
+                    console.log(`SCROLL: ${scrollHeightIncrementor}`);
+                    if(animationPercent>85){
+                        consultations.style['margin-left'] = `-85vw`;
+                        //console.log(`SCROLLHHH:_:${scrollHeightIncrementor}`)
+                    }
 
-                                value -= 5;
+                    if(animationPercent<=85){
+                        consultations.style['margin-left'] = `-${85-scrollHeightIncrementor}vw`;
+                        //console.log(`SCROLLHHH:_:${scrollHeightIncrementor}`)
+                    }
+                    if(animationPercent<=5){
+                        consultations.style['margin-left'] = `-5vw`;
+                    }
 
-                                if (value < 250) {
-                                    entries[0].target.style.background = `linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) ${value}%)`;
-                                }
-                                if (value < 11) {
-                                    clearInterval(fadeIn);
-                                }
-
-                            }, 1)
-                        }
-
-                    }, 1)
-
-
-
-
+                   
+                    
                 }
-                else {
-                    entries[0].target.style.animation = 'none';
-                }
-            });
-
-            return observer.observe(entries)
-
-        }
-        //moveInFromLeft 1s linear 1
-
-
-        var observe2 = function (entries, animation) {
+            }
 
             var observer = new IntersectionObserver((entries) => {
                 console.log(entries)
+               var startHeight = entries[0].rootBounds
                 if (entries[0].intersectionRatio > 0) {
-
-                    var value2 = 0
-                    var fadeIn2 = setInterval(function () {
-
-                        value2 += 5;
-
-                        entries[0].target.style.opacity = `${value2 / 100}`;
-
-                        if (101 > value2) {
-                            clearInterval(fadeIn2);
-                        }
-
-                    }, 1)
-
-
-
+                    console.log('Hello');
+                    console.log(`START POSITION: ${window.scrollY}`)
+                    window.addEventListener('scroll', handleScroll, true)
                 }
                 else {
-                    entries[0].target.style.animation = 'none';
+                    window.removeEventListener('scroll', handleScroll, true)
+                    console.log('Good Bye');
                 }
             });
 
@@ -533,12 +507,7 @@ var App = (function (global) {
         }
 
         observe(consultations, '');
-        //observe2(consultationsText, '');
-        //observe(text2, 'fadeInFromRight 2s forwards ease-out');
-        //observe(text3, 'fadeInFromLeft 2s forwards ease-out');
-        //observe(text4, 'fadeInFromRight 2s forwards ease-out');
-        //observe(text5, 'anim4 2s forwards ease-out');
-
+        
     }
 
 

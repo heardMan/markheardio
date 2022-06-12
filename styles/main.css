@@ -235,10 +235,11 @@ html, body {
     padding-right:2rem;
     width: 75vw;
     margin-right: auto;
-    margin-top: 60vh;
-    margin-left: -5vw;
+    margin-top: 50vh;
+    margin-left: -85vw;
     transform: skewX(-3deg);
     border-radius: 3px;
+    
 }
 
 .consultations> div > h3, .consultations > div {
