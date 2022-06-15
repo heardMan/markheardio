@@ -444,112 +444,223 @@ var App = (function (global) {
     }
 
 
-    function welcomeScroll() {
+    function consultationsAnimation() {
+
+        var element = document.querySelector('.consultations');
+        console.log(`SCREEN HEIGHT: ${window.innerHeight}`)
+        console.log(`ELEMENT HEIGHT: ${element.clientHeight}`)
+
+        function handleScroll(e) {
+            //when the observer starts the element is at the bottom of the screen 
+            //or about the distance of the inner window height
+            //indicates current pixel height into the intersection rectangle being observed
+            var boundingRect = element.getBoundingClientRect();
+            var animationHeightIncrementer = (window.innerHeight - boundingRect.y);
+            var animationWindowPercentage = boundingRect.y / window.innerHeight;
+            var elementOnScreenHeight = window.innerHeight - element.clientHeight
+            var animationPercentage = (animationHeightIncrementer - element.clientHeight) / (elementOnScreenHeight);
+            var lowerBound = 0.15;
+            var upperBound = 0.75;
+            var animationDistancePercentage = animationPercentage - lowerBound;
+            var speedMultiplier = 180
+
+            console.log(`
+                PAGE Y OFFSET: ${window.pageYOffset}
+                CLIENT HEIGHT: ${element.clientHeight}
+                INNER WINDOW HEIGHT: ${window.innerHeight}
+                ANIMATE WINDOW PERCENT: ${animationWindowPercentage}
+                ANIMATION HEIGHT INCREMENTOR: ${animationHeightIncrementer}
+                ANIMATION PERCENTAGE: ${animationPercentage}
+                A: ${85 - (animationDistancePercentage * speedMultiplier)}
+                `);
+
+            //if the object is completely on screen animate into and out of view
+            if (animationHeightIncrementer >= element.clientHeight) {
+                console.log(`doing something`);
+                //set an upper bound of -85vw
+                if (animationPercentage < lowerBound) {
+                    console.log('LOWER BOUND')
+                    element.style['margin-left'] = `-85`;
+                }
+                if (animationPercentage >= lowerBound && animationPercentage <= upperBound) {
+                    console.log('MIDDLE BOUND')
+                    if ((animationDistancePercentage * speedMultiplier) <= 5) {
+                        console.log('UPPER BOUND')
+                        element.style['margin-left'] = `-5vw`;
+                    }
+                    element.style['margin-left'] = `-${85 - (animationDistancePercentage * speedMultiplier)}vw`;
+                }
+                // if (animationPercentage > upperBound) {
+                //     console.log('UPPER BOUND')
+                //     element.style['margin-left'] = `-5vw`;
+                // }
+            } else if (animationHeightIncrementer < element.clientHeight) {
+                //if the element is not completely on screen-- do nothing
+                console.log(`NOT doing anything`);
+            }
+        }
+
+        var observer = new IntersectionObserver((entries) => {
+            console.log(entries)
+            var startHeight = entries[0].rootBounds
+            if (entries[0].intersectionRatio > 0) {
+                console.log('Hello');
+                console.log(`START POSITION: ${window.scrollY}`)
+                window.addEventListener('scroll', handleScroll, true)
+            }
+            else {
+                window.removeEventListener('scroll', handleScroll, true)
+                console.log('Good Bye');
+            }
+        });
+
+        return observer.observe(element)
+    }
+
+    function webSolutionsAnimation() {
+
+        var element = document.querySelector('.internet');
+        console.log(`SCREEN HEIGHT: ${window.innerHeight}`)
+        console.log(`ELEMENT HEIGHT: ${element.clientHeight}`)
+
+        function handleScroll(e) {
+            //when the observer starts the element is at the bottom of the screen 
+            //or about the distance of the inner window height
+            //indicates current pixel height into the intersection rectangle being observed
+            var boundingRect = element.getBoundingClientRect();
+            var animationHeightIncrementer = (window.innerHeight - boundingRect.y);
+            var animationWindowPercentage = boundingRect.y / window.innerHeight;
+            var elementOnScreenHeight = window.innerHeight - element.clientHeight
+            var animationPercentage = (animationHeightIncrementer - element.clientHeight) / (elementOnScreenHeight);
+            var lowerBound = 0.15;
+            var upperBound = 0.75;
+            var animationDistancePercentage = animationPercentage - lowerBound;
+            var speedMultiplier = 180
+
+            console.log(`
+                PAGE Y OFFSET: ${window.pageYOffset}
+                CLIENT HEIGHT: ${element.clientHeight}
+                INNER WINDOW HEIGHT: ${window.innerHeight}
+                ANIMATE WINDOW PERCENT: ${animationWindowPercentage}
+                ANIMATION HEIGHT INCREMENTOR: ${animationHeightIncrementer}
+                ANIMATION PERCENTAGE: ${animationPercentage}
+                A: ${85 - (animationDistancePercentage * speedMultiplier)}
+                `);
+
+            //if the object is completely on screen animate into and out of view
+            if (animationHeightIncrementer >= element.clientHeight) {
+                console.log(`doing something`);
+                //set an upper bound of -85vw
+                if (animationPercentage < lowerBound) {
+                    console.log('LOWER BOUND')
+                    element.style['margin-left'] = `-85`;
+                }
+                if (animationPercentage >= lowerBound && animationPercentage <= upperBound) {
+                    console.log('MIDDLE BOUND')
+                    if ((animationDistancePercentage * speedMultiplier) <= 5) {
+                        console.log('UPPER BOUND')
+                        element.style['margin-left'] = `-5vw`;
+                    }
+                    element.style['margin-left'] = `-${85 - (animationDistancePercentage * speedMultiplier)}vw`;
+                }
+                // if (animationPercentage > upperBound) {
+                //     console.log('UPPER BOUND')
+                //     element.style['margin-left'] = `-5vw`;
+                // }
+            } else if (animationHeightIncrementer < element.clientHeight) {
+                //if the element is not completely on screen-- do nothing
+                console.log(`NOT doing anything`);
+            }
+        }
+
+        var observer = new IntersectionObserver((entries) => {
+            console.log(entries)
+            var startHeight = entries[0].rootBounds
+            if (entries[0].intersectionRatio > 0) {
+                console.log('Hello');
+                console.log(`START POSITION: ${window.scrollY}`)
+                window.addEventListener('scroll', handleScroll, true)
+            }
+            else {
+                window.removeEventListener('scroll', handleScroll, true)
+                console.log('Good Bye');
+            }
+        });
+
+        return observer.observe(element)
+    }
+
+    function dataAnalyticsAnimation() {
 
         var consultations = document.querySelector('.consultations');
-        var consultationsText = document.querySelector('.consultations-text');
-        //var text3 = document.querySelector('.anim-3');
-        //var text4 = document.querySelector('.anim-4');
-        //var text5 = document.querySelector('.anim-5');
+        console.log(`SCREEN HEIGHT: ${window.innerHeight}`)
+        console.log(`ELEMENT HEIGHT: ${consultations.clientHeight}`)
 
-        var observe = function (entries, animation) {
+        function handleScroll(e) {
+            //when the observer starts the element is at the bottom of the screen 
+            //or about the distance of the inner window height
+            //indicates current pixel height into the intersection rectangle being observed
+            var boundingRect = consultations.getBoundingClientRect();
+            var animationHeightIncrementer = (window.innerHeight - boundingRect.y);
+            var animationWindowPercentage = boundingRect.y / window.innerHeight;
+            var elementOnScreenHeight = window.innerHeight - consultations.clientHeight
+            var animationPercentage = (animationHeightIncrementer - consultations.clientHeight) / (elementOnScreenHeight);
+            var lowerBound = 0.15;
+            var upperBound = 0.75;
+            var animationDistancePercentage = animationPercentage - lowerBound;
+            var speedMultiplier = 180
 
-            var consultations = document.querySelector('.consultations');
-            console.log(`SCREEN HEIGHT: ${window.innerHeight}`)
-            console.log(`ELEMENT HEIGHT: ${consultations.clientHeight}`)
-
-            function handleScroll(e) {
-
-                //when the observer starts the element is at the bottom of the screen 
-                //or about the distance of the inner window height
-
-                //indicates current pixel height into the intersection rectangle being observed
-
-                var boundingRect = consultations.getBoundingClientRect();
-
-                var animationHeightIncrementer = (window.innerHeight - boundingRect.y);
-
-                var animationWindowPercentage = boundingRect.y/window.innerHeight;
-
-                var elementOnScreenHeight = window.innerHeight-consultations.clientHeight
-
-                var animationPercentage = (animationHeightIncrementer-consultations.clientHeight)/(elementOnScreenHeight);
-
-                var lowerBound = 0.15;
-                var upperBound= 0.75;
-
-                var animationDistancePercentage = animationPercentage - lowerBound;
-                
-                var speedMultiplier = 180
-
-                console.log(`
+            console.log(`
                 PAGE Y OFFSET: ${window.pageYOffset}
                 CLIENT HEIGHT: ${consultations.clientHeight}
                 INNER WINDOW HEIGHT: ${window.innerHeight}
                 ANIMATE WINDOW PERCENT: ${animationWindowPercentage}
                 ANIMATION HEIGHT INCREMENTOR: ${animationHeightIncrementer}
                 ANIMATION PERCENTAGE: ${animationPercentage}
-                A: ${85-(a*speedMultiplier)}
+                A: ${85 - (animationDistancePercentage * speedMultiplier)}
                 `);
 
-                //if the object is completely on screen animate into and out of view
-                if (animationHeightIncrementer>=consultations.clientHeight) {
-
-                    console.log(`doing something`);
-                    
-                    //set an upper bound of -85vw
-                    if (animationPercentage < lowerBound) {
-                        console.log('LOWER BOUND')
-                        consultations.style['margin-left'] = `-85`;
+            //if the object is completely on screen animate into and out of view
+            if (animationHeightIncrementer >= consultations.clientHeight) {
+                console.log(`doing something`);
+                //set an upper bound of -85vw
+                if (animationPercentage < lowerBound) {
+                    console.log('LOWER BOUND')
+                    consultations.style['margin-left'] = `-85`;
+                }
+                if (animationPercentage >= lowerBound && animationPercentage <= upperBound) {
+                    console.log('MIDDLE BOUND')
+                    if ((animationDistancePercentage * speedMultiplier) <= 5) {
+                        console.log('UPPER BOUND')
+                        consultations.style['margin-left'] = `-5vw`;
                     }
-
-                    if (animationPercentage >= lowerBound && animationPercentage <= upperBound) {
-                        console.log('MIDDLE BOUND')
-
-                        if ((animationDistancePercentage*speedMultiplier)<=5) {
-                            console.log('UPPER BOUND')
-                            consultations.style['margin-left'] = `-5vw`;
-                        }
-                        
-                        consultations.style['margin-left'] = `-${85-(animationDistancePercentage*speedMultiplier)}vw`;
-                    }
-
-                    
-
-                    // if (animationPercentage > upperBound) {
-                    //     console.log('UPPER BOUND')
-                    //     consultations.style['margin-left'] = `-5vw`;
-                    // }
-
-                    
-
-                } else if (animationHeightIncrementer<consultations.clientHeight) {
-                    //if the element is not completely on screen-- do nothing
-                    console.log(`NOT doing anything`);
-
-                } 
+                    consultations.style['margin-left'] = `-${85 - (animationDistancePercentage * speedMultiplier)}vw`;
+                }
+                // if (animationPercentage > upperBound) {
+                //     console.log('UPPER BOUND')
+                //     consultations.style['margin-left'] = `-5vw`;
+                // }
+            } else if (animationHeightIncrementer < consultations.clientHeight) {
+                //if the element is not completely on screen-- do nothing
+                console.log(`NOT doing anything`);
             }
-
-            var observer = new IntersectionObserver((entries) => {
-                console.log(entries)
-                var startHeight = entries[0].rootBounds
-                if (entries[0].intersectionRatio > 0) {
-                    console.log('Hello');
-                    console.log(`START POSITION: ${window.scrollY}`)
-                    window.addEventListener('scroll', handleScroll, true)
-                }
-                else {
-                    window.removeEventListener('scroll', handleScroll, true)
-                    console.log('Good Bye');
-                }
-            });
-
-            return observer.observe(entries)
-
         }
 
-        observe(consultations, '');
+        var observer = new IntersectionObserver((entries) => {
+            console.log(entries)
+            var startHeight = entries[0].rootBounds
+            if (entries[0].intersectionRatio > 0) {
+                console.log('Hello');
+                console.log(`START POSITION: ${window.scrollY}`)
+                window.addEventListener('scroll', handleScroll, true)
+            }
+            else {
+                window.removeEventListener('scroll', handleScroll, true)
+                console.log('Good Bye');
+            }
+        });
 
+        return observer.observe(consultations)
     }
 
 
@@ -595,13 +706,15 @@ var App = (function (global) {
 
         console.log(win.location.pathname);
         if (win.location.pathname === '/') {
-            welcomeScroll();
+            consultationsAnimation();
+            //webSolutionsAnimation()
             // car2();
 
             //carousel();
 
         } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/index.html') {
-            welcomeScroll();
+            consultationsAnimation();
+            //webSolutionsAnimation()
             //carousel2()
 
         } else if (win.location.pathname === '/portfolio') {
