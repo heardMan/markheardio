@@ -507,9 +507,11 @@ var App = (function (global) {
                 console.log('Hello');
                 console.log(`START POSITION: ${window.scrollY}`)
                 window.addEventListener('scroll', handleScroll, true)
+                window.addEventListener('touchmove', handleScroll, true)
             }
             else {
                 window.removeEventListener('scroll', handleScroll, true)
+                window.removeEventListener('touchmove', handleScroll, true)
                 console.log('Good Bye');
             }
         });
@@ -580,9 +582,11 @@ var App = (function (global) {
                 console.log('Hello');
                 console.log(`START POSITION: ${window.scrollY}`)
                 window.addEventListener('scroll', handleScroll, true)
+                window.addEventListener('touchmove', handleScroll, true)
             }
             else {
                 window.removeEventListener('scroll', handleScroll, true)
+                window.removeEventListener('touchmove', handleScroll, true)
                 console.log('Good Bye');
             }
         });
