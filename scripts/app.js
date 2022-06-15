@@ -458,39 +458,87 @@ var App = (function (global) {
             console.log(`SCREEN HEIGHT: ${window.innerHeight}`)
             console.log(`ELEMENT HEIGHT: ${consultations.clientHeight}`)
 
-            function handleScroll(e){
+            function handleScroll(e) {
 
-                var startPoint = (consultations.scrollHeight+consultations.clientHeight);
-                if(window.pageYOffset < startPoint){
-                    console.log(`NOT changing opacity`)
-                } else if (window.pageYOffset>= startPoint) {
-    
-                    var scrollHeightIncrementor = ((window.pageYOffset - (consultations.clientHeight + consultations.scrollHeight)));
+                //when the observer starts the element is at the bottom of the screen 
+                //or about the distance of the inner window height
 
-                    var animationPercent = (100 - scrollHeightIncrementor);
+                //indicates current pixel height into the intersection rectangle being observed
 
-                    console.log(`SCROLL: ${scrollHeightIncrementor}`);
-                    if(animationPercent>85){
-                        consultations.style['margin-left'] = `-85vw`;
-                        //console.log(`SCROLLHHH:_:${scrollHeightIncrementor}`)
-                    }
+                var boundingRect = consultations.getBoundingClientRect();
 
-                    if(animationPercent<=85){
-                        consultations.style['margin-left'] = `-${85-scrollHeightIncrementor}vw`;
-                        //console.log(`SCROLLHHH:_:${scrollHeightIncrementor}`)
-                    }
-                    if(animationPercent<=5){
-                        consultations.style['margin-left'] = `-5vw`;
-                    }
+                var animationHeightIncrementer = (window.innerHeight - boundingRect.y);
 
-                   
+                var animationWindowPercentage = boundingRect.y/window.innerHeight;
+
+                var elementOnScreenHeight = window.innerHeight-consultations.clientHeight
+
+                var antiDelay = 0;
+
+                var animationPercentage = (animationHeightIncrementer-consultations.clientHeight)/(elementOnScreenHeight);
+
+                var inverseAnimationPercentage = 100-animationPercentage
+
+                var xMovementCounter; 
+
+                var lowerBound = 0.15;
+                var upperBound= 0.75;
+
+                var animationDistancePercentage = animationPercentage - lowerBound;
+                
+                var speedMultiplier = 180
+
+                console.log(`
+                PAGE Y OFFSET: ${window.pageYOffset}
+                CLIENT HEIGHT: ${consultations.clientHeight}
+                INNER WINDOW HEIGHT: ${window.innerHeight}
+                ANIMATE WINDOW PERCENT: ${animationWindowPercentage}
+                ANIMATION HEIGHT INCREMENTOR: ${animationHeightIncrementer}
+                ANIMATION PERCENTAGE: ${animationPercentage}
+                A: ${85-(a*speedMultiplier)}
+                `);
+
+                //if the object is completely on screen animate into and out of view
+                if (animationHeightIncrementer>=consultations.clientHeight) {
+
+                    console.log(`doing something`);
                     
-                }
+                    //set an upper bound of -85vw
+                    if (animationPercentage < lowerBound) {
+                        console.log('LOWER BOUND')
+                        consultations.style['margin-left'] = `-85`;
+                    }
+
+                    if (animationPercentage >= lowerBound && animationPercentage <= upperBound) {
+                        console.log('MIDDLE BOUND')
+
+                        if ((animationDistancePercentage*speedMultiplier)<=5) {
+                            console.log('UPPER BOUND')
+                            consultations.style['margin-left'] = `-5vw`;
+                        }
+                        
+                        consultations.style['margin-left'] = `-${85-(animationDistancePercentage*speedMultiplier)}vw`;
+                    }
+
+                    
+
+                    // if (animationPercentage > upperBound) {
+                    //     console.log('UPPER BOUND')
+                    //     consultations.style['margin-left'] = `-5vw`;
+                    // }
+
+                    
+
+                } else if (animationHeightIncrementer<consultations.clientHeight) {
+                    //if the element is not completely on screen-- do nothing
+                    console.log(`NOT doing anything`);
+
+                } 
             }
 
             var observer = new IntersectionObserver((entries) => {
                 console.log(entries)
-               var startHeight = entries[0].rootBounds
+                var startHeight = entries[0].rootBounds
                 if (entries[0].intersectionRatio > 0) {
                     console.log('Hello');
                     console.log(`START POSITION: ${window.scrollY}`)
@@ -507,7 +555,7 @@ var App = (function (global) {
         }
 
         observe(consultations, '');
-        
+
     }
 
 
