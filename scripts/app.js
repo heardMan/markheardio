@@ -473,13 +473,7 @@ var App = (function (global) {
 
                 var elementOnScreenHeight = window.innerHeight-consultations.clientHeight
 
-                var antiDelay = 0;
-
                 var animationPercentage = (animationHeightIncrementer-consultations.clientHeight)/(elementOnScreenHeight);
-
-                var inverseAnimationPercentage = 100-animationPercentage
-
-                var xMovementCounter; 
 
                 var lowerBound = 0.15;
                 var upperBound= 0.75;
