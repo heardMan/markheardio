@@ -257,7 +257,7 @@ html, body {
     padding-left:2rem;
     padding-right:2rem;
     width: 75vw;
-    margin-left: auto;
+    margin-left: 100vw;
     margin-top: 50vh;
     margin-right:-5vw;
     transform: skewX(3deg);
