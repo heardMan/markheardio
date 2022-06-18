@@ -272,12 +272,12 @@ html, body {
     background: linear-gradient(270deg, rgba(4,79,103,1) 1%, rgba(3,166,120,0) 10%);
     padding-top: 1vh;
     padding-bottom: 5vh;
-    padding-left:2rem;
+    padding-left:6rem;
     padding-right:2rem;
     width: 75vw;
     margin-right: auto;
     margin-top: 40vh;
-    margin-left: -5vw;
+    margin-left: -85vw;
     transform: skewX(-3deg);
     border-radius: 3px;
 }
@@ -286,8 +286,18 @@ html, body {
     transform: skewX(3deg);
 }
 
-.topProjects {
+.recentProjects {
     margin-top: 60vh;
+}
+
+.recentProjects > h3 {
+    text-align: center;
+}
+
+.recentProjects > div {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
 }
 
 .card {
