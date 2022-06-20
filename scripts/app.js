@@ -321,14 +321,14 @@ var App = (function (global) {
           
 
             // create a click listener
-            var rightBtn = doc.getElementById('right-btn');
-            var leftBtn = doc.getElementById('left-btn');
+            // var rightBtn = doc.getElementById('right-btn');
+            // var leftBtn = doc.getElementById('left-btn');
 
-            rightBtn.addEventListener('click', function (e) {
-                currentSlideIndex += 1;
-                console.log(currentSlideIndex)
+            // rightBtn.addEventListener('click', function (e) {
+            //     currentSlideIndex += 1;
+            //     console.log(currentSlideIndex)
 
-            });
+            // });
 
             // leftBtn.addEventListener('click', function (e) {
             //     var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
