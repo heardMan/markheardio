@@ -460,6 +460,7 @@ html, body {
     transform: translateX(0px);
     transition: transform 0.3s ease-out;
     cursor: grab;
+
 }
 
 
@@ -473,8 +474,16 @@ html, body {
     /* border: solid white 1px; */
     user-select: none;
     align-items: center;
+    z-index: 700;
     
     
+}
+
+.carousel-item-content {
+    width: 80%;
+    
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .carousel-item-links {
@@ -504,22 +513,30 @@ html, body {
 
 .left-btn-elem{
     position: absolute;
-    top:1rem;
+    top:25%;
     left:0px;   
+    height: 50%;
+    z-index: 800;
 }
 
 .left-btn-elem > button {
     opacity: 100;
+    border: none;
+    z-index: 800;
 }
 
 .right-btn-elem > button {
     opacity: 100;
+    border: none;
+    
 }
 
 .right-btn-elem{
     position: absolute;
-    top:1rem;
+    top:25%;
     right:0px;
+    height: 50%;
+    z-index: 800;
 }
 
 .home{

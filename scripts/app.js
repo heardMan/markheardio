@@ -43,7 +43,7 @@ var App = (function (global) {
                     "title": "Concentrate",
                     "github": "https://github.com/heardMan/concentrate-js",
                     "demo": "https://heardman.github.io/concentrate-js/",
-                    "description": "A card matching game. Click on a card to reveal its icon. Match all the card pairs to win the game."
+                    "description": "A card matching game. Click on a card to reveal its icon. Match all the card pairs to win the game. "
                 },
                 {
                     "title": "Trivia Game",
@@ -185,11 +185,85 @@ var App = (function (global) {
             console.log("In View:");
             console.log(inView);
 
+            function animation(){
+                setContentCardPosition();
+                
+                if(isDragging) {
+                    requestAnimationFrame(animation)
+                }
+            }
+
+            function getPositionX(event){
+                if(event.type.includes('mouse')){
+                    return event.pageX;
+                } else {
+                    return event.touches[0].clientX;
+                }
+                
+            }
+
+            function setPositionByIndex(){
+                if(currentSlideIndex<0){
+                    currentSlideIndex=4
+                }
+                if(currentSlideIndex>4){
+                    currentSlideIndex=0
+                }
+                currentTranslate = currentSlideIndex * -window.innerWidth
+                prevTranslate = currentTranslate
+                setContentCardPosition()
+            }
+
+            function setContentCardPosition(){
+                carouselElem.style.transform =  'translateX('+currentTranslate+'px)'; 
+            }
+
+
+
+            function touchStart(idx) {
+                return function(event){
+                    console.log(event.target)
+                    startPos = getPositionX(event)
+                    console.log(startPos);
+                    currentSlideIndex=idx;
+                    isDragging = true;
+                    animationID = requestAnimationFrame(animation)
+                }
+            }
+
+            function touchEnd() {
+                isDragging = false;
+                cancelAnimationFrame(animationID)
+                var movedBy = currentTranslate - prevTranslate;
+
+                if(movedBy < -100 && currentSlideIndex < data.length-1){
+                    currentSlideIndex += 1;
+                }
+
+                if(movedBy > 100 && currentSlideIndex > 0){
+                    currentSlideIndex -= 1;
+                }
+                setPositionByIndex()
+            }
+
+            function touchMove(event) {
+                if(isDragging){
+                    console.log('move')
+                    var currentPos = getPositionX(event);
+                    currentTranslate = prevTranslate + currentPos - startPos
+                }
+                
+            }
+
             function createCard(index, title, description, gitHub, demo) {
 
                 //empty content card
                 var contentCard = doc.createElement('DIV');
                 contentCard.classList.add('carousel-item');
+
+                //container element
+                var contentContainer = doc.createElement('DIV');
+                contentContainer.classList.add('carousel-item-content');
 
                 //title element
                 var titleElem = doc.createElement('H3');
@@ -213,79 +287,14 @@ var App = (function (global) {
                 demoLinkElem.href = demo;
                 demoLinkElem.textContent = "See Demo";
 
-
-
                 //add elements to content card
-                contentCard.appendChild(titleElem);
-                contentCard.appendChild(descriptionElem);
+                contentContainer.appendChild(titleElem);
+                contentContainer.appendChild(descriptionElem);
                 linkContainer.appendChild(gitHubLinkElem);
                 linkContainer.appendChild(demoLinkElem);
-                contentCard.appendChild(linkContainer);
+                contentContainer.appendChild(linkContainer);
+                contentCard.appendChild(contentContainer);
 
-                function setContentCardPosition(){
-                    console.log(`CURRENT-TRNSLATE: ${currentTranslate}`)
-                    carouselElem.style.transform =  'translateX('+currentTranslate+'px)'; 
-                }
-
-                function animation(){
-                    setContentCardPosition();
-                    
-                    if(isDragging) {
-                        requestAnimationFrame(animation)
-                    }
-                }
-
-                function getPositionX(event){
-                    if(event.type.includes('mouse')){
-                        return event.pageX;
-                    } else {
-                        return event.touches[0].clientX;
-                    }
-                    
-                }
-
-                function setPositionByIndex(){
-                    currentTranslate = currentSlideIndex * -window.innerWidth
-                    prevTranslate = currentTranslate
-                    setContentCardPosition()
-                }
-
-                function touchStart(idx) {
-                    return function(event){
-                        console.log('start')
-                        startPos = getPositionX(event)
-                        console.log(startPos);
-                        currentSlideIndex=idx;
-                        //console.log(event.type.includes('mouse'));
-                        isDragging = true;
-                        animationID = requestAnimationFrame(animation)
-                    }
-                }
-
-                function touchEnd() {
-                    isDragging = false;
-                    cancelAnimationFrame(animationID)
-                    var movedBy = currentTranslate - prevTranslate;
-
-                    if(movedBy < -100 && currentSlideIndex < data.length-1){
-                        currentSlideIndex += 1;
-                    }
-
-                    if(movedBy > 100 && currentSlideIndex > 0){
-                        currentSlideIndex -= 1;
-                    }
-                    setPositionByIndex()
-                }
-
-                function touchMove(event) {
-                    if(isDragging){
-                        console.log('move')
-                        var currentPos = getPositionX(event);
-                        currentTranslate = prevTranslate + currentPos - startPos
-                    }
-                    
-                }
- 
                 contentCard.addEventListener('touchstart', touchStart(index));
                 contentCard.addEventListener('touchend', touchEnd);
                 contentCard.addEventListener('touchmove', touchMove);
@@ -298,11 +307,8 @@ var App = (function (global) {
                 //add card element to carousel element
                 carouselElem.appendChild(contentCard);
 
-                //return contentCard;
+                return contentCard;
             }
-
-
-
 
             //populate the carousel with the desired elements
             for (var i = 0; i < data.length; i++) {
@@ -317,85 +323,25 @@ var App = (function (global) {
 
             }
             
-            
-          
-
             // create a click listener
-            // var rightBtn = doc.getElementById('right-btn');
-            // var leftBtn = doc.getElementById('left-btn');
+            var rightBtn = doc.getElementById('right-btn');
+            var leftBtn = doc.getElementById('left-btn');
 
-            // rightBtn.addEventListener('click', function (e) {
-            //     currentSlideIndex += 1;
-            //     console.log(currentSlideIndex)
+            rightBtn.addEventListener('click', function (e) {
+                currentSlideIndex += 1;
+                setPositionByIndex()
+                //console.log(currentSlideIndex)
 
-            // });
+            });
 
-            // leftBtn.addEventListener('click', function (e) {
-            //     var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-            //         carouselContent[selectedCarousel].classList.remove('selected');
-            //         if (0 < selectedCarousel) {
-            //             selectedCarousel--;
-            //         } else {
-            //             selectedCarousel = data.length - 1;
-            //         }
+            leftBtn.addEventListener('click', function (e) {
+                currentSlideIndex -= 1;
+                setPositionByIndex()
+                //console.log(currentSlideIndex)
 
-            //         carouselContent[selectedCarousel].classList.add('selected');
-
-            // });
-
-
-
-
-
-
-
-            // doc.addEventListener('click', function (e) {
-
-            //     if (e.target.classList.contains('right-btn')) {
-
-            //         var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-            //         carouselContent[selectedCarousel].classList.remove('selected');
-
-            //         if (selectedCarousel < data.length - 1) {
-            //             selectedCarousel++;
-            //         } else {
-            //             selectedCarousel = 0;
-            //         }
-
-
-
-
-            //         carouselContent[selectedCarousel].classList.add('selected');
-            //     }
-
-            //     if (e.target.classList.contains('left-btn')) {
-
-            //         var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-            //         carouselContent[selectedCarousel].classList.remove('selected');
-            //         if (0 < selectedCarousel) {
-            //             selectedCarousel--;
-            //         } else {
-            //             selectedCarousel = data.length - 1;
-            //         }
-
-            //         carouselContent[selectedCarousel].classList.add('selected');
-            //     }
-
-            // });
-
-
-
-
-
-
-
-
-
-
-
+            });
 
         }
-
 
     }
 
