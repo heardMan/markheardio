@@ -832,16 +832,15 @@ var App = (function (global) {
         console.log(win.location.pathname);
         if (win.location.pathname === '/') {
             consultationsAnimation();
-            webSolutionsAnimation()
-            dataAnalyticsAnimation()
-
-            //carousel();
+            webSolutionsAnimation();
+            dataAnalyticsAnimation();
+            carousel();
 
         } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/index.html') {
             consultationsAnimation();
-            webSolutionsAnimation()
-            dataAnalyticsAnimation()
-            carousel()
+            webSolutionsAnimation();
+            dataAnalyticsAnimation();
+            carousel();
 
         } else if (win.location.pathname === '/portfolio') {
             gallery();
