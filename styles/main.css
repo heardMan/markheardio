@@ -287,7 +287,10 @@ html, body {
 }
 
 .recentProjects {
+    position: relative;
     margin-top: 60vh;
+    margin-bottom: 25vh;
+    
 }
 
 .recentProjects > h3 {
@@ -295,9 +298,21 @@ html, body {
 }
 
 .recentProjects > div {
-    margin-right: auto;
-    margin-left: auto;
     text-align: center;
+}
+
+.recentProjects>div>div > a {
+    padding: 1rem;
+}
+
+/* .recentProjects>div>div {
+    border: solid #fff 1px;
+} */
+
+.recentProjects > div > button {
+    background-color: rgba(0,0,0,0);
+    height: 100%;
+   
 }
 
 .card {
@@ -434,31 +449,48 @@ html, body {
 .carousel{
     position: relative;
     /* height: 300px; */
-    padding: 2rem;
+    
     z-index: 10;
 }
 
 .carousel-content{
-    position: relative;
-    margin-right: auto;
-    margin-left: auto;
-    width:80%;
     height: 100%;
-
+    display: inline-flex;
+    overflow: hidden;
+    transform: translateX(0px);
+    transition: transform 0.3s ease-out;
+    cursor: grab;
 }
 
-.carousel-item{ 
-    margin: 1rem;
-    width:80%;
+
+
+.carousel-item {
+    max-height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* border: solid white 1px; */
+    user-select: none;
+    align-items: center;
+    
+    
+}
+
+.carousel-item-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.carousel-item-links a{
+    border: solid white 1px;
+    padding: 1rem;
+    border-radius: 10px;
+    text-decoration: none;
     background-color: #2e3131;
-    display: none;
-}
-
-.selected {
-    margin-right:auto;
-    margin-left:auto;
-    position:relative;
-    display: block;
+    color: #dadfe1;
 }
 
 .rnd-btn{
@@ -472,13 +504,21 @@ html, body {
 
 .left-btn-elem{
     position: absolute;
-    top:50%;
+    top:1rem;
     left:0px;   
+}
+
+.left-btn-elem > button {
+    opacity: 100;
+}
+
+.right-btn-elem > button {
+    opacity: 100;
 }
 
 .right-btn-elem{
     position: absolute;
-    top:50%;
+    top:1rem;
     right:0px;
 }
 

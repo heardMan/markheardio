@@ -1,34 +1,34 @@
 {
     "carouselItems": [
         {
-        "title": "Consultations",
-        "link": "https: //github.com/heardMan/fitStat",
-        "linkTitle": "link",
-        "description": "Not sure where to start or what you need?\n Feel free to reach out to schedule a consultation!"
+            "name": "React Date Selector",
+            "github": "https://github.com/heardMan/react-date-selector",
+            "demo": "https://heardman.github.io/react-date-selector/",
+            "description": "A better date selection experience from the ground up-- custom input and date logic."
         },
         {
-        "title": "Web Development",
-        "link": "https: //github.com/heardMan/fitStat",
-        "linkTitle": "link",
-        "description": "Need a website?\n From self-managed to fully-managed I can help find and/or build the solution that is right for you and your business."
+            "name": "Restaurant Reviews",
+            "github": "https://github.com/heardMan/restaurantReviews",
+            "demo": "https://heardman.github.io/restaurantReviews/",
+            "description": "A map-based restaurant search application. The application is fully responsive and follows offline first principles."
         },
         {
-        "title": "Software Development",
-        "link": "https: //github.com/heardMan/fitStat",
-        "linkTitle": "link",
-        "description": "Need an application?\n I specialize in develeoping and maintaining modern scalable web applications and would love to help get your next application up an running!"
+            "name": "Dodge 'em",
+            "github": "https://github.com/heardMan/udacity-arcade-game",
+            "demo": "https://heardman.github.io/udacity-arcade-game/",
+            "description": "This is a mobile friendly game that can be played with either the onscreen directional pad or a keyboard directional pad. The game is very simailar to frogger."
         },
         {
-        "title": "Web Hosting Solutions",
-        "link": "https: //github.com/heardMan/fitStat",
-        "linkTitle": "link",
-        "description": "Need help hosting your website?\n I am experienced and familiar in hosting a variety of websites and would love to help find the best fitting solution."
+            "name": "Concentrate",
+            "github": "https://github.com/heardMan/concentrate-js",
+            "demo": "https://heardman.github.io/concentrate-js/",
+            "description": "This is a card matching game. Click on a card to reveal its icon. Match all the card pairs to win the game. For a more detailed explanation of the rules please visit the technical documentaion by clicking the link below."
         },
         {
-        "title": "Data Analytics",
-        "link": "https: //github.com/heardMan/fitStat",
-        "linkTitle": "link",
-        "description": "Got Business Data that you need help organizing?\n Business Analytics is what sparked my interest in software development! I enjoy helping business owners find new and exciting opportunities within their own business data."
+            "name": "Trivia Game",
+            "github": "https://github.com/heardMan/TriviaGame",
+            "demo": "https://heardman.github.io/TriviaGame/",
+            "description": "This is a multiple choice quiz application that tests a user's knowledge of javascript array methods. See how many answers you can get correct!"
         }
     ]
 }

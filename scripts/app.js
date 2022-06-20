@@ -7,57 +7,52 @@ var App = (function (global) {
         win = global.window,
         selectedCarousel = 0,
         carousel = function () {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    // Typical action to be performed when the document is ready:
-                    // document.getElementById("demo").innerHTML = xhttp.responseText;
-                    var data = JSON.parse(xhttp.responseText);
+            // var xhttp = new XMLHttpRequest();
+            // xhttp.onreadystatechange = function () {
+            //     if (this.readyState == 4 && this.status == 200) {
+            //         // Typical action to be performed when the document is ready:
+            //         // document.getElementById("demo").innerHTML = xhttp.responseText;
+            //         var data = JSON.parse(xhttp.responseText);
 
-                    return carouselInit(doc, data.carouselItems);
+            //         return carouselInit(doc, data.carouselItems);
+            //     }
+            // };
+            // xhttp.open("GET", './data/carouselItems.json', true);
+            // xhttp.send();
+
+            var data = [
+                {
+                    "title": "React Date Selector",
+                    "github": "https://github.com/heardMan/react-date-selector",
+                    "demo": "https://heardman.github.io/react-date-selector/",
+                    "description": "A better date selection experience from the ground up-- custom input and date logic."
+                },
+                {
+                    "title": "Restaurant Reviews",
+                    "github": "https://github.com/heardMan/restaurantReviews",
+                    "demo": "https://heardman.github.io/restaurantReviews/",
+                    "description": "A map-based restaurant search application. The application is fully responsive and follows offline first principles."
+                },
+                {
+                    "title": "Dodge 'em",
+                    "github": "https://github.com/heardMan/udacity-arcade-game",
+                    "demo": "https://heardman.github.io/udacity-arcade-game/",
+                    "description": "A mobile friendly game that can be played with either the onscreen direction pad or a keyboard direction pad. The game is very a frogger clone."
+                },
+                {
+                    "title": "Concentrate",
+                    "github": "https://github.com/heardMan/concentrate-js",
+                    "demo": "https://heardman.github.io/concentrate-js/",
+                    "description": "A card matching game. Click on a card to reveal its icon. Match all the card pairs to win the game."
+                },
+                {
+                    "title": "Trivia Game",
+                    "github": "https://github.com/heardMan/TriviaGame",
+                    "demo": "https://heardman.github.io/TriviaGame/",
+                    "description": "This is a multiple choice quiz application that tests a user's knowledge of javascript array methods. See how many answers you can get correct!"
                 }
-            };
-            xhttp.open("GET", './data/carouselItems.json', true);
-            xhttp.send();
-        },
-        carousel2 = function () {
-            var data2 = {
-                "carouselItems": [
-                    {
-                        "title": "Consultations",
-                        "link": "https://github.com/heardMan/fitStat",
-                        "linkTitle": "link",
-                        "description": "Not sure where to start or what you need?\n Feel free to reach out to schedule a consultation!"
-                    },
-                    {
-                        "title": "Web Development",
-                        "link": "https://github.com/heardMan/fitStat",
-                        "linkTitle": "link",
-                        "description": "Need a website?\n From self-managed to fully-managed I can help find and/or build the solution that is right for you and your business."
-                    },
-                    {
-                        "title": "Software Development",
-                        "link": "https: //github.com/heardMan/fitStat",
-                        "linkTitle": "link",
-                        "description": "Need an application?\n I specialize in develeoping and maintaining modern scalable web applications and would love to help get your next application up an running!"
-                    },
-                    {
-                        "title": "Web Hosting Solutions",
-                        "link": "https://github.com/heardMan/fitStat",
-                        "linkTitle": "link",
-                        "description": "Need help hosting your website?\n I am experienced and familiar in hosting a variety of websites and would love to help find the best fitting solution."
-                    },
-                    {
-                        "title": "Data Analytics",
-                        "link": "https://github.com/heardMan/fitStat",
-                        "linkTitle": "link",
-                        "description": "Got Business Data that you need help organizing?\n Business Analytics is what sparked my interest in software development! I enjoy helping business owners find new and exciting opportunities within their own business data."
-                    }
-                ]
-            }
-
-            return carouselInit(doc, data2.carouselItems);
-
+            ]
+            return carouselInit(doc, data);
         },
         gallery = function () {
             var xhttp = new XMLHttpRequest();
@@ -174,59 +169,231 @@ var App = (function (global) {
 
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
 
-        if (carouselElem) {
-            for (var i = 0; i < data.length; i++) {
-                var contentCard = doc.createElement('DIV');
-                contentCard.setAttribute('key', i);
-                if (i === selectedCarousel) {
-                    contentCard.setAttribute('class', 'carousel-item card selected');
-                } else {
-                    contentCard.setAttribute('class', 'carousel-item card');
-                }
-                var title = doc.createElement('H3');
-                title.textContent = data[i].title;
-                var description = doc.createElement('P');
-                description.textContent = data[i].description;
 
-                contentCard.appendChild(title);
-                contentCard.appendChild(description);
+
+        if (carouselElem) {
+
+            var isDragging = false;
+            var startPos = 0;
+            var currentTranslate = 0;
+            var prevTranslate = 0;
+            var animationID = 0;
+            var currentSlideIndex = 0;
+
+            //create a starter array
+            var inView = data.slice(0,3);
+            console.log("In View:");
+            console.log(inView);
+
+            function createCard(index, title, description, gitHub, demo) {
+
+                //empty content card
+                var contentCard = doc.createElement('DIV');
+                contentCard.classList.add('carousel-item');
+
+                //title element
+                var titleElem = doc.createElement('H3');
+                titleElem.textContent = title;
+
+                //description element
+                var descriptionElem = doc.createElement('P');
+                descriptionElem.textContent = description;
+
+                //link Container element
+                var linkContainer = doc.createElement('DIV');
+                linkContainer.classList.add('carousel-item-links')
+
+                //gitHub link element
+                var gitHubLinkElem = doc.createElement('A');
+                gitHubLinkElem.href = gitHub;
+                gitHubLinkElem.textContent = "See Docs";
+
+                //demo link element
+                var demoLinkElem = doc.createElement('A');
+                demoLinkElem.href = demo;
+                demoLinkElem.textContent = "See Demo";
+
+
+
+                //add elements to content card
+                contentCard.appendChild(titleElem);
+                contentCard.appendChild(descriptionElem);
+                linkContainer.appendChild(gitHubLinkElem);
+                linkContainer.appendChild(demoLinkElem);
+                contentCard.appendChild(linkContainer);
+
+                function setContentCardPosition(){
+                    console.log(`CURRENT-TRNSLATE: ${currentTranslate}`)
+                    carouselElem.style.transform =  'translateX('+currentTranslate+'px)'; 
+                }
+
+                function animation(){
+                    setContentCardPosition();
+                    
+                    if(isDragging) {
+                        requestAnimationFrame(animation)
+                    }
+                }
+
+                function getPositionX(event){
+                    if(event.type.includes('mouse')){
+                        return event.pageX;
+                    } else {
+                        return event.touches[0].clientX;
+                    }
+                    
+                }
+
+                function setPositionByIndex(){
+                    currentTranslate = currentSlideIndex * -window.innerWidth
+                    prevTranslate = currentTranslate
+                    setContentCardPosition()
+                }
+
+                function touchStart(idx) {
+                    return function(event){
+                        console.log('start')
+                        startPos = getPositionX(event)
+                        console.log(startPos);
+                        currentSlideIndex=idx;
+                        //console.log(event.type.includes('mouse'));
+                        isDragging = true;
+                        animationID = requestAnimationFrame(animation)
+                    }
+                }
+
+                function touchEnd() {
+                    isDragging = false;
+                    cancelAnimationFrame(animationID)
+                    var movedBy = currentTranslate - prevTranslate;
+
+                    if(movedBy < -100 && currentSlideIndex < data.length-1){
+                        currentSlideIndex += 1;
+                    }
+
+                    if(movedBy > 100 && currentSlideIndex > 0){
+                        currentSlideIndex -= 1;
+                    }
+                    setPositionByIndex()
+                }
+
+                function touchMove(event) {
+                    if(isDragging){
+                        console.log('move')
+                        var currentPos = getPositionX(event);
+                        currentTranslate = prevTranslate + currentPos - startPos
+                    }
+                    
+                }
+ 
+                contentCard.addEventListener('touchstart', touchStart(index));
+                contentCard.addEventListener('touchend', touchEnd);
+                contentCard.addEventListener('touchmove', touchMove);
+
+                contentCard.addEventListener('mousedown', touchStart(index));
+                contentCard.addEventListener('mouseup', touchEnd);
+                contentCard.addEventListener('mouseleave', touchEnd);
+                contentCard.addEventListener('mousemove', touchMove);
+
+                //add card element to carousel element
                 carouselElem.appendChild(contentCard);
+
+                //return contentCard;
             }
 
-            // create a click listener 
-            doc.addEventListener('click', function (e) {
-
-                if (e.target.classList.contains('right-btn')) {
-
-                    var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-                    carouselContent[selectedCarousel].classList.remove('selected');
-
-                    if (selectedCarousel < data.length - 1) {
-                        selectedCarousel++;
-                    } else {
-                        selectedCarousel = 0;
-                    }
 
 
 
+            //populate the carousel with the desired elements
+            for (var i = 0; i < data.length; i++) {
+                // console.log(inView[i])
+                var index = i;
+                var title = data[i].title;
+                var description = data[i].description;
+                var gitHub = data[i].gtiHub;
+                var demo = data[i].demo;
+                
+                createCard(index, title, description, gitHub, demo);
 
-                    carouselContent[selectedCarousel].classList.add('selected');
-                }
+            }
+            
+            
+          
 
-                if (e.target.classList.contains('left-btn')) {
+            // create a click listener
+            var rightBtn = doc.getElementById('right-btn');
+            var leftBtn = doc.getElementById('left-btn');
 
-                    var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-                    carouselContent[selectedCarousel].classList.remove('selected');
-                    if (0 < selectedCarousel) {
-                        selectedCarousel--;
-                    } else {
-                        selectedCarousel = data.length - 1;
-                    }
-
-                    carouselContent[selectedCarousel].classList.add('selected');
-                }
+            rightBtn.addEventListener('click', function (e) {
+                currentSlideIndex += 1;
+                console.log(currentSlideIndex)
 
             });
+
+            // leftBtn.addEventListener('click', function (e) {
+            //     var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+            //         carouselContent[selectedCarousel].classList.remove('selected');
+            //         if (0 < selectedCarousel) {
+            //             selectedCarousel--;
+            //         } else {
+            //             selectedCarousel = data.length - 1;
+            //         }
+
+            //         carouselContent[selectedCarousel].classList.add('selected');
+
+            // });
+
+
+
+
+
+
+
+            // doc.addEventListener('click', function (e) {
+
+            //     if (e.target.classList.contains('right-btn')) {
+
+            //         var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+            //         carouselContent[selectedCarousel].classList.remove('selected');
+
+            //         if (selectedCarousel < data.length - 1) {
+            //             selectedCarousel++;
+            //         } else {
+            //             selectedCarousel = 0;
+            //         }
+
+
+
+
+            //         carouselContent[selectedCarousel].classList.add('selected');
+            //     }
+
+            //     if (e.target.classList.contains('left-btn')) {
+
+            //         var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
+            //         carouselContent[selectedCarousel].classList.remove('selected');
+            //         if (0 < selectedCarousel) {
+            //             selectedCarousel--;
+            //         } else {
+            //             selectedCarousel = data.length - 1;
+            //         }
+
+            //         carouselContent[selectedCarousel].classList.add('selected');
+            //     }
+
+            // });
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
 
@@ -721,7 +888,6 @@ var App = (function (global) {
             consultationsAnimation();
             webSolutionsAnimation()
             dataAnalyticsAnimation()
-            // car2();
 
             //carousel();
 
@@ -729,7 +895,7 @@ var App = (function (global) {
             consultationsAnimation();
             webSolutionsAnimation()
             dataAnalyticsAnimation()
-            //carousel2()
+            carousel()
 
         } else if (win.location.pathname === '/portfolio') {
             gallery();
@@ -764,36 +930,6 @@ var App = (function (global) {
                 toggleMenu();
                 console.log('click');
             }
-
-            // if (e.target.classList.contains('right-btn')) {
-
-            //     var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-            //     carouselContent[selectedCarousel].classList.remove('selected');
-
-            //     if (selectedCarousel < carouselItems.length - 1) {
-            //         selectedCarousel++;
-            //     } else {
-            //         selectedCarousel = 0;
-            //     }
-
-            //     //console.log(selectedCarousel)
-
-
-            //     carouselContent[selectedCarousel].classList.add('selected');
-            // }
-
-            // if (e.target.classList.contains('left-btn')) {
-
-            //     var carouselContent = doc.getElementsByClassName('carousel-content')[0].children;
-            //     carouselContent[selectedCarousel].classList.remove('selected');
-            //     if (0 < selectedCarousel) {
-            //         selectedCarousel--;
-            //     } else {
-            //         selectedCarousel = carouselItems.length - 1;
-            //     }
-            //     //console.log(selectedCarousel);
-            //     carouselContent[selectedCarousel].classList.add('selected');
-            // }
 
             if (e.target.id === 'sendMessage') {
 
