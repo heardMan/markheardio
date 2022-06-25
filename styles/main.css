@@ -267,7 +267,7 @@ html, body {
     background: linear-gradient(270deg, rgba(4,79,103,1) 1%, rgba(3,166,120,0) 10%);
     padding-top: 1vh;
     padding-bottom: 1vh;
-    padding-left:2rem;
+    padding-left:1rem;
     padding-right:3rem;
     width: 75vw;
     margin-top: 50vh;
@@ -502,10 +502,11 @@ html, body {
 
 .slide-indicator {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     border: solid #dadfe1 1px;
     margin: 10px;
+    border-radius: 2px;
     background-color: #2e3131;
 }
 
