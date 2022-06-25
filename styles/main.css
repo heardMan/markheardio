@@ -282,7 +282,7 @@ html, body {
 .recentProjects {
     position: relative;
     margin-top: 60vh;
-    margin-bottom: 25vh;
+    margin-bottom: 10vh;
     
 }
 
@@ -474,7 +474,7 @@ html, body {
 
 .carousel-item-content {
     width: 80%;
-    
+    height: 50vh;
     margin-right: auto;
     margin-left: auto;
 }
@@ -493,6 +493,12 @@ html, body {
     text-decoration: none;
     background-color: #2e3131;
     color: #dadfe1;
+}
+
+.carousel-item-links a:active{
+    background-color: #dadfe1;
+    color: #2e3131;
+    border: #2e3131;
 }
 
 #slide-indicator-container {

@@ -331,7 +331,7 @@ var App = (function (global) {
                 var index = i;
                 var title = data[i].title;
                 var description = data[i].description;
-                var gitHub = data[i].gtiHub;
+                var gitHub = data[i].github;
                 var demo = data[i].demo;
 
                 createCard(index, title, description, gitHub, demo);
