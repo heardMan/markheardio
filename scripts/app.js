@@ -237,7 +237,7 @@ var App = (function (global) {
                 var movedBy = currentTranslate - prevTranslate;
 
                 if (movedBy < -100 && currentSlideIndex < data.length - 1) {
-                    var slideIndicators = docgetElementsByClassName('slide-indicator')
+                    var slideIndicators = doc.getElementsByClassName('slide-indicator')
                     slideIndicators[currentSlideIndex].classList.remove('slide-indicator-selected')
                     slideIndicators[currentSlideIndex + 1].classList.add('slide-indicator-selected')
                     currentSlideIndex += 1;
