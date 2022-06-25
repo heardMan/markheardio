@@ -168,6 +168,10 @@ var App = (function (global) {
         console.log(data);
 
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
+        var slideIndicatorContainer = doc.getElementById('slide-indicator-container')
+
+
+        console.log(slideIndicatorContainer)
 
 
 
@@ -181,50 +185,47 @@ var App = (function (global) {
             var currentSlideIndex = 0;
 
             //create a starter array
-            var inView = data.slice(0,3);
-            console.log("In View:");
-            console.log(inView);
 
-            function animation(){
+            function animation() {
                 setContentCardPosition();
-                
-                if(isDragging) {
+
+                if (isDragging) {
                     requestAnimationFrame(animation)
                 }
             }
 
-            function getPositionX(event){
-                if(event.type.includes('mouse')){
+            function getPositionX(event) {
+                if (event.type.includes('mouse')) {
                     return event.pageX;
                 } else {
                     return event.touches[0].clientX;
                 }
             }
 
-            function setPositionByIndex(){
-                if(currentSlideIndex<0){
-                    currentSlideIndex=4
+            function setPositionByIndex() {
+                if (currentSlideIndex < 0) {
+                    currentSlideIndex = 4
                 }
-                if(currentSlideIndex>4){
-                    currentSlideIndex=0
+                if (currentSlideIndex > 4) {
+                    currentSlideIndex = 0
                 }
                 currentTranslate = currentSlideIndex * -window.innerWidth
                 prevTranslate = currentTranslate
                 setContentCardPosition()
             }
 
-            function setContentCardPosition(){
-                carouselElem.style.transform =  'translateX('+currentTranslate+'px)'; 
+            function setContentCardPosition() {
+                carouselElem.style.transform = 'translateX(' + currentTranslate + 'px)';
             }
 
 
 
             function touchStart(idx) {
-                return function(event){
+                return function (event) {
                     console.log(event.target)
                     startPos = getPositionX(event)
                     console.log(startPos);
-                    currentSlideIndex=idx;
+                    currentSlideIndex = idx;
                     isDragging = true;
                     animationID = requestAnimationFrame(animation)
                 }
@@ -235,26 +236,41 @@ var App = (function (global) {
                 cancelAnimationFrame(animationID)
                 var movedBy = currentTranslate - prevTranslate;
 
-                if(movedBy < -100 && currentSlideIndex < data.length-1){
+                if (movedBy < -100 && currentSlideIndex < data.length - 1) {
+                    var slideIndicators = docgetElementsByClassName('slide-indicator')
+                    slideIndicators[currentSlideIndex].classList.remove('slide-indicator-selected')
+                    slideIndicators[currentSlideIndex + 1].classList.add('slide-indicator-selected')
                     currentSlideIndex += 1;
                 }
 
-                if(movedBy > 100 && currentSlideIndex > 0){
+                if (movedBy > 100 && currentSlideIndex > 0) {
+                    var slideIndicators = doc.getElementsByClassName('slide-indicator')
+                    slideIndicators[currentSlideIndex].classList.remove('slide-indicator-selected')
+                    slideIndicators[currentSlideIndex - 1].classList.add('slide-indicator-selected')
                     currentSlideIndex -= 1;
                 }
                 setPositionByIndex()
             }
 
             function touchMove(event) {
-                if(isDragging){
+                if (isDragging) {
                     console.log('move')
                     var currentPos = getPositionX(event);
                     currentTranslate = prevTranslate + currentPos - startPos
                 }
-                
+
             }
 
             function createCard(index, title, description, gitHub, demo) {
+
+                var slideIndicator = doc.createElement('DIV');
+                slideIndicator.classList.add('slide-indicator');
+
+                if (index === 0) {
+                    slideIndicator.classList.add('slide-indicator-selected');
+                }
+
+                slideIndicatorContainer.appendChild(slideIndicator);
 
                 //empty content card
                 var contentCard = doc.createElement('DIV');
@@ -311,22 +327,35 @@ var App = (function (global) {
 
             //populate the carousel with the desired elements
             for (var i = 0; i < data.length; i++) {
-                // console.log(inView[i])
+
                 var index = i;
                 var title = data[i].title;
                 var description = data[i].description;
                 var gitHub = data[i].gtiHub;
                 var demo = data[i].demo;
-                
+
                 createCard(index, title, description, gitHub, demo);
 
             }
-            
+
             // create a click listener
             var rightBtn = doc.getElementById('right-btn');
             var leftBtn = doc.getElementById('left-btn');
 
             rightBtn.addEventListener('click', function (e) {
+
+                var slideIndicators = doc.getElementsByClassName('slide-indicator')
+
+                if (currentSlideIndex === slideIndicators.length-1) {
+                    slideIndicators[slideIndicators.length-1].classList.remove('slide-indicator-selected')
+                    slideIndicators[0].classList.add('slide-indicator-selected')
+
+                } else {
+                    slideIndicators[currentSlideIndex].classList.remove('slide-indicator-selected')
+                    slideIndicators[currentSlideIndex + 1].classList.add('slide-indicator-selected')
+                }
+
+
                 currentSlideIndex += 1;
                 setPositionByIndex()
                 //console.log(currentSlideIndex)
@@ -334,6 +363,20 @@ var App = (function (global) {
             });
 
             leftBtn.addEventListener('click', function (e) {
+
+                var slideIndicators = doc.getElementsByClassName('slide-indicator')
+
+                if (currentSlideIndex === 0){
+                    slideIndicators[0].classList.remove('slide-indicator-selected')
+                    slideIndicators[slideIndicators.length-1].classList.add('slide-indicator-selected')
+
+                } else {
+                    slideIndicators[currentSlideIndex].classList.remove('slide-indicator-selected')
+                    slideIndicators[currentSlideIndex - 1].classList.add('slide-indicator-selected')
+                }
+
+
+
                 currentSlideIndex -= 1;
                 setPositionByIndex()
                 //console.log(currentSlideIndex)
@@ -566,20 +609,20 @@ var App = (function (global) {
             //when the observer starts the element is at the bottom of the screen 
             //or about the distance of the inner window height
             //indicates current pixel height into the intersection rectangle being observed
-            
+
             //Y Bound is about equal to window height and approaches zero
             //as the element reaches the top of the screen
             //start value- window.innerHeight
             //terminal value- -element.clientHeight total magnitude: element.clientHeight + window.innerHeight
             var boundingRect = element.getBoundingClientRect();
 
-            
+
             var animationHeightIncrementer = (window.innerHeight - boundingRect.y);
-            
+
             //tracks Y-axis movement trough the window
             //start value: 0 - when object enters view 
             //terminal value: 100 - when object exits view
-            var animationWindowPercentage = 1-(boundingRect.y+ element.clientHeight) / (window.innerHeight+ element.clientHeight);
+            var animationWindowPercentage = 1 - (boundingRect.y + element.clientHeight) / (window.innerHeight + element.clientHeight);
 
             var animationID = 0;
 
@@ -600,24 +643,24 @@ var App = (function (global) {
             // }
             //window.requestAnimationFrame(step)
 
-            function translateYtoX(yPosition){
+            function translateYtoX(yPosition) {
 
-                if(yPosition<-99) {
+                if (yPosition < -99) {
                     element.style.transform = 'skewX(-3deg) translateX(-99%)';
                 }
 
-                if(yPosition>-99) {
-                    element.style.transform = 'skewX(-3deg) translateX('+(yPosition)+'%)';
+                if (yPosition > -99) {
+                    element.style.transform = 'skewX(-3deg) translateX(' + (yPosition) + '%)';
                 }
 
-                if (yPosition>0){
+                if (yPosition > 0) {
                     element.style.transform = 'skewX(-3deg) translateX(0%)';
                 }
 
             }
 
-            translateYtoX(-99+((animationWindowPercentage*100)*2.2))
-            
+            translateYtoX(-99 + ((animationWindowPercentage * 100) * 2.2))
+
         }
 
         var observer = new IntersectionObserver((entries) => {
@@ -647,20 +690,20 @@ var App = (function (global) {
             //when the observer starts the element is at the bottom of the screen 
             //or about the distance of the inner window height
             //indicates current pixel height into the intersection rectangle being observed
-            
+
             //Y Bound is about equal to window height and approaches zero
             //as the element reaches the top of the screen
             //start value- window.innerHeight
             //terminal value- -element.clientHeight total magnitude: element.clientHeight + window.innerHeight
             var boundingRect = element.getBoundingClientRect();
 
-            
+
             var animationHeightIncrementer = (window.innerHeight - boundingRect.y);
-            
+
             //tracks Y-axis movement trough the window
             //start value: 0 - when object enters view 
             //terminal value: 100 - when object exits view
-            var animationWindowPercentage = 1-(boundingRect.y+ element.clientHeight) / (window.innerHeight+ element.clientHeight);
+            var animationWindowPercentage = 1 - (boundingRect.y + element.clientHeight) / (window.innerHeight + element.clientHeight);
 
             var animationID = 0;
 
@@ -681,24 +724,24 @@ var App = (function (global) {
             // }
             //window.requestAnimationFrame(step)
 
-            function translateYtoX(yPosition){
+            function translateYtoX(yPosition) {
 
-                if(yPosition>99) {
+                if (yPosition > 99) {
                     element.style.transform = 'skewX(3deg) translateX(99%)';
                 }
 
-                if(yPosition<99) {
-                    element.style.transform = 'skewX(3deg) translateX('+(yPosition)+'%)';
+                if (yPosition < 99) {
+                    element.style.transform = 'skewX(3deg) translateX(' + (yPosition) + '%)';
                 }
 
-                if (yPosition<8){
+                if (yPosition < 8) {
                     element.style.transform = 'skewX(3deg) translateX(8%)';
                 }
 
             }
 
-            translateYtoX(99-((animationWindowPercentage*100)*2.2))
-            
+            translateYtoX(99 - ((animationWindowPercentage * 100) * 2.2))
+
         }
 
         var observer = new IntersectionObserver((entries) => {
@@ -716,7 +759,7 @@ var App = (function (global) {
 
         return observer.observe(element)
     }
-    
+
 
     function dataAnalyticsAnimation() {
 
@@ -728,20 +771,20 @@ var App = (function (global) {
             //when the observer starts the element is at the bottom of the screen 
             //or about the distance of the inner window height
             //indicates current pixel height into the intersection rectangle being observed
-            
+
             //Y Bound is about equal to window height and approaches zero
             //as the element reaches the top of the screen
             //start value- window.innerHeight
             //terminal value- -element.clientHeight total magnitude: element.clientHeight + window.innerHeight
             var boundingRect = element.getBoundingClientRect();
 
-            
+
             var animationHeightIncrementer = (window.innerHeight - boundingRect.y);
-            
+
             //tracks Y-axis movement trough the window
             //start value: 0 - when object enters view 
             //terminal value: 100 - when object exits view
-            var animationWindowPercentage = 1-(boundingRect.y+ element.clientHeight) / (window.innerHeight+ element.clientHeight);
+            var animationWindowPercentage = 1 - (boundingRect.y + element.clientHeight) / (window.innerHeight + element.clientHeight);
 
             var animationID = 0;
 
@@ -762,24 +805,24 @@ var App = (function (global) {
             // }
             //window.requestAnimationFrame(step)
 
-            function translateYtoX(yPosition){
+            function translateYtoX(yPosition) {
 
-                if(yPosition<-99) {
+                if (yPosition < -99) {
                     element.style.transform = 'skewX(-3deg) translateX(-99%)';
                 }
 
-                if(yPosition>-99) {
-                    element.style.transform = 'skewX(-3deg) translateX('+(yPosition)+'%)';
+                if (yPosition > -99) {
+                    element.style.transform = 'skewX(-3deg) translateX(' + (yPosition) + '%)';
                 }
 
-                if (yPosition>0){
+                if (yPosition > 0) {
                     element.style.transform = 'skewX(-3deg) translateX(0%)';
                 }
 
             }
 
-            translateYtoX(-99+((animationWindowPercentage*100)*2.2))
-            
+            translateYtoX(-99 + ((animationWindowPercentage * 100) * 2.2))
+
         }
 
         var observer = new IntersectionObserver((entries) => {
