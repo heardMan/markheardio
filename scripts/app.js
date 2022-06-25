@@ -626,11 +626,11 @@ var App = (function (global) {
 
             var animationID = 0;
 
-            console.log('BOUNDING RECT Y: ' + boundingRect.y);
-            console.log('INNER WINDOW HEIGHT: ' + window.innerHeight);
-            console.log('PAGE Y OFFSET: ' + window.pageYOffset);
-            console.log('CLIENT HEIGHT: ' + element.clientHeight);
-            console.log('ANIMATE WINDOW PERCENT: ' + animationWindowPercentage);
+            // console.log('BOUNDING RECT Y: ' + boundingRect.y);
+            // console.log('INNER WINDOW HEIGHT: ' + window.innerHeight);
+            // console.log('PAGE Y OFFSET: ' + window.pageYOffset);
+            // console.log('CLIENT HEIGHT: ' + element.clientHeight);
+            // console.log('ANIMATE WINDOW PERCENT: ' + animationWindowPercentage);
 
             //all movement must proportional
             //convert upward scroll in to horizontal movement using the translateX function
@@ -686,7 +686,7 @@ var App = (function (global) {
         //console.log(`SCREEN HEIGHT: ${window.innerHeight}`)
         //console.log(`ELEMENT HEIGHT: ${element.clientHeight}`)
 
-        function handleScroll(e) {
+        function handleScroll2(e) {
             //when the observer starts the element is at the bottom of the screen 
             //or about the distance of the inner window height
             //indicates current pixel height into the intersection rectangle being observed
@@ -707,11 +707,11 @@ var App = (function (global) {
 
             var animationID = 0;
 
-            console.log('BOUNDING RECT Y: ' + boundingRect.y);
-            console.log('INNER WINDOW HEIGHT: ' + window.innerHeight);
-            console.log('PAGE Y OFFSET: ' + window.pageYOffset);
-            console.log('CLIENT HEIGHT: ' + element.clientHeight);
-            console.log('ANIMATE WINDOW PERCENT: ' + animationWindowPercentage);
+            // console.log('BOUNDING RECT Y: ' + boundingRect.y);
+            // console.log('INNER WINDOW HEIGHT: ' + window.innerHeight);
+            // console.log('PAGE Y OFFSET: ' + window.pageYOffset);
+            // console.log('CLIENT HEIGHT: ' + element.clientHeight);
+            // console.log('ANIMATE WINDOW PERCENT: ' + animationWindowPercentage);
 
             //all movement must proportional
             //convert upward scroll in to horizontal movement using the translateX function
@@ -726,8 +726,8 @@ var App = (function (global) {
 
             function translateYtoX(yPosition) {
 
-                if (yPosition > 99) {
-                    element.style.transform = 'skewX(3deg) translateX(99%)';
+                if (yPosition > 97) {
+                    element.style.transform = 'skewX(3deg) translateX(97%)';
                 }
 
                 if (yPosition < 99) {
@@ -748,12 +748,12 @@ var App = (function (global) {
             //console.log(entries)
             var startHeight = entries[0].rootBounds
             if (entries[0].intersectionRatio > 0) {
-                window.addEventListener('scroll', handleScroll, true)
-                window.addEventListener('touchmove', handleScroll, true)
+                window.addEventListener('scroll', handleScroll2, true)
+                window.addEventListener('touchmove', handleScroll2, true)
             }
             else {
-                window.removeEventListener('scroll', handleScroll, true)
-                window.removeEventListener('touchmove', handleScroll, true)
+                window.removeEventListener('scroll', handleScroll2, true)
+                window.removeEventListener('touchmove', handleScroll2, true)
             }
         });
 
@@ -767,7 +767,7 @@ var App = (function (global) {
         //console.log(`SCREEN HEIGHT: ${window.innerHeight}`)
         //console.log(`ELEMENT HEIGHT: ${element.clientHeight}`)
 
-        function handleScroll(e) {
+        function handleScroll3(e) {
             //when the observer starts the element is at the bottom of the screen 
             //or about the distance of the inner window height
             //indicates current pixel height into the intersection rectangle being observed
@@ -829,12 +829,12 @@ var App = (function (global) {
             //console.log(entries)
             var startHeight = entries[0].rootBounds
             if (entries[0].intersectionRatio > 0) {
-                window.addEventListener('scroll', handleScroll, true)
-                window.addEventListener('touchmove', handleScroll, true)
+                window.addEventListener('scroll', handleScroll3, true)
+                window.addEventListener('touchmove', handleScroll3, true)
             }
             else {
-                window.removeEventListener('scroll', handleScroll, true)
-                window.removeEventListener('touchmove', handleScroll, true)
+                window.removeEventListener('scroll', handleScroll3, true)
+                window.removeEventListener('touchmove', handleScroll3, true)
             }
         });
 
