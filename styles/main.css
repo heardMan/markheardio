@@ -231,36 +231,31 @@ html, body {
     background: linear-gradient(270deg, rgba(4,79,103,1) 0%, rgba(0,0,0,0) 10%);
     padding-top: 1vh;
     padding-bottom: 1vh;
-    padding-left:10vw;
+    padding-left:2rem;
     padding-right:2rem;
     width: 75vw;
-    margin-right: auto;
     margin-top: 50vh;
-    margin-left: -85vw;
-    transform: skewX(-3deg);
+    transform: skewX(-3deg) translateX(-99%);
     border-radius: 3px;
     
+}
+.consultations-text {
+    width:90%;
 }
 
 .consultations> div > h3, .consultations > div {
     transform: skewX(3deg);
 }
 
-
-
-
-
 .internet {
     background: linear-gradient(90deg, rgba(4,79,103,1) 1%, rgba(3,166,120,0) 10%);
     padding-top: 1vh;
-    padding-bottom: 5vh;
+    padding-bottom: 1vh;
     padding-left:2rem;
     padding-right:2rem;
-    width: 75vw;
-    margin-left: 100vw;
     margin-top: 50vh;
-    margin-right:-5vw;
-    transform: skewX(3deg);
+    width: 75vw;
+    transform: skewX(3deg) translateX(99%);
     border-radius: 3px;
 }
 
@@ -271,14 +266,12 @@ html, body {
 .analytics {
     background: linear-gradient(270deg, rgba(4,79,103,1) 1%, rgba(3,166,120,0) 10%);
     padding-top: 1vh;
-    padding-bottom: 5vh;
-    padding-left:6rem;
+    padding-bottom: 1vh;
+    padding-left:2rem;
     padding-right:2rem;
     width: 75vw;
-    margin-right: auto;
-    margin-top: 40vh;
-    margin-left: -85vw;
-    transform: skewX(-3deg);
+    margin-top: 50vh;
+    transform: skewX(-3deg) translateX(-99%);
     border-radius: 3px;
 }
 

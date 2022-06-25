@@ -199,7 +199,6 @@ var App = (function (global) {
                 } else {
                     return event.touches[0].clientX;
                 }
-                
             }
 
             function setPositionByIndex(){
@@ -567,225 +566,236 @@ var App = (function (global) {
             //when the observer starts the element is at the bottom of the screen 
             //or about the distance of the inner window height
             //indicates current pixel height into the intersection rectangle being observed
+            
+            //Y Bound is about equal to window height and approaches zero
+            //as the element reaches the top of the screen
+            //start value- window.innerHeight
+            //terminal value- -element.clientHeight total magnitude: element.clientHeight + window.innerHeight
             var boundingRect = element.getBoundingClientRect();
+
+            
             var animationHeightIncrementer = (window.innerHeight - boundingRect.y);
-            var animationWindowPercentage = boundingRect.y / window.innerHeight;
-            var elementOnScreenHeight = window.innerHeight - element.clientHeight
-            var animationPercentage = (animationHeightIncrementer - element.clientHeight) / (elementOnScreenHeight);
-            var lowerBound = 0.15;
-            var upperBound = 0.75;
-            var animationDistancePercentage = animationPercentage - lowerBound;
-            var speedMultiplier = 180
+            
+            //tracks Y-axis movement trough the window
+            //start value: 0 - when object enters view 
+            //terminal value: 100 - when object exits view
+            var animationWindowPercentage = 1-(boundingRect.y+ element.clientHeight) / (window.innerHeight+ element.clientHeight);
 
-            // console.log(`
-            //     PAGE Y OFFSET: ${window.pageYOffset}
-            //     CLIENT HEIGHT: ${element.clientHeight}
-            //     INNER WINDOW HEIGHT: ${window.innerHeight}
-            //     ANIMATE WINDOW PERCENT: ${animationWindowPercentage}
-            //     ANIMATION HEIGHT INCREMENTOR: ${animationHeightIncrementer}
-            //     ANIMATION PERCENTAGE: ${animationPercentage}
-            //     A: ${85 - (animationDistancePercentage * speedMultiplier)}
-            //     `);
+            var animationID = 0;
 
-            //if the object is completely on screen animate into and out of view
-            if (animationHeightIncrementer >= element.clientHeight) {
-                //console.log(`doing something`);
-                //set an upper bound of -85vw
-                if (animationPercentage < lowerBound) {
-                    //console.log('LOWER BOUND')
-                    element.style['margin-left'] = `-85`;
+            console.log('BOUNDING RECT Y: ' + boundingRect.y);
+            console.log('INNER WINDOW HEIGHT: ' + window.innerHeight);
+            console.log('PAGE Y OFFSET: ' + window.pageYOffset);
+            console.log('CLIENT HEIGHT: ' + element.clientHeight);
+            console.log('ANIMATE WINDOW PERCENT: ' + animationWindowPercentage);
+
+            //all movement must proportional
+            //convert upward scroll in to horizontal movement using the translateX function
+            //this app has a header that limits the animation windows - upper bound of 92 pixels
+            //translateX should start at -99 (hard limit) and progress to 0 (hard limit) Total 99 units
+
+            // function step(timestamp){
+            //     translateYtoX(-99+((animationWindowPercentage*100)*2.2))
+            //     window.requestAnimationFrame(step)
+            // }
+            //window.requestAnimationFrame(step)
+
+            function translateYtoX(yPosition){
+
+                if(yPosition<-99) {
+                    element.style.transform = 'skewX(-3deg) translateX(-99%)';
                 }
-                if (animationPercentage >= lowerBound && animationPercentage <= upperBound) {
-                    //console.log('MIDDLE BOUND')
-                    if ((animationDistancePercentage * speedMultiplier) <= 5) {
-                        //console.log('UPPER BOUND')
-                        element.style['margin-left'] = `-5vw`;
-                    }
-                    element.style['margin-left'] = `-${85 - (animationDistancePercentage * speedMultiplier)}vw`;
+
+                if(yPosition>-99) {
+                    element.style.transform = 'skewX(-3deg) translateX('+(yPosition)+'%)';
                 }
-                // if (animationPercentage > upperBound) {
-                //     console.log('UPPER BOUND')
-                //     element.style['margin-left'] = `-5vw`;
-                // }
-            } else if (animationHeightIncrementer < element.clientHeight) {
-                //if the element is not completely on screen-- do nothing
-                //console.log(`NOT doing anything`);
+
+                if (yPosition>0){
+                    element.style.transform = 'skewX(-3deg) translateX(0%)';
+                }
+
             }
+
+            translateYtoX(-99+((animationWindowPercentage*100)*2.2))
+            
         }
 
         var observer = new IntersectionObserver((entries) => {
             //console.log(entries)
             var startHeight = entries[0].rootBounds
             if (entries[0].intersectionRatio > 0) {
-                //console.log('Hello');
-                //console.log(`START POSITION: ${window.scrollY}`)
                 window.addEventListener('scroll', handleScroll, true)
                 window.addEventListener('touchmove', handleScroll, true)
             }
             else {
                 window.removeEventListener('scroll', handleScroll, true)
                 window.removeEventListener('touchmove', handleScroll, true)
-                //console.log('Good Bye');
             }
         });
 
         return observer.observe(element)
     }
+
 
     function webSolutionsAnimation() {
 
         var element = document.querySelector('.internet');
-        console.log(`SCREEN HEIGHT: ${window.innerHeight}`)
-        console.log(`ELEMENT HEIGHT: ${element.clientHeight}`)
+        //console.log(`SCREEN HEIGHT: ${window.innerHeight}`)
+        //console.log(`ELEMENT HEIGHT: ${element.clientHeight}`)
 
         function handleScroll(e) {
             //when the observer starts the element is at the bottom of the screen 
             //or about the distance of the inner window height
             //indicates current pixel height into the intersection rectangle being observed
+            
+            //Y Bound is about equal to window height and approaches zero
+            //as the element reaches the top of the screen
+            //start value- window.innerHeight
+            //terminal value- -element.clientHeight total magnitude: element.clientHeight + window.innerHeight
             var boundingRect = element.getBoundingClientRect();
+
+            
             var animationHeightIncrementer = (window.innerHeight - boundingRect.y);
-            var animationWindowPercentage = boundingRect.y / window.innerHeight;
-            var elementOnScreenHeight = window.innerHeight - element.clientHeight
-            var animationPercentage = (animationHeightIncrementer - element.clientHeight) / (elementOnScreenHeight);
-            var lowerBound = 0.00;
-            var upperBound = 0.50;
-            var animationDistancePercentage = animationPercentage - lowerBound;
-            var speedMultiplier = 180
+            
+            //tracks Y-axis movement trough the window
+            //start value: 0 - when object enters view 
+            //terminal value: 100 - when object exits view
+            var animationWindowPercentage = 1-(boundingRect.y+ element.clientHeight) / (window.innerHeight+ element.clientHeight);
 
-            // console.log(`
-            //     PAGE Y OFFSET: ${window.pageYOffset}
-            //     CLIENT HEIGHT: ${element.clientHeight}
-            //     INNER WINDOW HEIGHT: ${window.innerHeight}
-            //     ANIMATE WINDOW PERCENT: ${animationWindowPercentage}
-            //     ANIMATION HEIGHT INCREMENTOR: ${animationHeightIncrementer}
-            //     ANIMATION PERCENTAGE: ${animationPercentage}
-            //     ANI: ${animationDistancePercentage}
-            //     A: ${85 - (animationDistancePercentage * speedMultiplier)}
-            //     `);
+            var animationID = 0;
 
-            //if the object is completely on screen animate into and out of view
-            if (animationHeightIncrementer >= element.clientHeight) {
-                //console.log(`doing something`);
-                //set an upper bound of -85vw
-                if (animationPercentage < lowerBound) {
-                    //console.log('LOWER BOUND')
-                    element.style['margin-left'] = `100vw`;
-                }
-                if (animationPercentage >= lowerBound && animationPercentage <= upperBound) {
-                    //console.log('MIDDLE BOUND')
-                    
-                    // if ((upperBound) <= .55) {
-                    //     console.log('UPPER BOUND')
-                    //     element.style['margin-left'] = `15vw`;
-                    // }
+            console.log('BOUNDING RECT Y: ' + boundingRect.y);
+            console.log('INNER WINDOW HEIGHT: ' + window.innerHeight);
+            console.log('PAGE Y OFFSET: ' + window.pageYOffset);
+            console.log('CLIENT HEIGHT: ' + element.clientHeight);
+            console.log('ANIMATE WINDOW PERCENT: ' + animationWindowPercentage);
 
-                    element.style['margin-left'] = `${100 - (animationDistancePercentage * speedMultiplier)}vw`;
-                    
+            //all movement must proportional
+            //convert upward scroll in to horizontal movement using the translateX function
+            //this app has a header that limits the animation windows - upper bound of 92 pixels
+            //translateX should start at 99 (hard limit) and progress to 0 (hard limit) Total 99 units
+
+            // function step(timestamp){
+            //     translateYtoX(-99+((animationWindowPercentage*100)*2.2))
+            //     window.requestAnimationFrame(step)
+            // }
+            //window.requestAnimationFrame(step)
+
+            function translateYtoX(yPosition){
+
+                if(yPosition>99) {
+                    element.style.transform = 'skewX(3deg) translateX(99%)';
                 }
 
-
-                if (animationPercentage >= upperBound) {
-                    //console.log('UPPER BOUND')
-                    element.style['margin-left'] = `10vw`;
+                if(yPosition<99) {
+                    element.style.transform = 'skewX(3deg) translateX('+(yPosition)+'%)';
                 }
 
-            } else if (animationHeightIncrementer < element.clientHeight) {
-                //if the element is not completely on screen-- do nothing
-                //console.log(`NOT doing anything`);
+                if (yPosition<8){
+                    element.style.transform = 'skewX(3deg) translateX(8%)';
+                }
+
             }
+
+            translateYtoX(99-((animationWindowPercentage*100)*2.2))
+            
         }
 
         var observer = new IntersectionObserver((entries) => {
             //console.log(entries)
             var startHeight = entries[0].rootBounds
             if (entries[0].intersectionRatio > 0) {
-                console.log('Hello');
-                console.log(`START POSITION: ${window.scrollY}`)
                 window.addEventListener('scroll', handleScroll, true)
                 window.addEventListener('touchmove', handleScroll, true)
             }
             else {
                 window.removeEventListener('scroll', handleScroll, true)
                 window.removeEventListener('touchmove', handleScroll, true)
-                //console.log('Good Bye');
             }
         });
 
         return observer.observe(element)
     }
+    
 
     function dataAnalyticsAnimation() {
 
-        var consultations = document.querySelector('.analytics');
-        console.log(`SCREEN HEIGHT: ${window.innerHeight}`)
-        console.log(`ELEMENT HEIGHT: ${consultations.clientHeight}`)
+        var element = document.querySelector('.analytics');
+        //console.log(`SCREEN HEIGHT: ${window.innerHeight}`)
+        //console.log(`ELEMENT HEIGHT: ${element.clientHeight}`)
 
         function handleScroll(e) {
             //when the observer starts the element is at the bottom of the screen 
             //or about the distance of the inner window height
             //indicates current pixel height into the intersection rectangle being observed
-            var boundingRect = consultations.getBoundingClientRect();
+            
+            //Y Bound is about equal to window height and approaches zero
+            //as the element reaches the top of the screen
+            //start value- window.innerHeight
+            //terminal value- -element.clientHeight total magnitude: element.clientHeight + window.innerHeight
+            var boundingRect = element.getBoundingClientRect();
+
+            
             var animationHeightIncrementer = (window.innerHeight - boundingRect.y);
-            var animationWindowPercentage = boundingRect.y / window.innerHeight;
-            var elementOnScreenHeight = window.innerHeight - consultations.clientHeight
-            var animationPercentage = (animationHeightIncrementer - consultations.clientHeight) / (elementOnScreenHeight);
-            var lowerBound = 0.15;
-            var upperBound = 0.75;
-            var animationDistancePercentage = animationPercentage - lowerBound;
-            var speedMultiplier = 180
+            
+            //tracks Y-axis movement trough the window
+            //start value: 0 - when object enters view 
+            //terminal value: 100 - when object exits view
+            var animationWindowPercentage = 1-(boundingRect.y+ element.clientHeight) / (window.innerHeight+ element.clientHeight);
 
-            console.log(`
-                PAGE Y OFFSET: ${window.pageYOffset}
-                CLIENT HEIGHT: ${consultations.clientHeight}
-                INNER WINDOW HEIGHT: ${window.innerHeight}
-                ANIMATE WINDOW PERCENT: ${animationWindowPercentage}
-                ANIMATION HEIGHT INCREMENTOR: ${animationHeightIncrementer}
-                ANIMATION PERCENTAGE: ${animationPercentage}
-                ANI%: ${animationDistancePercentage}
-                A: ${85 - (animationDistancePercentage * speedMultiplier)}
-                `);
+            var animationID = 0;
 
-            //if the object is completely on screen animate into and out of view
-            if (animationHeightIncrementer >= consultations.clientHeight) {
-                console.log(`doing something`);
-                //set an upper bound of -85vw
-                if (animationPercentage < lowerBound) {
-                    console.log('LOWER BOUND')
-                    consultations.style['margin-left'] = `-85`;
+            console.log('BOUNDING RECT Y: ' + boundingRect.y);
+            console.log('INNER WINDOW HEIGHT: ' + window.innerHeight);
+            console.log('PAGE Y OFFSET: ' + window.pageYOffset);
+            console.log('CLIENT HEIGHT: ' + element.clientHeight);
+            console.log('ANIMATE WINDOW PERCENT: ' + animationWindowPercentage);
+
+            //all movement must proportional
+            //convert upward scroll in to horizontal movement using the translateX function
+            //this app has a header that limits the animation windows - upper bound of 92 pixels
+            //translateX should start at -99 (hard limit) and progress to 0 (hard limit) Total 99 units
+
+            // function step(timestamp){
+            //     translateYtoX(-99+((animationWindowPercentage*100)*2.2))
+            //     window.requestAnimationFrame(step)
+            // }
+            //window.requestAnimationFrame(step)
+
+            function translateYtoX(yPosition){
+
+                if(yPosition<-99) {
+                    element.style.transform = 'skewX(-3deg) translateX(-99%)';
                 }
-                if (animationPercentage >= lowerBound && animationPercentage <= upperBound) {
-                    console.log('MIDDLE BOUND')
-                    if ((animationDistancePercentage * speedMultiplier) <= 5) {
-                        console.log('UPPER BOUND')
-                        consultations.style['margin-left'] = `-5vw`;
-                    }
-                    consultations.style['margin-left'] = `-${85 - (animationDistancePercentage * speedMultiplier)}vw`;
+
+                if(yPosition>-99) {
+                    element.style.transform = 'skewX(-3deg) translateX('+(yPosition)+'%)';
                 }
-                // if (animationPercentage > upperBound) {
-                //     console.log('UPPER BOUND')
-                //     consultations.style['margin-left'] = `-5vw`;
-                // }
-            } else if (animationHeightIncrementer < consultations.clientHeight) {
-                //if the element is not completely on screen-- do nothing
-                console.log(`NOT doing anything`);
+
+                if (yPosition>0){
+                    element.style.transform = 'skewX(-3deg) translateX(0%)';
+                }
+
             }
+
+            translateYtoX(-99+((animationWindowPercentage*100)*2.2))
+            
         }
 
         var observer = new IntersectionObserver((entries) => {
-            console.log(entries)
+            //console.log(entries)
             var startHeight = entries[0].rootBounds
             if (entries[0].intersectionRatio > 0) {
-                console.log('Hello');
-                console.log(`START POSITION: ${window.scrollY}`)
                 window.addEventListener('scroll', handleScroll, true)
+                window.addEventListener('touchmove', handleScroll, true)
             }
             else {
                 window.removeEventListener('scroll', handleScroll, true)
-                console.log('Good Bye');
+                window.removeEventListener('touchmove', handleScroll, true)
             }
         });
 
-        return observer.observe(consultations)
+        return observer.observe(element)
     }
 
 
@@ -820,10 +830,6 @@ var App = (function (global) {
         //observe(text5, 'anim4 2s forwards ease-out');
 
     }
-
-
-
-
 
     // render function
     // controls visual rendering of application
