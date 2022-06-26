@@ -300,7 +300,7 @@ var App = (function (global) {
                 //demo link element
                 var demoLinkElem = doc.createElement('A');
                 demoLinkElem.href = demo;
-                demoLinkElem.textContent = "See Demo";
+                demoLinkElem.textContent = "Try Demo";
 
                 //add elements to content card
                 contentContainer.appendChild(titleElem);
@@ -346,8 +346,8 @@ var App = (function (global) {
 
                 var slideIndicators = doc.getElementsByClassName('slide-indicator')
 
-                if (currentSlideIndex === slideIndicators.length-1) {
-                    slideIndicators[slideIndicators.length-1].classList.remove('slide-indicator-selected')
+                if (currentSlideIndex === slideIndicators.length - 1) {
+                    slideIndicators[slideIndicators.length - 1].classList.remove('slide-indicator-selected')
                     slideIndicators[0].classList.add('slide-indicator-selected')
 
                 } else {
@@ -358,7 +358,6 @@ var App = (function (global) {
 
                 currentSlideIndex += 1;
                 setPositionByIndex()
-                //console.log(currentSlideIndex)
 
             });
 
@@ -366,9 +365,9 @@ var App = (function (global) {
 
                 var slideIndicators = doc.getElementsByClassName('slide-indicator')
 
-                if (currentSlideIndex === 0){
+                if (currentSlideIndex === 0) {
                     slideIndicators[0].classList.remove('slide-indicator-selected')
-                    slideIndicators[slideIndicators.length-1].classList.add('slide-indicator-selected')
+                    slideIndicators[slideIndicators.length - 1].classList.add('slide-indicator-selected')
 
                 } else {
                     slideIndicators[currentSlideIndex].classList.remove('slide-indicator-selected')
@@ -379,9 +378,33 @@ var App = (function (global) {
 
                 currentSlideIndex -= 1;
                 setPositionByIndex()
-                //console.log(currentSlideIndex)
 
             });
+
+            function stepSlides() {
+                var slideIndicators = doc.getElementsByClassName('slide-indicator')
+
+
+                if (currentSlideIndex === slideIndicators.length - 1) {
+                    slideIndicators[slideIndicators.length - 1].classList.remove('slide-indicator-selected')
+                    slideIndicators[0].classList.add('slide-indicator-selected')
+                    currentSlideIndex = 0
+                    setPositionByIndex()
+
+                } else {
+                    slideIndicators[currentSlideIndex].classList.remove('slide-indicator-selected')
+                    slideIndicators[currentSlideIndex + 1].classList.add('slide-indicator-selected')
+                    currentSlideIndex += 1;
+                    setPositionByIndex()
+                }
+
+            }
+
+            setInterval(stepSlides, 15 * 1000)
+
+
+
+
 
         }
 

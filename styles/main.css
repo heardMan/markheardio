@@ -286,7 +286,7 @@ html, body {
     
 }
 
-.recentProjects > h3 {
+.recentProjects > h2 {
     text-align: center;
 }
 
@@ -459,6 +459,7 @@ html, body {
 
 
 .carousel-item {
+    position: relative;
     max-height: 100%;
     width: 100vw;
     display: flex;
@@ -473,10 +474,25 @@ html, body {
 }
 
 .carousel-item-content {
+    position: relative;
     width: 80%;
     height: 50vh;
     margin-right: auto;
     margin-left: auto;
+}
+
+.carousel-item-content h3 {
+    position: absolute;
+    top: 5%;
+    left:0%;
+    width: 100%;
+}
+
+.carousel-item-content p {
+    position: absolute;
+    top: 40%;
+    left:0%;
+    width: 100%;
 }
 
 .carousel-item-links {
@@ -484,21 +500,41 @@ html, body {
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
+    position: absolute;
+    bottom: 10%;
+    left:0%;
 }
 
 .carousel-item-links a{
-    border: solid white 1px;
+    color: #dadfe1;
+    border: solid #dadfe1 1px;
     padding: 1rem;
     border-radius: 10px;
     text-decoration: none;
-    background-color: #2e3131;
+    /* background-color: #2e3131; */
+    background-image: linear-gradient(to left, #044F67 50%, transparent 50%);
+    background-size: 200%;
+    background-position: 0%;
+    
+}
+
+
+
+.carousel-item-links a:hover{
+    /* background-color: #044F67; */
     color: #dadfe1;
+    /* border: solid #dadfe1 1px; */
+    background-position: 100%;
+    transition: 0.2s ease-in;
 }
 
 .carousel-item-links a:active{
+    background-image: none;
     background-color: #dadfe1;
     color: #2e3131;
     border: #2e3131;
+    background-size: 100%;
+    
 }
 
 #slide-indicator-container {
@@ -518,6 +554,7 @@ html, body {
 
 .slide-indicator-selected { 
     background-color: #dadfe1;
+    transition: 0.5s ease-in-out;
 }
 
 .rnd-btn{
@@ -1176,6 +1213,8 @@ html, body {
         left:-49px !important;
         transform: scale(0.8);
     }
+
+
 
     /* .menu-title{
         position:absolute;
