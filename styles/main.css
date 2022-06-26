@@ -476,7 +476,7 @@ html, body {
 .carousel-item-content {
     position: relative;
     width: 80%;
-    height: 50vh;
+    min-height: 50vh;
     margin-right: auto;
     margin-left: auto;
 }
@@ -490,7 +490,7 @@ html, body {
 
 .carousel-item-content p {
     position: absolute;
-    top: 40%;
+    top: 25%;
     left:0%;
     width: 100%;
 }
@@ -568,7 +568,7 @@ html, body {
 
 .left-btn-elem{
     position: absolute;
-    top:25%;
+    top:40%;
     left:0px;   
     height: 50%;
     z-index: 800;
@@ -588,7 +588,7 @@ html, body {
 
 .right-btn-elem{
     position: absolute;
-    top:25%;
+    top:40%;
     right:0px;
     height: 50%;
     z-index: 800;
