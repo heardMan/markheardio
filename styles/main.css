@@ -28,8 +28,14 @@ html, body {
 
 .textlogo {
     z-index: 999;
+    
+}
+
+.textlogo-welcome {
     animation: zoomOutAnfFadeIn 4s ease 0s 1 normal none;
 }
+
+
 
 .main {
     margin-top: 8rem;
@@ -198,8 +204,11 @@ html, body {
     margin-top: 10vh;
     transform: skewX(3deg);
     border-radius: 3px;
-    animation: fadeInFromRightwithSkewX3 6s ease;
     
+}
+
+.welcome-intro {
+    animation: fadeInFromRightwithSkewX3 6s ease;
 }
 
 .intro > h2, .intro > div {
@@ -479,7 +488,20 @@ html, body {
     min-height: 50vh;
     margin-right: auto;
     margin-left: auto;
+    
 }
+
+.project-preview{
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height:100%;
+    width: auto;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}
+
 
 .carousel-item-content h3 {
     position: absolute;

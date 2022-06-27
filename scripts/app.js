@@ -25,31 +25,36 @@ var App = (function (global) {
                     "title": "React Date Selector",
                     "github": "https://github.com/heardMan/react-date-selector",
                     "demo": "https://heardman.github.io/react-date-selector/",
-                    "description": "A better date selection experience from the ground up-- custom input and date logic."
+                    "description": "A better date selection experience from the ground up-- custom input and date logic.",
+                    "preview": "react-date-selector-preview.gif"
                 },
                 {
                     "title": "Restaurant Reviews",
                     "github": "https://github.com/heardMan/restaurantReviews",
                     "demo": "https://heardman.github.io/restaurantReviews/",
-                    "description": "A map-based restaurant search application. The application is fully responsive and follows offline first principles."
+                    "description": "A map-based restaurant search application. The application is fully responsive and follows offline first principles.",
+                    "preview":"#"
                 },
                 {
                     "title": "Dodge 'em",
                     "github": "https://github.com/heardMan/udacity-arcade-game",
                     "demo": "https://heardman.github.io/udacity-arcade-game/",
-                    "description": "A mobile friendly game that can be played with either the onscreen direction pad or a keyboard direction pad. The game is very a frogger clone."
+                    "description": "A mobile friendly game that can be played with either the onscreen direction pad or a keyboard direction pad. The game is very a frogger clone.",
+                    "preview":"#"
                 },
                 {
                     "title": "Concentrate",
                     "github": "https://github.com/heardMan/concentrate-js",
                     "demo": "https://heardman.github.io/concentrate-js/",
-                    "description": "A card matching game. Click on a card to reveal its icon. Match all the card pairs to win the game. "
+                    "description": "A card matching game. Click on a card to reveal its icon. Match all the card pairs to win the game. ",
+                    "preview":"#"
                 },
                 {
                     "title": "Trivia Game",
                     "github": "https://github.com/heardMan/TriviaGame",
                     "demo": "https://heardman.github.io/TriviaGame/",
-                    "description": "This is a multiple choice quiz application that tests a user's knowledge of javascript array methods. See how many answers you can get correct!"
+                    "description": "This is a multiple choice quiz application that tests a user's knowledge of javascript array methods. See how many answers you can get correct!",
+                    "preview":"#"
                 }
             ]
             return carouselInit(doc, data);
@@ -261,7 +266,7 @@ var App = (function (global) {
 
             }
 
-            function createCard(index, title, description, gitHub, demo) {
+            function createCard(index, title, description, gitHub, demo, preview) {
 
                 var slideIndicator = doc.createElement('DIV');
                 slideIndicator.classList.add('slide-indicator');
@@ -275,6 +280,11 @@ var App = (function (global) {
                 //empty content card
                 var contentCard = doc.createElement('DIV');
                 contentCard.classList.add('carousel-item');
+
+                var previewImg = doc.createElement('IMG');
+                previewImg.classList.add('project-preview');
+                previewImg.src = './assets/' + preview;
+
 
                 //container element
                 var contentContainer = doc.createElement('DIV');
@@ -303,6 +313,8 @@ var App = (function (global) {
                 demoLinkElem.textContent = "Try Demo";
 
                 //add elements to content card
+                contentContainer.appendChild(previewImg);
+                
                 contentContainer.appendChild(titleElem);
                 contentContainer.appendChild(descriptionElem);
                 linkContainer.appendChild(gitHubLinkElem);
@@ -333,8 +345,9 @@ var App = (function (global) {
                 var description = data[i].description;
                 var gitHub = data[i].github;
                 var demo = data[i].demo;
+                var preview = data[i].preview
 
-                createCard(index, title, description, gitHub, demo);
+                createCard(index, title, description, gitHub, demo, preview);
 
             }
 
@@ -621,6 +634,58 @@ var App = (function (global) {
 
     }
 
+    function visitorStatsController(){
+        var hasVisited = window.localStorage.getItem('hasVisited');
+
+        var visitCount = window.localStorage.getItem('visitCount');
+
+        if(hasVisited===null){
+            window.localStorage.setItem('hasVisited', 'true')
+            window.localStorage.setItem('visitCount', 1)
+        }
+
+        if(hasVisited==='true'){
+            var newCount = Number(visitCount)+1
+            if(newCount === NaN){
+                newCount=1
+            }
+            window.localStorage.setItem('visitCount',newCount)
+        }
+        
+    }
+
+    function welcomeAnimation(){
+        var header = doc.getElementsByClassName('header')[0];
+        var intro = doc.getElementsByClassName('intro')[0];
+        var textLogo = doc.getElementsByClassName('textlogo')[0];
+        var fab = doc.getElementsByClassName('fab')[0];
+
+        header.classList.add('welcome-header');
+        intro.classList.add('welcome-intro');
+        textLogo.classList.add('textlogo-welcome');
+        fab.classList.add('welcome-fab');
+
+    }
+
+    function welcomeAnimationController(){
+        
+        var visitCount = Number(window.localStorage.getItem('visitCount'));
+
+        if(visitCount === NaN){
+            visitCount = 1;
+        }
+
+        if(visitCount===1){
+            welcomeAnimation();
+        }
+
+        if(visitCount%10 === 0){
+            welcomeAnimation();
+        }
+        
+
+    }
+
 
     function consultationsAnimation() {
 
@@ -897,18 +962,25 @@ var App = (function (global) {
 
     }
 
+    //function() 
+
     // render function
     // controls visual rendering of application
     function renderPageContent() {
 
-        console.log(win.location.pathname);
+        console.log('Window Pathname: '+win.location.pathname);
+
+        visitorStatsController();
+        
         if (win.location.pathname === '/') {
+            welcomeAnimationController()
             consultationsAnimation();
             webSolutionsAnimation();
             dataAnalyticsAnimation();
             carousel();
 
         } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/index.html') {
+            welcomeAnimationController()
             consultationsAnimation();
             webSolutionsAnimation();
             dataAnalyticsAnimation();
