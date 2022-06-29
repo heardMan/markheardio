@@ -301,12 +301,18 @@ var App = (function (global) {
                 contentContainer.classList.add('carousel-item-content');
 
                 //title element
+                var titleElemContainer = doc.createElement('DIV');
+                titleElemContainer.classList.add('carousel-card-title');
                 var titleElem = doc.createElement('H3');
                 titleElem.textContent = title;
+                titleElemContainer.append(titleElem);
 
                 //description element
+                var descriptionElemContainer = doc.createElement('DIV');
+                descriptionElemContainer.classList.add('carousel-card-desc');
                 var descriptionElem = doc.createElement('P');
                 descriptionElem.textContent = description;
+                descriptionElemContainer.append(descriptionElem);
 
                 //link Container element
                 var linkContainer = doc.createElement('DIV');
@@ -325,8 +331,8 @@ var App = (function (global) {
                 //add elements to content card
                 contentContainer.appendChild(previewImg);
                 
-                contentContainer.appendChild(titleElem);
-                contentContainer.appendChild(descriptionElem);
+                contentContainer.appendChild(titleElemContainer);
+                contentContainer.appendChild(descriptionElemContainer);
                 linkContainer.appendChild(gitHubLinkElem);
                 linkContainer.appendChild(demoLinkElem);
                 contentContainer.appendChild(linkContainer);
