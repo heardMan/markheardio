@@ -478,8 +478,6 @@ html, body {
     user-select: none;
     align-items: center;
     z-index: 700;
-    
-    
 }
 
 .carousel-item-content {
@@ -488,7 +486,6 @@ html, body {
     min-height: 50vh;
     margin-right: auto;
     margin-left: auto;
-    
 }
 
 .project-preview > img{
