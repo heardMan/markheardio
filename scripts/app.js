@@ -287,7 +287,7 @@ var App = (function (global) {
                 var stillImg = doc.createElement('IMG');
                 var movingImg = doc.createElement('SOURCE');
                 
-                stillImg.src = './assets/' + preview.split('.')[0] +'-STILL.'+preview.split('.')[1];
+                stillImg.src = './assets/' + preview.split('.')[0] +'-still.'+preview.split('.')[1];
                 movingImg.srcset = './assets/' + preview;
                 movingImg.media = '(min-width:850px)';
                 previewImg.append(movingImg)
