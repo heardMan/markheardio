@@ -26,7 +26,7 @@ var App = (function (global) {
                     "github": "https://github.com/heardMan/react-date-selector",
                     "demo": "https://heardman.github.io/react-date-selector/",
                     "description": "A better date selection experience from the ground up-- custom input and date logic.",
-                    "preview": "react-date-selector-preview.gif"
+                    "preview": "REACT-DATE-SELECT.gif"
                 },
                 {
                     "title": "Restaurant Reviews",
@@ -281,9 +281,19 @@ var App = (function (global) {
                 var contentCard = doc.createElement('DIV');
                 contentCard.classList.add('carousel-item');
 
-                var previewImg = doc.createElement('IMG');
+                var previewImg = doc.createElement('PICTURE');
                 previewImg.classList.add('project-preview');
-                previewImg.src = './assets/' + preview;
+
+                var stillImg = doc.createElement('IMG');
+                var movingImg = doc.createElement('SOURCE');
+                
+                stillImg.src = './assets/' + preview.split('.')[0] +'-STILL.'+preview.split('.')[1];
+                movingImg.srcset = './assets/' + preview;
+                movingImg.media = '(min-width:850px)';
+                previewImg.append(movingImg)
+                previewImg.append(stillImg)
+                
+
 
 
                 //container element
@@ -413,7 +423,7 @@ var App = (function (global) {
 
             }
 
-            setInterval(stepSlides, 15 * 1000)
+            //setInterval(stepSlides, 15 * 1000)
 
 
 
@@ -659,11 +669,19 @@ var App = (function (global) {
         var intro = doc.getElementsByClassName('intro')[0];
         var textLogo = doc.getElementsByClassName('textlogo')[0];
         var fab = doc.getElementsByClassName('fab')[0];
+        var introText1 = doc.getElementsByClassName('intro-text-1')[0];
+        var introText2 = doc.getElementsByClassName('intro-text-2')[0];
+        var introText3 = doc.getElementsByClassName('intro-text-3')[0];
+        var introText4 = doc.getElementsByClassName('intro-text-4')[0];
 
         header.classList.add('welcome-header');
         intro.classList.add('welcome-intro');
         textLogo.classList.add('textlogo-welcome');
         fab.classList.add('welcome-fab');
+        introText1.classList.add('intro-text-1-welcome');
+        introText2.classList.add('intro-text-2-welcome');
+        introText3.classList.add('intro-text-3-welcome');
+        introText4.classList.add('intro-text-4-welcome');
 
     }
 

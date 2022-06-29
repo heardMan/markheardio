@@ -216,7 +216,7 @@ html, body {
     width:90%;
 }
 
-.intro-text-1 {
+.intro-text-1-welcome {
     animation: fadeIn 8s ease;
 }
 
@@ -224,15 +224,15 @@ html, body {
     margin-top: 1rem;
 }
 
-.intro-text-2 {
+.intro-text-2-welcome {
     animation: fadeIn 9.5s ease;
 }
 
-.intro-text-3 {
+.intro-text-3-welcome {
     animation: fadeIn 11s ease;
 }
 
-.intro-text-4 {
+.intro-text-4-welcome {
     animation: fadeIn 12.5s ease;
 }
 
@@ -491,7 +491,7 @@ html, body {
     
 }
 
-.project-preview{
+.project-preview > img{
     position: absolute;
     top: 0%;
     left: 50%;
