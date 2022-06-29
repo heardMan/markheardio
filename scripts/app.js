@@ -26,35 +26,35 @@ var App = (function (global) {
                     "github": "https://github.com/heardMan/react-date-selector",
                     "demo": "https://heardman.github.io/react-date-selector/",
                     "description": "A better date selection experience from the ground up-- custom input and date logic.",
-                    "preview": "REACT-DATE-SELECT.gif"
+                    "preview": "react-date-selector.gif"
                 },
                 {
                     "title": "Restaurant Reviews",
                     "github": "https://github.com/heardMan/restaurantReviews",
                     "demo": "https://heardman.github.io/restaurantReviews/",
                     "description": "A map-based restaurant search application. The application is fully responsive and follows offline first principles.",
-                    "preview":"#"
+                    "preview":"restaurant-reviews.gif"
                 },
                 {
                     "title": "Dodge 'em",
                     "github": "https://github.com/heardMan/udacity-arcade-game",
                     "demo": "https://heardman.github.io/udacity-arcade-game/",
                     "description": "A mobile friendly game that can be played with either the onscreen direction pad or a keyboard direction pad. The game is very a frogger clone.",
-                    "preview":"#"
+                    "preview":"dodge-em.gif"
                 },
                 {
                     "title": "Concentrate",
                     "github": "https://github.com/heardMan/concentrate-js",
                     "demo": "https://heardman.github.io/concentrate-js/",
                     "description": "A card matching game. Click on a card to reveal its icon. Match all the card pairs to win the game. ",
-                    "preview":"#"
+                    "preview":"concentrate.gif"
                 },
                 {
                     "title": "Trivia Game",
                     "github": "https://github.com/heardMan/TriviaGame",
                     "demo": "https://heardman.github.io/TriviaGame/",
                     "description": "This is a multiple choice quiz application that tests a user's knowledge of javascript array methods. See how many answers you can get correct!",
-                    "preview":"#"
+                    "preview":"trivia-game.gif"
                 }
             ]
             return carouselInit(doc, data);
