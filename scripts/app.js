@@ -312,6 +312,7 @@ var App = (function (global) {
                 descriptionElemContainer.classList.add('carousel-card-desc');
                 var descriptionElem = doc.createElement('P');
                 descriptionElem.textContent = description;
+                descriptionElemContainer.append(titleElem);
                 descriptionElemContainer.append(descriptionElem);
 
                 //link Container element
@@ -331,7 +332,7 @@ var App = (function (global) {
                 //add elements to content card
                 contentContainer.appendChild(previewImg);
                 
-                contentContainer.appendChild(titleElemContainer);
+                //contentContainer.appendChild(titleElemContainer);
                 contentContainer.appendChild(descriptionElemContainer);
                 linkContainer.appendChild(gitHubLinkElem);
                 linkContainer.appendChild(demoLinkElem);

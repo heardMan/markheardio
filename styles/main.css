@@ -243,7 +243,7 @@ html, body {
     padding-left:2rem;
     padding-right:2rem;
     width: 75vw;
-    margin-top: 70vh;
+    margin-top: 90vh;
     transform: skewX(-3deg) translateX(-99%);
     border-radius: 3px;
     
@@ -262,7 +262,7 @@ html, body {
     padding-bottom: 1vh;
     padding-left:3rem;
     padding-right:2rem;
-    margin-top: 50vh;
+    margin-top: 90vh;
     width: 75vw;
     transform: skewX(3deg) translateX(97%);
     border-radius: 3px;
@@ -279,7 +279,7 @@ html, body {
     padding-left:1rem;
     padding-right:3rem;
     width: 75vw;
-    margin-top: 50vh;
+    margin-top: 90vh;
     transform: skewX(-3deg) translateX(-99%);
     border-radius: 3px;
 }
@@ -450,7 +450,7 @@ html, body {
 
 .carousel{
     position: relative;
-    /* height: 300px; */
+    height: 50vh;
     
     z-index: 10;
 }
@@ -515,15 +515,19 @@ html, body {
 
 .carousel-card-desc {
     position: absolute;
-    top: 45%;
+    top: 35%;
     left:50%;
-    width: auto;
+    width: 80%;
     background-color: #044F67;
-    opacity: 0.95;
+    opacity: 0.85;
     transform: translate(-50%, -50%);
     padding: 0.5rem;
     border-radius: 10px;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-item-content {
+    max-width: 450px;
 }
 
 
