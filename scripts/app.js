@@ -33,28 +33,28 @@ var App = (function (global) {
                     "github": "https://github.com/heardMan/restaurantReviews",
                     "demo": "https://heardman.github.io/restaurantReviews/",
                     "description": "A map-based restaurant search application. The application is fully responsive and follows offline first principles.",
-                    "preview":"restaurant-reviews.gif"
+                    "preview": "restaurant-reviews.gif"
                 },
                 {
                     "title": "Dodge 'em",
                     "github": "https://github.com/heardMan/udacity-arcade-game",
                     "demo": "https://heardman.github.io/udacity-arcade-game/",
                     "description": "A mobile friendly game that can be played with either the onscreen direction pad or a keyboard direction pad. The game is very a frogger clone.",
-                    "preview":"dodge-em.gif"
+                    "preview": "dodge-em.gif"
                 },
                 {
                     "title": "Concentrate",
                     "github": "https://github.com/heardMan/concentrate-js",
                     "demo": "https://heardman.github.io/concentrate-js/",
                     "description": "A card matching game. Click on a card to reveal its icon. Match all the card pairs to win the game. ",
-                    "preview":"concentrate.gif"
+                    "preview": "concentrate.gif"
                 },
                 {
                     "title": "Trivia Game",
                     "github": "https://github.com/heardMan/TriviaGame",
                     "demo": "https://heardman.github.io/TriviaGame/",
                     "description": "This is a multiple choice quiz application that tests a user's knowledge of javascript array methods. See how many answers you can get correct!",
-                    "preview":"trivia-game.gif"
+                    "preview": "trivia-game.gif"
                 }
             ]
             return carouselInit(doc, data);
@@ -286,57 +286,101 @@ var App = (function (global) {
 
                 var stillImg = doc.createElement('IMG');
                 var movingImg = doc.createElement('SOURCE');
-                
-                stillImg.src = './assets/' + preview.split('.')[0] +'-still.'+preview.split('.')[1];
+
+                stillImg.src = './assets/' + preview.split('.')[0] + '-still.' + preview.split('.')[1];
                 movingImg.srcset = './assets/' + preview;
                 movingImg.media = '(min-width:850px)';
                 previewImg.append(movingImg)
                 previewImg.append(stillImg)
-                
-
-
 
                 //container element
                 var contentContainer = doc.createElement('DIV');
                 contentContainer.classList.add('carousel-item-content');
 
+                var carouselCard = doc.createElement('DIV');
+                carouselCard.classList.add('carousel-card');
+
+                var innerCarouselCard = doc.createElement('DIV');
+                innerCarouselCard.classList.add('inner-carousel-card');
+
                 //title element
-                var titleElemContainer = doc.createElement('DIV');
-                titleElemContainer.classList.add('carousel-card-title');
+                var frontElemContainer = doc.createElement('DIV');
+                frontElemContainer.classList.add('carousel-card-front');
+
                 var titleElem = doc.createElement('H3');
                 titleElem.textContent = title;
-                titleElemContainer.append(titleElem);
+                frontElemContainer.append(titleElem);
 
-                //description element
-                var descriptionElemContainer = doc.createElement('DIV');
-                descriptionElemContainer.classList.add('carousel-card-desc');
+                //back of carousel card
+                var backElemContainer = doc.createElement('DIV');
+                backElemContainer.classList.add('carousel-card-back');
+
                 var descriptionElem = doc.createElement('P');
                 descriptionElem.textContent = description;
-                descriptionElemContainer.append(titleElem);
-                descriptionElemContainer.append(descriptionElem);
+                backElemContainer.append(descriptionElem);
+
 
                 //link Container element
-                var linkContainer = doc.createElement('DIV');
-                linkContainer.classList.add('carousel-item-links')
+                var frontLinkContainer = doc.createElement('DIV');
+                frontLinkContainer.classList.add('carousel-item-links');
 
-                //gitHub link element
-                var gitHubLinkElem = doc.createElement('A');
-                gitHubLinkElem.href = gitHub;
-                gitHubLinkElem.textContent = "See Docs";
+                //more info link element
+                var moreInfoLinkElem = doc.createElement('A');
+                //moreInfoLinkElem.href = gitHub;
+                moreInfoLinkElem.textContent = "More Info";
+                moreInfoLinkElem.onclick = function (e) {
+                    e.preventDefault();
+                    //frontElemContainer.classList.toggle('flip-front');
+                    //backElemContainer.classList.toggle('flip-back');
+                    innerCarouselCard.classList.toggle('flip-front');
+
+                }
 
                 //demo link element
                 var demoLinkElem = doc.createElement('A');
                 demoLinkElem.href = demo;
                 demoLinkElem.textContent = "Try Demo";
 
+
+                //link Container element
+                var backLinkContainer = doc.createElement('DIV');
+                backLinkContainer.classList.add('carousel-item-links');
+
+                var backLinkElem = doc.createElement('A');
+                backLinkElem.textContent = "Back";
+                backLinkElem.onclick = function (e) {
+                    e.preventDefault();
+                    //frontElemContainer.classList.toggle('flip-front');
+                    //backElemContainer.classList.toggle('flip-back');
+                    innerCarouselCard.classList.toggle('flip-front');
+
+                }
+
+                //demo link element
+                var docsLinkElem = doc.createElement('A');
+                docsLinkElem.href = demo;
+                docsLinkElem.textContent = "See Docs";
+
+
                 //add elements to content card
                 contentContainer.appendChild(previewImg);
-                
-                //contentContainer.appendChild(titleElemContainer);
-                contentContainer.appendChild(descriptionElemContainer);
-                linkContainer.appendChild(gitHubLinkElem);
-                linkContainer.appendChild(demoLinkElem);
-                contentContainer.appendChild(linkContainer);
+
+                innerCarouselCard.appendChild(frontElemContainer);
+                innerCarouselCard.appendChild(backElemContainer);
+
+                contentContainer.appendChild(innerCarouselCard);
+                frontLinkContainer.appendChild(moreInfoLinkElem);
+                frontLinkContainer.appendChild(demoLinkElem);
+                frontElemContainer.appendChild(frontLinkContainer);
+
+                backLinkContainer.appendChild(backLinkElem);
+                backLinkContainer.appendChild(docsLinkElem);
+
+                backElemContainer.appendChild(backLinkContainer)
+
+
+
+
                 contentCard.appendChild(contentContainer);
 
                 contentCard.addEventListener('touchstart', touchStart(index));
@@ -651,27 +695,27 @@ var App = (function (global) {
 
     }
 
-    function visitorStatsController(){
+    function visitorStatsController() {
         var hasVisited = window.localStorage.getItem('hasVisited');
 
         var visitCount = window.localStorage.getItem('visitCount');
 
-        if(hasVisited===null){
+        if (hasVisited === null) {
             window.localStorage.setItem('hasVisited', 'true')
             window.localStorage.setItem('visitCount', 1)
         }
 
-        if(hasVisited==='true'){
-            var newCount = Number(visitCount)+1
-            if(newCount === NaN){
-                newCount=1
+        if (hasVisited === 'true') {
+            var newCount = Number(visitCount) + 1
+            if (newCount === NaN) {
+                newCount = 1
             }
-            window.localStorage.setItem('visitCount',newCount)
+            window.localStorage.setItem('visitCount', newCount)
         }
-        
+
     }
 
-    function welcomeAnimation(){
+    function welcomeAnimation() {
         var header = doc.getElementsByClassName('header')[0];
         var intro = doc.getElementsByClassName('intro')[0];
         var textLogo = doc.getElementsByClassName('textlogo')[0];
@@ -692,22 +736,22 @@ var App = (function (global) {
 
     }
 
-    function welcomeAnimationController(){
-        
+    function welcomeAnimationController() {
+
         var visitCount = Number(window.localStorage.getItem('visitCount'));
 
-        if(visitCount === NaN){
+        if (visitCount === NaN) {
             visitCount = 1;
         }
 
-        if(visitCount===1){
+        if (visitCount === 1) {
             welcomeAnimation();
         }
 
-        if(visitCount%10 === 0){
+        if (visitCount % 10 === 0) {
             welcomeAnimation();
         }
-        
+
 
     }
 
@@ -993,10 +1037,10 @@ var App = (function (global) {
     // controls visual rendering of application
     function renderPageContent() {
 
-        console.log('Window Pathname: '+win.location.pathname);
+        console.log('Window Pathname: ' + win.location.pathname);
 
         visitorStatsController();
-        
+
         if (win.location.pathname === '/') {
             welcomeAnimationController()
             consultationsAnimation();
