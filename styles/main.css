@@ -581,7 +581,7 @@ textarea {
 
 .carousel-item-links {
     position: absolute;
-    bottom: 10%;
+    bottom: 0%;
     left:0%;
     
     
@@ -601,7 +601,7 @@ textarea {
     background-color: #044F67;
     opacity: 0.90;
     margin: 0.5rem;
-    width: 50px;
+    width: 35px;
     display: inline-block;
 }
 
