@@ -505,46 +505,46 @@ textarea {
     width: auto;
     filter: blur(2px);
     -webkit-filter: blur(2px);
+    z-index: 50;
 }
 
 .inner-carousel-card {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top:50%;
+    left:15%;
     transition: transform 0.6s;
     transform-style: preserve-3d;
+    width: 70%;
+    height: 75%;
+    transform: translate(-0%, -50%);
+    z-index: 100;
 }
 
 .carousel-card-front,
 .carousel-card-back {
-    /* position: absolute;
-    top: 50%;
-    left:50%; */
+    position: absolute;
+    top:0%;
     opacity: 0.9;
-    width: 50%;
-    height: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
     background-color:#044F67;
     border-radius: 10px;
-    padding:1rem;
+    /* padding:1rem; */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
 .carousel-card-front {
-    position: absolute;
-    top: 50%;
-    left:50%;
+    /* position: absolute; */
+    /* top: 50%;
+    left:50%; */
 }
 
 .flip-front {
-    transform: rotateY(180deg);
+    transform: translate(-0%, -50%) rotateY(180deg);
 }
 
 .carousel-card-back {
-    position: absolute;
-    top: 21%;
-    left:21%;
     transform: rotateY(180deg);
 }
 
@@ -583,28 +583,26 @@ textarea {
     position: absolute;
     bottom: 10%;
     left:0%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    
+    
+   
     width: 100%;
 }
 
 .carousel-item-links>a {
-
     color: #dadfe1;
     border: solid #dadfe1 1px;
     padding: 1rem;
     border-radius: 10px;
     text-decoration: none;
-    width: 50%;
-    /* background-color: #2e3131; */
     background-image: linear-gradient(to right, transparent 50%, #2e3131 50%);
     background-size: 200%;
     background-position: 0%;
-    /* box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5); */
     background-color: #044F67;
     opacity: 0.90;
     margin: 0.5rem;
+    width: 50px;
+    display: inline-block;
 }
 
 .carousel-item-links>a:hover {

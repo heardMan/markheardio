@@ -327,7 +327,7 @@ var App = (function (global) {
                 //more info link element
                 var moreInfoLinkElem = doc.createElement('A');
                 //moreInfoLinkElem.href = gitHub;
-                moreInfoLinkElem.textContent = "More Info";
+                moreInfoLinkElem.textContent = "Info";
                 moreInfoLinkElem.onclick = function (e) {
                     e.preventDefault();
                     //frontElemContainer.classList.toggle('flip-front');
@@ -339,7 +339,7 @@ var App = (function (global) {
                 //demo link element
                 var demoLinkElem = doc.createElement('A');
                 demoLinkElem.href = demo;
-                demoLinkElem.textContent = "Try Demo";
+                demoLinkElem.textContent = "Demo";
 
 
                 //link Container element
@@ -348,6 +348,7 @@ var App = (function (global) {
 
                 var backLinkElem = doc.createElement('A');
                 backLinkElem.textContent = "Back";
+                backLinkElem.href = "#"
                 backLinkElem.onclick = function (e) {
                     e.preventDefault();
                     //frontElemContainer.classList.toggle('flip-front');
@@ -359,7 +360,7 @@ var App = (function (global) {
                 //demo link element
                 var docsLinkElem = doc.createElement('A');
                 docsLinkElem.href = demo;
-                docsLinkElem.textContent = "See Docs";
+                docsLinkElem.textContent = "Docs";
 
 
                 //add elements to content card
