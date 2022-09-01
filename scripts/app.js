@@ -1028,8 +1028,40 @@ var App = (function (global) {
         observe(text2, 'fadeInFromRight 2s forwards ease-out');
         observe(text3, 'fadeInFromLeft 2s forwards ease-out');
         observe(text4, 'fadeInFromRight 2s forwards ease-out');
-        //observe(text5, 'anim4 2s forwards ease-out');
 
+    }
+
+    function aboutIntro() {
+        var text1 = document.querySelector('.anim-1');
+        var observe = function (entries, animation) {
+
+            var observer = new IntersectionObserver((entries) => {
+                console.log(entries)
+                if (entries[0].intersectionRatio > 0) {
+                    entries[0].target.style.animation = animation;
+                }
+                else {
+                    entries[0].target.style.animation = 'none';
+                }
+            });
+
+            return observer.observe(entries)
+
+        }
+
+        observe(text1, 'fadeInFromLeft 2s forwards ease-out');
+    }
+
+    function aboutPersonal() {
+        var element = document.querySelector('.anim-2');
+    }
+
+    function aboutProfessional() {
+        var element = document.querySelector('.anim-3');
+    }
+
+    function aboutContact() {
+        var element = document.querySelector('.anim-4');
     }
 
     //function() 
@@ -1061,8 +1093,11 @@ var App = (function (global) {
         } else if (win.location.pathname === '/contact') {
             validateContactForm();
 
+        } else if(win.location.pathname === '/Users/markheard/Desktop/markheardio/contact.html') {
+            validateContactForm();
+
         } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/about.html') {
-            aboutScroll();
+            //aboutScroll();
             console.log('working')
 
         }
