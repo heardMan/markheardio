@@ -141,7 +141,7 @@
 
       document.getElementById("loader").classList.remove("hidden");
 
-      postData('https://form-service-rvw7oyp6nq-uc.a.run.app', JSON.parse(JSON.stringify(message)))
+      postData('https://form-service-rvw7oyp6nq-uc.a.run.app', JSON.stringify(message))
         .then((data) => {
           console.log(data);
           document.getElementById("loader").classList.add("hidden");
