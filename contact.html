@@ -138,7 +138,15 @@
 
       var name = document.getElementById("name").value
       var email = document.getElementById("email").value
-      var message = document.getElementById("message").value
+      var msg = document.getElementById("message").value
+
+      var subject = 'markheard.io Contact Form Message';
+      var message = `New meassage from: ${name}\n${msg}`
+
+
+      e.preventDefault();
+
+      window.open(`mailto:${email}?subject=${subject}&body=${name}: ${message}`);
 
       // var message = JSON.parse(JSON.stringify({
       //   "token":token,
