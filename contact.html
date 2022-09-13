@@ -98,8 +98,8 @@
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-    //import { getDatabase } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
-    import "firebase/database";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
+    //import "firebase/database";
 
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -117,15 +117,20 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
-    //const db = getDatabase(app);
-    const db = firebase.database();
+    const db = getDatabase(app);
+    //const db = firebase.database();
     const msgRef = db.ref('contactForm');
     const newMsgID = msgRef.push();
-    db.ref('contactForm/' + 'newMsgID').set({
+
+    const sendMsg = db.ref('contactForm/' + 'newMsgID').set({
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
       msg: document.getElementById("message").value
     });
+
+    document.getElementById("name").onclick = sendMsg;
+    
+
 
   </script>
 
@@ -184,8 +189,8 @@
 
         //document.getElementById("loader").classList.remove("hidden");
 
-        console.log(firebase)
-        console.log(firebase.database())
+        //console.log(firebase)
+        //console.log(firebase.database())
 
 
         // var msgRef = db.ref('contactForm');
