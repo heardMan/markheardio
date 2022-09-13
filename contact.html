@@ -98,7 +98,7 @@
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
+    import { getDatabase,ref,set,push } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
     //import "firebase/database";
 
     // Your web app's Firebase configuration
@@ -119,10 +119,10 @@
     const analytics = getAnalytics(app);
     const db = getDatabase(app);
     //const db = firebase.database();
-    const msgRef = db.ref('contactForm');
+    const msgRef = ref('contactForm');
     const newMsgID = msgRef.push();
 
-    const sendMsg = db.ref('contactForm/' + 'newMsgID').set({
+    const sendMsg = ref('contactForm/' + 'newMsgID').set({
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
       msg: document.getElementById("message").value
