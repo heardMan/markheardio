@@ -168,16 +168,14 @@
           "message": document.getElementById("message").value
         }))
 
-        document.getElementById("loader").classList.remove("hidden");
+        //document.getElementById("loader").classList.remove("hidden");
 
-        var database = firebase.database();
-
-        console.log(database);
+        var db = firebase.database();
 
        
-          var msgRef = firebase.database().ref('contactForm');
+          var msgRef = db.ref('contactForm');
           var newMsgID = messageListRef.push();
-          firebase.database().ref('contactForm/' + newMsgID).set({
+          db.ref('contactForm/' + newMsgID).set({
             name: document.getElementById("name").value,
             email: document.getElementById("email").value,
             msg: document.getElementById("message").value
