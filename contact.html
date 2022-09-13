@@ -174,16 +174,16 @@
 
         //document.getElementById("loader").classList.remove("hidden");
 
-        // var db = firebase.database();
+        var db = firebase.database();
 
        
-        //   var msgRef = db.ref('contactForm');
-        //   var newMsgID = messageListRef.push();
-        //   db.ref('contactForm/' + newMsgID).set({
-        //     name: document.getElementById("name").value,
-        //     email: document.getElementById("email").value,
-        //     msg: document.getElementById("message").value
-        //   });
+          var msgRef = db.ref('contactForm');
+          var newMsgID = messageListRef.push();
+          db.ref('contactForm/' + newMsgID).set({
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            msg: document.getElementById("message").value
+          });
         
 
         // postData('https://test-form-service-1-hksozic35a-wl.a.run.app', message)
