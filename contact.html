@@ -136,24 +136,12 @@
 
     function onSubmit2(token) {
 
-      var name = document.getElementById("name").value
-      var email = document.getElementById("email").value
-      var msg = document.getElementById("message").value
-
-      var subject = 'markheard.io Contact Form Message';
-      var message = `New meassage from: ${name}\n${msg}`
-
-
-
-      window.open(`mailto:${email}?subject=${subject}&body=${name}: ${message}`);
-
-      // var message = JSON.parse(JSON.stringify({
-      //   "token":token,
-      //   "name": document.getElementById("name").value,
-      //   "email": document.getElementById("email").value,
-      //   "message": document.getElementById("message").value
-      // }))
-
+      var message = JSON.parse(JSON.stringify({
+        "token":token,
+        "name": document.getElementById("name").value,
+        "email": document.getElementById("email").value,
+        "message": document.getElementById("message").value
+      }))
 
       document.getElementById("loader").classList.remove("hidden");
 
