@@ -122,11 +122,14 @@
     const msgRef = ref('contactForm');
     const newMsgID = msgRef.push();
 
-    const sendMsg = ref('contactForm/' + 'newMsgID').set({
+    const sendMsg = function(e){
+      e.preventDefault();
+      ref('contactForm/' + 'newMsgID').set({
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
       msg: document.getElementById("message").value
-    });
+    })
+    };
 
     document.getElementById("name").onclick = sendMsg;
     
