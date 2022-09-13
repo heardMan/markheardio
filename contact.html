@@ -174,11 +174,11 @@
 
         //document.getElementById("loader").classList.remove("hidden");
 
-        var db = firebase.database9;
+        var db = firebase.database();
 
        
           var msgRef = db.ref('contactForm');
-          var newMsgID = messageListRef.push();
+          var newMsgID = msgRef.push();
           db.ref('contactForm/' + newMsgID).set({
             name: document.getElementById("name").value,
             email: document.getElementById("email").value,
