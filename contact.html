@@ -97,6 +97,31 @@
 
   <script src="./scripts/app.js" async></script>
 
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAB2uwK9hR9tNfVllc9WxcBp5hUeA7U7J8",
+      authDomain: "markheardio-form-service.firebaseapp.com",
+      databaseURL: "https://markheardio-form-service-default-rtdb.firebaseio.com",
+      projectId: "markheardio-form-service",
+      storageBucket: "markheardio-form-service.appspot.com",
+      messagingSenderId: "635063227497",
+      appId: "1:635063227497:web:5879ac171bdca166d33ef8",
+      measurementId: "G-6J1S8P2HZW"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
   <script>
 
     // Example POST method implementation:
@@ -144,6 +169,10 @@
       }))
 
       document.getElementById("loader").classList.remove("hidden");
+
+      var database = firebase.database();
+
+      console.log(database);
 
       // postData('https://test-form-service-1-hksozic35a-wl.a.run.app', message)
       //   .then((data) => {
