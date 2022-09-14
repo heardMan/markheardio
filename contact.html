@@ -48,7 +48,7 @@
 
     function validate(event) {
       event.preventDefault();
-      if (!document.getElementById('field').value) {
+      if (!document.getElementById("name").value) {
         alert("You must add text to the required field");
       } else {
         grecaptcha.execute();
