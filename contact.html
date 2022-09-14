@@ -146,17 +146,17 @@
 
         document.getElementById("loader").classList.remove("hidden");
 
-        console.log(firebase)
-        console.log(firebase.database())
+        // console.log(firebase)
+        // console.log(firebase.database())
 
 
-        var msgRef = db.ref('contactForm');
-        var newMsgID = msgRef.push();
-        db.ref('contactForm/' + 'newMsgID').set({
-          name: document.getElementById("name").value,
-          email: document.getElementById("email").value,
-          msg: document.getElementById("message").value
-        });
+        // var msgRef = db.ref('contactForm');
+        // var newMsgID = msgRef.push();
+        // db.ref('contactForm/' + 'newMsgID').set({
+        //   name: document.getElementById("name").value,
+        //   email: document.getElementById("email").value,
+        //   msg: document.getElementById("message").value
+        // });
 
 
         postData('https://contact-form-service-rvw7oyp6nq-uc.a.run.app', message)
