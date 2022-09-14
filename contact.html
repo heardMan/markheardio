@@ -65,7 +65,7 @@
 
           <div class="form-group">
             <button id="sendMessage" class="g-recaptcha btn" data-sitekey="6Lf1l9YUAAAAAF3F3RS2JbncOFxHAPMyH7HxWFwj"
-              data-callback="onSubmit2" data-badge="inline">
+              data-callback="onSubmit" data-badge="inline" data-size="invisible">
               Send
             </button>
           </div>
@@ -134,10 +134,11 @@
 
 
 
-      function onSubmit2(token) {
+      function onSubmit(token) {
+        grecaptcha.execute();
 
         var message = JSON.parse(JSON.stringify({
-          "token": token,
+          "token": 'token',
           "name": document.getElementById("name").value,
           "email": document.getElementById("email").value,
           "message": document.getElementById("message").value
