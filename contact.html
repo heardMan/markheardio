@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./styles/main.css">
-  
+
 </head>
 
 <body>
@@ -64,13 +64,8 @@
           </div>
 
           <div class="form-group">
-            <button 
-            id="sendMessage" 
-            class="g-recaptcha btn" 
-            data-sitekey="6Lf1l9YUAAAAAF3F3RS2JbncOFxHAPMyH7HxWFwj"
-            data-callback="onSubmit" 
-            data-badge="inline" 
-            data-size="invisible">
+            <button id="sendMessage" class="g-recaptcha btn" data-sitekey="6Lf1l9YUAAAAAF3F3RS2JbncOFxHAPMyH7HxWFwj"
+              data-callback="onSubmit" data-badge="inline" data-size="invisible">
               Send
             </button>
           </div>
@@ -124,95 +119,107 @@
 
     //(function(){})();
 
-      function clearModal() {
-        document.getElementById("modal-dialogue").innerHTML = '';
-        document.getElementById("modal").classList.add("hidden")
-      }
+    function clearModal() {
+      document.getElementById("modal-dialogue").innerHTML = '';
+      document.getElementById("modal").classList.add("hidden")
+    }
 
-      function clearContactForm() {
-        document.getElementById("name").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("message").value = "";
-      }
-
-
+    function clearContactForm() {
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("message").value = "";
+    }
 
 
-
-      function onSubmit(token) {
+    function validate(event) {
+      event.preventDefault();
+      if (!document.getElementById('field').value) {
+        alert("You must add text to the required field");
+      } else {
         grecaptcha.execute();
-
-        var message = JSON.parse(JSON.stringify({
-          "token": 'token',
-          "name": document.getElementById("name").value,
-          "email": document.getElementById("email").value,
-          "message": document.getElementById("message").value
-        }));
-
-        console.log(message);
-
-        document.getElementById("loader").classList.remove("hidden");
-
-
-
-        postData('https://test-form-service-1-hksozic35a-wl.a.run.app', message)
-          .then((data) => {
-            console.log(data);
-            document.getElementById("loader").classList.add("hidden");
-            document.getElementById("modal").classList.remove("hidden");
-            var modalDialogue = document.getElementById("modal-dialogue");
-            var msgStatusContainer = document.createElement("DIV");
-            msgStatusContainer.classList.add("msg-status-cont");
-            if(data.success === true){
-              var successMessage = document.createElement("DIV");
-              successMessage.classList.add("success-message");
-              successMessage.textContent = "Message Sent"
-              var check = document.createElement("DIV");
-              check.classList.add("check");
-              var before = document.createElement("DIV");
-              before.classList.add("before");
-              var after = document.createElement("DIV");
-              after.classList.add("after");
-              check.append(before);
-              check.append(after);
-              modalDialogue.append(successMessage);
-              modalDialogue.append(check);
-            } else {
-              var errorMessage = document.createElement("DIV");
-              errorMessage.classList.add("error-message");
-              errorMessage.textContent = "Message Failed";
-              var errorDetail = document.createElement("DIV");
-              errorDetail.classList.add("error-detail");
-              errorDetail.textContent = "Your message could not be sent please try again later";
-              var cross = document.createElement("DIV");
-              check.classList.add("cross");
-              var top = document.createElement("DIV");
-              before.classList.add("top");
-              var bottom = document.createElement("DIV");
-              after.classList.add("bottom");
-              check.append(top);
-              check.append(bottom);
-              modalDialogue.append(errorMessage);
-              modalDialogue.append(errorDetail);
-              modalDialogue.append(cross);
-            }
-
-
-            setTimeout(function(){ 
-              clearModal();
-              clearContactForm();
-              }, 5000);
-
-
-          });
-
-
       }
+    }
 
-      window.onSubmit2 = onSubmit2
+    function onLoad() {
+      document.getElementById("sendMessage").onclick = validate;
+    }
+
+
+    function onSubmit(token) {
+
       
 
-  
+      var message = JSON.parse(JSON.stringify({
+        "token": 'token',
+        "name": document.getElementById("name").value,
+        "email": document.getElementById("email").value,
+        "message": document.getElementById("message").value
+      }));
+
+      console.log(message);
+
+      document.getElementById("loader").classList.remove("hidden");
+
+
+
+      // postData('https://test-form-service-1-hksozic35a-wl.a.run.app', message)
+      //   .then((data) => {
+      //     console.log(data);
+      //     document.getElementById("loader").classList.add("hidden");
+      //     document.getElementById("modal").classList.remove("hidden");
+      //     var modalDialogue = document.getElementById("modal-dialogue");
+      //     var msgStatusContainer = document.createElement("DIV");
+      //     msgStatusContainer.classList.add("msg-status-cont");
+      //     if(data.success === true){
+      //       var successMessage = document.createElement("DIV");
+      //       successMessage.classList.add("success-message");
+      //       successMessage.textContent = "Message Sent"
+      //       var check = document.createElement("DIV");
+      //       check.classList.add("check");
+      //       var before = document.createElement("DIV");
+      //       before.classList.add("before");
+      //       var after = document.createElement("DIV");
+      //       after.classList.add("after");
+      //       check.append(before);
+      //       check.append(after);
+      //       modalDialogue.append(successMessage);
+      //       modalDialogue.append(check);
+      //     } else {
+      //       var errorMessage = document.createElement("DIV");
+      //       errorMessage.classList.add("error-message");
+      //       errorMessage.textContent = "Message Failed";
+      //       var errorDetail = document.createElement("DIV");
+      //       errorDetail.classList.add("error-detail");
+      //       errorDetail.textContent = "Your message could not be sent please try again later";
+      //       var cross = document.createElement("DIV");
+      //       check.classList.add("cross");
+      //       var top = document.createElement("DIV");
+      //       before.classList.add("top");
+      //       var bottom = document.createElement("DIV");
+      //       after.classList.add("bottom");
+      //       check.append(top);
+      //       check.append(bottom);
+      //       modalDialogue.append(errorMessage);
+      //       modalDialogue.append(errorDetail);
+      //       modalDialogue.append(cross);
+      //     }
+
+
+      //     setTimeout(function(){ 
+      //       clearModal();
+      //       clearContactForm();
+      //       }, 5000);
+
+
+      //   });
+
+
+    }
+
+    window.onSubmit = onSubmit
+
+
+
 
 
   </script>
@@ -229,6 +236,7 @@
   }
   </script> -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>onLoad()</script>
 
 </body>
 
