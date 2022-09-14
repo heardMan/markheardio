@@ -551,7 +551,7 @@ var App = (function (global) {
         name.onchange = nameChange;
 
         function blurNameInput(e) {
-            console.log(e);
+            //console.log(e);
             if (name.value.length === 0) {
                 name.classList.remove("red-outline");
                 name.classList.remove("green-outline");
@@ -595,7 +595,7 @@ var App = (function (global) {
         email.onchange = emailChange;
 
         function blurEmailInput(e) {
-            console.log(e);
+            //console.log(e);
             if (email.value.length === 0) {
                 email.classList.remove("red-outline");
                 email.classList.remove("green-outline");
@@ -648,7 +648,7 @@ var App = (function (global) {
         message.onchange = messageChange;
 
         function blurMessageInput(e) {
-            console.log(e);
+            //console.log(e);
             if (message.value.length === 0) {
                 message.classList.remove("red-outline");
                 message.classList.remove("green-outline");
