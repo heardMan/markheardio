@@ -142,6 +142,20 @@
     window.firebase.ref = ref
     window.firebase.ref = set
 
+    
+
+    function sendMessage() {
+      var database = window.firebaseApp;
+      console.log(database)
+        database().ref('messages/').set({
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          msg: document.getElementById("message").value
+        });
+      }
+
+      document.getElementById("sendMessage").onclick = sendMessage;
+
 
   </script>
   <!-- <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script> -->
@@ -196,12 +210,13 @@
     //   document.getElementById("sendMessage").onclick = validate;
     // }
 
+    
+
 
     function onSubmit(token) {
 
       //var database = firebase.database();
-      var database = window.firebaseApp;
-      console.log(database)
+      
       //console.log(database2)
       var message = JSON.parse(JSON.stringify({
         "token": token,
@@ -212,15 +227,9 @@
 
       console.log(message);
 
-      function sendMessage() {
-        database().ref('messages/').set({
-          name: document.getElementById("name").value,
-          email: document.getElementById("email").value,
-          msg: document.getElementById("message").value
-        });
-      }
+      
 
-      sendMessage();
+      
 
 
       //document.getElementById("loader").classList.remove("hidden");
