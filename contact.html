@@ -195,7 +195,7 @@
     function onSubmit(token) {
 
       //var database = firebase.database();
-      var database2 = window.firebaseApp;
+      var database = window.firebaseApp;
       //console.log(database)
       console.log(database2)
       var message = JSON.parse(JSON.stringify({
@@ -208,11 +208,11 @@
       console.log(message);
 
       function sendMessage() {
-        // firebase.database().ref('messages/').set({
-        //   name: document.getElementById("name").value,
-        //   email: document.getElementById("email").value,
-        //   msg: document.getElementById("message").value
-        // });
+        database.ref('messages/').set({
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          msg: document.getElementById("message").value
+        });
       }
 
       sendMessage();
