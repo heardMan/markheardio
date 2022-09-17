@@ -145,7 +145,7 @@
     
 
     function sendMessage() {
-      var database = window.firebaseApp;
+      var database = getDatabase();
       console.log(database)
         database().ref('messages/').set({
           name: document.getElementById("name").value,
