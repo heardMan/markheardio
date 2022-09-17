@@ -119,7 +119,7 @@
 
 
     // Add Firebase products that you want to use
-    import { database } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"
 
 
     // TODO: Replace the following with your app's Firebase project configuration
@@ -136,10 +136,15 @@
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+    const database = getDatabase();
     window.firebaseApp = app;
+    window.firebase.database = database
+    window.firebase.ref = ref
+    window.firebase.ref = set
 
 
   </script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script> -->
 
   <script>
 
