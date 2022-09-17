@@ -213,11 +213,11 @@
       console.log(message);
 
       function sendMessage() {
-        // database().ref('messages/').set({
-        //   name: document.getElementById("name").value,
-        //   email: document.getElementById("email").value,
-        //   msg: document.getElementById("message").value
-        // });
+        database().ref('messages/').set({
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          msg: document.getElementById("message").value
+        });
       }
 
       sendMessage();
