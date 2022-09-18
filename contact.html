@@ -145,16 +145,13 @@
 
 
     function sendMessage() {
-      //console.log(database)
-      // database.ref('messages/').set({
-        
-      // });
-
       set(ref(database, 'messages/'), {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         msg: document.getElementById("message").value
-      });
+      })
+      .then(data=>console.log(data))
+      .err(e=>console.log(e));
     }
 
     document.getElementById("sendMessage").onclick = sendMessage;
