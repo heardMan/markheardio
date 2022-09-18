@@ -137,15 +137,10 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const database = getDatabase();
-    window.firebaseApp = app;
-    window.firebaseDatabase = database;
-    window.firebaseRef = ref;
-    window.firebaseRef = set;
-
-
 
     function sendMessage() {
-      set(ref(database, 'messages/'), {
+
+      set(ref(database, 'messages/'+Date.now().toString()), {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         msg: document.getElementById("message").value
@@ -155,6 +150,8 @@
     }
 
     document.getElementById("sendMessage").onclick = sendMessage;
+
+    function onSubmit(token) {}
 
 
   </script>
