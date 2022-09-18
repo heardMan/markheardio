@@ -152,7 +152,7 @@
         msg: document.getElementById("message").value
       })
       .then(data=>console.log(data))
-      .err(e=>console.log(e));
+      .catch(e=>console.log(e));
     }
     window.onSubmit=onSubmit
 
