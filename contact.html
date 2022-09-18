@@ -111,32 +111,6 @@
   <script src="./scripts/app.js" async></script>
 
   <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js'
-
-    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-    //import { analytics } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js'
-
-
-
-    // Add Firebase products that you want to use
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"
-
-
-    // TODO: Replace the following with your app's Firebase project configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyAB2uwK9hR9tNfVllc9WxcBp5hUeA7U7J8",
-      authDomain: "markheardio-form-service.firebaseapp.com",
-      databaseURL: "https://markheardio-form-service-default-rtdb.firebaseio.com",
-      projectId: "markheardio-form-service",
-      storageBucket: "markheardio-form-service.appspot.com",
-      messagingSenderId: "635063227497",
-      appId: "1:635063227497:web:5879ac171bdca166d33ef8",
-      measurementId: "G-6J1S8P2HZW"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase();
 
     // Example POST method implementation:
     async function postData(url, data) {
@@ -157,9 +131,6 @@
       return await response.json(); // parses JSON response into native JavaScript objects
     }
 
-
-
-
     function sendMessage(e) {
       e.preventDefault();
     }
@@ -167,8 +138,6 @@
     document.getElementById("sendMessage").onclick = sendMessage;
 
     function onSubmit(token) {
-
-      //const url = 'https://www.google.com/recaptcha/api/siteverify'
 
       const url = 'https://test-1-rvw7oyp6nq-uc.a.run.app'
 
@@ -182,13 +151,7 @@
       postData(url, message)
         .then((data) => {
           console.log(data);
-          // set(ref(database, 'messages/' + token), {
-          //   name: document.getElementById("name").value,
-          //   email: document.getElementById("email").value,
-          //   msg: document.getElementById("message").value
-          // })
-          //   .then(data => console.log(data))
-          //   .catch(e => console.log(e));
+
         })
         .catch((err) => {
           console.log(err);
@@ -198,33 +161,10 @@
     window.onSubmit = onSubmit
 
 
-
-
   </script>
-  <!-- <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script> -->
+ 
 
   <script>
-
-
-
-    // // Example POST method implementation:
-    // async function postData(url, data) {
-    //   // Default options are marked with *
-    //   const response = await fetch(url, {
-    //     method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    //     mode: 'cors', // no-cors, *cors, same-origin
-    //     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    //     credentials: 'same-origin', // include, *same-origin, omit
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       // 'Content-Type': 'application/x-www-form-urlencoded',
-    //     },
-    //     redirect: 'follow', // manual, *follow, error
-    //     referrerPolicy: 'no-referrer', // no-referrer, *client
-    //     body: JSON.stringify(data) // body data type must match "Content-Type" header
-    //   });
-    //   return await response.json(); // parses JSON response into native JavaScript objects
-    // }
 
     //(function(){})();
 
