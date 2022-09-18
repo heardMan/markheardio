@@ -142,7 +142,7 @@
     async function postData(url, data) {
       // Default options are marked with *
       const response = await fetch(url, {
-        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
@@ -168,24 +168,24 @@
 
     function onSubmit(token) {
 
-      const url = 'https://www.google.com/recaptcha/api/siteverify'
+      //const url = 'https://www.google.com/recaptcha/api/siteverify'
 
-      const url2 = 'https://test-form-service-1-hksozic35a-wl.a.run.app'
+      const url = 'https://test-form-service-1-hksozic35a-wl.a.run.app'
 
-      postData(url, {secret:token})
+      postData(url, {token:token})
         .then((data) => {
           console.log(data);
-          set(ref(database, 'messages/' + token), {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            msg: document.getElementById("message").value
-          })
-            .then(data => console.log(data))
-            .catch(e => console.log(e));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+        //   set(ref(database, 'messages/' + token), {
+        //     name: document.getElementById("name").value,
+        //     email: document.getElementById("email").value,
+        //     msg: document.getElementById("message").value
+        //   })
+        //     .then(data => console.log(data))
+        //     .catch(e => console.log(e));
+        // })
+        // .catch((err) => {
+        //   console.log(err);
+        // });
 
     }
     window.onSubmit = onSubmit
