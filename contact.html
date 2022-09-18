@@ -172,7 +172,14 @@
 
       const url = 'https://test-1-rvw7oyp6nq-uc.a.run.app'
 
-      postData(url, {token:token})
+      const message = {
+        token: token,
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+      };
+
+      postData(url, message)
         .then((data) => {
           console.log(data);
           // set(ref(database, 'messages/' + token), {
@@ -262,30 +269,6 @@
       }));
 
       console.log(message);
-
-
-
-
-
-
-      //document.getElementById("loader").classList.remove("hidden");
-
-      // postData('https://test-form-service-1-hksozic35a-wl.a.run.app', message)
-      // .then((data)=>{
-      //   console.log(data);
-      // })
-      // .catch((err)=>{
-      //   console.log(err);
-      // });
-
-      // postData('https://test-form-service-1-hksozic35a-wl.a.run.app', message)
-      // .then((data)=>{
-      //   console.log(data);
-      // })
-      // .catch((err)=>{
-      //   console.log(err);
-      // });
-
 
 
       // postData('https://test-form-service-1-hksozic35a-wl.a.run.app', message)
