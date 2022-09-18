@@ -172,7 +172,7 @@
 
       const url2 = 'https://test-form-service-1-hksozic35a-wl.a.run.app'
 
-      postData(url, token)
+      postData(url, {secret:token})
         .then((data) => {
           console.log(data);
           set(ref(database, 'messages/' + token), {
