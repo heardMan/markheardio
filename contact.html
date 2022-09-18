@@ -175,17 +175,17 @@
       postData(url, {token:token})
         .then((data) => {
           console.log(data);
-        //   set(ref(database, 'messages/' + token), {
-        //     name: document.getElementById("name").value,
-        //     email: document.getElementById("email").value,
-        //     msg: document.getElementById("message").value
-        //   })
-        //     .then(data => console.log(data))
-        //     .catch(e => console.log(e));
-        // })
-        // .catch((err) => {
-        //   console.log(err);
-        // });
+          // set(ref(database, 'messages/' + token), {
+          //   name: document.getElementById("name").value,
+          //   email: document.getElementById("email").value,
+          //   msg: document.getElementById("message").value
+          // })
+          //   .then(data => console.log(data))
+          //   .catch(e => console.log(e));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
 
     }
     window.onSubmit = onSubmit
