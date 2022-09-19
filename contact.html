@@ -234,9 +234,7 @@
             alert(http.responseText);
           }
         }
-        xhr.send(JSON.stringify({
-          value: value
-        }));
+        xhr.send(JSON.stringify(message));
 
         // postData(url, message)
         //   .then((data) => {
