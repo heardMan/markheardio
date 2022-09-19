@@ -223,15 +223,30 @@
           message: document.getElementById("message").value
         };
 
-        postData(url, message)
-          .then((data) => {
-            console.log(data);
-            alert(data.message)
+        var xhr = new XMLHttpRequest();
+       
+        
+        xhr.open('POST', url, true);
+        //Send the proper header information along with the request
+        xhr.setRequestHeader('Content-type', 'application/json');
+        xhr.onreadystatechange = function () {//Call a function when the state changes.
+          if (http.readyState == 4 && http.status == 200) {
+            alert(http.responseText);
+          }
+        }
+        xhr.send(JSON.stringify({
+          value: value
+        }));
 
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        // postData(url, message)
+        //   .then((data) => {
+        //     console.log(data);
+        //     alert(data.message)
+
+        //   })
+        //   .catch((err) => {
+        //     console.log(err);
+        //   });
 
 
 
