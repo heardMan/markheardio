@@ -106,66 +106,6 @@
 
   <script src="./scripts/app.js" async></script>
 
-  <!-- <script type="module">
-    (function () {
-
-      // Example POST method implementation:
-      async function postData(url, data) {
-        // Default options are marked with *
-        const response = await fetch(url, {
-          method: 'POST', // *GET, POST, PUT, DELETE, etc.
-          mode: 'cors', // no-cors, *cors, same-origin
-          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-          credentials: 'same-origin', // include, *same-origin, omit
-          headers: {
-            'Content-Type': 'application/json',
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          redirect: 'follow', // manual, *follow, error
-          referrerPolicy: 'no-referrer', // no-referrer, *client
-          body: JSON.stringify(data) // body data type must match "Content-Type" header
-        });
-        return await response.json(); // parses JSON response into native JavaScript objects
-      }
-
-      function sendMessage(e) {
-        e.preventDefault();
-      }
-
-      document.getElementById("sendMessage").onclick = sendMessage;
-
-      function onSubmit(token) {
-
-        const url = 'https://test-1-rvw7oyp6nq-uc.a.run.app'
-
-        const message = {
-          token: token,
-          name: document.getElementById("name").value,
-          email: document.getElementById("email").value,
-          message: document.getElementById("message").value
-        };
-
-        postData(url, message)
-          .then((data) => {
-            console.log(data);
-            alert(data.message)
-
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-
-      }
-      window.onSubmit = onSubmit
-
-
-    })();
-
-
-
-
-  </script> -->
-
 
   <script>
 
@@ -231,7 +171,7 @@
         xhr.setRequestHeader('Content-type', 'application/json');
         xhr.onreadystatechange = function () {//Call a function when the state changes.
           if (xhr.readyState == 4 && xhr.status == 200) {
-            var data = JSON.parse(this.responseText);
+            var data = JSON.parse(xhr.responseText);
             alert(data.message);
           }
         }
