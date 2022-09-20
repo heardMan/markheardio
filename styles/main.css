@@ -511,12 +511,12 @@ textarea {
 .inner-carousel-card {
     position: absolute;
     top:50%;
-    left:15%;
+    left:50%;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    width: 70%;
+    width: 90%;
     height: 75%;
-    transform: translate(-0%, -50%);
+    transform: translate(-50%, -50%);
     z-index: 100;
 }
 
@@ -524,7 +524,7 @@ textarea {
 .carousel-card-back {
     position: absolute;
     top:0%;
-    opacity: 0.9;
+    opacity: 0.95;
     width: 100%;
     height: 100%;
     background-color:#044F67;
@@ -535,17 +535,18 @@ textarea {
 }
 
 .carousel-card-front {
-    /* position: absolute; */
-    /* top: 50%;
-    left:50%; */
+    left: 0%;
+    
 }
 
 .flip-front {
-    transform: translate(-0%, -50%) rotateY(180deg);
+    transform:  translate(-50%, -50%) rotateY(180deg);
 }
 
 .carousel-card-back {
-    transform: rotateY(180deg);
+    left: 0%;
+    transform:  rotateY(180deg);
+    
 }
 
 .flip-back {
@@ -583,10 +584,9 @@ textarea {
     position: absolute;
     bottom: 0%;
     left:0%;
-    
-    
-   
     width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .carousel-item-links>a {
@@ -601,8 +601,9 @@ textarea {
     background-color: #044F67;
     opacity: 0.90;
     margin: 0.5rem;
-    width: 35px;
+    width: 45px;
     display: inline-block;
+ 
 }
 
 .carousel-item-links>a:hover {

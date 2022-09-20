@@ -209,9 +209,9 @@ var App = (function (global) {
 
             function setPositionByIndex() {
                 if (currentSlideIndex < 0) {
-                    currentSlideIndex = 4
+                    currentSlideIndex = data.length-1
                 }
-                if (currentSlideIndex > 4) {
+                if (currentSlideIndex > data.length-1) {
                     currentSlideIndex = 0
                 }
                 currentTranslate = currentSlideIndex * -window.innerWidth
