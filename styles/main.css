@@ -239,12 +239,14 @@ body {
 }
 
 .consultations {
-    background: linear-gradient(270deg, rgba(4, 79, 103, 1) 0%, rgba(0, 0, 0, 0) 95%);
+    /* background: linear-gradient(270deg, rgba(4, 79, 103, 1) 0%, rgba(0, 0, 0, 0) 95%); */
+    background-color: rgba(4, 79, 103, .3);
+    border: #044F67 solid 2px;
     padding-top: 1vh;
     padding-bottom: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
-    width: 75vw;
+    width: 85vw;
     margin-top: 90vh;
     transform: skewX(-3deg) translateX(-99%);
     border-radius: 0px 25px 25px 0px;
@@ -261,7 +263,9 @@ body {
 }
 
 .internet {
-    background: linear-gradient(90deg, rgba(4, 79, 103, 1) 1%, rgba(3, 166, 120, 0) 95%);
+    /* background: linear-gradient(90deg, rgba(4, 79, 103, 1) 1%, rgba(3, 166, 120, 0) 95%); */
+    background-color: rgba(4, 79, 103, .3);
+    border: #044F67 solid 2px;
     padding-top: 1vh;
     padding-bottom: 1rem;
     padding-left: 3rem;
@@ -279,7 +283,9 @@ body {
 }
 
 .analytics {
-    background: linear-gradient(270deg, rgba(4, 79, 103, 1) 0%, rgba(3, 166, 120, 0) 95%);
+    /* background: linear-gradient(270deg, rgba(4, 79, 103, 1) 0%, rgba(3, 166, 120, 0) 95%); */
+    background-color: rgba(4, 79, 103, .3);
+    border: #044F67 solid 2px;
     padding-top: 1vh;
     padding-bottom: 1.5rem;
     padding-left: 1rem;

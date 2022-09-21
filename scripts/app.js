@@ -811,13 +811,13 @@ var App = (function (global) {
                     element.style.transform = 'skewX(-3deg) translateX(' + (yPosition) + '%)';
                 }
 
-                if (yPosition > 0) {
-                    element.style.transform = 'skewX(-3deg) translateX(0%)';
+                if (yPosition > -10) {
+                    element.style.transform = 'skewX(-3deg) translateX(-10%)';
                 }
 
             }
 
-            translateYtoX(-99 + ((animationWindowPercentage * 100) * 2.2))
+            translateYtoX((-99 + ((animationWindowPercentage * 100) * 2.2)))
 
         }
 
@@ -973,8 +973,8 @@ var App = (function (global) {
                     element.style.transform = 'skewX(-3deg) translateX(' + (yPosition) + '%)';
                 }
 
-                if (yPosition > 0) {
-                    element.style.transform = 'skewX(-3deg) translateX(0%)';
+                if (yPosition > -10) {
+                    element.style.transform = 'skewX(-3deg) translateX(-10%)';
                 }
 
             }
