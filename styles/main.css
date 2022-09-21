@@ -203,7 +203,7 @@ body {
     margin-right: -5vh;
     margin-top: 10vh;
     transform: skewX(3deg);
-    border-radius: 10px;
+    border-radius: 25px;
 
 
 }
@@ -239,15 +239,15 @@ body {
 }
 
 .consultations {
-    background: linear-gradient(270deg, rgba(4, 79, 103, 1) 0%, rgba(0, 0, 0, 0) 10%);
+    background: linear-gradient(270deg, rgba(4, 79, 103, 1) 0%, rgba(0, 0, 0, 0) 95%);
     padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-bottom: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
     width: 75vw;
     margin-top: 90vh;
     transform: skewX(-3deg) translateX(-99%);
-    border-radius: 3px;
+    border-radius: 0px 25px 25px 0px;
 
 }
 
@@ -255,44 +255,44 @@ body {
     width: 90%;
 }
 
-.consultations>div>h3,
+.consultations>div>h2,
 .consultations>div {
-    transform: skewX(3deg);
+    transform: skewX(3deg) translate(1rem,0rem);
 }
 
 .internet {
-    background: linear-gradient(90deg, rgba(4, 79, 103, 1) 1%, rgba(3, 166, 120, 0) 10%);
+    background: linear-gradient(90deg, rgba(4, 79, 103, 1) 1%, rgba(3, 166, 120, 0) 95%);
     padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-bottom: 1rem;
     padding-left: 3rem;
     padding-right: 2rem;
     margin-top: 90vh;
     width: 75vw;
     transform: skewX(3deg) translateX(97%);
-    border-radius: 3px;
+    border-radius: 25px 0px 0px 25px;
 }
 
-.internet>h3,
+.internet>h2,
 .internet>div,
 .internet>ul {
-    transform: skewX(-3deg);
+    transform: skewX(-3deg) translate(-1rem,0rem);
 }
 
 .analytics {
-    background: linear-gradient(270deg, rgba(4, 79, 103, 1) 1%, rgba(3, 166, 120, 0) 10%);
+    background: linear-gradient(270deg, rgba(4, 79, 103, 1) 0%, rgba(3, 166, 120, 0) 95%);
     padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-bottom: 1.5rem;
     padding-left: 1rem;
     padding-right: 3rem;
     width: 75vw;
     margin-top: 90vh;
     transform: skewX(-3deg) translateX(-99%);
-    border-radius: 3px;
+    border-radius: 0px 25px 25px 0px;
 }
 
-.analytics>h3,
+.analytics>h2,
 .analytics>div {
-    transform: skewX(3deg);
+    transform: skewX(3deg) translate(1rem,0rem);
 }
 
 .recentProjects {
@@ -331,7 +331,7 @@ body {
     padding: 1rem;
     padding-top: 1rem;
     color: white;
-    border-radius: 5px;
+    border-radius: 25px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -410,22 +410,25 @@ textarea {
 }
 
 .form-group>input {
-    padding: 0.25rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+   
     margin-top: 0.25rem;
     font-size: 1rem;
     border: solid #bdc3c7 1px;
     background-color: #2e3131;
     color: #ffffff;
+    border-radius: 25px;
 }
 
 .form-group>textarea {
-    padding: 0.25rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     margin-top: 0.25rem;
     height: 3rem;
     font-size: 1rem;
     border: solid #bdc3c7 1px;
     background-color: #2e3131;
     color: #ffffff;
+    border-radius: 25px;
 }
 
 .warning {
@@ -439,7 +442,7 @@ textarea {
 
 .btn {
     font-size: 1.5rem;
-    border-radius: 5px;
+    border-radius: 50px;
     width: 200px;
     padding: 1rem;
     border: solid #95a5a6 1px;
