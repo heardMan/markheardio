@@ -290,7 +290,7 @@ body {
     padding-bottom: 1.5rem;
     padding-left: 1rem;
     padding-right: 3rem;
-    width: 75vw;
+    width: 85vw;
     margin-top: 90vh;
     transform: skewX(-3deg) translateX(-99%);
     border-radius: 0px 25px 25px 0px;
@@ -298,7 +298,7 @@ body {
 
 .analytics>h2,
 .analytics>div {
-    transform: skewX(3deg) translate(1rem,0rem);
+    transform: skewX(3deg) translate(2rem,0rem);
 }
 
 .recentProjects {
