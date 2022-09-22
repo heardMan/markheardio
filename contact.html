@@ -223,6 +223,12 @@
               modalDialogue.append(errorMessage);
               modalDialogue.append(errorDetail);
               modalDialogue.append(cross);
+              var closeBtn = document.createElement("BUTTON");
+              closeBtn.classList.add('close-btn');
+              
+              modalDialogue.append(closeBtn);
+              document.getElementById("modal").classList.remove("open")
+
 
             }
           }
