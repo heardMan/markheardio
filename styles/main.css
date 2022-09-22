@@ -356,7 +356,7 @@ body {
 
 .grad {
     background: rgb(4, 79, 103,0.4);
-    background: linear-gradient(170deg, rgba(4, 79, 103, 0.8) 26%, rgba(3, 166, 120, 0.6) 100%);
+    background: linear-gradient(170deg, rgba(4, 79, 103, 0.8) 26%, rgba(3, 166, 120, 0.8) 100%);
 }
 
 .about {
@@ -822,11 +822,30 @@ h3 {
     animation: spin 1.5s linear infinite;
 }
 
+#modal {
+    display: none;
+}
+
+#modal.open {
+    display: block;
+    z-index: 850;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
 #modal-dialogue {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: solid 1px rgba(4, 79, 103, 0.8);
+    background-color: rgba(4, 79, 103, 0.8);
+    z-index: 890;
+    border-radius: 25px;
+    padding: 1rem;
 }
 
 .modal-bg {
@@ -836,7 +855,7 @@ h3 {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 50;
+    z-index: 860;
 }
 
 .msg-status-cont {
@@ -879,11 +898,7 @@ h3 {
 }
 
 .success-message {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     text-align: center;
-    transform: translate(-50%, -50%);
     color: rgb(17, 253, 0);
     animation-name: bulge;
     animation-duration: 1s;
@@ -891,6 +906,8 @@ h3 {
     font-size: 64px;
     font-weight: 900;
     z-index: 350;
+    padding: 1rem;
+    /* border-radius: 25px;
 }
 
 .error-msg {
