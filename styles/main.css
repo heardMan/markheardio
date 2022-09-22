@@ -246,15 +246,16 @@ body {
     padding-bottom: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
-    width: 85vw;
+    max-width:750px;
     margin-top: 90vh;
     transform: skewX(-3deg) translateX(-99%);
     border-radius: 0px 25px 25px 0px;
-
 }
 
 .consultations-text {
     width: 90%;
+    margin-left: auto;
+    margin-right: 1rem;
 }
 
 .consultations>div>h2,
@@ -271,7 +272,8 @@ body {
     padding-left: 3rem;
     padding-right: 2rem;
     margin-top: 90vh;
-    width: 75vw;
+    margin-left: auto;
+    max-width:750px;
     transform: skewX(3deg) translateX(97%);
     border-radius: 25px 0px 0px 25px;
 }
@@ -290,7 +292,7 @@ body {
     padding-bottom: 1.5rem;
     padding-left: 1rem;
     padding-right: 3rem;
-    width: 85vw;
+    max-width: 750px;
     margin-top: 90vh;
     transform: skewX(-3deg) translateX(-99%);
     border-radius: 0px 25px 25px 0px;
@@ -298,8 +300,13 @@ body {
 
 .analytics>h2,
 .analytics>div {
-    transform: skewX(3deg) translate(2rem,0rem);
+    /* transform: skewX(3deg); */
+    width: 90%;
+    margin-left: auto;
+    margin-right: 0rem;
 }
+
+
 
 .recentProjects {
     position: relative;
@@ -327,7 +334,13 @@ body {
 .recentProjects>div>button {
     background-color: rgba(0, 0, 0, 0);
     height: 100%;
+    
+}
 
+.recentProjects>div>button>img{
+    background-color: rgba(4, 79, 103, .6);
+    border: #044F67 solid 2px;
+    border-radius: 25px;
 }
 
 .card {
@@ -342,8 +355,8 @@ body {
 }
 
 .grad {
-    background: rgb(4, 79, 103);
-    background: linear-gradient(170deg, rgba(4, 79, 103, 1) 26%, rgba(3, 166, 120, 1) 100%);
+    background: rgb(4, 79, 103,0.4);
+    background: linear-gradient(170deg, rgba(4, 79, 103, 0.8) 26%, rgba(3, 166, 120, 0.6) 100%);
 }
 
 .about {
@@ -381,6 +394,10 @@ body {
 .card-text>p {
     margin-top: 1.5rem;
 
+}
+
+.contact {
+    max-width: 500px;
 }
 
 .form-title {
