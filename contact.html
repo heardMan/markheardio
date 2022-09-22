@@ -111,25 +111,6 @@
 
     (function () {
 
-      // // Example POST method implementation:
-      // async function postData(url, data) {
-      //   // Default options are marked with *
-      //   const response = await fetch(url, {
-      //     method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      //     mode: 'cors', // no-cors, *cors, same-origin
-      //     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      //     credentials: 'same-origin', // include, *same-origin, omit
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //       // 'Content-Type': 'application/x-www-form-urlencoded',
-      //     },
-      //     redirect: 'follow', // manual, *follow, error
-      //     referrerPolicy: 'no-referrer', // no-referrer, *client
-      //     body: JSON.stringify(data) // body data type must match "Content-Type" header
-      //   });
-      //   return response.json(); // parses JSON response into native JavaScript objects
-      // }
-
       function sendMessage(e) {
         e.preventDefault();
       }
@@ -172,8 +153,6 @@
             console.log((xhr.responseText));
             console.log(data2);
 
-
-
             document.getElementById("loader").classList.add("hidden");
             document.getElementById("modal").classList.remove("hidden");
 
@@ -197,7 +176,7 @@
               check.append(after);
               modalDialogue.append(successMessage);
               modalDialogue.append(check);
-              document.getElementById("modal").classList.remove("open")
+              document.getElementById("modal").classList.add("open")
 
               setTimeout(function () {
                 clearModal();
@@ -225,85 +204,21 @@
               modalDialogue.append(cross);
               var closeBtn = document.createElement("BUTTON");
               closeBtn.classList.add('close-btn');
-              
-              modalDialogue.append(closeBtn);
-              document.getElementById("modal").classList.remove("open")
 
+              modalDialogue.append(closeBtn);
+              document.getElementById("modal").classList.add("open")
 
             }
           }
         }
         xhr.send(JSON.stringify(message));
 
-
-        // postData('https://test-form-service-1-hksozic35a-wl.a.run.app', message)
-        //   .then((data) => {
-
-
-
-        //     console.log(data);
-        //     document.getElementById("loader").classList.add("hidden");
-        //     document.getElementById("modal").classList.remove("hidden");
-        //     var modalDialogue = document.getElementById("modal-dialogue");
-        //     var msgStatusContainer = document.createElement("DIV");
-        //     msgStatusContainer.classList.add("msg-status-cont");
-        //     if(data.success === true){
-        //       var successMessage = document.createElement("DIV");
-        //       successMessage.classList.add("success-message");
-        //       successMessage.textContent = "Message Sent"
-        //       var check = document.createElement("DIV");
-        //       check.classList.add("check");
-        //       var before = document.createElement("DIV");
-        //       before.classList.add("before");
-        //       var after = document.createElement("DIV");
-        //       after.classList.add("after");
-        //       check.append(before);
-        //       check.append(after);
-        //       modalDialogue.append(successMessage);
-        //       modalDialogue.append(check);
-        //     } else {
-        //       var errorMessage = document.createElement("DIV");
-        //       errorMessage.classList.add("error-message");
-        //       errorMessage.textContent = "Message Failed";
-        //       var errorDetail = document.createElement("DIV");
-        //       errorDetail.classList.add("error-detail");
-        //       errorDetail.textContent = "Your message could not be sent please try again later";
-        //       var cross = document.createElement("DIV");
-        //       check.classList.add("cross");
-        //       var top = document.createElement("DIV");
-        //       before.classList.add("top");
-        //       var bottom = document.createElement("DIV");
-        //       after.classList.add("bottom");
-        //       check.append(top);
-        //       check.append(bottom);
-        //       modalDialogue.append(errorMessage);
-        //       modalDialogue.append(errorDetail);
-        //       modalDialogue.append(cross);
-        //     }
-
-
-
-
-
-        //     setTimeout(function(){ 
-        //       clearModal();
-        //       clearContactForm();
-        //       }, 5000);
-
-
-        //   });
-
-
       }
       window.onSubmit = onSubmit
 
     })();
+
   </script>
-
-
-
-
-
 
 </body>
 
