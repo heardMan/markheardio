@@ -138,7 +138,7 @@
 
       function clearModal() {
         document.getElementById("modal-dialogue").innerHTML = '';
-        document.getElementById("modal").classList.add("hidden")
+        document.getElementById("modal").classList.remove("open")
       }
 
       function clearContactForm() {
@@ -177,6 +177,7 @@
             document.getElementById("loader").classList.add("hidden");
             document.getElementById("modal").classList.remove("hidden");
 
+            var modal = document.getElementById("modal")
             var modalDialogue = document.getElementById("modal-dialogue");
             var msgStatusContainer = document.createElement("DIV");
             msgStatusContainer.classList.add("msg-status-cont");
@@ -196,6 +197,7 @@
               check.append(after);
               modalDialogue.append(successMessage);
               modalDialogue.append(check);
+              document.getElementById("modal").classList.remove("open")
 
               setTimeout(function () {
                 clearModal();
