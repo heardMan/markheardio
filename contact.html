@@ -215,7 +215,7 @@
   
             
             if (data.success === true) {
-              closeLoadModal();
+              
               // var successMessage = document.createElement("DIV");
               // successMessage.classList.add("success-message");
               // successMessage.textContent = "Message Received"
@@ -232,7 +232,8 @@
               // document.getElementById("modal").classList.add("open")
 
               setTimeout(function () {
-                clearModal();
+                //clearModal();
+                closeLoadModal();
                 clearContactForm();
               }, 5000);
 
