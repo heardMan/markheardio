@@ -82,17 +82,26 @@
             </button>
           </div>
 
+          <div class="form-group">
+            <div id="testLoader" class="btn">
+              test load
+            </div>
+            
+          </div>
+
         </form>
+ 
       </div>
+      
     </div>
   </main>
 
-  <div id="modal" class="hidden">
+  <div id="modal" class="">
     <div class="modal-bg"></div>
-    <div id="modal-dialogue"></div>
+    <div id="modalDialogue"></div>
   </div>
 
-  <div id="loader" class="hidden">
+  <!-- <div id="loader" class="hidden">
     <div class="loader-bg"></div>
     <div class="loader-message">Sending</div>
     <div class="loader-ring r-1"></div>
@@ -100,7 +109,7 @@
     <div class="loader-ring r-3"></div>
     <div class="loader-ring r-4"></div>
     <div class="loader-ring r-5"></div>
-  </div>
+  </div> -->
 
 
 
@@ -118,14 +127,59 @@
       document.getElementById("sendMessage").onclick = sendMessage;
 
       function clearModal() {
-        document.getElementById("modal-dialogue").innerHTML = '';
-        document.getElementById("modal").classList.remove("open")
+        document.getElementById('modal-dialogue').innerHTML = '';
+        document.getElementById('modal').classList.remove('open')
       }
 
       function clearContactForm() {
-        document.getElementById("name").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("message").value = "";
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('message').value = '';
+      }
+
+
+
+      function openLoadModal(){
+        
+        var modalDialogue = document.getElementById('modalDialogue');
+
+        modalDialogue.innerHTML = '';
+        modalDialogue.classList.add('loadingModal')
+
+        var loader = document.createElement('DIV');
+        loader.classList.add('loader');
+
+       
+
+        var loaderSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        //loaderSVG.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
+
+        var loadCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        loadCircle.setAttribute('cx','100');
+        loadCircle.setAttribute('cy','100');
+        loadCircle.setAttribute('r','80');
+        loadCircle.setAttribute('transform', 'rotate(-90 100 100)');
+
+        loaderSVG.append(loadCircle);
+        loader.append(loaderSVG);
+
+        var loadMsg = document.createElement('DIV');
+        loadMsg.innerHTML='Sending...';
+        loadMsg.classList.add('loadMsg');
+        loader.append(loadMsg);
+
+        modalDialogue.append(loader);
+
+        document.getElementById('modal').classList.add('open');
+
+      }
+      //document.getElementById('testLoader').addEventListener('click', openLoadModal);
+
+      function closeLoadModal (){
+        var modalDialogue = document.getElementById('modalDialogue');
+
+        modalDialogue.innerHTML = '';
+        modalDialogue.classList.remove('loadingModal');
       }
 
 
@@ -147,36 +201,35 @@
         //Send the proper header information along with the request
         xhr.setRequestHeader('Content-type', 'application/json');
         xhr.onreadystatechange = function () {//Call a function when the state changes.
+          openLoadModal();
           if (xhr.readyState == 4 && xhr.status == 200) {
-            var data = { success: true };
-            data2 = JSON.parse(xhr.responseText);
-            console.log((xhr.responseText));
-            console.log(data2);
+            
+            var data = JSON.parse(xhr.responseText);
+
 
             document.getElementById("loader").classList.add("hidden");
             document.getElementById("modal").classList.remove("hidden");
 
             var modal = document.getElementById("modal")
             var modalDialogue = document.getElementById("modal-dialogue");
-            var msgStatusContainer = document.createElement("DIV");
-            msgStatusContainer.classList.add("msg-status-cont");
+  
             
             if (data.success === true) {
-
-              var successMessage = document.createElement("DIV");
-              successMessage.classList.add("success-message");
-              successMessage.textContent = "Message Received"
-              var check = document.createElement("DIV");
-              check.classList.add("check");
-              var before = document.createElement("DIV");
-              before.classList.add("before");
-              var after = document.createElement("DIV");
-              after.classList.add("after");
-              check.append(before);
-              check.append(after);
-              modalDialogue.append(successMessage);
-              modalDialogue.append(check);
-              document.getElementById("modal").classList.add("open")
+              closeLoadModal();
+              // var successMessage = document.createElement("DIV");
+              // successMessage.classList.add("success-message");
+              // successMessage.textContent = "Message Received"
+              // var check = document.createElement("DIV");
+              // check.classList.add("check");
+              // var before = document.createElement("DIV");
+              // before.classList.add("before");
+              // var after = document.createElement("DIV");
+              // after.classList.add("after");
+              // check.append(before);
+              // check.append(after);
+              // modalDialogue.append(successMessage);
+              // modalDialogue.append(check);
+              // document.getElementById("modal").classList.add("open")
 
               setTimeout(function () {
                 clearModal();
@@ -185,28 +238,28 @@
 
             } else {
 
-              var errorMessage = document.createElement("DIV");
-              errorMessage.classList.add("error-message");
-              errorMessage.textContent = "Message Failed";
-              var errorDetail = document.createElement("DIV");
-              errorDetail.classList.add("error-detail");
-              errorDetail.textContent = "Your message could not be sent please try again later";
-              var cross = document.createElement("DIV");
-              check.classList.add("cross");
-              var top = document.createElement("DIV");
-              before.classList.add("top");
-              var bottom = document.createElement("DIV");
-              after.classList.add("bottom");
-              check.append(top);
-              check.append(bottom);
-              modalDialogue.append(errorMessage);
-              modalDialogue.append(errorDetail);
-              modalDialogue.append(cross);
-              var closeBtn = document.createElement("BUTTON");
-              closeBtn.classList.add('close-btn');
+              // var errorMessage = document.createElement("DIV");
+              // errorMessage.classList.add("error-message");
+              // errorMessage.textContent = "Message Failed";
+              // var errorDetail = document.createElement("DIV");
+              // errorDetail.classList.add("error-detail");
+              // errorDetail.textContent = "Your message could not be sent please try again later";
+              // var cross = document.createElement("DIV");
+              // check.classList.add("cross");
+              // var top = document.createElement("DIV");
+              // before.classList.add("top");
+              // var bottom = document.createElement("DIV");
+              // after.classList.add("bottom");
+              // check.append(top);
+              // check.append(bottom);
+              // modalDialogue.append(errorMessage);
+              // modalDialogue.append(errorDetail);
+              // modalDialogue.append(cross);
+              // var closeBtn = document.createElement("BUTTON");
+              // closeBtn.classList.add('close-btn');
 
-              modalDialogue.append(closeBtn);
-              document.getElementById("modal").classList.add("open")
+              // modalDialogue.append(closeBtn);
+              // document.getElementById("modal").classList.add("open")
 
             }
           }
