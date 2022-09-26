@@ -81,9 +81,9 @@
               Send
             </button>
           </div>
-          <!-- <div class="form-group">
+          <div class="form-group">
             <div id="test" class="btn">Testing</div>
-          </div> -->
+          </div>
 
         </form>
 
@@ -202,8 +202,57 @@
         // modalDialogue.classList.remove('msgSuccessModal');
       }
 
-      function clearMsgSuccessModal(){
+      function clearMsgSuccessModal() {
         modalDialogue.classList.remove('msgSuccessModal');
+      }
+
+      function setMsgErrorModal() {
+        modalDialogue.innerHTML = '';
+        modalDialogue.classList.add('msgErrorModal');
+
+        var crossContainer = document.createElement('DIV');
+        crossContainer.classList.add('crossContainer');
+
+        var rightLegContainer = document.createElement('DIV');
+        rightLegContainer.classList.add('rightLegContainer');
+        var rightLeg = document.createElement('DIV');
+        rightLeg.classList.add('rightLeg');
+        rightLegContainer.append(rightLeg);
+
+        var leftLegContainer = document.createElement('DIV');
+        leftLegContainer.classList.add('leftLegContainer');
+        var leftLeg = document.createElement('DIV');
+        leftLeg.classList.add('leftLeg');
+        leftLegContainer.append(leftLeg);
+
+        var topLegContainer = document.createElement('DIV');
+        topLegContainer.classList.add('topLegContainer');
+        var topLeg = document.createElement('DIV');
+        topLeg.classList.add('topLeg');
+        topLegContainer.append(topLeg);
+
+        var bottomLegContainer = document.createElement('DIV');
+        bottomLegContainer.classList.add('bottomLegContainer');
+        var bottomLeg = document.createElement('DIV');
+        bottomLeg.classList.add('bottomLeg');
+        bottomLegContainer.append(bottomLeg);
+
+        crossContainer.append(rightLegContainer);
+        crossContainer.append(leftLegContainer);
+        crossContainer.append(topLegContainer);
+        crossContainer.append(bottomLegContainer);
+
+        var errorMsg = document.createElement('DIV');
+        errorMsg.innerHTML = 'Error: Message not sent, please try again';
+        errorMsg.classList.add('errorMsg');
+
+        modalDialogue.append(errorMsg);
+        modalDialogue.append(crossContainer);
+
+      }
+
+      function clearMsgErrorModal() {
+        modalDialogue.classList.remove('msgErrorModal');
       }
 
       function testMoadlAnimation() {
@@ -220,36 +269,52 @@
         modalDialogue.append(closeBtn);
 
         //TEST CODE
-        modalDialogue.classList.add('msgSuccessModal');
+        modalDialogue.classList.add('msgErrorModal');
 
-        var checkContainer = document.createElement('DIV');
-        checkContainer.classList.add('check');
-        var shortLegContainer = document.createElement('DIV');
-        shortLegContainer.classList.add('shortLegContainer');
-        var shortLeg = document.createElement('DIV');
-        shortLeg.classList.add('shortLeg');
-        shortLegContainer.append(shortLeg);
-        var longLegContainer = document.createElement('DIV');
-        longLegContainer.classList.add('longLegContainer');
-        var longLeg = document.createElement('DIV');
-        longLeg.classList.add('longLeg');
-        longLegContainer.append(longLeg);
-        checkContainer.append(shortLegContainer);
-        checkContainer.append(longLegContainer);
+        var crossContainer = document.createElement('DIV');
+        crossContainer.classList.add('crossContainer');
 
+        var rightLegContainer = document.createElement('DIV');
+        rightLegContainer.classList.add('rightLegContainer');
+        var rightLeg = document.createElement('DIV');
+        rightLeg.classList.add('rightLeg');
+        rightLegContainer.append(rightLeg);
 
-        var successMsg = document.createElement('DIV');
-        successMsg.innerHTML = 'Message Received';
-        successMsg.classList.add('successMsg');
+        var leftLegContainer = document.createElement('DIV');
+        leftLegContainer.classList.add('leftLegContainer');
+        var leftLeg = document.createElement('DIV');
+        leftLeg.classList.add('leftLeg');
+        leftLegContainer.append(leftLeg);
 
-        modalDialogue.append(successMsg)
-        modalDialogue.append(checkContainer)
+        var topLegContainer = document.createElement('DIV');
+        topLegContainer.classList.add('topLegContainer');
+        var topLeg = document.createElement('DIV');
+        topLeg.classList.add('topLeg');
+        topLegContainer.append(topLeg);
+
+        var bottomLegContainer = document.createElement('DIV');
+        bottomLegContainer.classList.add('bottomLegContainer');
+        var bottomLeg = document.createElement('DIV');
+        bottomLeg.classList.add('bottomLeg');
+        bottomLegContainer.append(bottomLeg);
+
+        crossContainer.append(rightLegContainer);
+        crossContainer.append(leftLegContainer);
+        crossContainer.append(topLegContainer);
+        crossContainer.append(bottomLegContainer);
+
+        var errorMsg = document.createElement('DIV');
+        errorMsg.innerHTML = 'Error: Message not sent, please try again';
+        errorMsg.classList.add('errorMsg');
+
+        modalDialogue.append(errorMsg);
+        modalDialogue.append(crossContainer);
         //ACTIONS TO CLEAR
-        // modalDialogue.classList.remove('msgSuccessModal');
+        // modalDialogue.classList.remove('msgErrorModal');
 
         document.getElementById('modal').classList.add('open');
       }
-      //document.getElementById('test').addEventListener('click', testMoadlAnimation)
+      document.getElementById('test').addEventListener('click', testMoadlAnimation)
 
       function onSubmit(token) {
 
@@ -282,13 +347,21 @@
               //add a success message to the modal
 
               setTimeout(function () {
-                
                 clearMsgSuccessModal();
                 clearModal();
                 clearContactForm();
               }, 5000);
 
             } else {
+              clearLoadModal();
+              setMsgErrorModal()
+
+
+              setTimeout(function () {
+                clearMsgErrorModal();
+                clearModal();
+              }, 5000);
+
 
               // add an error message to the modal
               // document.getElementById("modal").classList.add("open")
