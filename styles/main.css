@@ -203,7 +203,7 @@ body {
 }
 
 .intro {
-    border: #044F67 5px solid;
+    border: #044F67 10px solid;
     padding-top: 5vh;
     padding-bottom: 15vh;
     padding-left: 15vw;
@@ -250,14 +250,14 @@ body {
 .consultations {
     /* background: linear-gradient(270deg, rgba(4, 79, 103, 1) 0%, rgba(0, 0, 0, 0) 95%); */
     background-color: rgba(4, 79, 103, .3);
-    border: #044F67 solid 2px;
+    border: #044F67 solid 5px;
     padding-top: 1vh;
     padding-bottom: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
     max-width: 90vw;
     margin-top: 90vh;
-    transform: skewX(-3deg) translateX(-99%);
+    transform: skewX(-3deg) translate(1rem,0rem);
     border-radius: 0px 25px 25px 0px;
 }
 
@@ -268,14 +268,14 @@ body {
 }
 
 .consultations>div>h2,
-.consultations>div {
+.consultations>div>p {
     transform: skewX(3deg) translate(1rem, 0rem);
 }
 
 .internet {
     /* background: linear-gradient(90deg, rgba(4, 79, 103, 1) 1%, rgba(3, 166, 120, 0) 95%); */
     background-color: rgba(4, 79, 103, .3);
-    border: #044F67 solid 2px;
+    border: #044F67 solid 5px;
     padding-top: 1vh;
     padding-bottom: 1rem;
     padding-left: 3rem;
@@ -296,20 +296,20 @@ body {
 .analytics {
     /* background: linear-gradient(270deg, rgba(4, 79, 103, 1) 0%, rgba(3, 166, 120, 0) 95%); */
     background-color: rgba(4, 79, 103, .3);
-    border: #044F67 solid 2px;
+    border: #044F67 solid 5px;
     padding-top: 1vh;
     padding-bottom: 1.5rem;
     padding-left: 1rem;
     padding-right: 3rem;
     max-width: 90vw;
     margin-top: 90vh;
-    transform: skewX(-3deg) translateX(-99%);
+    transform: skewX(-3deg);
     border-radius: 0px 25px 25px 0px;
 }
 
 .analytics>h2,
 .analytics>div {
-    /* transform: skewX(3deg); */
+    transform: skewX(3deg) translate(1rem, 0rem);
     width: 90%;
     margin-left: auto;
     margin-right: 0rem;
