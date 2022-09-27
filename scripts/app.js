@@ -66,7 +66,7 @@ var App = (function (global) {
                     // Typical action to be performed when the document is ready:
                     // document.getElementById("demo").innerHTML = xhttp.responseText;
                     var data = JSON.parse(xhttp.responseText);
-                    console.log(data);
+                    //console.log(data);
                     return galleryInit(doc, data.projects);
                 }
             };
@@ -77,7 +77,7 @@ var App = (function (global) {
     // init function
     // controls setting up the application
     function init() {
-        console.log('starting application');
+        //console.log('starting application');
         renderPageContent();
 
     }
@@ -132,8 +132,8 @@ var App = (function (global) {
     }
 
     function galleryInit(doc, data) {
-        console.log('rendering gallery');
-        console.log(data);
+        //console.log('rendering gallery');
+        //console.log(data);
         var galleryElem = doc.getElementById('gallery');
         if (galleryElem) {
             for (var i = 0; i < data.length; i++) {
@@ -169,14 +169,14 @@ var App = (function (global) {
     }
 
     function carouselInit(doc, data) {
-        console.log('rendering carousel');
-        console.log(data);
+        //console.log('rendering carousel');
+        //console.log(data);
 
         var carouselElem = doc.getElementsByClassName('carousel-content')[0];
         var slideIndicatorContainer = doc.getElementById('slide-indicator-container')
 
 
-        console.log(slideIndicatorContainer)
+        //console.log(slideIndicatorContainer)
 
 
 
@@ -227,9 +227,9 @@ var App = (function (global) {
 
             function touchStart(idx) {
                 return function (event) {
-                    console.log(event.target)
+                    //console.log(event.target)
                     startPos = getPositionX(event)
-                    console.log(startPos);
+                    //console.log(startPos);
                     currentSlideIndex = idx;
                     isDragging = true;
                     animationID = requestAnimationFrame(animation)
@@ -259,7 +259,7 @@ var App = (function (global) {
 
             function touchMove(event) {
                 if (isDragging) {
-                    console.log('move')
+                    //console.log('move')
                     var currentPos = getPositionX(event);
                     currentTranslate = prevTranslate + currentPos - startPos
                 }
