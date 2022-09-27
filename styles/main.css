@@ -255,7 +255,7 @@ body {
     padding-bottom: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
-    max-width: 750px;
+    max-width: 90vw;
     margin-top: 90vh;
     transform: skewX(-3deg) translateX(-99%);
     border-radius: 0px 25px 25px 0px;
@@ -282,7 +282,7 @@ body {
     padding-right: 2rem;
     margin-top: 90vh;
     margin-left: auto;
-    max-width: 750px;
+    max-width: 90vw;
     transform: skewX(3deg) translateX(97%);
     border-radius: 25px 0px 0px 25px;
 }
@@ -301,7 +301,7 @@ body {
     padding-bottom: 1.5rem;
     padding-left: 1rem;
     padding-right: 3rem;
-    max-width: 750px;
+    max-width: 90vw;
     margin-top: 90vh;
     transform: skewX(-3deg) translateX(-99%);
     border-radius: 0px 25px 25px 0px;
@@ -2060,7 +2060,7 @@ h3 {
         display: none;
     }
 
-    .menu-item>a {
+    .menu-item {
         display: block;
         text-align: center;
         line-height: 2.5;
@@ -2076,26 +2076,26 @@ h3 {
         font-size: large;
     }
 
-    .menu>:nth-child(1)>a {
+    .menu>:nth-child(1) {
         position: absolute;
-        top: -17px;
+        top: 0px;
         left: -335px;
         transition: 0.5s;
         transition-delay: 0s;
         z-index: 899;
     }
 
-    .menu>:nth-child(2)>a {
+    .menu>:nth-child(2) {
         position: absolute;
-        top: -17px;
+        top: 0px;
         left: -195px;
         transition: 0.5s;
         transition-delay: 0.5s;
     }
 
-    .menu>:nth-child(3)>a {
+    .menu>:nth-child(3) {
         position: absolute;
-        top: -17px;
+        top: 0px;
         left: -49px;
         transition: 0.5s;
         transition-delay: 1s;

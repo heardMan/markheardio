@@ -113,7 +113,7 @@
       document.getElementById("sendMessage").onclick = sendMessage;
 
       function clearModal() {
-        console.log('clearing...')
+        //console.log('clearing...')
         document.getElementById('modalDialogue').innerHTML = '';
         document.getElementById('modal').classList.remove('open')
       }
@@ -339,7 +339,7 @@
           if (xhr.readyState == 4 && xhr.status == 200) {
 
             var data = JSON.parse(xhr.responseText);
-            console.log(JSON.stringify(data))
+            //console.log(JSON.stringify(data))
             if (data.success === true) {
               clearLoadModal();
               setMsgSuccessModal()
