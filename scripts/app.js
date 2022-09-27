@@ -1075,14 +1075,16 @@ var App = (function (global) {
         visitorStatsController();
 
         if (win.location.pathname === '/') {
-            welcomeAnimationController()
+            //production index route
+            welcomeAnimationController();
             consultationsAnimation();
             webSolutionsAnimation();
             dataAnalyticsAnimation();
             carousel();
 
         } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/index.html') {
-            welcomeAnimationController()
+            //development index route
+            welcomeAnimationController();
             consultationsAnimation();
             webSolutionsAnimation();
             dataAnalyticsAnimation();
