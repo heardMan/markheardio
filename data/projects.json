@@ -43,64 +43,10 @@
             "description": "A React Application designed as a user interface for the fitStat application. Please contact the adminstrator of this application for user log-in credentials."
         },
         {
-            "name": "News Mango",
-            "github": "https://github.com/heardMan/newsMango",
-            "demo": "https://still-basin-55016.herokuapp.com/",
-            "description": "This is a free news story aggregation site that is mostly focused on financial and science related news stories."
-        },
-        {
             "name": "gifTastic",
             "github": "https://github.com/heardMan/gifTastic",
             "demo": "https://heardman.github.io/gifTastic/",
             "description": "This application allows users to search the giphy api and save their favorite gifs! Make sure to copy your favorite gifs before leaving the page!"
-        },
-        {
-            "name": "Perfect Match",
-            "github": "https://github.com/heardMan/friendFinder",
-            "demo": "https://secure-anchorage-83716.herokuapp.com/",
-            "description": "This application is a sample survey that matches users based on a proprietary algorithm that is ultimately based on the user's to the survey's question."
-        },
-        {
-            "name": "Feed Reader",
-            "github": "https://github.com/heardMan/udacity-feedReader",
-            "demo": "https://heardman.github.io/udacity-feedReader/",
-            "description": "Visual representation of and application running with Jasmine Test Framework"
-        },
-        {
-            "name": "tap water search",
-            "github": "https://github.com/CFMark/scrap",
-            "demo": "https://nameless-wildwood-58120.herokuapp.com/",
-            "description": "Currently under revision"
-        },
-        {
-            "name": "Clicky Game",
-            "github": "https://github.com/heardMan/clickyGame",
-            "demo": "https://heardman.github.io/clickyGame/",
-            "description": "This is a memory based card game in which the you attempt to click only unique cards. For a more detailed explanation of the rules please visit the technical documentaion by clicking the link below."
-        },
-        {
-            "name": "Who's that Pokemon",
-            "github": "https://github.com/heardMan/Word_Guess_Game",
-            "demo": "https://heardman.github.io/Word_Guess_Game/",
-            "description": "In this game the user is presented with a silhoutte of a pokemon and they have a certain number of attempts to guess what pokemon it is letter by letter. This game requires a desktop keyboard to play. For a more detailed explanation of the rules please visit the technical documentaion by clicking the link below."
-        },
-        {
-            "name": "Sway",
-            "github": "https://github.com/heardMan/beer2",
-            "demo": "https://secure-anchorage-83716.herokuapp.com/",
-            "description": "This application allows users to create an account and discover who there Congressional Representatives are in both the House and the Senate."
-        },
-        {
-            "name": "Eat da Burger",
-            "github": "https: //github.com/heardMan/Burger",
-            "demo": "https: //pacific-wave-57601.herokuapp.com/",
-            "description": "Dynamic todo list style application built on the handlebars templating engine"
-        },
-        {
-            "name": "Fast Chat",
-            "github": "https://github.com/heardMan/firebaseApp",
-            "demo": "https://heardman.github.io/firebaseApp/",
-            "description": "This is a person to person chat application. Create an account and start messaging with other users."
         }
     ]
 }

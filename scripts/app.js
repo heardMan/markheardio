@@ -60,18 +60,21 @@ var App = (function (global) {
             return carouselInit(doc, data);
         },
         gallery = function () {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', './data/projects.json', true);
+            xhr.setRequestHeader('Content-type', 'application/json');
+
+            xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     // Typical action to be performed when the document is ready:
-                    // document.getElementById("demo").innerHTML = xhttp.responseText;
-                    var data = JSON.parse(xhttp.responseText);
+                    // document.getElementById("demo").innerHTML = xhr.responseText;
+                    var data = JSON.parse(xhr.responseText);
                     //console.log(data);
                     return galleryInit(doc, data.projects);
                 }
             };
-            xhttp.open("GET", './data/projects.json', true);
-            xhttp.send();
+            
+            xhr.send();
         }
 
     // init function
