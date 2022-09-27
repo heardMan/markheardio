@@ -1090,7 +1090,9 @@ var App = (function (global) {
             dataAnalyticsAnimation();
             carousel();
 
-        } else if (win.location.pathname === '/portfolio') {
+        } else if (win.location.pathname === '/projects') {
+            gallery();
+        } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/projects.html') {
             gallery();
         } else if (win.location.pathname === '/contact') {
             validateContactForm();

@@ -559,19 +559,22 @@ textarea {
 .carousel-card-back {
     position: absolute;
     top: 0%;
-    opacity: 0.95;
+    
     width: 100%;
     height: 100%;
-    background-color: #044F67;
+    
     border-radius: 10px;
+    border: solid #044F67 5px;
     /* padding:1rem; */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
 .carousel-card-front {
-    left: 0%;
-
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: rgba(4, 79, 103, 0.65);
+    transition: 0.5s;
 }
 
 .flip-front {
@@ -579,9 +582,10 @@ textarea {
 }
 
 .carousel-card-back {
-    left: 0%;
-    transform: rotateY(180deg);
-
+    left: 50%;
+    transform: rotateY(180deg)translate(50%, 0%);
+    background-color: rgba(4, 79, 103, 0.9);
+    transition: 0.5s;
 }
 
 .flip-back {
@@ -608,6 +612,7 @@ textarea {
 .carousel-item-content h3 {
     position: relative;
     opacity: 1;
+    font-size: 1.5rem;
 }
 
 .carousel-item-content p {
@@ -622,6 +627,8 @@ textarea {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+    
+
 }
 
 .carousel-item-links>a {
@@ -634,7 +641,7 @@ textarea {
     background-size: 200%;
     background-position: 0%;
     background-color: #044F67;
-    opacity: 0.90;
+    opacity: 1;
     margin: 0.5rem;
     width: 45px;
     display: inline-block;
@@ -647,7 +654,6 @@ textarea {
     /* border: solid #dadfe1 1px; */
     background-position: 100%;
     transition: 0.2s ease-in;
-
 }
 
 .carousel-item-links>a:active {
