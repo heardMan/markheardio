@@ -1005,7 +1005,7 @@ h3 {
     stroke-dasharray: 503;
     stroke-linecap: round;
     /* stroke-dashoffset: calc(503 - (503*50) / 100); */
-    stroke: blue;
+    stroke: rgba(4, 79, 103, .8);;
     transition: 0.5s;
     animation: loadEffect;
     animation-iteration-count: infinite;
