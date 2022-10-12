@@ -525,10 +525,12 @@ var App = (function (global) {
         var focusName = function(){
             name.parentNode.children[0].classList.add('focused')
         }
-        
+        //if(name.value.length===0){}
         var blurName = function(){
-
-            name.parentNode.children[0].classList.remove('focused')
+            if(name.value.length===0){
+                name.parentNode.children[0].classList.remove('focused')
+            }
+            
         }
         
         var focusEmail = function(){
@@ -536,7 +538,10 @@ var App = (function (global) {
         }
        
         var blurEmail = function(){
-            email.parentNode.children[0].classList.remove('focused')
+            if(name.value.length===0){
+                email.parentNode.children[0].classList.remove('focused')
+            }
+            
         }
 
         var focusMessage = function(){
@@ -544,7 +549,9 @@ var App = (function (global) {
         }
        
         var blurMessage = function(){
+            if(name.value.length===0){
             message.parentNode.children[0].classList.remove('focused')
+            }
         }
 
         

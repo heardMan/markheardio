@@ -502,6 +502,7 @@ textarea {
     left:50%;
     background-color: transparent;
     border: none;
+    border-radius: 0px;
     border-bottom: solid 1px #e8e8e8;
     color: #e8e8e8;
     font-size: 1rem;
