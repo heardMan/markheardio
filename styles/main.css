@@ -423,7 +423,7 @@ body {
     text-align: center;
 }
 
-.form-group>label,
+/* .form-group>label,
 input,
 textarea {
     margin-right: auto;
@@ -433,15 +433,15 @@ textarea {
     display: block;
     width: 90%;
     border-radius: 5px;
-}
+} */
 
-.form-group>label {
+/* .form-group>label {
     padding: 0rem;
     font-size: 1.25rem;
     margin-bottom: 0px;
-}
+} */
 
-.form-group>input {
+/* .form-group>input {
     padding: 0.5rem 1rem 0.5rem 1rem;
 
     margin-top: 0.25rem;
@@ -450,9 +450,9 @@ textarea {
     background-color: #2e3131;
     color: #ffffff;
     border-radius: 25px;
-}
+} */
 
-.form-group>textarea {
+/* .form-group>textarea {
     padding: 0.5rem 1rem 0.5rem 1rem;
     margin-top: 0.25rem;
     height: 3rem;
@@ -461,6 +461,54 @@ textarea {
     background-color: #2e3131;
     color: #ffffff;
     border-radius: 25px;
+} */
+
+.form-group {
+    position: relative;
+    margin: 0rem;
+    padding: 1.5rem;
+}
+
+.form-group>label {
+    position: absolute;
+    bottom:0px;
+    left:12%;
+    z-index: 400;
+    font-size: 1.25rem;
+    font-weight: 400;
+    transition: 1s;
+    transform: scale(1);   
+}
+
+.form-group > .focused {
+    font-weight: 700;
+    transform: translate(-20%,-110%) scale(0.7);
+    transition: 1s;
+}
+
+.form-group.textarea {
+    margin-top: 1.45rem;
+}
+
+.form-group.textarea > .focused {
+    font-weight: 700;
+    transform: translate(-20%,-210%) scale(0.7);
+    transition: 1s;
+}
+
+.form-group > input, .form-group > textarea {
+    position: absolute;
+    bottom:0px;
+    left:50%;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px #e8e8e8;
+    color: #e8e8e8;
+    font-size: 1rem;
+    z-index: 950;
+    width: 80%;
+    transform: translate(-50%,0%);
+    font-size: 1.25rem;
 }
 
 .warning {

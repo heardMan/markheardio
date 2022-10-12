@@ -517,6 +517,49 @@ var App = (function (global) {
     }
 
 
+    function contactFormAnimationController() {
+        var name = document.getElementById('name');
+        var email = document.getElementById('email');
+        var message = document.getElementById('message');
+
+        var focusName = function(){
+            name.parentNode.children[0].classList.add('focused')
+        }
+        
+        var blurName = function(){
+
+            name.parentNode.children[0].classList.remove('focused')
+        }
+        
+        var focusEmail = function(){
+            email.parentNode.children[0].classList.add('focused')
+        }
+       
+        var blurEmail = function(){
+            email.parentNode.children[0].classList.remove('focused')
+        }
+
+        var focusMessage = function(){
+            message.parentNode.children[0].classList.add('focused')
+        }
+       
+        var blurMessage = function(){
+            message.parentNode.children[0].classList.remove('focused')
+        }
+
+        
+
+        name.addEventListener('focus',focusName)
+        name.addEventListener('blur',blurName)
+        email.addEventListener('focus',focusEmail)
+        email.addEventListener('blur',blurEmail)
+        message.addEventListener('focus',focusMessage)
+        message.addEventListener('blur',blurMessage)        
+        
+
+
+
+    }
 
 
     function validateContactForm() {
@@ -752,7 +795,7 @@ var App = (function (global) {
             welcomeAnimation();
         }
 
-        if (visitCount % 10 === 0) {
+        if (visitCount % 1 === 0) {
             welcomeAnimation();
         }
 
@@ -1099,9 +1142,11 @@ var App = (function (global) {
             gallery();
         } else if (win.location.pathname === '/contact') {
             validateContactForm();
+            contactFormAnimationController();
 
         } else if(win.location.pathname === '/Users/markheard/Desktop/markheardio/contact.html') {
             validateContactForm();
+            contactFormAnimationController();
 
         } else if (win.location.pathname === '/Users/markheard/Desktop/markheardio/about.html') {
             //aboutScroll();
