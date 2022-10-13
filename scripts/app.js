@@ -538,7 +538,7 @@ var App = (function (global) {
         }
        
         var blurEmail = function(){
-            if(name.value.length===0){
+            if(email.value.length===0){
                 email.parentNode.children[0].classList.remove('focused')
             }
             
@@ -549,7 +549,7 @@ var App = (function (global) {
         }
        
         var blurMessage = function(){
-            if(name.value.length===0){
+            if(message.value.length===0){
             message.parentNode.children[0].classList.remove('focused')
             }
         }
