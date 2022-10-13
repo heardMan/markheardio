@@ -464,7 +464,7 @@ textarea {
     position: relative;
     text-align: center;
     position: relative;
-    margin: 1rem;
+    margin: 1.5rem;
     padding: 1.5rem;
 }
 
@@ -480,17 +480,17 @@ textarea {
 }
 
 .form-group > .focused {
-    font-weight: 700;
-    transform: translate(-20%,-130%) scale(0.7);
+    font-weight: 400;
+    transform: translate(-20%,-140%) scale(0.7);
     transition: 1s;
 }
 
 .form-group.textarea {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 }
 
 .form-group.textarea > .focused {
-    font-weight: 700;
+    font-weight: 400;
     transform: translate(-20%,-230%) scale(0.7);
     transition: 1s;
 }
