@@ -803,11 +803,11 @@ h3 {
 }
 
 .red-outline {
-    border: solid 1px red !important;
+    border-bottom: solid 1px red !important;
 }
 
 .green-outline {
-    border: solid 1px green !important;
+    border-bottom: solid 1px green !important;
 }
 
 .hidden {
