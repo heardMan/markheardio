@@ -481,7 +481,7 @@ textarea {
 
 .form-group > .focused {
     font-weight: 700;
-    transform: translate(-20%,-110%) scale(0.7);
+    transform: translate(-20%,-120%) scale(0.7);
     transition: 1s;
 }
 
@@ -491,7 +491,7 @@ textarea {
 
 .form-group.textarea > .focused {
     font-weight: 700;
-    transform: translate(-20%,-210%) scale(0.7);
+    transform: translate(-20%,-230%) scale(0.7);
     transition: 1s;
 }
 
